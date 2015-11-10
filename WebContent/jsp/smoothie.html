@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="../js/smoothie.js"></script>
+	<title></title>
+</head>
+<body>
+<canvas id="mycanvas" width="190%" height="100px"></canvas>
+<script type="text/javascript">
+	var smoothie = new SmoothieChart({millisPerPixel:1000});
+	smoothie.streamTo(document.getElementById("mycanvas"),1000); /*将smoothie实例输出到目的区域，并设置延时*/
+	var line1 = new TimeSeries();
+	setInterval(function(){
+		line1.append(new Date().getTime(),Math.random());
+	},1000);
+	smoothie.addTimeSeries(line1);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>BlueSky</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!--  -->
+  <servlet>
+  <!-- <display-name>bussiness_admin</display-name> -->
+    <servlet-name>bussiness_admin</servlet-name>
+    <servlet-class>com.bluesky.servlet.businessCenter_adminServclet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>bussiness_admin</servlet-name>
+    <url-pattern>/jsp/businessCenter_adminServclet</url-pattern>
+  </servlet-mapping>
+  <!--  -->
+  <servlet>
+    <!-- <display-name>bussiness_constructionManager</display-name> -->
+    <servlet-name>bussiness_constructionManager</servlet-name>
+    <servlet-class>com.bluesky.servlet.businessCenter_constructionManagerServclet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>bussiness_constructionManager</servlet-name>
+    <url-pattern>/jsp/businessCenter_constructionManagerServclet</url-pattern>
+  </servlet-mapping>
+  <!--  -->
+  <servlet>
+    <!-- <display-name>bussiness_justice</display-name> -->
+    <servlet-name>bussiness_justice</servlet-name>
+    <servlet-class>com.bluesky.servlet.businessCenter_justiceServclet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>bussiness_justice</servlet-name>
+    <url-pattern>/jsp/businessCenter_justiceServclet</url-pattern>
+  </servlet-mapping>
+  <!--  -->
+  <servlet>
+   <!--  <display-name>bussiness_supervisor</display-name> -->
+    <servlet-name>bussiness_supervisor</servlet-name>
+    <servlet-class>com.bluesky.servlet.businessCenter_supervisorServclet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>bussiness_supervisor</servlet-name>
+    <url-pattern>/jsp/businessCenter_supervisorServclet</url-pattern>
+  </servlet-mapping>
+<!--  -->
+<servlet>
+  <!-- <display-name>monitoringcenter_adminServlet</display-name> -->
+    <servlet-name>monitoringcenter_adminServlet</servlet-name>
+    <servlet-class>com.bluesky.servlet.monitoringcenter_adminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>monitoringcenter_adminServlet</servlet-name>
+    <url-pattern>/jsp/monitoringcenter_adminServlet</url-pattern>
+  </servlet-mapping>  
+
+</web-app>

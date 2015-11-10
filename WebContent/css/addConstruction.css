@@ -1,0 +1,10 @@
+ul {
+    margin-left: 5%;
+    list-style: none;
+    font-size: 16px;
+    line-height: 50px;
+}
+
+ul li {
+  /*   width: 40%; */
+}
