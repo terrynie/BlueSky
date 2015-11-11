@@ -1,0 +1,76 @@
+[class^="cus-"],
+[class*=" cus-"] {
+  display: inline-block;
+  width: 17px;
+  height: 16px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("spritesheet.png");
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+}
+[class^="cus-"]:last-child,
+[class*=" cus-"]:last-child {
+  *margin-left: 0;
+}
+
+.cus {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.cus-data {
+    width: 20px;
+    height: 20px;
+    background-position: -5px -5px;
+}
+
+.cus-exit {
+    width: 20px;
+    height: 20px;
+    background-position: -35px -5px;
+}
+
+.cus-gongdi {
+    width: 20px;
+    height: 20px;
+    background-position: -65px -5px;
+}
+
+.cus-help {
+    width: 20px;
+    height: 20px;
+    background-position: -95px -5px;
+}
+
+.cus-jiankong {
+    width: 20px;
+    height: 20px;
+    background-position: -125px -5px;
+}
+
+.cus-renyuan {
+    width: 20px;
+    height: 20px;
+    background-position: -155px -5px;
+}
+
+.cus-set {
+    width: 20px;
+    height: 20px;
+    background-position: -185px -5px;
+}
+
+.cus-weixing {
+    width: 20px;
+    height: 20px;
+    background-position: -215px -5px;
+}
+
+.cus-yewu {
+    width: 20px;
+    height: 20px;
+    background-position: -245px -5px;
+}

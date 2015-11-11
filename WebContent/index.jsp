@@ -14,7 +14,7 @@
 
     <!-- libraries -->
     <link href="css/lib/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />
-    <link href="css/lib/font-awesome.css" type="text/css" rel="stylesheet" />
+   <!-- <link href="css/lib/font-awesome.css" type="text/css" rel="stylesheet" /> -->
 
     <!-- global styles -->
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
@@ -26,13 +26,16 @@
 
     <!-- open sans font -->
     <link href='css/opensansfont.' rel='stylesheet' type='text/css' />
-
+	
+	<!-- custom icons -->
+	<link href='css/cus-icons' rel='stylesheet' type='text/css'>
     <!-- lato font -->
     <link href='css/latofont.css' rel='stylesheet' type='text/css' />
 
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
 <body>
 		<!-- navbar -->
@@ -50,7 +53,70 @@
     
 	<div id="page_content">
 	
+    
+    <style type="text/css">
+    
+    	.cus {
+   			background-image: url(images/spritesheet.png);
+    		background-repeat: no-repeat;
+    		display: block;
+		}
 
+		.cus-data {
+    		width: 20px;
+   		 	height: 20px;
+    		background-position: -5px -5px;
+		}
+
+		.cus-exit {
+    		width: 20px;
+    		height: 20px;
+    		background-position: -35px -5px;
+		}
+
+		.cus-gongdi {
+    		width: 20px;
+   		 	height: 20px;
+    		background-position: -65px -5px;
+		}
+
+		.cus-help {
+    		width: 20px;
+    		height: 20px;
+    		background-position: -95px -5px;
+		}
+
+		.cus-jiankong {
+   			width: 20px;
+    		height: 20px;
+    		background-position: -125px -5px;
+		}
+
+		.cus-renyuan {
+    		width: 20px;
+    		height: 20px;
+    		background-position: -155px -5px;
+		}
+
+		.cus-set {
+    		width: 20px;
+    		height: 20px;
+    		background-position: -185px -5px;
+		}
+
+		.cus-weixing {
+    		width: 20px;
+    		height: 20px;
+    		background-position: -215px -5px;
+		}
+
+		.cus-yewu {
+    		width: 20px;
+    		height: 20px;
+    		background-position: -245px -5px;
+    	
+    </style>
+    
     <!-- sidebar -->
     <div id="sidebar-nav" style="background-color: #336CC1">
         <ul id="dashboard-menu">
@@ -59,50 +125,50 @@
                     <div class="arrow"></div>
                     <div class="arrow_border"></div>
                 </div>
-                <a onclick="changeContent('jsp/businessCenter_adminServclet');" id="slider-bar" style="background-color: transparent; border: 0;font-color:#ffffff;">
-                    <i class="icon-bar-chart"></i>
+                <a onclick="changeContent('');" id="slider-bar" style="background-color: transparent; border: 0;font-color:#ffffff;">
+                   	<i class="cus cus-data"></i>
                     <span>数据中心</span>
                 </a>
             </li>            
             <li>
                 <a onclick="changeContent('jsp/businessCenter_adminServclet');">
-                    <i class="icon-tasks"></i>
+                    <i class="cus cus-yewu"></i>
                     <span>业务中心</span>
                 </a>
             </li>
             <li>
                 <a onclick="changeContent('jsp/monitoringcenter_adminServlet');">
-                    <i class="icon-dashboard"></i>
+                    <i class="cus cus-data"></i>
                     <span>监控中心</span>
                 </a>
             </li>
             <li>
                 <a onclick="changeContent('');">
-                    <i class="icon-edit"></i>
+                    <i class="cus cus-weixing"></i>
                     <span>卫星资源</span>
                 </a>
             </li>
             <li>
                 <a onclick="changeContent('');">
-                    <i class="icon-picture"></i>
+                    <i class="cus cus-gongdi"></i>
                     <span>工地管理</span>
                 </a>
             </li>
             <li>
                 <a onclick="changeContent('');">
-                    <i class="icon-calendar-empty"></i>
+                    <i class="cus cus-renyuan"></i>
                     <span>人员管理</span>
                 </a>
             </li>
             <li>
                 <a onclick="changeContent('');">
-                    <i class="icon-cog"></i>
+                    <i class="cus cus-set"></i>
                     <span>系统设置</span>
                 </a>
             </li>
             <li>
                 <a onclick="changeContent('');">
-                    <i class="icon-code-fork"></i>
+                    <i class="cus cus-help" ></i>
                     <span>使用帮助</span>
                     <i class="icon-chevron-down"></i>
                 </a>

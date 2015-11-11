@@ -849,7 +849,7 @@ ul.icons-ul > li .icon-li {
 .icon-wrench:before {
   content: "\f0ad";
 }
-.icon-tasks:before {
+.data:before {
   content: "\f0ae";
 }
 .icon-filter:before {
