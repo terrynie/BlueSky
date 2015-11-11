@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bluedsky.bean.ConstructionSite;
+import com.bluesky.bean.ConstructionSite;
 import com.bluesky.dao.ConstructionSiteDao;
 
 
@@ -20,7 +20,7 @@ import com.bluesky.dao.ConstructionSiteDao;
 /**
  * Servlet implementation class monitoringcenter_adminServlet
  */
-/*@WebServlet("/jsp/monitoringcenter_adminServlet")*/
+//@WebServlet("/jsp/monitoringcenter_adminServlet")
 public class monitoringcenter_adminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

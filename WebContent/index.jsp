@@ -131,7 +131,7 @@
                 </a>
             </li>            
             <li>
-                <a onclick="changeContent('jsp/businessCenter_adminServclet');">
+                <a onclick="changeContent('jsp/businessCenter_adminServlet');">
                     <i class="cus cus-yewu"></i>
                     <span>业务中心</span>
                 </a>

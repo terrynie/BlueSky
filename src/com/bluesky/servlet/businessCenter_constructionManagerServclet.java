@@ -22,7 +22,7 @@ import com.bluesky.dao.NotificationDao;
 public class businessCenter_constructionManagerServclet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String page_notifiction="1";
-	int pagesize=2;
+	int pagesize=1;
 	int countNotifiction;//记录数据库信息总条数
 	int startNum_notifiction;
 	int count_notifiction;
@@ -35,7 +35,14 @@ public class businessCenter_constructionManagerServclet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    
+    public int getcount(int countinfo, int pagesize) {
+		if (countinfo % pagesize == 0) {
+			return countinfo / pagesize;
+		} else {
+			return countinfo / pagesize + 1;
+		}
+	}
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 */

@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,41 +15,51 @@ import sun.security.action.GetBooleanAction;
 
 import com.bluedsky.bean.Notification;
 import com.bluedsky.bean.TaskList;
+import com.bluedsky.bean.WeChat;
 import com.bluesky.dao.NotificationDao;
 import com.bluesky.dao.TaskListDao;
-
-
+import com.bluesky.dao.WeChatDao;
 
 /**
  * Servlet implementation class businessCenter_adminServclet
  */
-//@WebServlet("/jsp/businessCenter_adminServclet")
+//@WebServlet("/jsp/businessCenter_adminServlet")
 public class businessCenter_adminServclet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	String page_notifiction="1";
-	int pagesize=1;
-	int startNum_notifiction;
-	int countNotifiction;//记录数据库信息总条数(整改通知)
-	int count_notifiction;//记录返回的总页数(整改通知)
-	int countInfoTask_done;
-	int countTask_done;
-	int countInfoTask_nodone;
-	int countTask_nodone;
-	NotificationDao notificationDao=new NotificationDao();
-	TaskListDao taskListDao=new TaskListDao();
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public businessCenter_adminServclet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    
-   /* public void getcount(int countinfo,int pagesize){
-    	if(countinfo%pagesize==0){
-    		return countinfo/pagesize;
-    	}
-    }*/
+	String page = "1";
+	String flag = "1";
+	LinkedList<Notification> perInfos;
+	LinkedList<TaskList> perInfos_not;
+	LinkedList<TaskList> perInfos_done;
+	LinkedList<WeChat> perInfos_weChat;
+	int pagesize = 1;
+	int startNum;
+	int countInfo;
+	int count;// 锟斤拷录锟斤拷锟截碉拷锟斤拷页锟斤拷(锟斤拷锟斤拷通知)
+	int count_not;
+	int count_done;
+	int count_weChat;
+
+	NotificationDao notificationDao = new NotificationDao();
+	TaskListDao taskListDao = new TaskListDao();
+	WeChatDao weChatDao = new WeChatDao();
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public businessCenter_adminServclet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getcount(int countinfo, int pagesize) {
+		if (countinfo % pagesize == 0) {
+			return countinfo / pagesize;
+		} else {
+			return countinfo / pagesize + 1;
+		}
+	}
+
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 */
@@ -58,49 +69,160 @@ public class businessCenter_adminServclet extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setHeader("Pragma", "No-cache");
 		response.setHeader("Cache-Control", "no-cache");
 		response.setDateHeader("Expires", 0);
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		
-		String page_notifiction1=null;
-		page_notifiction1=request.getParameter("page_notifiction");
-		if(page_notifiction1 !=null){
-			page_notifiction=request.getParameter("page_notifiction");
+
+		String page1 = null;
+		String flag1 = null;
+		page1 = request.getParameter("page");
+		if (page1 != null) {
+			page = request.getParameter("page");
 		}
-		//未处理
-		countInfoTask_done=taskListDao.qureyNumOfTaskDone();
-		
-		//通知公告
-		countNotifiction=notificationDao.qureyNumOfNotifications();
-		if(countNotifiction%pagesize==0){
-			count_notifiction=countNotifiction/pagesize;
-		}else {
-			count_notifiction=countNotifiction/pagesize+1;
+		flag1 = request.getParameter("flag");
+		if (flag1 != null) {
+			flag = request.getParameter("flag");
 		}
-		startNum_notifiction=((Integer.parseInt(page_notifiction))-1)*pagesize;
-		request.setAttribute("count_notifiction", count_notifiction);
-		LinkedList<Notification> perNotifictions=notificationDao.queryByPage(startNum_notifiction, pagesize);
-		request.setAttribute("perNotifictions", perNotifictions);
-		request.getRequestDispatcher("businessCenter_admin.jsp").forward(request, response);
+		System.out.println("zheli page"+page);
+		System.out.println("zheli flag"+flag);
+		startNum = ((Integer.parseInt(page)) - 1) * pagesize;
+		int flagnum=Integer.parseInt(flag);
+		if (flagnum== 1) {
+			countInfo = taskListDao.qureyNumOfTaskNotDone();
+			count_not = this.getcount(countInfo, pagesize);
+			perInfos_not = taskListDao.queryTaskNotDone(startNum, pagesize);
+			request.setAttribute("count_not", count_not);
+			request.setAttribute("perInfos_not", perInfos_not);
+			//
+			countInfo = taskListDao.qureyNumOfTaskDone();
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDone(0, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
+			//
+			countInfo = notificationDao.qureyNumOfNotifications();
+			count = this.getcount(countInfo, pagesize);
+			perInfos = notificationDao.queryByPage(0, pagesize);
+			request.setAttribute("count", count);
+			request.setAttribute("perInfos", perInfos);
+			//
+			countInfo = weChatDao.qureyNumOfComplaints();
+			count_weChat = this.getcount(countInfo, pagesize);
+			perInfos_weChat = weChatDao.queryByPage(0, pagesize);
+			request.setAttribute("count_weChat", count_weChat);
+			request.setAttribute("perInfos_weChat", perInfos_weChat);
+			request.getRequestDispatcher("businessCenter_admin.jsp").forward(
+					request, response);
+			
+		} else if (flagnum == 2) {
+			countInfo = taskListDao.qureyNumOfTaskDone();
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDone(startNum, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
+			//
+			countInfo = taskListDao.qureyNumOfTaskNotDone();
+			count_not = this.getcount(countInfo, pagesize);
+			perInfos_not = taskListDao.queryTaskNotDone(0, pagesize);
+			request.setAttribute("count_not", count_not);
+			request.setAttribute("perInfos_not", perInfos_not);
+			//
+			countInfo = notificationDao.qureyNumOfNotifications();
+			count = this.getcount(countInfo, pagesize);
+			perInfos = notificationDao.queryByPage(0, pagesize);
+			request.setAttribute("count", count);
+			request.setAttribute("perInfos", perInfos);
+			//
+			countInfo = weChatDao.qureyNumOfComplaints();
+			count_weChat = this.getcount(countInfo, pagesize);
+			perInfos_weChat = weChatDao.queryByPage(0, pagesize);
+			request.setAttribute("count_weChat", count_weChat);
+			request.setAttribute("perInfos_weChat", perInfos_weChat);
+			request.getRequestDispatcher("businessCenter_admin.jsp").forward(
+					request, response);
+		} else if (flagnum == 3) {
+			countInfo = notificationDao.qureyNumOfNotifications();
+			count = this.getcount(countInfo, pagesize);
+			perInfos = notificationDao.queryByPage(startNum, pagesize);
+			request.setAttribute("count", count);
+			request.setAttribute("perInfos", perInfos);
+			//
+			countInfo = taskListDao.qureyNumOfTaskNotDone();
+			count_not = this.getcount(countInfo, pagesize);
+			perInfos_not = taskListDao.queryTaskNotDone(0, pagesize);
+			request.setAttribute("count_not", count_not);
+			request.setAttribute("perInfos_not", perInfos_not);
+			//
+			countInfo = taskListDao.qureyNumOfTaskDone();
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDone(0, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
+			//
+			countInfo = weChatDao.qureyNumOfComplaints();
+			count_weChat = this.getcount(countInfo, pagesize);
+			perInfos_weChat = weChatDao.queryByPage(0, pagesize);
+			request.setAttribute("count_weChat", count_weChat);
+			request.setAttribute("perInfos_weChat", perInfos_weChat);
+			request.getRequestDispatcher("businessCenter_admin.jsp").forward(
+					request, response);
+		} else if (flagnum == 4) {
+			countInfo = weChatDao.qureyNumOfComplaints();
+			count_weChat = this.getcount(countInfo, pagesize);
+			perInfos_weChat = weChatDao.queryByPage(startNum, pagesize);
+			request.setAttribute("count_weChat", count_weChat);
+			request.setAttribute("perInfos_weChat", perInfos_weChat);
+			//
+			//
+			countInfo = taskListDao.qureyNumOfTaskNotDone();
+			count_not = this.getcount(countInfo, pagesize);
+			perInfos_not = taskListDao.queryTaskNotDone(0, pagesize);
+			request.setAttribute("count_not", count_not);
+			request.setAttribute("perInfos_not", perInfos_not);
+			//
+			countInfo = taskListDao.qureyNumOfTaskDone();
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDone(0, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
+			//
+			countInfo = notificationDao.qureyNumOfNotifications();
+			count = this.getcount(countInfo, pagesize);
+			perInfos = notificationDao.queryByPage(0, pagesize);
+			request.setAttribute("count", count);
+			request.setAttribute("perInfos", perInfos);
+			request.getRequestDispatcher("businessCenter_admin.jsp").forward(
+					request, response);
+		}
+		//request.setAttribute("count", count);
+		//request.getRequestDispatcher("businessCenter_admin.jsp").forward(
+		//		request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
+
 	}
+
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

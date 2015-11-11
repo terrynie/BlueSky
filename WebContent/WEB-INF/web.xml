@@ -10,14 +10,14 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <!--  -->
-  <servlet>
+<servlet> 
   <!-- <display-name>bussiness_admin</display-name> -->
-    <servlet-name>bussiness_admin</servlet-name>
+  <servlet-name>bussiness_admin</servlet-name>
     <servlet-class>com.bluesky.servlet.businessCenter_adminServclet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>bussiness_admin</servlet-name>
-    <url-pattern>/jsp/businessCenter_adminServclet</url-pattern>
+    <url-pattern>/jsp/businessCenter_adminServlet</url-pattern>
   </servlet-mapping>
   <!--  -->
   <servlet>

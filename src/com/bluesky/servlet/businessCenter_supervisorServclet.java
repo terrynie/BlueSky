@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bluedsky.bean.Notification;
+import com.bluedsky.bean.TaskList;
+import com.bluedsky.bean.WeChat;
 import com.bluesky.dao.NotificationDao;
+import com.bluesky.dao.TaskListDao;
 
 
 /**
@@ -20,16 +23,31 @@ import com.bluesky.dao.NotificationDao;
 //@WebServlet("/jsp/businessCenter_adminServclet")
 public class businessCenter_supervisorServclet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	String page_notifiction="1";
-	int pagesize=2;
-	int startNum_notifiction;
-	int countNotification;
-	int count_notifiction;
-	//NotifictionImlp notifictionImlp=new NotifictionImlp();
-	NotificationDao notificationDao=new NotificationDao();
+	String page = "1";
+	String flag = "1";
+	LinkedList<Notification> perInfos;
+	LinkedList<TaskList> perInfos_not;
+	LinkedList<TaskList> perInfos_done;
+	int pagesize = 1;
+	int startNum;
+	int countInfo;// 记录数据库信息总条数(整改通知)
+	int count;// 记录返回的总页数(整改通知)
+	int count_not;
+	int count_done;
+
+	NotificationDao notificationDao = new NotificationDao();
+	TaskListDao taskListDao = new TaskListDao();
     /**
      * @see HttpServlet#HttpServlet()
      */
+	public int getcount(int countinfo, int pagesize) {
+		if (countinfo % pagesize == 0) {
+			return countinfo / pagesize;
+		} else {
+			return countinfo / pagesize + 1;
+		}
+	}
+
     public businessCenter_supervisorServclet() {
         super();
         // TODO Auto-generated constructor stub
@@ -54,26 +72,84 @@ public class businessCenter_supervisorServclet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		
-		String page_notifiction1=null;
-		page_notifiction1=request.getParameter("page_notifiction");
-		if(page_notifiction1 !=null){
-			page_notifiction=request.getParameter("page_notifiction");
+		String page1 = null;
+		String flag1 = null;
+		page1 = request.getParameter("page");
+		if (page1 != null) {
+			page = request.getParameter("page");
 		}
-		//int pagesize=1;//记录每页显示的记录条数
-		countNotification=notificationDao.qureyNumOfNotifications();
-		if(countNotification%pagesize==0){
-			count_notifiction=countNotification/pagesize;
-		}else {
-			count_notifiction=countNotification/pagesize+1;
+		flag1 = request.getParameter("flag");
+		if (flag1 != null) {
+			flag = request.getParameter("flag");
 		}
-
-		//count_notifiction=notifictionImlp.getMaxpage(pagesize);
-		//String page_notifiction="1";
-		startNum_notifiction=((Integer.parseInt(page_notifiction))-1)*pagesize;
-		request.setAttribute("count_notifiction", count_notifiction);
-		LinkedList<Notification> perNotifictions=notificationDao.queryByPage(startNum_notifiction, pagesize);
-		request.setAttribute("perNotifictions", perNotifictions);
-		request.getRequestDispatcher("businessCenter_supervisor.jsp").forward(request, response);
+		System.out.println("zheli page"+page);
+		System.out.println("zheli flag"+flag);
+		startNum = ((Integer.parseInt(page)) - 1) * pagesize;
+		int flagnum=Integer.parseInt(flag);
+		if (flagnum== 1) {
+			countInfo = taskListDao.qureyNumOfTaskNotDone();
+			count_not = this.getcount(countInfo, pagesize);
+			perInfos_not = taskListDao.queryTaskNotDone(startNum, pagesize);
+			request.setAttribute("count_not", count_not);
+			request.setAttribute("perInfos_not", perInfos_not);
+			//
+			countInfo = taskListDao.qureyNumOfTaskDone();
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDone(0, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
+			//
+			countInfo = notificationDao.qureyNumOfNotifications();
+			count = this.getcount(countInfo, pagesize);
+			perInfos = notificationDao.queryByPage(0, pagesize);
+			request.setAttribute("count", count);
+			request.setAttribute("perInfos", perInfos);
+			//
+			request.getRequestDispatcher("businessCenter_supervisor.jsp").forward(
+					request, response);
+			
+		} else if (flagnum == 2) {
+			countInfo = taskListDao.qureyNumOfTaskDone();
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDone(startNum, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
+			//
+			countInfo = taskListDao.qureyNumOfTaskNotDone();
+			count_not = this.getcount(countInfo, pagesize);
+			perInfos_not = taskListDao.queryTaskNotDone(0, pagesize);
+			request.setAttribute("count_not", count_not);
+			request.setAttribute("perInfos_not", perInfos_not);
+			//
+			countInfo = notificationDao.qureyNumOfNotifications();
+			count = this.getcount(countInfo, pagesize);
+			perInfos = notificationDao.queryByPage(0, pagesize);
+			request.setAttribute("count", count);
+			request.setAttribute("perInfos", perInfos);
+			//
+			request.getRequestDispatcher("businessCenter_supervisor.jsp").forward(
+					request, response);
+		} else if (flagnum == 3) {
+			countInfo = notificationDao.qureyNumOfNotifications();
+			count = this.getcount(countInfo, pagesize);
+			perInfos = notificationDao.queryByPage(startNum, pagesize);
+			request.setAttribute("count", count);
+			request.setAttribute("perInfos", perInfos);
+			//
+			countInfo = taskListDao.qureyNumOfTaskNotDone();
+			count_not = this.getcount(countInfo, pagesize);
+			perInfos_not = taskListDao.queryTaskNotDone(0, pagesize);
+			request.setAttribute("count_not", count_not);
+			request.setAttribute("perInfos_not", perInfos_not);
+			//
+			countInfo = taskListDao.qureyNumOfTaskDone();
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDone(0, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
+			request.getRequestDispatcher("businessCenter_supervisor.jsp").forward(
+					request, response);
+		} 
 	}
 
 	/**

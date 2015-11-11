@@ -1,4 +1,4 @@
-<%@page import="java.util.*,com.bluedsky.bean.*"%>
+<%@page import="java.util.LinkedList,com.bluesky.bean.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -80,12 +80,13 @@ function callback(){
 				<%for(ConstructionSite c : list_constructionSites){%>
 				<option value="<%=c.getId() %>"><%=c.getName() %></option>
 				<%} %>
-			</select><div id="monitoring">
+			</select><div id="monitoring" style="OVERFLOW-Y:auto;PADDING-LEFT:10px;SCROLLBAR-FACE-COLOR:#ffffff;FONT-SIZE:11pt;PADDING-BOTTOM:0px;SCROLLBAR-HIGHLIGHT-COLOR:#ffffff;OVERFLOW:auto;WIDTH:90%;SCROLLBAR-SHADOW-COLOR:#919192;COLOR:#000000;SCROLLBAR-3DLIGHT-COLOR:#ffffff;LINE-HEIGHT:100%;SCROLLBAR-ARROW-COLOR:#919192;PADDING-TOP:0px;SCROLLBAR-TRACK-COLOR:#ffffff;FONT-FAMILY:宋体;SCROLLBAR-DARKSHADOW-COLOR:#ffffff;LETTER-SPACING:1pt;HEIGHT:255px;TEXT-ALIGN:left">
 			<table>
 			<%for(int i=1;i<=totalMonitors;i++){ %>
 				<tr><%=i %>号监控</tr><br>
 				<%} %>
-			</table></div>
+			</table>
+			</div>
 		</div>
 	</div>
 	<div id="data_1" class="none">	
