@@ -1,29 +1,84 @@
-body{
-	padding:15%；
+* {
+	padding: 0;
+	margin: 0;
 }
-.content{
-	 background: -moz-radial-gradient(circle, #ffffff, #000000);
- 	/* Safari 4-5, Chrome 1-9 */
- 	/* Can't specify a percentage size? Laaaaaame. */
- 	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#ffffff), to(#000000));
- 	/* Safari 5.1+, Chrome 10+ */
- 	background: -webkit-radial-gradient(circle, #ffffff, #000000);  
+html,
+body {
+	height: 100%;
+	background-size: cover;
+	font-size: 14px;
+	background: -moz-radial-gradient( circle farthest-corner, #fff 10%, #ababab 70%);
+	background: -webkit-radial-gradient( circle farthest-corner, #fff 10%, #ababab 70%)
+}
+
+.login-box {
 	width: 100%;
-	height: 800px;
-	margin-top:0;
+	max-width: 534px;
+	height: 270px;
+	position: absolute;
+	top: 50%;
+	margin-top: -135px;
+	background:  url(../images/bg.png) no-repeat center;
+}
+.login{
+	width: 300px;
+	height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.login-content{
+	position: absolute;
+	top: 35px;
+	margin-left: 246px;
+}
+.login span,
+.select span{
+	display: block;
+	width: 50px;
+	text-align: right;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	font-size: 14px;
+	color: #666;
+	margin-right: 14px;
 }
 
 .login{
-	width: 45%;
-	height: 250px;
-	margin-left: 35%;
-	/* margin-top: 35%;  */
-	background: url(../images/bg.png);
-	background-repeat:no-repeat;
+	margin-top: 10px;
+}
+.login input[type="text"],
+.login input[type="password"]{
+	width: 160px;
+	box-shadow: 1px 1px 1px #ccc;
+	background: #e5e5e5;
+	}
+
+.select{
+	margin-top: 10px;
+}
+.select select{
 	
 }
+@media screen and (min-width: 534px) {
+	.login-box {
+		left: 50%;
+		margin-left: -267px;
+	}
+}
 
-.userName{
-	margin-left: 45%;
-	margin-top: 0%;
-} 
+.footer-btn{
+	margin-top: 30px;
+	margin-left: 67px;
+}
+.footer-btn input[type="button"]{
+	width: 120px;
+	height: 30px;
+	background: #4190e2;
+	border-radius: 2px;
+	-moz-border-radius:2px ;
+	-webkit-border-radius: 2px;	
+}
+.footer-btn input[type="button"]:hover{
+	background: #3c77bc;
+}
