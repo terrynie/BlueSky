@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bluedsky.bean.ConstructionSite;
+import com.bluesky.bean.ConstructionSite;
 import com.bluesky.dao.ConstructionSiteDao;
 
 
@@ -54,7 +54,7 @@ public class monitoringcenter_adminServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 
-		String id = "gongdierhao";
+		String id = "111100";
 		String str_id = request.getParameter("id");
 		if (str_id != null) {
 			id = str_id;

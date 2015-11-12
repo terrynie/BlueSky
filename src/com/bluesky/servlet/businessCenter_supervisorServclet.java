@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bluedsky.bean.Notification;
-import com.bluedsky.bean.TaskList;
-import com.bluedsky.bean.WeChat;
+import com.bluesky.bean.Notification;
+import com.bluesky.bean.TaskList;
+import com.bluesky.bean.WeChat;
 import com.bluesky.dao.NotificationDao;
 import com.bluesky.dao.TaskListDao;
 
@@ -30,8 +30,8 @@ public class businessCenter_supervisorServclet extends HttpServlet {
 	LinkedList<TaskList> perInfos_done;
 	int pagesize = 1;
 	int startNum;
-	int countInfo;// ¼ÇÂ¼Êý¾Ý¿âÐÅÏ¢×ÜÌõÊý(Õû¸ÄÍ¨Öª)
-	int count;// ¼ÇÂ¼·µ»ØµÄ×ÜÒ³Êý(Õû¸ÄÍ¨Öª)
+	int countInfo;// ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Í¨Öª)
+	int count;// ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½Ò³ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Í¨Öª)
 	int count_not;
 	int count_done;
 

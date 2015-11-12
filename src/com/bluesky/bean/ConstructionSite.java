@@ -1,22 +1,22 @@
-package com.bluedsky.bean;
+package com.bluesky.bean;
 
 import java.util.Date;
 
 public class ConstructionSite {
-	private String id;
-	private String projectName;
-	private String name;
-	private String directorId;
-	private double area;
-	private Date startTime;
-	private Date completeTime;
-	private int totalFloors;
-	private String district;
-	private String street;
-	private String company;
-	private String struct;
-	private double price;
-	private int totalMonitors;
+	private String id;//工地编号
+	private String projectName;//项目名称
+	private String name;//工地名称
+	private String directorId;//负责人编号
+	private double area;//面积
+	private Date startTime;//开始日期
+	private Date completeTime;//预计完成日期
+	private int totalFloors;//层数
+	private String district;//区
+	private String street;//街道
+	private String company;//所属公司
+	private String struct;//结构
+	private double price;//价格
+	private int totalMonitors;//监控数量
 
 	public String getId() {
 		return id;

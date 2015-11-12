@@ -1,12 +1,12 @@
-package com.bluedsky.bean;
+package com.bluesky.bean;
 
 public class WeChat {
-	private String id;// Í¶Ëß±àºÅ
-	private String weChatNo;// Î¢ĞÅºÅ
-	private String district;// Çø
-	private String street;// ½ÖµÀ
-	private String constructionId;// ¹¤µØ±àºÅ
-	private String content;// Í¶ËßÄÚÈİ
+	private String id;// æŠ•è¯‰ç¼–å·
+	private String weChatNo;// å¾®ä¿¡å·
+	private String district;// åŒº
+	private String street;// è¡—é“
+	private String constructionId;// å·¥åœ°ç¼–å·
+	private String content;// æŠ•è¯‰å†…å®¹
 
 	public WeChat() {
 	}

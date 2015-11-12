@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 
-import com.bluedsky.bean.TaskList;
+import com.bluesky.bean.TaskList;
 import com.bluesky.database.DBConnection;
 
 public class TaskListDao {
@@ -17,7 +17,7 @@ public class TaskListDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "insert into TaskList values('" + task.getId() + "','" + task.getSource() + "','"
-					+ task.getContent() + "','" + task.isHasImg() + "','" + task.isHasVideo() + "', '" + task.isDone()
+					+ task.getContent() + "','"+task.isHasContent()+"','" + task.isHasImg() + "','" + task.isHasVideo() + "', '" + task.isDone()
 					+ "');";
 			stmt.execute(sql);
 			return true;
@@ -58,9 +58,10 @@ public class TaskListDao {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasImg(rs.getBoolean(4));
-				task.setHasVideo(rs.getBoolean(5));
-				task.setDone(rs.getBoolean(6));
+				task.setHasContent(rs.getBoolean(4));
+				task.setHasImg(rs.getBoolean(5));
+				task.setHasVideo(rs.getBoolean(6));
+				task.setDone(rs.getBoolean(7));
 				list.add(task);
 			}
 			return list;
@@ -80,12 +81,14 @@ public class TaskListDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from TaskList where id = '" + id + "';";
 			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
 			task.setId(rs.getString(1));
 			task.setSource(rs.getString(2));
 			task.setContent(rs.getString(3));
-			task.setHasImg(rs.getBoolean(4));
-			task.setHasVideo(rs.getBoolean(5));
-			task.setDone(rs.getBoolean(6));
+			task.setHasContent(rs.getBoolean(4));
+			task.setHasImg(rs.getBoolean(5));
+			task.setHasVideo(rs.getBoolean(6));
+			task.setDone(rs.getBoolean(7));}
 			return task;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -108,9 +111,10 @@ public class TaskListDao {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasImg(rs.getBoolean(4));
-				task.setHasVideo(rs.getBoolean(5));
-				task.setDone(rs.getBoolean(6));
+				task.setHasContent(rs.getBoolean(4));
+				task.setHasImg(rs.getBoolean(5));
+				task.setHasVideo(rs.getBoolean(6));
+				task.setDone(rs.getBoolean(7));
 				list.add(task);
 			}
 			return list;
@@ -185,16 +189,17 @@ public class TaskListDao {
 		}
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from TaskList where isdone=1 limit '" + start + "','" + stepLength + "';";
+			String sql = "select * from TaskList where isdone=1 limit " + start + "," + stepLength + ";";
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				TaskList task = new TaskList();
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasImg(rs.getBoolean(4));
-				task.setHasVideo(rs.getBoolean(5));
-				task.setDone(rs.getBoolean(6));
+				task.setHasContent(rs.getBoolean(4));
+				task.setHasImg(rs.getBoolean(5));
+				task.setHasVideo(rs.getBoolean(6));
+				task.setDone(rs.getBoolean(7));
 				list.add(task);
 			}
 			return list;
@@ -212,16 +217,17 @@ public class TaskListDao {
 		}
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from TaskList where isdone=0 limit '" + start + "','" + stepLength + "';";
+			String sql = "select * from TaskList where isdone=0 limit " + start + "," + stepLength + ";";
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				TaskList task = new TaskList();
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasImg(rs.getBoolean(4));
-				task.setHasVideo(rs.getBoolean(5));
-				task.setDone(rs.getBoolean(6));
+				task.setHasContent(rs.getBoolean(4));
+				task.setHasImg(rs.getBoolean(5));
+				task.setHasVideo(rs.getBoolean(6));
+				task.setDone(rs.getBoolean(7));
 				list.add(task);
 			}
 			return list;

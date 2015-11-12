@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bluedsky.bean.Notification;
-import com.bluedsky.bean.TaskList;
+import com.bluesky.bean.Notification;
+import com.bluesky.bean.TaskList;
 import com.bluesky.dao.ConstructionSiteDao;
 import com.bluesky.dao.NotificationDao;
 import com.bluesky.dao.TaskListDao;

@@ -1,25 +1,25 @@
-package com.bluedsky.bean;
+package com.bluesky.bean;
 
 import java.lang.reflect.Array;
 import java.util.Date;
 
 public class Notification {
-	private String id; // Õû¸ÄÍ¨Öª±àºÅ
-	private String title; // Õû¸Ä±êÌâ
-	private String content; // Õû¸ÄÄÚÈİ
-	private String publishDept; // ·¢²¼²¿ÃÅ
-	private String accordingTo; // Õû¸ÄÒÀ¾İ
-	private boolean hasPhotos; // ¾Ù±¨ÄÚÈİÊÇ·ñÓĞÍ¼Æ¬
-	private boolean hasVedio; // ¾Ù±¨ÄÚÈİÊÇ·ñÓĞÊÓÆµ
-	private boolean hasText; // ¾Ù±¨ÄÚÈİÊÇ·ñÓĞÎÄ×Ö
-	private Array photos; // ´æ´¢Í¼Æ¬
-	private Array vedio; // ´æ´¢ÊÓÆµ
-	private Array text; // ´æ´¢ÎÄ×Ö
-	private Date publishDate; // ·¢²¼Ê±¼ä
-	private Date deadline; // Õû¸Ä½ØÖ¹ÈÕÆÚ
-	private boolean isFeedback; // ÊÇ·ñ·´À¡
-	private String constructionName; // ¹¤µØÃû³Æ
-	private String feedbackId; // ·´À¡±àºÅ
+	private String id; // æ•´æ”¹é€šçŸ¥ç¼–å·
+	private String title; // æ•´æ”¹æ ‡é¢˜
+	private String content; // æ•´æ”¹å†…å®¹
+	private String publishDept; // å‘å¸ƒéƒ¨é—¨
+	private String accordingTo; // æ•´æ”¹ä¾æ®
+	private boolean hasPhotos; // ä¸¾æŠ¥å†…å®¹æ˜¯å¦æœ‰å›¾ç‰‡
+	private boolean hasVedio; // ä¸¾æŠ¥å†…å®¹æ˜¯å¦æœ‰è§†é¢‘
+	private boolean hasText; // ä¸¾æŠ¥å†…å®¹æ˜¯å¦æœ‰æ–‡å­—
+	private Array photos; // å­˜å‚¨å›¾ç‰‡
+	private Array vedio; // å­˜å‚¨è§†é¢‘
+	private Array text; // å­˜å‚¨æ–‡å­—
+	private Date publishDate; // å‘å¸ƒæ—¶é—´
+	private Date deadline; // æ•´æ”¹æˆªæ­¢æ—¥æœŸ
+	private boolean isFeedback; // æ˜¯å¦åé¦ˆ
+	private String constructionName; // å·¥åœ°åç§°
+	private String feedbackId; // åé¦ˆç¼–å·
 	
 	public Notification() {
 	}

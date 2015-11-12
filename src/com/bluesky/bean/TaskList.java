@@ -1,12 +1,13 @@
-package com.bluedsky.bean;
+package com.bluesky.bean;
 
 public class TaskList {
-	private String id;
-	private String source;
-	private String content;
-	private boolean hasImg;
-	private boolean hasVideo;
-	private boolean isDone;
+	private String id;// 业务编号
+	private String source;// 来源
+	private String content;// 内容
+	private boolean hasContent;// 是否有文字
+	private boolean hasImg;// 是否有图片
+	private boolean hasVideo;// 是否有视频
+	private boolean isDone;// 是否已经处理
 
 	public String getId() {
 		return id;
@@ -30,6 +31,14 @@ public class TaskList {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public boolean isHasContent() {
+		return hasContent;
+	}
+
+	public void setHasContent(boolean hasContent) {
+		this.hasContent = hasContent;
 	}
 
 	public boolean isHasImg() {

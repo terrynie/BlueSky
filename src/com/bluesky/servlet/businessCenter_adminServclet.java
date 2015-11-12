@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import sun.security.action.GetBooleanAction;
 
-import com.bluedsky.bean.Notification;
-import com.bluedsky.bean.TaskList;
-import com.bluedsky.bean.WeChat;
+import com.bluesky.bean.Notification;
+import com.bluesky.bean.TaskList;
+import com.bluesky.bean.WeChat;
 import com.bluesky.dao.NotificationDao;
 import com.bluesky.dao.TaskListDao;
 import com.bluesky.dao.WeChatDao;

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bluedsky.bean.Notification;
+import com.bluesky.bean.Notification;
 import com.bluesky.dao.NotificationDao;
 
 
@@ -23,7 +23,7 @@ public class businessCenter_constructionManagerServclet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String page_notifiction="1";
 	int pagesize=1;
-	int countNotifiction;//¼ÇÂ¼Êý¾Ý¿âÐÅÏ¢×ÜÌõÊý
+	int countNotifiction;//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int startNum_notifiction;
 	int count_notifiction;
 	//NotifictionImlp notifictionImlp=new NotifictionImlp();
@@ -67,7 +67,7 @@ public class businessCenter_constructionManagerServclet extends HttpServlet {
 		if(page_notifiction1 !=null){
 			page_notifiction=request.getParameter("page_notifiction");
 		}
-		//int pagesize=1;//¼ÇÂ¼Ã¿Ò³ÏÔÊ¾µÄ¼ÇÂ¼ÌõÊý
+		//int pagesize=1;//ï¿½ï¿½Â¼Ã¿Ò³ï¿½ï¿½Ê¾ï¿½Ä¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 		countNotifiction=notificationDao.qureyNumOfNotifications();
 		if(countNotifiction%pagesize==0){
 			count_notifiction=countNotifiction/pagesize;

@@ -4,7 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
-import com.bluedsky.bean.LawEnforcing;
+
+import com.bluesky.bean.LawEnforcing;
 import com.bluesky.database.DBConnection;
 
 public class LawEnforcingDao {
@@ -74,11 +75,12 @@ public class LawEnforcingDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from LawEnforcing where id = '" + id + "';";
 			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
 			lawEnforcing.setId(rs.getString(1));
 			lawEnforcing.setPassword(rs.getString(2));
 			lawEnforcing.setName(rs.getString(3));
 			lawEnforcing.setTel(rs.getString(4));
-			lawEnforcing.setIdCardNo(rs.getString(5));
+			lawEnforcing.setIdCardNo(rs.getString(5));}
 			return lawEnforcing;
 		} catch (SQLException e) {
 			e.printStackTrace();

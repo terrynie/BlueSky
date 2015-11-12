@@ -4,7 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
-import com.bluedsky.bean.ConstructionSite;
+
+import com.bluesky.bean.ConstructionSite;
 import com.bluesky.database.DBConnection;
 
 public class ConstructionSiteDao {
@@ -15,20 +16,13 @@ public class ConstructionSiteDao {
 		}
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "insert into ConstructionSite values('"
-					+ constructionSite.getId() + "','"
-					+ constructionSite.getProjectName() + "','"
-					+ constructionSite.getName() + "','"
-					+ constructionSite.getDirectorId() + "','"
-					+ constructionSite.getArea() + "','"
-					+ constructionSite.getStartTime() + "','"
-					+ constructionSite.getCompleteTime() + "','"
-					+ constructionSite.getTotalFloors() + "','"
-					+ constructionSite.getDistrict() + "','"
-					+ constructionSite.getStreet() + "','"
-					+ constructionSite.getCompany() + "','"
-					+ constructionSite.getStruct() + "','"
-					+ constructionSite.getPrice() + "','"
+			String sql = "insert into ConstructionSite values('" + constructionSite.getId() + "','"
+					+ constructionSite.getProjectName() + "','" + constructionSite.getName() + "','"
+					+ constructionSite.getDirectorId() + "'," + constructionSite.getArea() + ",'"
+					+ constructionSite.getStartTime() + "','" + constructionSite.getCompleteTime() + "',"
+					+ constructionSite.getTotalFloors() + ",'" + constructionSite.getDistrict() + "',"
+					+ constructionSite.getStreet() + "','" + constructionSite.getCompany() + "','"
+					+ constructionSite.getStruct() + "'," + constructionSite.getPrice() + ",'"
 					+ constructionSite.getTotalMonitors() + "');";
 			stmt.execute(sql);
 			return true;
@@ -45,8 +39,7 @@ public class ConstructionSiteDao {
 		}
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "delete from ConstructionSite where id='"
-					+ constructionSite.getId() + "';";
+			String sql = "delete from ConstructionSite where id='" + constructionSite.getId() + "';";
 			stmt.execute(sql);
 			return true;
 		} catch (SQLException e) {
@@ -98,29 +91,26 @@ public class ConstructionSiteDao {
 		ConstructionSite constructionSite = new ConstructionSite();
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from ConstructionSite where id = '" + id
-					+ "';";
-			System.out.println(id + "2222222222");
+			String sql = "select * from ConstructionSite where id = '" + id + "';";
 			ResultSet rs = stmt.executeQuery(sql);
-			while (rs.next()) {
-
-				constructionSite.setId(rs.getString("id"));
-				constructionSite.setProjectName(rs.getString(2));
-				constructionSite.setName(rs.getString(3));
-				constructionSite.setDirectorId(rs.getString(4));
-				constructionSite.setArea(rs.getDouble(5));
-				constructionSite.setStartTime(rs.getDate(6));
-				constructionSite.setCompleteTime(rs.getDate(7));
-				constructionSite.setTotalFloors(rs.getInt(8));
-				constructionSite.setDistrict(rs.getString(9));
-				constructionSite.setStreet(rs.getString(10));
-				constructionSite.setCompany(rs.getString(11));
-				constructionSite.setStruct(rs.getString(12));
-				constructionSite.setPrice(rs.getDouble(13));
-				constructionSite.setTotalMonitors(rs.getInt(14));
-			}
+			while(rs.next()){
+				
+			
+			constructionSite.setId(rs.getString(1));
+			constructionSite.setProjectName(rs.getString(2));
+			constructionSite.setName(rs.getString(3));
+			constructionSite.setDirectorId(rs.getString(4));
+			constructionSite.setArea(rs.getDouble(5));
+			constructionSite.setStartTime(rs.getDate(6));
+			constructionSite.setCompleteTime(rs.getDate(7));
+			constructionSite.setTotalFloors(rs.getInt(8));
+			constructionSite.setDistrict(rs.getString(9));
+			constructionSite.setStreet(rs.getString(10));
+			constructionSite.setCompany(rs.getString(11));
+			constructionSite.setStruct(rs.getString(12));
+			constructionSite.setPrice(rs.getDouble(13));
+			constructionSite.setTotalMonitors(rs.getInt(14));}
 			return constructionSite;
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
@@ -135,8 +125,7 @@ public class ConstructionSiteDao {
 		}
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from ConstructionSite limit " + start + ","
-					+ stepLength + ";";
+			String sql = "select * from ConstructionSite limit " + start + "," + stepLength + ";";
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				ConstructionSite constructionSite = new ConstructionSite();

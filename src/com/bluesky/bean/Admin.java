@@ -1,11 +1,11 @@
-package com.bluedsky.bean;
+package com.bluesky.bean;
 
 public class Admin {
-	private String id;// 账号
-	private String password;// 密码
-	private String name;// 姓名
-	private String tel;// 联系方式
-	private String idCardNo;// 身份证号
+	private String id;// 璐﹀彿
+	private String password;// 瀵嗙爜
+	private String name;// 濮撳悕
+	private String tel;// 鑱旂郴鏂瑰紡
+	private String idCardNo;// 韬唤璇佸彿
 
 	public Admin() {
 	}

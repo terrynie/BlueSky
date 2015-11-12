@@ -4,7 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
-import com.bluedsky.bean.ConstructionManager;
+
+import com.bluesky.bean.ConstructionManager;
 import com.bluesky.database.DBConnection;
 
 public class ConstructionManagerDao {
@@ -82,11 +83,12 @@ public class ConstructionManagerDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from ConstructionSiteDirector where id = '" + id + "';";
 			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
 			conManager.setId(rs.getString(1));
 			conManager.setPassword(rs.getString(2));
 			conManager.setName(rs.getString(3));
 			conManager.setTel(rs.getString(4));
-			conManager.setIdCardNo(rs.getString(5));
+			conManager.setIdCardNo(rs.getString(5));}
 			return conManager;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -102,7 +104,7 @@ public class ConstructionManagerDao {
 		}
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from ConstructionSiteDirector limit '" + start + "','" + stepLength + "';";
+			String sql = "select * from ConstructionSiteDirector limit " + start + "," + stepLength + ";";
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				ConstructionManager conManager = new ConstructionManager();

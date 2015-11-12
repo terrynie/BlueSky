@@ -4,7 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
-import com.bluedsky.bean.Notification;
+
+import com.bluesky.bean.Notification;
 import com.bluesky.database.DBConnection;
 
 public class NotificationDao {
@@ -89,6 +90,7 @@ public class NotificationDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from CorrectionNotification where id = '" + id + "';";
 			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
 			notification.setId(rs.getString(1));
 			notification.setTitle(rs.getString(2));
 			notification.setContent(rs.getString(3));
@@ -101,7 +103,7 @@ public class NotificationDao {
 			notification.setDeadline(rs.getTime(10));
 			notification.setFeedback(rs.getBoolean(11));
 			notification.setConstructionName(rs.getString(12));
-			notification.setFeedbackId(rs.getString(13));
+			notification.setFeedbackId(rs.getString(13));}
 			return notification;
 		} catch (SQLException e) {
 			e.printStackTrace();

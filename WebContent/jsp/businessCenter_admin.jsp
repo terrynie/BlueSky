@@ -1,5 +1,5 @@
 <%@page import="com.sun.xml.internal.txw2.Document"%>
-<%@page import="com.bluedsky.bean.*"%>
+<%@page import="com.bluesky.bean.*"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -57,7 +57,7 @@
 	%>
 	<div id="list">
 		<div class="list_ul">
-			<label>业务中心</label>
+			<!--  <label>业务中心</label> -->
 			<!-- <form action="businessCenter_adminServclet" method="post">
 				<input type="text" name="search_input">
 				<input type="submit" value="搜索" name="search_sub" onclick="search();">
@@ -109,13 +109,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=1&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=1&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count_not-1){
 															if(i==count_not-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=1&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=1&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -123,7 +123,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=1&page=<%=count_not%>">[<%=count_not%>]
+						...<a href="businessCenter_adminServlet?flag=1&page=<%=count_not%>">[<%=count_not%>]
 						</a>
 						<%
 							}
@@ -173,13 +173,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=2&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=2&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count_done-1){
 															if(i==count_done-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=2&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=2&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -187,7 +187,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=2&page=<%=count_done%>">[<%=count_done%>]
+						...<a href="businessCenter_adminServlet?flag=2&page=<%=count_done%>">[<%=count_done%>]
 						</a>
 						<%
 							}
@@ -237,13 +237,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=3&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=3&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count-1){
 															if(i==count-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=3&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=3&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -251,7 +251,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=3&page=<%=count%>">[<%=count%>]
+						...<a href="businessCenter_adminServlet?flag=3&page=<%=count%>">[<%=count%>]
 						</a>
 						<%
 							}
@@ -301,13 +301,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=4&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=4&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count_weChat-1){
 															if(i==count_weChat-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=4&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=4&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -315,7 +315,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=4&page=<%=count_weChat%>">[<%=count_weChat%>]
+						...<a href="businessCenter_adminServlet?flag=4&page=<%=count_weChat%>">[<%=count_weChat%>]
 						</a>
 						<%
 							}
@@ -387,13 +387,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=1&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=1&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count_not-1){
 															if(i==count_not-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=1&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=1&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -401,7 +401,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=1&page=<%=count_not%>">[<%=count_not%>]
+						...<a href="businessCenter_adminServlet?flag=1&page=<%=count_not%>">[<%=count_not%>]
 						</a>
 						<%
 							}
@@ -451,13 +451,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=2&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=2&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count_done-1){
 															if(i==count_done-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=2&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=2&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -465,7 +465,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=2&page=<%=count_done%>">[<%=count_done%>]
+						...<a href="businessCenter_adminServlet?flag=2&page=<%=count_done%>">[<%=count_done%>]
 						</a>
 						<%
 							}
@@ -515,13 +515,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=3&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=3&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count-1){
 															if(i==count-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=3&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=3&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -529,7 +529,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=3&page=<%=count%>">[<%=count%>]
+						...<a href="businessCenter_adminServlet?flag=3&page=<%=count%>">[<%=count%>]
 						</a>
 						<%
 							}
@@ -579,13 +579,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=4&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=4&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count_weChat-1){
 															if(i==count_weChat-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=4&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=4&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -593,7 +593,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=4&page=<%=count_weChat%>">[<%=count_weChat%>]
+						...<a href="businessCenter_adminServlet?flag=4&page=<%=count_weChat%>">[<%=count_weChat%>]
 						</a>
 						<%
 							}
@@ -664,13 +664,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=1&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=1&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count_not-1){
 															if(i==count_not-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=1&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=1&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -678,7 +678,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=1&page=<%=count_not%>">[<%=count_not%>]
+						...<a href="businessCenter_adminServlet?flag=1&page=<%=count_not%>">[<%=count_not%>]
 						</a>
 						<%
 							}
@@ -728,13 +728,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=2&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=2&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count_done-1){
 															if(i==count_done-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=2&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=2&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -742,7 +742,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=2&page=<%=count_done%>">[<%=count_done%>]
+						...<a href="businessCenter_adminServlet?flag=2&page=<%=count_done%>">[<%=count_done%>]
 						</a>
 						<%
 							}
@@ -792,13 +792,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=3&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=3&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count-1){
 															if(i==count-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=3&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=3&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -806,7 +806,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=3&page=<%=count%>">[<%=count%>]
+						...<a href="businessCenter_adminServlet?flag=3&page=<%=count%>">[<%=count%>]
 						</a>
 						<%
 							}
@@ -856,13 +856,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=4&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=4&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count_weChat-1){
 															if(i==count_weChat-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=4&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=4&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -870,7 +870,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=4&page=<%=count_weChat%>">[<%=count_weChat%>]
+						...<a href="businessCenter_adminServlet?flag=4&page=<%=count_weChat%>">[<%=count_weChat%>]
 						</a>
 						<%
 							}
@@ -942,13 +942,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=1&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=1&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count_not-1){
 															if(i==count_not-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=1&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=1&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -956,7 +956,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=1&page=<%=count_not%>">[<%=count_not%>]
+						...<a href="businessCenter_adminServlet?flag=1&page=<%=count_not%>">[<%=count_not%>]
 						</a>
 						<%
 							}
@@ -1006,13 +1006,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=2&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=2&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count_done-1){
 															if(i==count_done-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=2&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=2&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -1020,7 +1020,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=2&page=<%=count_done%>">[<%=count_done%>]
+						...<a href="businessCenter_adminServlet?flag=2&page=<%=count_done%>">[<%=count_done%>]
 						</a>
 						<%
 							}
@@ -1070,13 +1070,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=3&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=3&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count-1){
 															if(i==count-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=3&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=3&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -1084,7 +1084,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=3&page=<%=count%>">[<%=count%>]
+						...<a href="businessCenter_adminServlet?flag=3&page=<%=count%>">[<%=count%>]
 						</a>
 						<%
 							}
@@ -1134,13 +1134,13 @@
 																	continue;
 																}
 						%>
-						<a href="businessCenter_adminServclet?flag=4&page=<%=i%>">[<%=i%>]
+						<a href="businessCenter_adminServlet?flag=4&page=<%=i%>">[<%=i%>]
 						</a>
 						<%
 							if(i>count_weChat-1){
 															if(i==count_weChat-2){
 						%>
-						<a href="businessCenter_adminServclet?flag=4&page=<%=i-2%>">[<%=i-2%>]
+						<a href="businessCenter_adminServlet?flag=4&page=<%=i-2%>">[<%=i-2%>]
 						</a>
 						<%
 							}
@@ -1148,7 +1148,7 @@
 														}else{
 															if(k==3){
 						%>
-						...<a href="businessCenter_adminServclet?flag=4&page=<%=count_weChat%>">[<%=count_weChat%>]
+						...<a href="businessCenter_adminServlet?flag=4&page=<%=count_weChat%>">[<%=count_weChat%>]
 						</a>
 						<%
 							}

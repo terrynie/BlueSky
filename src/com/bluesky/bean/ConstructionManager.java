@@ -1,4 +1,4 @@
-package com.bluedsky.bean;
+package com.bluesky.bean;
 
 public class ConstructionManager {
 	private String id; // 编号
