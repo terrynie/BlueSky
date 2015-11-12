@@ -18,11 +18,11 @@
 			<input type="text" />
 		</div>
 		<div class="login">
-		<span>密码</span>
+		<span>密&nbsp;&nbsp;  &nbsp;码</span>
 		<input type="password">
 		</div>
 		<div class="login">
-			<span>部门</span>
+			<span>部&nbsp;&nbsp; &nbsp;门</span>
 			<select name="dept" style="width: 174px;">
             	<option select="selected" value="">请选择部门</option>
             	<option value="LawEnforcingDeptAndAdmin">管理员</option>
