@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bluesky.bean.FineTicket;
 import com.bluesky.bean.Notification;
+import com.bluesky.dao.FineTicketDao;
 import com.bluesky.dao.NotificationDao;
 
 
@@ -21,13 +23,19 @@ import com.bluesky.dao.NotificationDao;
 //@WebServlet("/jsp/businessCenter_adminServclet")
 public class businessCenter_constructionManagerServclet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	String page_notifiction="1";
-	int pagesize=1;
-	int countNotifiction;//��¼���ݿ���Ϣ������
-	int startNum_notifiction;
-	int count_notifiction;
-	//NotifictionImlp notifictionImlp=new NotifictionImlp();
-	NotificationDao notificationDao=new NotificationDao();
+	String page = "1";
+	String flag = "1";
+	LinkedList<Notification> perInfos;
+	LinkedList<FineTicket> perInfos_fineTickets;
+	
+	int pagesize = 1;
+	int startNum;
+	int countInfo;
+	int count;
+	int count_fineTickets;
+
+	NotificationDao notificationDao = new NotificationDao();
+	FineTicketDao fineTicketDao = new FineTicketDao();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -62,25 +70,48 @@ public class businessCenter_constructionManagerServclet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		
-		String page_notifiction1=null;
-		page_notifiction1=request.getParameter("page_notifiction");
-		if(page_notifiction1 !=null){
-			page_notifiction=request.getParameter("page_notifiction");
+		String page1 = null;
+		String flag1 = null;
+		page1 = request.getParameter("page");
+		if (page1 != null) {
+			page = request.getParameter("page");
 		}
-		//int pagesize=1;//��¼ÿҳ��ʾ�ļ�¼����
-		countNotifiction=notificationDao.qureyNumOfNotifications();
-		if(countNotifiction%pagesize==0){
-			count_notifiction=countNotifiction/pagesize;
-		}else {
-			count_notifiction=countNotifiction/pagesize+1;
+		flag1 = request.getParameter("flag");
+		if (flag1 != null) {
+			flag = request.getParameter("flag");
 		}
-		//count_notifiction=notifictionImlp.getMaxpage(pagesize);
-		//String page_notifiction="1";
-		startNum_notifiction=((Integer.parseInt(page_notifiction))-1)*pagesize;
-		request.setAttribute("count_notifiction", count_notifiction);
-		LinkedList<Notification> perNotifictions=notificationDao.queryByPage(startNum_notifiction, pagesize);
-		request.setAttribute("perNotifictions", perNotifictions);
-		request.getRequestDispatcher("businessCenter_constructionManager.jsp").forward(request, response);
+		System.out.println("zheli page"+page);
+		System.out.println("zheli flag"+flag);
+		startNum = ((Integer.parseInt(page)) - 1) * pagesize;
+		int flagnum=Integer.parseInt(flag);
+		if(flagnum==1){
+			countInfo = notificationDao.qureyNumOfNotifications();
+			count = this.getcount(countInfo, pagesize);
+			perInfos = notificationDao.queryByPage(startNum, pagesize);
+			request.setAttribute("count", count);
+			request.setAttribute("perInfos", perInfos);
+			//
+			countInfo = fineTicketDao.qureyNumOfFineTicket();
+			count_fineTickets = this.getcount(countInfo, pagesize);
+			perInfos_fineTickets = fineTicketDao.queryByPage(0, pagesize);
+			request.setAttribute("count_fineTickets", count_fineTickets);
+			request.setAttribute("perInfos_fineTickets", perInfos_fineTickets);
+			request.getRequestDispatcher("businessCenter_constructionManager.jsp").forward(
+					request, response);
+		}else if(flagnum==2){
+			countInfo = fineTicketDao.qureyNumOfFineTicket();
+			count_fineTickets = this.getcount(countInfo, pagesize);
+			perInfos_fineTickets = fineTicketDao.queryByPage(startNum, pagesize);
+			request.setAttribute("count_fineTickets", count_fineTickets);
+			request.setAttribute("perInfos_fineTickets", perInfos_fineTickets);
+			//
+			countInfo = notificationDao.qureyNumOfNotifications();
+			count = this.getcount(countInfo, pagesize);
+			perInfos = notificationDao.queryByPage(0, pagesize);
+			request.setAttribute("count", count);
+			request.setAttribute("perInfos", perInfos);
+			request.getRequestDispatcher("businessCenter_constructionManager.jsp").forward(request, response);
+		}
 	}
 
 	/**
