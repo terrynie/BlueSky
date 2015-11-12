@@ -4,16 +4,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/login.css">
+
 <title>Insert title here</title>
 </head>
 <body>
-<div class="content" style="background-image: radial-gradient(ellipse farthest-corner at 45px 45px , #00FFFF 0%, rgba(0, 0, 255, 0) 50%, #0000FF 95%)" width="500px">
+<div class="content" >
 	<div class="login">
-		<input type="text">
-		<input>
-		<select>
-			<option></option>
-		</select>
+		<div class="userName">用户名：<input type="text"></div>
+		<div><input type="password"></div>
+		<div>
+			<select name="dept">
+            	<option select="selected" value="">请选择部门</option>
+            	<option value="LawEnforcingDeptAndAdmin">管理员</option>
+            	<option value="InspectionPersonnel">巡检科</option>
+            	<option value="LawEnforcingDeptAndAdmin">执法科</option>
+            	<option value="ConstructionSiteDirector">工地负责人</option>
+       	    </select>
+		</div>
+		
 	</div>
 </div>
 </body>
