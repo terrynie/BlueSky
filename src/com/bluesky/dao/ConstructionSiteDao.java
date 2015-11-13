@@ -117,7 +117,7 @@ public class ConstructionSiteDao {
 		}
 	}
 
-	// query construction sites by given number
+	// query construction sites by given page number
 	public LinkedList<ConstructionSite> queryByPage(int start, int stepLength) {
 		LinkedList<ConstructionSite> list = new LinkedList<ConstructionSite>();
 		if (DBConnection.conn == null) {
