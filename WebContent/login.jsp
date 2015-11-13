@@ -15,11 +15,11 @@
 		<div class="login-content">
 			<div class="login">
 			<span>用户名</span>
-			<input type="text" />
+			<input type="text" name="username" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}"/>
 		</div>
 		<div class="login">
 		<span>密&nbsp;&nbsp;  &nbsp;码</span>
-		<input type="password">
+		<input type="password" name="password" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}">
 		</div>
 		<div class="login">
 			<span>部&nbsp;&nbsp; &nbsp;门</span>

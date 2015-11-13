@@ -8,11 +8,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/businessCenter_admin.css"
-	type="text/css" />
+<link rel="stylesheet" href="../css/bootstrap/bootstrap.css" />
+<link rel="stylesheet" href="../css/businessCenter_admin.css"type="text/css" />
 <script src="../js/SpryAccordion.js" type="text/javascript"></script>
+<<<<<<< Updated upstream
 <link href="../css/SpryAccordion.css" rel="stylesheet" type="text/css" />
 
+=======
+<!--<link href="../css/SpryAccordion.css" rel="stylesheet" type="text/css" />-->
+>>>>>>> Stashed changes
 <script type="text/javascript">
 	function tab_list(thisObj, n) {
 		if (thisObj.className == "active")
@@ -31,8 +35,7 @@
 	}
 </script>
 <script type="text/javascript">
-	function search() {
-	}
+
 </script>
 
 </head>
@@ -58,19 +61,21 @@
 		if(initflag==1){
 	%>
 	<div id="list">
-		<div class="list_ul">
-			<!--  <label>业务中心</label> -->
-			<!-- <form action="businessCenter_adminServclet" method="post">
-				<input type="text" name="search_input">
-				<input type="submit" value="搜索" name="search_sub" onclick="search();">
-			</form> -->
+		<div class="list_ul">	
+
+			
 			<ul id="ul_style4">
-				<li class="active" onclick="tab_list(this,0);">待办事物</li>
-				<li class="normal" onclick="tab_list(this,1);">已处理</li>
-				<li class="normal" onclick="tab_list(this,2);">通知</li>
 				<li class="normal" onclick="tab_list(this,3);">微信数据</li>
-				<li class="normal" onclick="tab_list(this,4);">创建业务</li>
-			</ul>  
+				<li class="active" onclick="tab_list(this,0);">待办业务</li>
+				<li class="normal" onclick="tab_list(this,1);">已处理</li>
+				<li class="normal" onclick="tab_list(this,2);">通知公告</li>				
+				<li class="normal" onclick="tab_list(this,4);">创建任务</li>
+			</ul> 
+			<!-- /input-group -->
+			<div class="input-x">
+					<input type="text" class="input" name="search_input">
+					<input type="button" class="btn btn-primary" value="搜索" />
+			</div>	
 		</div>
 		<div class="list_data">
 			<div id="list_data0">
@@ -80,20 +85,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=t.getId()%></td>
-									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+							<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=t.getId()%></div>
+								<div class="row_table"><%=t.getSource()%></div>
+								<div class="row_table"><%=t.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+
 						</div>
 						<div class="AccordionPanelContent"><%=t.getContent()%></div>
 					</div>
@@ -144,20 +149,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=t.getId()%></td>
-									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+						<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=t.getId()%></div>
+								<div class="row_table"><%=t.getSource()%></div>
+								<div class="row_table"><%=t.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=t.getContent()%></div>
 					</div>
@@ -208,20 +213,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=n.getId()%></td>
-									<td><%=n.getAccordingTo()%></td>
-									<td><%=n.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+						<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=n.getId()%></div>
+								<div class="row_table"><%=n.getAccordingTo()%></div>
+								<div class="row_table"><%=n.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=n.getContent()%></div>
 					</div>
@@ -272,20 +277,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=w.getId()%></td>
-									<td><%=w.getWeChatNo()%></td>
-									<td><%=w.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+							<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=w.getId()%></div>
+								<div class="row_table"><%=w.getWeChatNo()%></div>
+								<div class="row_table"><%=w.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=w.getContent()%></div>
 					</div>
@@ -337,18 +342,19 @@
 	%>
 	<div id="list">
 		<div class="list_ul">
-			<label>业务中心</label>
-			<!-- <form action="businessCenter_adminServclet" method="post">
-				<input type="text" name="search_input">
-				<input type="submit" value="搜索" name="search_sub" onclick="search();">
-			</form> -->
-			<ul id="ul_style4">
-				<li class="normal" onclick="tab_list(this,0);">待办事物</li>
-				<li class="active" onclick="tab_list(this,1);">已处理</li>
-				<li class="normal" onclick="tab_list(this,2);">通知</li>
-				<li class="normal" onclick="tab_list(this,3);">微信数据</li>
-				<li class="normal" onclick="tab_list(this,4);">创建业务</li>
-			</ul>
+		<ul id="ul_style4">
+				<li class="normal" onclick="tab_list(this,0);">微信数据</li>
+				<li class="active" onclick="tab_list(this,1);">待办业务</li>
+				<li class="normal" onclick="tab_list(this,2);">已处理</li>
+				<li class="normal" onclick="tab_list(this,3);">通知公告</li>				
+				<li class="normal" onclick="tab_list(this,4);">创建任务</li>
+			</ul> 
+			<!-- /input-group -->
+			<div class="input-x">
+					<input type="text" class="input" name="search_input">
+					<input type="button" class="btn btn-primary" value="搜索" />
+			</div>	
+			
 		</div>
 		<div class="list_data">
 			<div id="list_data0" class="none">
@@ -358,20 +364,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=t.getId()%></td>
-									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+						<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=t.getId()%></div>
+								<div class="row_table"><%=t.getSource()%></div>
+								<div class="row_table"><%=t.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=t.getContent()%></div>
 					</div>
@@ -422,20 +428,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=t.getId()%></td>
-									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+						<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=t.getId()%></div>
+								<div class="row_table"><%=t.getSource()%></div>
+								<div class="row_table"><%=t.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=t.getContent()%></div>
 					</div>
@@ -486,20 +492,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=n.getId()%></td>
-									<td><%=n.getAccordingTo()%></td>
-									<td><%=n.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+							<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=n.getId()%></div>
+								<div class="row_table"><%=n.getAccordingTo()%></div>
+								<div class="row_table"><%=n.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=n.getContent()%></div>
 					</div>
@@ -550,20 +556,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=w.getId()%></td>
-									<td><%=w.getWeChatNo()%></td>
-									<td><%=w.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+							<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=w.getId()%></div>
+								<div class="row_table"><%=w.getWeChatNo()%></div>
+								<div class="row_table"><%=w.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=w.getContent()%></div>
 					</div>
@@ -614,18 +620,19 @@
 	%>
 	<div id="list">
 		<div class="list_ul">
-			<label>业务中心</label>
-			<!-- <form action="businessCenter_adminServclet" method="post">
-				<input type="text" name="search_input">
-				<input type="submit" value="搜索" name="search_sub" onclick="search();">
-			</form> -->
-			<ul id="ul_style4">
-				<li class="normal" onclick="tab_list(this,0);">待办事物</li>
-				<li class="normal" onclick="tab_list(this,1);">已处理</li>
-				<li class="active" onclick="tab_list(this,2);">通知</li>
-				<li class="normal" onclick="tab_list(this,3);">微信数据</li>
-				<li class="normal" onclick="tab_list(this,4);">创建业务</li>
-			</ul>
+		<ul id="ul_style4">
+				<li class="normal" onclick="tab_list(this,0);">微信数据</li>
+				<li class="active" onclick="tab_list(this,1);">待办业务</li>
+				<li class="normal" onclick="tab_list(this,2);">已处理</li>
+				<li class="normal" onclick="tab_list(this,3);">通知公告</li>				
+				<li class="normal" onclick="tab_list(this,4);">创建任务</li>
+			</ul> 
+			<!-- /input-group -->
+			<div class="input-x">
+					<input type="text" class="input" name="search_input">
+					<input type="button" class="btn btn-primary" value="搜索" />
+			</div>	
+			
 		</div>
 		<div class="list_data">
 			<div id="list_data0" class="none">
@@ -635,20 +642,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=t.getId()%></td>
-									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+						<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=t.getId()%></div>
+								<div class="row_table"><%=t.getSource()%></div>
+								<div class="row_table"><%=t.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=t.getContent()%></div>
 					</div>
@@ -699,20 +706,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=t.getId()%></td>
-									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+						<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=t.getId()%></div>
+								<div class="row_table"><%=t.getSource()%></div>
+								<div class="row_table"><%=t.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=t.getContent()%></div>
 					</div>
@@ -763,20 +770,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=n.getId()%></td>
-									<td><%=n.getAccordingTo()%></td>
-									<td><%=n.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+						<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=n.getId()%></div>
+								<div class="row_table"><%=n.getAccordingTo()%></div>
+								<div class="row_table"><%=n.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=n.getContent()%></div>
 					</div>
@@ -827,20 +834,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=w.getId()%></td>
-									<td><%=w.getWeChatNo()%></td>
-									<td><%=w.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+						<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=w.getId()%></div>
+								<div class="row_table"><%=w.getWeChatNo()%></div>
+								<div class="row_table"><%=w.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=w.getContent()%></div>
 					</div>
@@ -892,18 +899,19 @@
 	%>
 	<div id="list">
 		<div class="list_ul">
-			<label>业务中心</label>
-			<!-- <form action="businessCenter_adminServclet" method="post">
-				<input type="text" name="search_input">
-				<input type="submit" value="搜索" name="search_sub" onclick="search();">
-			</form> -->
 			<ul id="ul_style4">
-				<li class="normal" onclick="tab_list(this,0);">待办事物</li>
-				<li class="normal" onclick="tab_list(this,1);">已处理</li>
-				<li class="normal" onclick="tab_list(this,2);">通知</li>
-				<li class="active" onclick="tab_list(this,3);">微信数据</li>
-				<li class="normal" onclick="tab_list(this,4);">创建业务</li>
-			</ul>
+				<li class="normal" onclick="tab_list(this,0);">微信数据</li>
+				<li class="active" onclick="tab_list(this,1);">待办业务</li>
+				<li class="normal" onclick="tab_list(this,2);">已处理</li>
+				<li class="normal" onclick="tab_list(this,3);">通知公告</li>				
+				<li class="normal" onclick="tab_list(this,4);">创建任务</li>
+			</ul> 
+			<!-- /input-group -->
+			<div class="input-x">
+					<input type="text" class="input" name="search_input">
+					<input type="button" class="btn btn-primary" value="搜索" />
+			</div>	
+			
 		</div>
 		<div class="list_data">
 			<div id="list_data0"  class="none">
@@ -913,20 +921,21 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=t.getId()%></td>
-									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+							<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=t.getId()%></div>
+								<div class="row_table"><%=t.getSource()%></div>
+								<div class="row_table"><%=t.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
+							
 						</div>
 						<div class="AccordionPanelContent"><%=t.getContent()%></div>
 					</div>
@@ -977,20 +986,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=t.getId()%></td>
-									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+						<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=t.getId()%></div>
+								<div class="row_table"><%=t.getSource()%></div>
+								<div class="row_table"><%=t.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=t.getContent()%></div>
 					</div>
@@ -1041,20 +1050,21 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=n.getId()%></td>
-									<td><%=n.getAccordingTo()%></td>
-									<td><%=n.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+						<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=n.getId()%></div>
+								<div class="row_table"><%=n.getAccordingTo()%></div>
+								<div class="row_table"><%=n.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
+							
 						</div>
 						<div class="AccordionPanelContent"><%=n.getContent()%></div>
 					</div>
@@ -1105,20 +1115,20 @@
 					%>
 					<div class="AccordionPanel">
 						<div class="AccordionPanelTab">
-							<table border="0" width="100%" height="70">
-								<tr>
-									<td>任务编号</td>
-									<td>来源</td>
-									<td>任务简报</td>
-									<td>附件</td>
-								</tr>
-								<tr>
-									<td><%=w.getId()%></td>
-									<td><%=w.getWeChatNo()%></td>
-									<td><%=w.getContent()%></td>
-									<td>图视文</td>
-								</tr>
-							</table>
+						<div class="row_content row_1">
+								<div class="row_table">任务编号</div>
+								<div class="row_table">来源</div>
+								<div class="row_table">任务简报</div>
+								<div class="row_table">附件</div>
+							</div>
+							<div class="row_content row_2">
+								<div class="row_table"><%=w.getId()%></div>
+								<div class="row_table"><%=w.getWeChatNo()%></div>
+								<div class="row_table"><%=w.getContent()%></div>
+								<div class="row_table">图视文</div>
+								
+							</div>
+							
 						</div>
 						<div class="AccordionPanelContent"><%=w.getContent()%></div>
 					</div>
