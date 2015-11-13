@@ -36,7 +36,7 @@ public class businessCenter_adminServclet extends HttpServlet {
 	int pagesize = 5;
 	int startNum;
 	int countInfo;
-	int count;// ��¼���ص���ҳ��(����֪ͨ)
+	int count;//
 	int count_not;
 	int count_done;
 	int count_weChat;
