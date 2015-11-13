@@ -89,7 +89,8 @@ function callback(){
 			</div>
 		</div>
 	</div>
-	<div id="data_1" class="none">	
+	<div id="data_1" class="none">
+		<iframe src="map.jsp" scrolling="no" width="100%" height="100%"></iframe>	
 	</div>
 	<div class="data_ul">
 		<ul id="ul_style3">

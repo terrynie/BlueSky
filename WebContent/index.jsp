@@ -143,7 +143,7 @@
                 </a>
             </li>
             <li>
-                <a onclick="changeContent('');">
+                <a onclick="changeContent('jsp/weixing.jsp');">
                     <i class="cus cus-weixing"></i>
                     <span>卫星资源</span>
                 </a>

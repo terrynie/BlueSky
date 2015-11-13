@@ -11,12 +11,11 @@
 <link rel="stylesheet" href="../css/bootstrap/bootstrap.css" />
 <link rel="stylesheet" href="../css/businessCenter_admin.css"type="text/css" />
 <script src="../js/SpryAccordion.js" type="text/javascript"></script>
-<<<<<<< Updated upstream
+
 <link href="../css/SpryAccordion.css" rel="stylesheet" type="text/css" />
 
-=======
 <!--<link href="../css/SpryAccordion.css" rel="stylesheet" type="text/css" />-->
->>>>>>> Stashed changes
+
 <script type="text/javascript">
 	function tab_list(thisObj, n) {
 		if (thisObj.className == "active")
