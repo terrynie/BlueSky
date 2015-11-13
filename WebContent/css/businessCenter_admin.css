@@ -37,6 +37,9 @@ a:focus {
 #ul_style4 li {
 	display: inline;
 	margin-left: 5%;
+	font-size: 14px;
+	color: #666;
+	cursor: pointer;
 }
 
 #ul_style4 li:first-child {
@@ -44,12 +47,8 @@ a:focus {
 }
 
 #ul_style4 li:hover {
-	color: blue;
+	color: #4a90e2;
 }
-.list_data{
-	margin-top: -60px;
-}
-
 .input-x {
 	float: right;
 	position: relative;
@@ -62,10 +61,9 @@ a:focus {
 	border-bottom-left-radius: 100px;
 }
 
-.input-x input[type="button"] {
+.input-x .btn-sert {
 	margin-left: -4px;
 	margin-top: 1px;
-	background-color: #e5e5e5;
 	border-top-right-radius: 100px;
 	border-bottom-right-radius: 100px;
 }
@@ -75,27 +73,33 @@ a:focus {
 #list_data2,
 #list_data3,
 #list_data4 {
-	border-bottom: 1px solid #ccc;
+	/*border-bottom: 3px solid #ccc;*/
 }
 
 .AccordionPanelTab {
-	padding: 0;
-	margin: 0;
-	border: 1px solid #ccc;
-	border-left: 5px solid seagreen;
+
+	border-bottom: 1px solid #ccc;
 }
 
-.AccordionPanelContent {
+.panelContent {
 	min-height: 350px;
+	background-color: #f0f0f0;
+	width: 99.5%;
+	border-top: 1px solid #e5e5e5;
+	border-left: 2px solid seagreen;
+}
+.AccordionPanelContent {
+	margin: 20px;
+	min-height: 350px;
+
 	background-color: #efefef;
 	width: 100%;
-	
 }
 
 .row_content {
-	margin: 0 10px;
-	height: 35px;
-	line-height: 34px;
+	height: 40px;
+	line-height: 39px;
+	margin: 10px 0;
 }
 
 .row_table {
@@ -105,9 +109,12 @@ a:focus {
 }
 
 .row_1 .row_table {
-	color: : #666;
+	color: : #999;
+
 }
 
 .row_2 .row_table {
+
+	color: : #666;
 	font-weight: 600;
 }

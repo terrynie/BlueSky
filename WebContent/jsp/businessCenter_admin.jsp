@@ -12,9 +12,6 @@
 <link rel="stylesheet" href="../css/businessCenter_admin.css"type="text/css" />
 <script src="../js/SpryAccordion.js" type="text/javascript"></script>
 
-<link href="../css/SpryAccordion.css" rel="stylesheet" type="text/css" />
-
-<!--<link href="../css/SpryAccordion.css" rel="stylesheet" type="text/css" />-->
 
 <script type="text/javascript">
 	function tab_list(thisObj, n) {
@@ -61,7 +58,6 @@
 	%>
 	<div id="list">
 		<div class="list_ul">	
-
 			
 			<ul id="ul_style4">
 				<li class="normal" onclick="tab_list(this,3);">微信数据</li>
@@ -73,12 +69,12 @@
 			<!-- /input-group -->
 			<div class="input-x">
 					<input type="text" class="input" name="search_input">
-					<input type="button" class="btn btn-primary" value="搜索" />
+					<input type="button" class="btn btn-primary btn-sert" value="搜索" />
 			</div>	
 		</div>
 		<div class="list_data">
 			<div id="list_data0">
-				<div id="Accordion1" class="Accordion" tabindex="0">
+				<div id="Accordion1" class="Accordion" >
 					<%
 						for(TaskList t :perInfos_not){
 					%>
@@ -99,7 +95,10 @@
 							</div>
 
 						</div>
+						<div class="panelContent">
 						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						</div>
+						
 					</div>
 					<%
 						}
