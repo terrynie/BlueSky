@@ -3,14 +3,15 @@ package com.bluesky.tools;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import com.bluesky.bean.Con_Dir;
 import com.bluesky.database.DBConnection;
-import com.mysql.jdbc.ResultSetMetaData;
 
 //info of constructionsite and director in the same page
 public class ConSite_Director {
-	@SuppressWarnings("null")
-	public String[][] queryConInfo(String prcinct) {
-		String[][] list = null;
+	public LinkedList<Con_Dir> queryConInfo(String prcinct) {
+		LinkedList<Con_Dir> list = new LinkedList<Con_Dir>();
+		Con_Dir conSite_Director = new Con_Dir();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -20,14 +21,12 @@ public class ConSite_Director {
 					+ "ConstructionSite.id =ConstructionSiteDirector.constructionSiteId and districts = '" + prcinct
 					+ "';";
 			ResultSet rs = stmt.executeQuery(sql);
-			ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
-			int columnCount = rsmd.getColumnCount();
-			for (int i = 0; i < rs.getRow(); i++) {
-				for (int j = 0; j < columnCount; j++) {
-					list[i][j] = rs.getString(j);
-				}
+			while (rs.next()) {
+				conSite_Director.setConName(rs.getString(1));
+				conSite_Director.setProgress(rs.getString(2));
+				conSite_Director.setDirectorName(rs.getString(3));
+				list.add(conSite_Director);
 			}
-			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
