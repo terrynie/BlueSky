@@ -96,7 +96,7 @@
 
 						</div>
 						<div class="panelContent">
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+							<div class="AccordionPanelContent"><%=t.getContent()%></div>
 						</div>
 						
 					</div>
@@ -162,7 +162,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -226,7 +228,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -290,7 +294,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=w.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=w.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -377,7 +383,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -441,7 +449,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -505,7 +515,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -569,7 +581,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=w.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=w.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -655,7 +669,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -719,7 +735,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -783,7 +801,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -847,7 +867,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=w.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=w.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -935,7 +957,9 @@
 							
 							
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -999,7 +1023,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -1064,7 +1090,9 @@
 							
 							
 						</div>
-						<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}
@@ -1128,7 +1156,9 @@
 							</div>
 							
 						</div>
-						<div class="AccordionPanelContent"><%=w.getContent()%></div>
+						<div class="panelContent">
+							<div class="AccordionPanelContent"><%=w.getContent()%></div>
+						</div>
 					</div>
 					<%
 						}

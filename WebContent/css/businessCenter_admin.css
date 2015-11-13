@@ -19,6 +19,7 @@ a:focus {
 	border: 1px solid #ccc;
 	height: 54px;
 	line-height: 54px;
+	margin:0 10px
 }
 
 .input-x input[type="text"] {
@@ -40,6 +41,7 @@ a:focus {
 	font-size: 14px;
 	color: #666;
 	cursor: pointer;
+	
 }
 
 #ul_style4 li:first-child {
@@ -48,6 +50,11 @@ a:focus {
 
 #ul_style4 li:hover {
 	color: #4a90e2;
+	border-bottom: 2px solid #4a90e2;
+}
+.active{
+	color: #4a90e2;
+	border-bottom: 2px solid #4a90e2;
 }
 .input-x {
 	float: right;
@@ -67,7 +74,10 @@ a:focus {
 	border-top-right-radius: 100px;
 	border-bottom-right-radius: 100px;
 }
-
+.list_data{
+	
+	margin:0 10px;
+}
 #list_data0,
 #list_data1,
 #list_data2,
@@ -77,23 +87,22 @@ a:focus {
 }
 
 .AccordionPanelTab {
-
 	border-bottom: 1px solid #ccc;
+	background:white;
 }
 
 .panelContent {
 	min-height: 350px;
 	background-color: #f0f0f0;
-	width: 99.5%;
 	border-top: 1px solid #e5e5e5;
-	border-left: 2px solid seagreen;
+	border-bottom: 1px solid #e5e5e5;
+	border-left: 2px solid green;
 }
 .AccordionPanelContent {
-	margin: 20px;
+	margin: 0 10px;
+	padding:10px 0;S
 	min-height: 350px;
-
-	background-color: #efefef;
-	width: 100%;
+	background-color: rgba(235,2356,1,0);
 }
 
 .row_content {
