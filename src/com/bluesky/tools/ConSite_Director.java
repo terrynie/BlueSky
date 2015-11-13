@@ -11,7 +11,7 @@ import com.bluesky.database.DBConnection;
 public class ConSite_Director {
 	public LinkedList<Con_Dir> queryConInfo(String prcinct) {
 		LinkedList<Con_Dir> list = new LinkedList<Con_Dir>();
-		Con_Dir conSite_Director = new Con_Dir();
+		
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -22,6 +22,7 @@ public class ConSite_Director {
 					+ "';";
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
+				Con_Dir conSite_Director = new Con_Dir();
 				conSite_Director.setConName(rs.getString(1));
 				conSite_Director.setProgress(rs.getString(2));
 				conSite_Director.setDirectorName(rs.getString(3));

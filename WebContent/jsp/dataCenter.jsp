@@ -17,7 +17,7 @@
 	
 	<script>
 		/* var randomScalingFactor = function(){ return Math.round(Math.random()*100)}; */
-		var lineChartData = {
+		var lineChartData1 = {
 			labels : ["January","February","March","April","May","June","July"],
 			datasets : [
 				{
@@ -43,12 +43,44 @@
 			]
 
 		}
+		
+		var lineChartData2 = {
+				labels : ["January","February","March","April","May","June","July"],
+				datasets : [
+					{
+						label: "My First dataset",
+						fillColor : "rgba(235, 110, 110, 1)",
+						strokeColor : "rgba(235, 110, 110, 1)",
+						pointColor : "rgba(235, 110, 110, 1)",
+						pointStrokeColor : "#fff",
+						pointHighlightFill : "#fff",
+						pointHighlightStroke : "rgba(235, 110, 110, 1)",
+						data : [1600,2200,2100,1500,1300,1600,1730]
+					},
+					{
+						label: "My Second dataset",
+						fillColor : "rgba(40, 171, 236, 0.6)",
+						strokeColor : "rgba(40, 171, 236, 0.6)",
+						pointColor : "rgba(40, 171, 236, 0.6)",
+						pointStrokeColor : "#fff",
+						pointHighlightFill : "#fff",
+						pointHighlightStroke : "rgba(40, 171, 236, 0.6)",
+						data : [1000,1400,1600,1300,1000,1400,1530]
+					}
+				]
+
+			}
 
 	window.onload = function(){
-		var ctx = document.getElementById("canvas_1").getContext("2d");
-		window.myLine = new Chart(ctx).Line(lineChartData, {
+		var ctx1 = document.getElementById("canvas_1").getContext("2d");
+		window.myLine = new Chart(ctx1).Line(lineChartData1, {
 			responsive: true
 		});
+		
+		var ctx2  = document.getElementById("canvas_2").getContext("2d");
+		window.myLine = new Chart(ctx2).Line(lineChartData2, {
+			responsive:true
+		})
 	}
 	</script>
 </body>
