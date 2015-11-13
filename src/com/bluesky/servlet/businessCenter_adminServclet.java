@@ -32,7 +32,7 @@ public class businessCenter_adminServclet extends HttpServlet {
 	LinkedList<TaskList> perInfos_not;
 	LinkedList<TaskList> perInfos_done;
 	LinkedList<WeChat> perInfos_weChat;
-	int pagesize = 1;
+	int pagesize = 3;
 	int startNum;
 	int countInfo;
 	int count;// ��¼���ص���ҳ��(����֪ͨ)

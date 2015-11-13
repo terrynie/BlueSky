@@ -127,7 +127,7 @@
 				</center>
 			</div>
 			<div id="list_data1" class="none">
-			<div id="Accordion1" class="Accordion" tabindex="0">
+			<div id="Accordion2" class="Accordion" tabindex="0">
 					<%
 						for(TaskList t :perInfos_done){
 					%>
@@ -191,7 +191,7 @@
 				</center>				
 			</div>
 			<div id="list_data2" class="none">
-			<div id="Accordion1" class="Accordion" tabindex="0">
+			<div id="Accordion3" class="Accordion" tabindex="0">
 					<%
 						for(Notification n :perInfos){
 					%>
@@ -341,7 +341,7 @@
 				</center>
 			</div>
 			<div id="list_data1">
-				<div id="Accordion1" class="Accordion" tabindex="0">
+				<div id="Accordion2" class="Accordion" tabindex="0">
 					<%
 						for(TaskList t :perInfos_done){
 					%>
@@ -405,7 +405,7 @@
 				</center>
 			</div>
 			<div id="list_data2" class="none">
-			<div id="Accordion1" class="Accordion" tabindex="0">
+			<div id="Accordion3" class="Accordion" tabindex="0">
 					<%
 						for(Notification n :perInfos){
 					%>
@@ -554,7 +554,7 @@
 				</center>
 			</div>
 			<div id="list_data1" class="none">
-			<div id="Accordion1" class="Accordion" tabindex="0">
+			<div id="Accordion2" class="Accordion" tabindex="0">
 					<%
 						for(TaskList t :perInfos_done){
 					%>
@@ -618,7 +618,7 @@
 				</center>
 			</div>
 			<div id="list_data2">
-				<div id="Accordion1" class="Accordion" tabindex="0">
+				<div id="Accordion3" class="Accordion" tabindex="0">
 					<%
 						for(Notification n :perInfos){
 					%>
@@ -690,6 +690,8 @@
 	
 	<script type="text/javascript">
 		var Accordion1 = new Spry.Widget.Accordion("Accordion1");
+		var Accordion2 = new Spry.Widget.Accordion("Accordion2");
+		var Accordion3 = new Spry.Widget.Accordion("Accordion3");
 	</script>
 </body>
 </html>
