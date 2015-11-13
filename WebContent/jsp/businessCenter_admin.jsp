@@ -8,8 +8,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/bootstrap/bootstrap.css" />
+<link rel="stylesheet" href="../css/bootstrap/zui.min.css" />
 <link rel="stylesheet" href="../css/businessCenter_admin.css"type="text/css" />
+<script src="../js/jquery.min.js" type="text/javascript"></script>
 <script src="../js/SpryAccordion.js" type="text/javascript"></script>
 
 
@@ -68,7 +69,7 @@
 			</ul> 
 			<!-- /input-group -->
 			<div class="input-x">
-					<input type="text" class="input" name="search_input">
+					<input type="text" class="form-control" name="search_input">
 					<input type="button" class="btn btn-primary btn-sert" value="搜索" />
 			</div>	
 		</div>
@@ -90,13 +91,23 @@
 								<div class="row_table"><%=t.getId()%></div>
 								<div class="row_table"><%=t.getSource()%></div>
 								<div class="row_table"><%=t.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><span class="icon  file-movie"></span></div>
 								
 							</div>
 
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+							<!-- <div class="AccordionPanelContent"><%=t.getContent()%></div> -->
+							<div class="time_item"><span>2015/09/10</span></div>
+							<div  class="time_item"><span>WE二期工地扬尘漫天，多次沟通，拒不改正。态度及其恶劣，严重影响附近居民的正常生活。特提交有关部门，望你部积极整治，还老百姓一个好的生活环境。</span></div>
+							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
+							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
+							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="在线巡查"/>
+							<input type="button" class="btn btn-primary" value="生成任务"/>
+							<input type="button" class="btn btn-primary" value="不属实"/>
+							</div>
 						</div>
 						
 					</div>

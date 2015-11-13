@@ -16,9 +16,9 @@ a, a:hover, a:focus {
 
 .list_ul {
 	border: 1px solid #ccc;
-	height: 54px;
-	line-height: 54px;
-	margin: 0 10px
+	height: 74px;
+	line-height: 74px;
+	margin: 10px 10px 0 10px;
 }
 
 .input-x input[type="text"] {
@@ -37,8 +37,9 @@ a, a:hover, a:focus {
 	display: inline;
 	margin-left: 5%;
 	font-size: 14px;
-	color: #666;
+	color: #4a90e2;
 	cursor: pointer;
+	font-weight: bold;
 }
 
 #ul_style4 li:first-child {
@@ -47,10 +48,10 @@ a, a:hover, a:focus {
 
 #ul_style4 li:hover {
 	color: #4a90e2;
-	border-bottom: 2px solid #4a90e2;
+	
+	transform: all 0.4s ease;
 }
-
-.active {
+.active{
 	color: #4a90e2;
 	border-bottom: 2px solid #4a90e2;
 }
@@ -58,11 +59,12 @@ a, a:hover, a:focus {
 .input-x {
 	float: right;
 	position: relative;
-	top: -65px;
+	top: -85px;
+	right:-20px;
 }
 
 .input-x input[type="text"] {
-	width: 60%;
+	width: 50%;
 	border-top-left-radius: 100px;
 	border-bottom-left-radius: 100px;
 }
@@ -84,35 +86,56 @@ a, a:hover, a:focus {
 }
 
 .AccordionPanelTab {
-	border-bottom: 1px solid #ccc;
+	border:1px solid #ccc;
 	background: white;
+	border-left-width: 2px;
+	border-left-color:seagreen;
+	border-top-color:#fff;
+	border-right-color:#ccc;
 }
 
 .panelContent {
-	min-height: 350px;
+	min-height: 280px;
 	background-color: #f0f0f0;
 	border-top: 1px solid #e5e5e5;
 	border-bottom: 1px solid #e5e5e5;
 	border-left: 2px solid green;
 }
 
-.AccordionPanelContent {
+/*.AccordionPanelContent {
 	margin: 0 10px;
 	padding: 10px 0;
-	S min-height: 350px;
+	min-height: 350px;
 	background-color: rgba(235, 2356, 1, 0);
+}*/
+.time_item{
+	margin:0 20px;
 }
-
+.img_item{
+	float:left;
+	margin-top:10px;
+}
+.info_item{
+	margin-top:10px;
+	width:100%;
+	padding-left:20px;
+	float:left;
+}
+.img_item img{
+	margin-left:20px;
+	
+}
 .row_content {
-	height: 40px;
-	line-height: 39px;
+	height: 30px;
+	line-height: 29px;
 	margin: 10px 0;
 }
 
 .row_table {
-	width: 17%;
+	width: 15%;
 	float: left;
-	text-align: center;
+	padding-left:20px;
+	text-align: left;
 }
 
 .row_1 .row_table {
@@ -121,5 +144,5 @@ a, a:hover, a:focus {
 
 .row_2 .row_table {
 	color: : #666;
-	font-weight: 600;
+	font-weight: bold;
 }
