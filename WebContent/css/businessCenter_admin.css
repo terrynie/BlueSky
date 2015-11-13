@@ -1,13 +1,12 @@
 @CHARSET "UTF-8";
+
 #body {
 	font-size: 14px;
 	padding: 0;
 	margin: 0;
 }
 
-a,
-a:hover,
-a:focus {
+a, a:hover, a:focus {
 	text-decoration: none;
 }
 
@@ -19,7 +18,7 @@ a:focus {
 	border: 1px solid #ccc;
 	height: 54px;
 	line-height: 54px;
-	margin:0 10px
+	margin: 0 10px
 }
 
 .input-x input[type="text"] {
@@ -30,8 +29,7 @@ a:focus {
 	margin-top: -1px;
 }
 
-#ul_style4 ul,
-#ul_style4 li {
+#ul_style4 ul, #ul_style4 li {
 	list-style-type: none;
 }
 
@@ -41,7 +39,6 @@ a:focus {
 	font-size: 14px;
 	color: #666;
 	cursor: pointer;
-	
 }
 
 #ul_style4 li:first-child {
@@ -52,10 +49,12 @@ a:focus {
 	color: #4a90e2;
 	border-bottom: 2px solid #4a90e2;
 }
-.active{
+
+.active {
 	color: #4a90e2;
 	border-bottom: 2px solid #4a90e2;
 }
+
 .input-x {
 	float: right;
 	position: relative;
@@ -74,21 +73,19 @@ a:focus {
 	border-top-right-radius: 100px;
 	border-bottom-right-radius: 100px;
 }
-.list_data{
-	
-	margin:0 10px;
+
+.list_data {
+	margin: 0 10px;
 }
-#list_data0,
-#list_data1,
-#list_data2,
-#list_data3,
-#list_data4 {
+
+#list_data0, #list_data1, #list_data2, #list_data3, #list_data4 {
 	/*border-bottom: 3px solid #ccc;*/
+	
 }
 
 .AccordionPanelTab {
 	border-bottom: 1px solid #ccc;
-	background:white;
+	background: white;
 }
 
 .panelContent {
@@ -98,11 +95,12 @@ a:focus {
 	border-bottom: 1px solid #e5e5e5;
 	border-left: 2px solid green;
 }
+
 .AccordionPanelContent {
 	margin: 0 10px;
-	padding:10px 0;S
-	min-height: 350px;
-	background-color: rgba(235,2356,1,0);
+	padding: 10px 0;
+	S min-height: 350px;
+	background-color: rgba(235, 2356, 1, 0);
 }
 
 .row_content {
@@ -119,11 +117,9 @@ a:focus {
 
 .row_1 .row_table {
 	color: : #999;
-
 }
 
 .row_2 .row_table {
-
 	color: : #666;
 	font-weight: 600;
 }

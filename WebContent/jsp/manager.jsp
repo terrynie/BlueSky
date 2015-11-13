@@ -1,3 +1,4 @@
+<%@page import="java.util.LinkedList,com.bluesky.bean.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,8 +24,8 @@ function createXMLHttpRequest() {
 }
 function changeSelect(){
 	createXMLHttpRequest();
-	var id=document.getElementById("manager").value;
-	var url="monitoringcenter_adminServlet?id="+id;
+	var precinct=document.getElementById("manager").value;
+	var url="managerServlet?precinct="+precinct;
 	xmlHttp.onreadystatechange=callback;
 	xmlHttp.open("GET", url, true);
 	xmlHttp.send();
@@ -32,8 +33,8 @@ function changeSelect(){
 function callback(){
 	if(xmlHttp.readyState==4){
 		if(xmlHttp.status==200){
-			document.getElementById("monitoring").innerHTML="";
-			document.getElementById("monitoring").innerHTML=xmlHttp.responseText;
+			document.getElementById("body_info").innerHTML="";
+			document.getElementById("body_info").innerHTML=xmlHttp.responseText;
 		}
 	}
 } 
@@ -41,7 +42,10 @@ function callback(){
 </head>
 <body>
 	<%
-			
+		LinkedList<InspectionPersonnel> list_inspectionPersonnels=(LinkedList<InspectionPersonnel>)request.getAttribute("list_inspectionPersonnels");
+		String[] precincts=(String[])request.getAttribute("precincts");
+		System.out.println("yumen ");
+		//System.out.println(precincts.length);
 	%>
 	<div id="body">
 		<div id="body_table">
@@ -50,7 +54,13 @@ function callback(){
 					<td>姓名</td>
 					<td>
 						<select  id="manager" style="width: 100%" onchange="changeSelect()">
-							<option></option>
+							<% 
+								for(int i=0;i<precincts.length;i++){
+							%>
+							<option><%=precincts[i] %></option>
+							<% 
+								}
+							%>
 						</select>
 					</td>
 					<td>科室</td>
