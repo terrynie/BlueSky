@@ -26,6 +26,7 @@ function changeSelect(){
 	createXMLHttpRequest();
 	var precinct=document.getElementById("manager").value;
 	var url="managerServlet?precinct="+precinct;
+	alter("url"+url);
 	xmlHttp.onreadystatechange=callback;
 	xmlHttp.open("GET", url, true);
 	xmlHttp.send();
@@ -43,9 +44,7 @@ function callback(){
 <body>
 	<%
 		LinkedList<InspectionPersonnel> list_inspectionPersonnels=(LinkedList<InspectionPersonnel>)request.getAttribute("list_inspectionPersonnels");
-		String[] precincts=(String[])request.getAttribute("precincts");
-		System.out.println("yumen ");
-		//System.out.println(precincts.length);
+		LinkedList<String> precincts=(LinkedList<String>)request.getAttribute("precincts");
 	%>
 	<div id="body">
 		<div id="body_table">
@@ -55,9 +54,9 @@ function callback(){
 					<td>
 						<select  id="manager" style="width: 100%" onchange="changeSelect()">
 							<% 
-								for(int i=0;i<precincts.length;i++){
+								for(String s:precincts){
 							%>
-							<option><%=precincts[i] %></option>
+							<option><%=s %></option>
 							<% 
 								}
 							%>
@@ -72,7 +71,19 @@ function callback(){
 			</table>
 		</div>
 		<hr>
-		<div id="body_info"></div>
+		<div id="body_info">
+			<table>
+				<%
+					for(InspectionPersonnel i : list_inspectionPersonnels){				
+				%>
+				<tr>
+					<td><%=i.getName() %></td>
+					<td><%=i.getSection() %></td>
+					<td><%=i.getTel() %></td>
+				</tr>
+				<%}%>
+			</table>
+		</div>
 	</div>
 </body>
 </html>

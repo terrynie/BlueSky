@@ -57,23 +57,26 @@ public class managerServlet extends HttpServlet {
 		LinkedList<InspectionPersonnel> list_inspectionPersonnels=queryByPrecincts.queryInspByPrecinct(precinct);
 		request.setAttribute("precincts", precincts);
 		request.setAttribute("list_inspectionPersonnels", list_inspectionPersonnels);
-		request.getRequestDispatcher("manager.jsp").forward(request, response);
-//		if(str_precinct ==null){
-//			request.getRequestDispatcher("manager.jsp").forward(request, response);
-//		}else {
-//			out.println("<table>");
-//			for(InspectionPersonnel i : list_inspectionPersonnels){
-//				out.println("<tr>");
-//				out.println("<td>");
-//				out.println("</td>");
-//				out.println("<td>");
-//				out.println("</td>");
-//				out.println("<td>");
-//				out.println("</td>");
-//				out.println("</tr>");
-//			}
-//			out.println("</table>");
-//		}
+		//request.getRequestDispatcher("manager.jsp").forward(request, response);
+		if(str_precinct ==null){
+			request.getRequestDispatcher("manager.jsp").forward(request, response);
+		}else {
+			out.println("<table>");
+			for(InspectionPersonnel i : list_inspectionPersonnels){
+				out.println("<tr>");
+				out.println("<td>");
+				out.println(i.getName());
+				out.println("</td>");
+				out.println("<td>");
+				out.println(i.getSection());
+				out.println("</td>");
+				out.println("<td>");
+				out.println(i.getTel());
+				out.println("</td>");
+				out.println("</tr>");
+			}
+			out.println("</table>");
+		}
 		
     }
 	/**

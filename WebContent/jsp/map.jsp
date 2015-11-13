@@ -20,10 +20,11 @@
 	map.centerAndZoom(new BMap.Point(113.65, 34.78), 11);
 	function showInfo(e){
 		/* alert("这个点的经纬度是："+e.point.lng + ", " + e.point.lat);  e.point.lng为经度，e.point.lat是纬度*/
+		window.open("vedio.jsp");
 	}
 	map.addEventListener("click", showInfo);
 	var point = new BMap.Point(113.65, 34.78);
-	var marker = new BMap.Marker(point);  // 创建标注
+	var marker = new BMap.Marker(point); // 创建标注
 	map.addOverlay(marker);              // 将标注添加到地图中
 
 	var label = new BMap.Label("名称：一号工地；负责人：XXX；",{offset:new BMap.Size(20,-10)});
