@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/bootstrap/zui.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/pintuer.css"/>
 <link rel="stylesheet" href="../css/businessCenter_admin.css"type="text/css" />
 
 <script src="../js/jquery.min.js" type="text/javascript"></script>
@@ -88,12 +89,13 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=t.getId()%></div>
 								<div class="row_table"><%=t.getSource()%></div>
 								<div class="row_table"><%=t.getContent()%></div>
-								<div class="row_table"><i class="fa fa-database"></i><i class="icon icon-star"></i><i class="icon  icon-file-movie"></i></div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 
@@ -106,9 +108,9 @@
 							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
 							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
 							<div class="info_item">
-							<input type="button" class="btn btn-primary" value="在线巡查"/>
-							<input type="button" class="btn btn-primary" value="生成任务"/>
-							<input type="button" class="btn btn-primary" value="不属实"/>
+							<input type="button" class="btn btn-primary" value="查看数据监控"/>
+							<input type="button" class="btn btn-primary" value="属实，转下级"/>
+							<input type="button" class="btn btn-primary" value="不属实，驳回"/>
 							</div>
 						</div>
 						
@@ -165,18 +167,28 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=t.getId()%></div>
 								<div class="row_table"><%=t.getSource()%></div>
 								<div class="row_table"><%=t.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+							<div class="time_item"><span>2015/09/10</span></div>
+							<div  class="time_item"><span>WE二期工地扬尘漫天，多次沟通，拒不改正。态度及其恶劣，严重影响附近居民的正常生活。特提交有关部门，望你部积极整治，还老百姓一个好的生活环境。</span></div>
+							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
+							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
+							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看监控数据"/>
+							<input type="button" class="btn btn-primary" value="属实，已转下级"/>
+							</div>
+							
 						</div>
 					</div>
 					<%
@@ -231,18 +243,25 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=n.getId()%></div>
 								<div class="row_table"><%=n.getAccordingTo()%></div>
 								<div class="row_table"><%=n.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=n.getContent()%></div>
+							<div class="time_item li_title"><span>2015/09/10</span></div>
+							<ul>
+								<li><p>一、提高思想认识、加强施工现场安全管理</p></li>
+								<li><p>二、强化从业人员的素质，加大安全教育培训力度</p></li>
+								<li><p>三、全面排查施工现场隐患，严格做好安全工作</p></li>
+							</ul>	
+							
 						</div>
 					</div>
 					<%
@@ -297,18 +316,28 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=w.getId()%></div>
 								<div class="row_table"><%=w.getWeChatNo()%></div>
 								<div class="row_table"><%=w.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=w.getContent()%></div>
+							<div class="time_item"><span>2015/09/10</span></div>
+							<div  class="time_item"><span>WE二期工地扬尘漫天，多次沟通，拒不改正。态度及其恶劣，严重影响附近居民的正常生活。特提交有关部门，望你部积极整治，还老百姓一个好的生活环境。</span></div>
+							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
+							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
+							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="在线巡查"/>
+							<input type="button" class="btn btn-primary" value="生成任务"/>
+							<input type="button" class="btn btn-primary" value="不属实"/>
+							</div>
 						</div>
 					</div>
 					<%
@@ -386,18 +415,19 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=t.getId()%></div>
 								<div class="row_table"><%=t.getSource()%></div>
 								<div class="row_table"><%=t.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+							
 						</div>
 					</div>
 					<%
@@ -452,18 +482,19 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=t.getId()%></div>
 								<div class="row_table"><%=t.getSource()%></div>
 								<div class="row_table"><%=t.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+							
 						</div>
 					</div>
 					<%
@@ -518,18 +549,19 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=n.getId()%></div>
 								<div class="row_table"><%=n.getAccordingTo()%></div>
 								<div class="row_table"><%=n.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=n.getContent()%></div>
+							
 						</div>
 					</div>
 					<%
@@ -584,18 +616,19 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=w.getId()%></div>
 								<div class="row_table"><%=w.getWeChatNo()%></div>
 								<div class="row_table"><%=w.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=w.getContent()%></div>
+							
 						</div>
 					</div>
 					<%
@@ -672,18 +705,20 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=t.getId()%></div>
 								<div class="row_table"><%=t.getSource()%></div>
 								<div class="row_table"><%=t.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+							
+							
 						</div>
 					</div>
 					<%
@@ -738,12 +773,13 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=t.getId()%></div>
 								<div class="row_table"><%=t.getSource()%></div>
 								<div class="row_table"><%=t.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
@@ -804,12 +840,13 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=n.getId()%></div>
 								<div class="row_table"><%=n.getAccordingTo()%></div>
 								<div class="row_table"><%=n.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
@@ -870,12 +907,13 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=w.getId()%></div>
 								<div class="row_table"><%=w.getWeChatNo()%></div>
 								<div class="row_table"><%=w.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
@@ -959,12 +997,13 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=t.getId()%></div>
 								<div class="row_table"><%=t.getSource()%></div>
 								<div class="row_table"><%=t.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
@@ -1026,12 +1065,13 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=t.getId()%></div>
 								<div class="row_table"><%=t.getSource()%></div>
 								<div class="row_table"><%=t.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
@@ -1092,12 +1132,13 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=n.getId()%></div>
 								<div class="row_table"><%=n.getAccordingTo()%></div>
 								<div class="row_table"><%=n.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
@@ -1159,12 +1200,13 @@
 								<div class="row_table">来源</div>
 								<div class="row_table">任务简报</div>
 								<div class="row_table">附件</div>
+								<div class="right_item"><i class="icon icon-bars"></i></div>
 							</div>
 							<div class="row_content row_2">
 								<div class="row_table"><%=w.getId()%></div>
 								<div class="row_table"><%=w.getWeChatNo()%></div>
 								<div class="row_table"><%=w.getContent()%></div>
-								<div class="row_table">图视文</div>
+								<div class="row_table"><i class="icon icon-file-word-o"></i><i class="icon icon-file-image-o"></i><i class="icon  icon-file-video-o"></i></div>
 								
 							</div>
 							
