@@ -43,7 +43,7 @@ public class managerServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		
-		String precinct = "金水区";
+		String precinct = "二七区";
 		String str_precinct = request.getParameter("precinct");
 		if (str_precinct != null) {
 			precinct = str_precinct;
@@ -61,16 +61,16 @@ public class managerServlet extends HttpServlet {
 		if(str_precinct ==null){
 			request.getRequestDispatcher("manager.jsp").forward(request, response);
 		}else {
-			out.println("<table>");
+			out.println("<table width="+100+"%"+">");
 			for(InspectionPersonnel i : list_inspectionPersonnels){
 				out.println("<tr>");
-				out.println("<td>");
+				out.println("<td width="+30+"%"+">");
 				out.println(i.getName());
 				out.println("</td>");
-				out.println("<td>");
+				out.println("<td width="+30+"%"+">");
 				out.println(i.getSection());
 				out.println("</td>");
-				out.println("<td>");
+				out.println("<td width="+30+"%"+">");
 				out.println(i.getTel());
 				out.println("</td>");
 				out.println("</tr>");

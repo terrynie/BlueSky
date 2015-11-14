@@ -41,6 +41,7 @@ function callback(){
 	}
 } 
 </script>
+
 <body>
 	<%
 		LinkedList<Con_Dir> list_conDirs=(LinkedList<Con_Dir>)request.getAttribute("list_conDirs");
@@ -48,10 +49,10 @@ function callback(){
 	%>
 	<div id="body">
 		<div id="body_table">
-			<table>
+			<table width="100%">
 				<tr>
-					<td>工地名称</td>
-					<td>
+					<td width="20%">工地名称</td>
+					<td width="13%">
 						<select  id="manager" style="width: 100%" onchange="changeSelect()">
 							<% 
 								for(String s:precincts){
@@ -62,9 +63,9 @@ function callback(){
 							%>
 						</select>
 					</td>
-					<td>负责人</td>
-					<td>项目进度</td>
-					<td>
+					<td width="32%">负责人</td>
+					<td width="20%">项目进度</td>
+					<td width="15%">
 						<input type="submit" value="添加">
 					</td>
 				</tr>
@@ -72,14 +73,14 @@ function callback(){
 		</div>
 		<hr>
 		<div id="body_info">
-			<table>
+			<table width="100%">
 				<%
 					for(Con_Dir c : list_conDirs){				
 				%>
 				<tr>
-					<td><%=c.getConName() %></td>
-					<td><%=c.getDirectorName() %></td>
-					<td><%=c.getProgress() %></td>
+					<td width="30%"><%=c.getConName() %></td>
+					<td width="30%"><%=c.getDirectorName() %></td>
+					<td width="30%"><%=c.getProgress() %></td>
 				</tr>
 				<%}%>
 			</table>

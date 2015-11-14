@@ -47,10 +47,10 @@ function callback(){
 	%>
 	<div id="body">
 		<div id="body_table">
-			<table>
+			<table width="100%">
 				<tr>
-					<td>姓名</td>
-					<td>
+					<td width="20%">姓名</td>
+					<td width="13%">
 						<select  id="manager" style="width: 100%" onchange="changeSelect()">
 							<% 
 								for(String s:precincts){
@@ -61,9 +61,9 @@ function callback(){
 							%>
 						</select>
 					</td>
-					<td>科室</td>
-					<td>联系方式</td>
-					<td>
+					<td width="32%">科室</td>
+					<td width="20%">联系方式</td>
+					<td width="15%">
 						<input type="submit" value="添加">
 					</td>
 				</tr>
@@ -71,14 +71,14 @@ function callback(){
 		</div>
 		<hr>
 		<div id="body_info">
-			<table>
+			<table width="100%">
 				<%
 					for(InspectionPersonnel i : list_inspectionPersonnels){				
 				%>
 				<tr>
-					<td><%=i.getName() %></td>
-					<td><%=i.getSection() %></td>
-					<td><%=i.getTel() %></td>
+					<td width="30%"><%=i.getName() %></td>
+					<td width="30%"><%=i.getSection() %></td>
+					<td width="30%"><%=i.getTel() %></td>
 				</tr>
 				<%}%>
 			</table>

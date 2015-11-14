@@ -12,6 +12,7 @@
 <body>
 <div class="content" >
 	<div class="login-box">
+	<form action="loginservlet">
 		<div class="login-content">
 			<div class="login">
 			<span>用户名</span>
@@ -25,14 +26,16 @@
 			<span>部&nbsp;&nbsp; &nbsp;门</span>
 			<select name="dept" style="width: 174px;">
             	<option select="selected" value="">请选择部门</option>
-            	<option value="LawEnforcingDeptAndAdmin">管理员</option>
+            	<option value="Admin">管理员</option>
             	<option value="InspectionPersonnel">巡检科</option>
-            	<option value="LawEnforcingDeptAndAdmin">执法科</option>
+            	<option value="LawEnforcingDept">执法科</option>
             	<option value="ConstructionSiteDirector">工地负责人</option>
        	    </select>
 		</div>
+	</form>
+		
 		<div class="footer-btn">
-			<input type="button" class="btn btn-primary" value="&nbsp;登录&nbsp;" />
+			<input type="submit" class="btn btn-primary" value="&nbsp;登录&nbsp;" />
 		</div>
 		</div>
 		

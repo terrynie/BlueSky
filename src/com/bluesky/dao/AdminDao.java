@@ -78,12 +78,13 @@ public class AdminDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from Admin where id = '" + id + "';";
 			ResultSet rs = stmt.executeQuery(sql);
-			while(rs.next()){
-			admin.setId(rs.getString(1));
-			admin.setPassword(rs.getString(2));
-			admin.setName(rs.getString(3));
-			admin.setTel(rs.getString(4));
-			admin.setIdCardNo(rs.getString(5));}
+			while (rs.next()) {
+				admin.setId(rs.getString(1));
+				admin.setPassword(rs.getString(2));
+				admin.setName(rs.getString(3));
+				admin.setTel(rs.getString(4));
+				admin.setIdCardNo(rs.getString(5));
+			}
 			return admin;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -108,8 +109,7 @@ public class AdminDao {
 				admin.setName(rs.getString(3));
 				admin.setTel(rs.getString(4));
 				admin.setIdCardNo(rs.getString(5));
-			
-			list.add(admin);
+				list.add(admin);
 			}
 			return list;
 		} catch (SQLException e) {

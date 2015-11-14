@@ -49,4 +49,13 @@
     <servlet-name>monitoringcenter_adminServlet</servlet-name>
     <url-pattern>/jsp/monitoringcenter_adminServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>loginservlet</servlet-name>
+    <servlet-class>com.bluesky.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>loginservlet</servlet-name>
+    <url-pattern>/loginservlet</url-pattern>
+  </servlet-mapping>
 </web-app>

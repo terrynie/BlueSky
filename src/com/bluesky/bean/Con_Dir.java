@@ -1,9 +1,9 @@
 package com.bluesky.bean;
 
 public class Con_Dir {
-	private String conName;
-	private String progress;
-	private String directorName;
+	private String conName;//工地名称
+	private String progress;//进度
+	private String directorName;//负责人姓名
 	public String getConName() {
 		return conName;
 	}
