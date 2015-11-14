@@ -4,9 +4,159 @@
 
 <html>
 	<head>
-		
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap/zui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/dataCenter.css"/>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/zui.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
+		<div class="dataWrapper">
+			<div class="row-title"><label>数据统计</label></div>
+			<div class="row">
+			  <div class="col-xs-6 col-sm-3">
+			  		<span class="row_span row-1">imag</span>
+			  		<span class="row_span row-2"><span>3285</span><i>/</i><small>3217</small></span>
+			  		<label class="row_span row-3">受举报群众(人次)/有效受理</label>
+			  </div> 
+			  <div class="col-xs-6 col-sm-3">
+			  	<span class="row_span row-1">imag</span>
+			  		<span class="row_span row-2"><span>56472</span><i>/</i><small>43217</small></span>
+			  		<label class="row_span row-3">系统反馈(次)/在线巡查</label>
+			  	
+				</div>
+			
+			  <div class="col-xs-6 col-sm-3">
+			  	<span class="row_span row-1">imag</span>
+			  		<span class="row_span row-2"><span>234</span><i>/</i><small>1276</small></span>
+			  		<label class="row_span row-3">PM10数据接入(次)/告警(次)</label>
+			  </div>
+			  <div class="col-xs-6 col-sm-3">
+			  	<span class="row_span row-1">imag</span>
+			  		<span class="row_span row-2"><span>678</span><i>/</i><small>4475</small></span>
+			  		<label class="row_span row-3">智能电表箱接入(次)/告警(次)</label>
+			  </div>
+			</div>
+			<div class="row-title"><label>易发区分布示意图</label></div>
+			<div class="row-map">
+				<section>
+				  <article>
+				    <div class="example">
+				      <ul id="myTab" class="nav nav-tabs">
+				        <li class="active">
+				          <a href="#tab1" data-toggle="tab">群众举报</a>
+				        </li>
+				        <li>
+				          <a href="#tab2" data-toggle="tab">PM10</a>
+				        </li>
+				        <li>
+				          <a href="#tab3" data-toggle="tab">卫星资源</a>
+				        </li>
+				        <li>
+				          <a href="#tab4" data-toggle="tab">智能电表</a>
+				        </li>
+				      </ul>
+				      <div class="tab-content">
+				        <div class="tab-pane in active" id="tab1">
+				         	<iframe width="100%" height="360px" name="map-iframe" frameborder="0" scrolling="no" allowtransparency="yes" src="map.jsp"></iframe>
+				        	<div class="bottom-frame">
+				        		<ul>
+				        			<li><i class="i_1"></i><label>群众举报高发区</label></li>
+				        			<li><i class="i_2"></i><label>群众举报易发区</label></li>
+				        			<li><i class="i_3"></i><label>群众举报低发区</label></li>
+				        		</ul>
+				        		
+				        	</div>
+				        </div>
+				        <div class="tab-pane" id="tab2">
+				         <iframe width="100%" height="360px" name="map-iframe" frameborder="0" scrolling="no" allowtransparency="yes" src="map.jsp"></iframe>
+				        	<div class="bottom-frame">
+				        		<ul>
+				        			<li><i class="i_1"></i><label>群众举报高发区</label></li>
+				        			<li><i class="i_2"></i><label>群众举报易发区</label></li>
+				        			<li><i class="i_3"></i><label>群众举报低发区</label></li>
+				        		</ul>
+				        		
+				        	</div>
+				        </div>
+				
+				        <div class="tab-pane" id="tab3">
+				         <iframe width="100%" height="360px" name="map-iframe" frameborder="0" scrolling="no" allowtransparency="yes" src="map.jsp"></iframe>
+				        	<div class="bottom-frame">
+				        		<ul>
+				        			<li><i class="i_1"></i><label>群众举报高发区</label></li>
+				        			<li><i class="i_2"></i><label>群众举报易发区</label></li>
+				        			<li><i class="i_3"></i><label>群众举报低发区</label></li>
+				        		</ul>
+				        		
+				        	</div>
+				        </div>
+				        <div class="tab-pane" id="tab4">
+				         <iframe width="100%" height="360px" name="map-iframe" frameborder="0" scrolling="no" allowtransparency="yes" src="map.jsp"></iframe>
+				        	<div class="bottom-frame">
+				        		<ul>
+				        			<li><i class="i_1"></i><label>群众举报高发区</label></li>
+				        			<li><i class="i_2"></i><label>群众举报易发区</label></li>
+				        			<li><i class="i_3"></i><label>群众举报低发区</label></li>
+				        		</ul>
+				        		
+				        	</div>
+				        </div>
+				      </div>
+				    </div>    
+				  </article>
+				</section>
+			</div>
+			<div class="row-title"><label>业务走势及饼图分布</label></div>
+			 <div class="row-chart">
+			 	<div class="one-charts">
+			 		<!--<div class="item_title">举报有效率</div>-->
+			 		<div id="one-charts">
+			 		</div>
+			 		<div id="one-charts-pie">
+			 		</div>
+			 		<!--<div class="item_count">
+			 			<span id="it_1"> 50092</span>
+			 			<span id="it_2">61100</span>
+			 		</div>
+			 		<div class="item_footer">
+			 			<span>2015年1月至今</span>
+			 		</div>-->
+			    </div>
+			    <div class="two-charts">
+			    	
+			 		<div id="two-charts">
+			 		</div>
+			 		<div id="two-charts-pie">
+			 		</div>
+			 		
+			    </div>
+			    <div class="three-charts">
+			 		<div id="three-charts">
+			 		</div>
+			 		<div id="three-charts-pie">
+			 		</div>
+			    </div>
+			    <div class="one-charts">
+			 		<div id="four-charts">
+			 		</div>
+			 		<div id="four-charts-pie">
+			 		</div>
+			    </div>
+			    <div class="two-charts">
+			 		<div id="five-charts">
+			 		</div>
+			 		<div id="five-charts-pie">
+			 		</div>
+			    </div>
+			 </div>
+			
+			
+		</div>
+		
+				
+		
+<!--	<!--	<!--
+		
 		<div>
 			<span></span>
 			<span></span>
@@ -35,6 +185,16 @@
 		<div>
 			<iframe src="hotWarn.jsp"></iframe>
 			<iframe src="hotWarnDoughnut.jsp"></iframe>
-		</div>
+		</div>-->
+		<script src="../js/eChartjs/echarts.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/data-chart1.js" type="text/javascript" charset="utf-8"></script>	
+		<script src="../js/data-chart2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/data-chart3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/data-chart4.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/data-chart5.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/data-chart6.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/data-chart7.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/data-chart8.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/data-chart9.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

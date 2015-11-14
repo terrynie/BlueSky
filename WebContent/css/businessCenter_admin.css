@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-#body {
+body {
 	font-size: 14px;
 	padding: 0;
 	margin: 0;
@@ -183,4 +183,9 @@ a, a:hover, a:focus {
 }
 .panelContent ul {
 	margin: 20px;
+}
+@media(max-width:1024px) {
+	body:{
+		max-width: 870px;
+	};
 }
