@@ -4,8 +4,8 @@
 <html>
 	<head>
 		<title>Doughnut Chart</title>
-		<script src="../src/Chart.Core.js"></script>
-		<script src="../src/Chart.Doughnut.js"></script>
+		<script src="../js/Chart.Core.js"></script>
+		<script src="../js/Chart.Doughnut.js"></script>
 		<style>
 			body{
 				padding: 0;
