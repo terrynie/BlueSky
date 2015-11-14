@@ -8,14 +8,14 @@ public class Notification {
 	private String content; // 整改内容
 	private String publishDept; // 发布部门
 	private String accordingTo; // 整改依据
-	private boolean hasImgs; // 举报内容是否有图片
-	private boolean hasVedio; // 举报内容是否有视频
-	private boolean hasText; // 举报内容是否有文字
+	private int hasImgs; // 举报内容是否有图片
+	private int hasVedio; // 举报内容是否有视频
+	private int hasText; // 举报内容是否有文字
 	private String imgPath; // 存储图片路径
 	private String videoPath; // 存储视频路径
 	private Date publishDate; // 发布时间
 	private Date deadline; // 整改截止日期
-	private boolean isFeedback; // 是否反馈
+	private int isFeedback; // 是否反馈
 	private String constructionName; // 工地名称
 	private String feedbackId; // 反馈编号
 	
@@ -62,27 +62,27 @@ public class Notification {
 		this.accordingTo = accordingTo;
 	}
 
-	public boolean isHasImgs() {
+	public int isHasImgs() {
 		return hasImgs;
 	}
 
-	public void setHasImgs(boolean hasImgs) {
+	public void setHasImgs(int hasImgs) {
 		this.hasImgs = hasImgs;
 	}
 
-	public boolean isHasVedio() {
+	public int isHasVedio() {
 		return hasVedio;
 	}
 
-	public void setHasVedio(boolean hasVedio) {
+	public void setHasVedio(int hasVedio) {
 		this.hasVedio = hasVedio;
 	}
 
-	public boolean isHasText() {
+	public int isHasText() {
 		return hasText;
 	}
 
-	public void setHasText(boolean hasText) {
+	public void setHasText(int hasText) {
 		this.hasText = hasText;
 	}
 
@@ -120,11 +120,11 @@ public class Notification {
 		this.deadline = deadline;
 	}
 
-	public boolean isFeedback() {
+	public int isFeedback() {
 		return isFeedback;
 	}
 
-	public void setFeedback(boolean isFeedback) {
+	public void setFeedback(int isFeedback) {
 		this.isFeedback = isFeedback;
 	}
 

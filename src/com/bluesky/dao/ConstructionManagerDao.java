@@ -83,12 +83,13 @@ public class ConstructionManagerDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from ConstructionSiteDirector where id = '" + id + "';";
 			ResultSet rs = stmt.executeQuery(sql);
-			while(rs.next()){
-			conManager.setId(rs.getString(1));
-			conManager.setPassword(rs.getString(2));
-			conManager.setName(rs.getString(3));
-			conManager.setTel(rs.getString(4));
-			conManager.setIdCardNo(rs.getString(5));}
+			while (rs.next()) {
+				conManager.setId(rs.getString(1));
+				conManager.setPassword(rs.getString(2));
+				conManager.setName(rs.getString(3));
+				conManager.setTel(rs.getString(4));
+				conManager.setIdCardNo(rs.getString(5));
+			}
 			return conManager;
 		} catch (SQLException e) {
 			e.printStackTrace();

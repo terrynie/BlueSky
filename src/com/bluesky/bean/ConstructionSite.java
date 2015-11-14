@@ -8,7 +8,6 @@ public class ConstructionSite {
 	private String name;//工地名称
 	private String directorId;//负责人编号
 	private double area;//面积
-	private String progress;//工程进度
 	private Date startTime;//开始日期
 	private Date completeTime;//预计完成日期
 	private int totalFloors;//层数
@@ -18,6 +17,16 @@ public class ConstructionSite {
 	private String struct;//结构
 	private double price;//价格
 	private int totalMonitors;//监控数量
+	private String progress;//进度
+	
+
+	public String getProgress() {
+		return progress;
+	}
+
+	public void setProgress(String progress) {
+		this.progress = progress;
+	}
 
 	public String getId() {
 		return id;
@@ -129,14 +138,6 @@ public class ConstructionSite {
 
 	public void setTotalMonitors(int totalMonitors) {
 		this.totalMonitors = totalMonitors;
-	}
-
-	public String getProgress() {
-		return progress;
-	}
-
-	public void setProgress(String progress) {
-		this.progress = progress;
 	}
 
 }

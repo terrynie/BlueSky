@@ -19,8 +19,8 @@ public class FineTicketDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "insert into FineTicket values('" + fineTicket.getId() + "','" + fineTicket.getNotificationId()
 					+ "','" + fineTicket.getConSiteId() + "','" + fineTicket.getCompany() + "',"
-					+ fineTicket.getFineMoney() + ",'" + fineTicket.getStartTime() + "','" + fineTicket.getWho()
-					+ "','" + fineTicket.getFineMoney() + "');";
+					+ fineTicket.getFineMoney() + ",'" + fineTicket.getStartTime() + "','" + fineTicket.getWho() + "','"
+					+ fineTicket.getFineMoney() + "');";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
@@ -84,15 +84,16 @@ public class FineTicketDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from FineTicket where id = '" + id + "';";
 			ResultSet rs = stmt.executeQuery(sql);
-			while(rs.next()){
-			fineTicket.setId(rs.getString(1));
-			fineTicket.setNotificationId(rs.getString(2));
-			fineTicket.setConSiteId(rs.getString(3));
-			fineTicket.setCompany(rs.getString(4));
-			fineTicket.setFineMoney(rs.getDouble(5));
-			fineTicket.setStartTime(rs.getDate(6));
-			fineTicket.setDeadLine(rs.getDate(7));
-			fineTicket.setWho(rs.getString(8));}
+			while (rs.next()) {
+				fineTicket.setId(rs.getString(1));
+				fineTicket.setNotificationId(rs.getString(2));
+				fineTicket.setConSiteId(rs.getString(3));
+				fineTicket.setCompany(rs.getString(4));
+				fineTicket.setFineMoney(rs.getDouble(5));
+				fineTicket.setStartTime(rs.getDate(6));
+				fineTicket.setDeadLine(rs.getDate(7));
+				fineTicket.setWho(rs.getString(8));
+			}
 			return fineTicket;
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -1,9 +1,9 @@
 package com.bluesky.bean;
 
 public class Videos {
-	private String id;
-	private String complaintId;
-	private String videoPath;
+	private String id;//视频编号
+	private String complaintId;//投诉编号
+	private String videoPath;//视频路径
 	public String getId() {
 		return id;
 	}

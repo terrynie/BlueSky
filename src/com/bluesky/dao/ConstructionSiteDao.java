@@ -23,7 +23,7 @@ public class ConstructionSiteDao {
 					+ constructionSite.getTotalFloors() + ",'" + constructionSite.getDistrict() + "',"
 					+ constructionSite.getStreet() + "','" + constructionSite.getCompany() + "','"
 					+ constructionSite.getStruct() + "'," + constructionSite.getPrice() + ",'"
-					+ constructionSite.getTotalMonitors() + "','"+constructionSite.getProgress()+"');";
+					+ constructionSite.getTotalMonitors() + "');";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
@@ -74,7 +74,6 @@ public class ConstructionSiteDao {
 				constructionSite.setStruct(rs.getString(12));
 				constructionSite.setPrice(rs.getDouble(13));
 				constructionSite.setTotalMonitors(rs.getInt(14));
-				constructionSite.setProgress(rs.getString(15));
 				list.add(constructionSite);
 			}
 			return list;
@@ -94,22 +93,22 @@ public class ConstructionSiteDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from ConstructionSite where id = '" + id + "';";
 			ResultSet rs = stmt.executeQuery(sql);
-			while(rs.next()){
-			constructionSite.setId(rs.getString(1));
-			constructionSite.setProjectName(rs.getString(2));
-			constructionSite.setName(rs.getString(3));
-			constructionSite.setDirectorId(rs.getString(4));
-			constructionSite.setArea(rs.getDouble(5));
-			constructionSite.setStartTime(rs.getDate(6));
-			constructionSite.setCompleteTime(rs.getDate(7));
-			constructionSite.setTotalFloors(rs.getInt(8));
-			constructionSite.setDistrict(rs.getString(9));
-			constructionSite.setStreet(rs.getString(10));
-			constructionSite.setCompany(rs.getString(11));
-			constructionSite.setStruct(rs.getString(12));
-			constructionSite.setPrice(rs.getDouble(13));
-			constructionSite.setTotalMonitors(rs.getInt(14));
-			constructionSite.setProgress(rs.getString(15));}
+			while (rs.next()) {
+				constructionSite.setId(rs.getString(1));
+				constructionSite.setProjectName(rs.getString(2));
+				constructionSite.setName(rs.getString(3));
+				constructionSite.setDirectorId(rs.getString(4));
+				constructionSite.setArea(rs.getDouble(5));
+				constructionSite.setStartTime(rs.getDate(6));
+				constructionSite.setCompleteTime(rs.getDate(7));
+				constructionSite.setTotalFloors(rs.getInt(8));
+				constructionSite.setDistrict(rs.getString(9));
+				constructionSite.setStreet(rs.getString(10));
+				constructionSite.setCompany(rs.getString(11));
+				constructionSite.setStruct(rs.getString(12));
+				constructionSite.setPrice(rs.getDouble(13));
+				constructionSite.setTotalMonitors(rs.getInt(14));
+			}
 			return constructionSite;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -117,7 +116,7 @@ public class ConstructionSiteDao {
 		}
 	}
 
-	// query construction sites by given page number
+	// query construction sites by given number
 	public LinkedList<ConstructionSite> queryByPage(int start, int stepLength) {
 		LinkedList<ConstructionSite> list = new LinkedList<ConstructionSite>();
 		if (DBConnection.conn == null) {
@@ -143,7 +142,6 @@ public class ConstructionSiteDao {
 				constructionSite.setStruct(rs.getString(12));
 				constructionSite.setPrice(rs.getDouble(13));
 				constructionSite.setTotalMonitors(rs.getInt(14));
-				constructionSite.setProgress(rs.getString(15));
 				list.add(constructionSite);
 			}
 			return list;
@@ -171,41 +169,39 @@ public class ConstructionSiteDao {
 		}
 		return sum;
 	}
-	
-	//query by district
-		public LinkedList<ConstructionSite> queryByDistrict(String district){
-			LinkedList<ConstructionSite> list = new LinkedList<ConstructionSite>();
-			if (DBConnection.conn == null) {
-				DBConnection.openConn();
-			}
-			ConstructionSite constructionSite = new ConstructionSite();
-			try {
-				Statement stmt = DBConnection.conn.createStatement();
-				String sql = "select * from ConstructionSite where district = '" + district + "';";
-				ResultSet rs = stmt.executeQuery(sql);
-				while (rs.next()) {
-					constructionSite.setId(rs.getString(1));
-					constructionSite.setProjectName(rs.getString(2));
-					constructionSite.setName(rs.getString(3));
-					constructionSite.setDirectorId(rs.getString(4));
-					constructionSite.setArea(rs.getDouble(5));
-					constructionSite.setStartTime(rs.getDate(6));
-					constructionSite.setCompleteTime(rs.getDate(7));
-					constructionSite.setTotalFloors(rs.getInt(8));
-					constructionSite.setDistrict(rs.getString(9));
-					constructionSite.setStreet(rs.getString(10));
-					constructionSite.setCompany(rs.getString(11));
-					constructionSite.setStruct(rs.getString(12));
-					constructionSite.setPrice(rs.getDouble(13));
-					constructionSite.setTotalMonitors(rs.getInt(14));
-					constructionSite.setProgress(rs.getString(15));
-					list.add(constructionSite);
-				}
-				return list;
-			} catch (SQLException e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
 
+	//query by district
+	public LinkedList<ConstructionSite> queryByDistrict(String district){
+		LinkedList<ConstructionSite> list = new LinkedList<ConstructionSite>();
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		ConstructionSite constructionSite = new ConstructionSite();
+		try {
+			Statement stmt = DBConnection.conn.createStatement();
+			String sql = "select * from ConstructionSite where district = '" + district + "';";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				constructionSite.setId(rs.getString(1));
+				constructionSite.setProjectName(rs.getString(2));
+				constructionSite.setName(rs.getString(3));
+				constructionSite.setDirectorId(rs.getString(4));
+				constructionSite.setArea(rs.getDouble(5));
+				constructionSite.setStartTime(rs.getDate(6));
+				constructionSite.setCompleteTime(rs.getDate(7));
+				constructionSite.setTotalFloors(rs.getInt(8));
+				constructionSite.setDistrict(rs.getString(9));
+				constructionSite.setStreet(rs.getString(10));
+				constructionSite.setCompany(rs.getString(11));
+				constructionSite.setStruct(rs.getString(12));
+				constructionSite.setPrice(rs.getDouble(13));
+				constructionSite.setTotalMonitors(rs.getInt(14));
+				list.add(constructionSite);
+			}
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
