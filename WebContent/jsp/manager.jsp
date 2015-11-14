@@ -26,7 +26,6 @@ function changeSelect(){
 	createXMLHttpRequest();
 	var precinct=document.getElementById("manager").value;
 	var url="managerServlet?precinct="+precinct;
-	alter("url"+url);
 	xmlHttp.onreadystatechange=callback;
 	xmlHttp.open("GET", url, true);
 	xmlHttp.send();

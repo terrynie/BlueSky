@@ -22,7 +22,7 @@ public class NotificationDao {
 					+ notification.getAccordingTo() + "','" + notification.getPublishDate() + "','"
 					+ notification.getDeadline() + "','" + notification.isFeedback() + "','"
 					+ notification.getConstructionName() + "','" + notification.getFeedbackId() + "');";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -38,7 +38,7 @@ public class NotificationDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from CorrectionNotification where ID='" + notification.getId() + "'";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

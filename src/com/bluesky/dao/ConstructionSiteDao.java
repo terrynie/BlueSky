@@ -24,7 +24,7 @@ public class ConstructionSiteDao {
 					+ constructionSite.getStreet() + "','" + constructionSite.getCompany() + "','"
 					+ constructionSite.getStruct() + "'," + constructionSite.getPrice() + ",'"
 					+ constructionSite.getTotalMonitors() + "','"+constructionSite.getProgress()+"');";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -40,7 +40,7 @@ public class ConstructionSiteDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from ConstructionSite where id='" + constructionSite.getId() + "';";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

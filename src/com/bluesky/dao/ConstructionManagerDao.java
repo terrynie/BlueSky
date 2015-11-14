@@ -20,7 +20,7 @@ public class ConstructionManagerDao {
 					+ conManager.getPassword() + "','" + conManager.getName() + "','" + conManager.getSex() + "','"
 					+ conManager.getTel() + "','" + conManager.getIdCardNo() + "','" + conManager.getConstructionId()
 					+ "','" + conManager.getCompany() + "';";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -36,7 +36,7 @@ public class ConstructionManagerDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from ConstructionSiteDirector where id='" + conManager.getId() + "';";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

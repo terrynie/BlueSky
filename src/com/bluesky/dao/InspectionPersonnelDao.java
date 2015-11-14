@@ -20,7 +20,7 @@ public class InspectionPersonnelDao {
 					+ inspector.getPassword() + "','" + inspector.getName() + "','" + inspector.getSex() + "','"
 					+ inspector.getSection() + "','" + inspector.getPrecinct() + "'" + inspector.getTel() + "','"
 					+ inspector.getIdCardNo() + "';";
-			stmt.executeQuery(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -36,7 +36,7 @@ public class InspectionPersonnelDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from InspectionPersonnel where id='" + inspector.getId() + "';";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

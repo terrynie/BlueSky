@@ -21,7 +21,7 @@ public class WeChatDao {
 					+ customerComplaint.getWeChatNo() + "','" + customerComplaint.getDistrict() + "','"
 					+ customerComplaint.getStreet() + "','" + customerComplaint.getConstructionId() + "','"
 					+ customerComplaint.getContent() + "';";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -37,7 +37,7 @@ public class WeChatDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from CustomerComplaint where id='" + customerComplaint.getId() + "';";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

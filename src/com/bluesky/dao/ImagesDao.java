@@ -18,7 +18,7 @@ public class ImagesDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "insert into Images values('" + image.getImgId() + "','" + image.getWeChatId() + "','"
 					+ image.getImgPath() + "';";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -34,7 +34,7 @@ public class ImagesDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from Images where ID='" + image.getImgId() + "';";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
