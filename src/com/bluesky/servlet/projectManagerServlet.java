@@ -42,7 +42,7 @@ public class projectManagerServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		
-		String precinct = "二七区";
+		String precinct = "金水区";
 		String str_precinct = request.getParameter("precinct");
 		if (str_precinct != null) {
 			precinct = str_precinct;

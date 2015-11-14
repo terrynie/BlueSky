@@ -30,6 +30,7 @@ public class LoginServlet extends HttpServlet{
         Boolean validationCodeRightOrNot = null;
 
         HttpSession session = req.getSession();
+// 		  //下边功能是验证码
 //        String validation_code = (String)session.getAttribute("validation_code");
        
 //        if(validationCode.equalsIgnoreCase(validation_code)){
@@ -43,13 +44,35 @@ public class LoginServlet extends HttpServlet{
 //      		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
 //            rd.forward(req, resp);
 //        }
-
+        if (username.equals("")||username.equals("用户名")) {
+        	out.println("<!DOCTYPE html>");
+            out.println("<html>");
+      		out.println("<script type='text/javascript'>");
+      		out.println("alert('请输入用户名!')");
+      		out.println("</script></html>");
+      		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+            rd.forward(req, resp);
+		}else if(password.equals("")||password.equals("password")){
+			out.println("<!DOCTYPE html>");
+            out.println("<html>");
+      		out.println("<script type='text/javascript'>");
+      		out.println("alert('请输入密码!')");
+      		out.println("</script></html>");
+      		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+            rd.forward(req, resp);
+		}else if(dept.equals("")||dept.equals("password")){
+			out.println("<!DOCTYPE html>");
+            out.println("<html>");
+      		out.println("<script type='text/javascript'>");
+      		out.println("alert('请选择部门!')");
+      		out.println("</script></html>");
+      		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+            rd.forward(req, resp);
+		}
         System.out.println(dept+"\n"+username+"\n"+password);
         CheckUser mss = new CheckUser();
         
         String result = mss.checkUser(dept,username,password);
-        
-        System.out.println(result);
         
         if (result.equals("hasUserNameAndPasswordCorrect")) {
         	out.println("<!DOCTYPE html>");
@@ -59,6 +82,7 @@ public class LoginServlet extends HttpServlet{
       		out.println("</script></html>");
       		
       		if(dept.equals("Admin")){
+      			
       			//跳转至管理员界面
       			RequestDispatcher rd = req.getRequestDispatcher("");
                 rd.forward(req, resp);
@@ -77,12 +101,7 @@ public class LoginServlet extends HttpServlet{
       		}
             
         } else if (result.equals("hasUserNameButPasswordInCorrect")) {
-        	out.println("<!DOCTYPE html>");
-        	out.println("<html>");
-      		out.println("<script type='text/javascript'>");
-      		out.println("alert('用户名或密码错误，请重新输入!')");
-      		out.println("</script></html>");
-      		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+      		RequestDispatcher rd = req.getRequestDispatcher("error/usernameErrorPage.jsp");
             rd.forward(req, resp);
         } else if (result.equals("hasNoUserName")) {
         	
@@ -90,7 +109,7 @@ public class LoginServlet extends HttpServlet{
       		out.println("<script type='text/javascript'>");
       		out.println("alert('该用户不存在，请输入正确的用户名!')");
       		out.println("</script></html>");
-      		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+      		RequestDispatcher rd = req.getRequestDispatcher("error/usernameErrorPage.jsp");
             rd.forward(req, resp);
         }
       
