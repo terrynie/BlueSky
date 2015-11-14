@@ -55,7 +55,6 @@
 	
     
     <style type="text/css">
-    
     	.cus {
    			background-image: url(images/spritesheet.png);
     		background-repeat: no-repeat;
@@ -125,7 +124,7 @@
                     <div class="arrow"></div>
                     <div class="arrow_border"></div>
                 </div>
-                <a onclick="changeContent('');" id="slider-bar" style="background-color: transparent; border: 0;font-color:#ffffff;">
+                <a onclick="changeContent('jsp/dataCenter.jsp');" id="slider-bar" style="background-color: transparent; border: 0;font-color:#ffffff;">
                    	<i class="cus cus-data"></i>
                     <span>数据中心</span>
                 </a>
@@ -183,7 +182,7 @@
 
        <!--  <div class="container-fluid">
         </div> -->
-        <iframe id="frame" src="" frameborder="0" scrolling="no" width="100%" name="frame"  height="800px"  ></iframe>
+        <iframe id="frame" src="jsp/dataCenter.jsp" frameborder="0" scrolling="no" width="100%" name="frame"  height="800px"  ></iframe>
     </div>
 
 
