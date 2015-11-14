@@ -10,7 +10,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/bootstrap/zui.min.css" />
 <link rel="stylesheet" href="../css/businessCenter_admin.css"type="text/css" />
+
 <script src="../js/jquery.min.js" type="text/javascript"></script>
+
 <script src="../js/SpryAccordion.js" type="text/javascript"></script>
 
 
@@ -91,7 +93,7 @@
 								<div class="row_table"><%=t.getId()%></div>
 								<div class="row_table"><%=t.getSource()%></div>
 								<div class="row_table"><%=t.getContent()%></div>
-								<div class="row_table"><span class="icon  file-movie"></span></div>
+								<div class="row_table"><i class="fa fa-database"></i><i class="icon icon-star"></i><i class="icon  icon-file-movie"></i></div>
 								
 							</div>
 

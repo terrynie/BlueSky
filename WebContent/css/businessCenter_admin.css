@@ -23,22 +23,22 @@ a, a:hover, a:focus {
 
 .input-x input[type="text"] {
 	margin-top: 12px;
+	margin-right:20px;
 }
 
-.input-x span {
-	margin-top: -1px;
-}
 
 #ul_style4 ul, #ul_style4 li {
 	list-style-type: none;
 }
 
 #ul_style4 li {
-	display: inline;
+	display: block;
+	float: left;
 	margin-left: 5%;
 	font-size: 14px;
 	color: #4a90e2;
 	cursor: pointer;
+	height: 53px;
 	font-weight: bold;
 }
 
@@ -58,20 +58,23 @@ a, a:hover, a:focus {
 
 .input-x {
 	float: right;
-	position: relative;
-	top: -85px;
-	right:-20px;
+	width: 25%;;
+	position: absolute;
+	top: 20px;
+	right: 10px;
 }
 
 .input-x input[type="text"] {
-	width: 50%;
+	width:57%;
+	float:left;
 	border-top-left-radius: 100px;
 	border-bottom-left-radius: 100px;
 }
 
 .input-x .btn-sert {
-	margin-left: -4px;
-	margin-top: 1px;
+	position: relative;
+	top: 12px;
+	left:-21px;
 	border-top-right-radius: 100px;
 	border-bottom-right-radius: 100px;
 }
