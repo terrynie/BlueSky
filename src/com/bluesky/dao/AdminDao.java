@@ -18,7 +18,7 @@ public class AdminDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "insert into Admin values('" + admin.getId() + "','" + admin.getPassword() + "','"
 					+ admin.getName() + "','" + admin.getTel() + "','" + admin.getIdCardNo() + "');";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -34,7 +34,7 @@ public class AdminDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from Admin where ID='" + admin.getId() + "';";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

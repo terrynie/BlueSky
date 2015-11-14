@@ -21,7 +21,7 @@ public class FineTicketDao {
 					+ "','" + fineTicket.getConSiteId() + "','" + fineTicket.getCompany() + "',"
 					+ fineTicket.getFineMoney() + ",'" + fineTicket.getStartTime() + "','" + fineTicket.getWho()
 					+ "','" + fineTicket.getFineMoney() + "');";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -37,7 +37,7 @@ public class FineTicketDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from FineTicket where ID='" + fineTicket.getId() + "';";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();

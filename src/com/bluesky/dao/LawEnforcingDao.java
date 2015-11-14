@@ -18,7 +18,7 @@ public class LawEnforcingDao {
 			String sql = "insert into LawEnforcing values('" + lawEnforcing.getId() + "','" + lawEnforcing.getPassword()
 					+ "','" + lawEnforcing.getName() + "','" + lawEnforcing.getTel() + "','"
 					+ lawEnforcing.getIdCardNo() + "');";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -33,7 +33,7 @@ public class LawEnforcingDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from LawEnforcing where ID='" + lawEnforcing.getId() + "';";
-			stmt.execute(sql);
+			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
