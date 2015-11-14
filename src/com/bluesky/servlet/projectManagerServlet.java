@@ -47,8 +47,8 @@ public class projectManagerServlet extends HttpServlet {
 		if (str_precinct != null) {
 			precinct = str_precinct;
 		}
-		//System.out.println(precinct);
-		//System.out.println(str_precinct);
+		System.out.println(precinct);
+		System.out.println(str_precinct);
 		
 		QueryPrecinctInConDir queryPrecinctInConDir=new QueryPrecinctInConDir();
 		ConSite_Director conSite_Director=new ConSite_Director();
@@ -61,16 +61,16 @@ public class projectManagerServlet extends HttpServlet {
 		if(str_precinct ==null){
 			request.getRequestDispatcher("projectManager.jsp").forward(request, response);
 		}else {
-			out.println("<table>");
+			out.println("<table width="+100+"%"+">");
 			for(Con_Dir c : list_conDirs){
 				out.println("<tr>");
-				out.println("<td>");
+				out.println("<td width="+30+"%"+">");
 				out.println(c.getConName());
 				out.println("</td>");
-				out.println("<td>");
+				out.println("<td width="+30+"%"+">");
 				out.println(c.getDirectorName());
 				out.println("</td>");
-				out.println("<td>");
+				out.println("<td width="+30+"%"+">");
 				out.println(c.getProgress());
 				out.println("</td>");
 				out.println("</tr>");

@@ -12,7 +12,7 @@
 <body>
 <div class="content" >
 	<div class="login-box">
-	<form action="jsp/loginservlet">
+	<form action="loginservlet">
 		<div class="login-content">
 			<div class="login">
 			<span>用户名</span>

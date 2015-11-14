@@ -148,13 +148,13 @@
                 </a>
             </li>
             <li>
-                <a onclick="changeContent('');">
+                <a onclick="changeContent('jsp/projectManagerServlet');">
                     <i class="cus cus-gongdi"></i>
                     <span>工地管理</span>
                 </a>
             </li>
             <li>
-                <a onclick="changeContent('');">
+                <a onclick="changeContent('jsp/managerServlet');">
                     <i class="cus cus-renyuan"></i>
                     <span>人员管理</span>
                 </a>
