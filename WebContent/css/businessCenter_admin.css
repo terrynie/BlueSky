@@ -149,3 +149,38 @@ a, a:hover, a:focus {
 	color: : #666;
 	font-weight: bold;
 }
+.row_2 .row_table:last-child {
+	margin-top: 5px;
+	
+}
+.row_2 .row_table:last-child i{
+	margin: 2px;
+	display: block;
+	width: 17px;
+	height: 17px;
+	float: left;
+	color: #4A90E2;
+}
+.right_item{
+	float: right;
+	width: 50px;
+	color: #4A90E2;
+	margin-top: 20px;
+	margin-right: 10%;
+}
+.right_item i{
+	display: block;
+	width: 32px;
+	height: 32px;
+	font-size: 25px;
+	font-weight: normal;
+}
+.li_title span{
+	background-color: #CCCCCC;
+}
+.panelContent ul li{
+	list-style: none;
+}
+.panelContent ul {
+	margin: 20px;
+}
