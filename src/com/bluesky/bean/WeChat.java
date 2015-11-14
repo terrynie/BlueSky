@@ -7,20 +7,31 @@ public class WeChat {
 	private String street;// 街道
 	private String constructionId;// 工地编号
 	private String content;// 投诉内容
+	private boolean hasImg;//是否有图片
+	private boolean hasVideo;//是否有视频
 
 	public WeChat() {
 	}
 
-	public WeChat(String id, String weChatNo, String province, String city, String district, String street,
-			String constructionId, String content) {
-		super();
-		this.id = id;
-		this.weChatNo = weChatNo;
-		this.district = district;
-		this.street = street;
-		this.constructionId = constructionId;
-		this.content = content;
+	public boolean isHasImg() {
+		return hasImg;
 	}
+
+	public void setHasImg(boolean hasImg) {
+		this.hasImg = hasImg;
+	}
+
+	public boolean isHasVideo() {
+		return hasVideo;
+	}
+
+
+
+	public void setHasVideo(boolean hasVideo) {
+		this.hasVideo = hasVideo;
+	}
+
+
 
 	public String getId() {
 		return id;

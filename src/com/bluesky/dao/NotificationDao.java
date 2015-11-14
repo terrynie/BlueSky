@@ -19,9 +19,11 @@ public class NotificationDao {
 			String sql = "insert into CorrectionNotification values('" + notification.getId() + "','"
 					+ notification.getTitle() + "','" + notification.getContent() + "','"
 					+ notification.getPublishDept() + "','" + notification.getAccordingTo() + "','"
-					+ notification.getAccordingTo() + "','" + notification.getPublishDate() + "','"
-					+ notification.getDeadline() + "','" + notification.isFeedback() + "','"
-					+ notification.getConstructionName() + "','" + notification.getFeedbackId() + "');";
+					+ notification.isHasImgs() + "','" + notification.isHasVedio() + "','" + notification.isHasText()
+					+ "','" + notification.getImgPath() + "','" + notification.getVideoPath() + "','"
+					+ notification.getPublishDate() + "','" + notification.getDeadline() + "','"
+					+ notification.isFeedback() + "','" + notification.getConstructionName() + "','"
+					+ notification.getFeedbackId() + "');";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
@@ -63,14 +65,16 @@ public class NotificationDao {
 				notification.setContent(rs.getString(3));
 				notification.setPublishDept(rs.getString(4));
 				notification.setAccordingTo(rs.getString(5));
-				notification.setHasPhotos(rs.getBoolean(6));
+				notification.setHasImgs(rs.getBoolean(6));
 				notification.setHasVedio(rs.getBoolean(7));
 				notification.setHasText(rs.getBoolean(8));
-				notification.setPublishDate(rs.getDate(9));
-				notification.setDeadline(rs.getTime(10));
-				notification.setFeedback(rs.getBoolean(11));
-				notification.setConstructionName(rs.getString(12));
-				notification.setFeedbackId(rs.getString(13));
+				notification.setImgPath(rs.getString(9));
+				notification.setVideoPath(rs.getString(10));
+				notification.setPublishDate(rs.getDate(11));
+				notification.setDeadline(rs.getTime(12));
+				notification.setFeedback(rs.getBoolean(13));
+				notification.setConstructionName(rs.getString(14));
+				notification.setFeedbackId(rs.getString(15));
 				list.add(notification);
 			}
 			return list;
@@ -90,20 +94,21 @@ public class NotificationDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from CorrectionNotification where id = '" + id + "';";
 			ResultSet rs = stmt.executeQuery(sql);
-			while(rs.next()){
-			notification.setId(rs.getString(1));
-			notification.setTitle(rs.getString(2));
-			notification.setContent(rs.getString(3));
-			notification.setPublishDept(rs.getString(4));
-			notification.setAccordingTo(rs.getString(5));
-			notification.setHasPhotos(rs.getBoolean(6));
-			notification.setHasVedio(rs.getBoolean(7));
-			notification.setHasText(rs.getBoolean(8));
-			notification.setPublishDate(rs.getDate(9));
-			notification.setDeadline(rs.getTime(10));
-			notification.setFeedback(rs.getBoolean(11));
-			notification.setConstructionName(rs.getString(12));
-			notification.setFeedbackId(rs.getString(13));}
+			while (rs.next()) {
+				notification.setId(rs.getString(1));
+				notification.setTitle(rs.getString(2));
+				notification.setContent(rs.getString(3));
+				notification.setPublishDept(rs.getString(4));
+				notification.setAccordingTo(rs.getString(5));
+				notification.setHasImgs(rs.getBoolean(6));
+				notification.setHasVedio(rs.getBoolean(7));
+				notification.setHasText(rs.getBoolean(8));
+				notification.setPublishDate(rs.getDate(9));
+				notification.setDeadline(rs.getTime(10));
+				notification.setFeedback(rs.getBoolean(11));
+				notification.setConstructionName(rs.getString(12));
+				notification.setFeedbackId(rs.getString(13));
+			}
 			return notification;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -128,7 +133,7 @@ public class NotificationDao {
 				notification.setContent(rs.getString(3));
 				notification.setPublishDept(rs.getString(4));
 				notification.setAccordingTo(rs.getString(5));
-				notification.setHasPhotos(rs.getBoolean(6));
+				notification.setHasImgs(rs.getBoolean(6));
 				notification.setHasVedio(rs.getBoolean(7));
 				notification.setHasText(rs.getBoolean(8));
 				notification.setPublishDate(rs.getDate(9));

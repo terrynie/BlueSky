@@ -1,6 +1,5 @@
 package com.bluesky.bean;
 
-import java.lang.reflect.Array;
 import java.util.Date;
 
 public class Notification {
@@ -9,12 +8,11 @@ public class Notification {
 	private String content; // 整改内容
 	private String publishDept; // 发布部门
 	private String accordingTo; // 整改依据
-	private boolean hasPhotos; // 举报内容是否有图片
+	private boolean hasImgs; // 举报内容是否有图片
 	private boolean hasVedio; // 举报内容是否有视频
 	private boolean hasText; // 举报内容是否有文字
-	private Array photos; // 存储图片
-	private Array vedio; // 存储视频
-	private Array text; // 存储文字
+	private String imgPath; // 存储图片路径
+	private String videoPath; // 存储视频路径
 	private Date publishDate; // 发布时间
 	private Date deadline; // 整改截止日期
 	private boolean isFeedback; // 是否反馈
@@ -64,12 +62,12 @@ public class Notification {
 		this.accordingTo = accordingTo;
 	}
 
-	public boolean isHasPhotos() {
-		return hasPhotos;
+	public boolean isHasImgs() {
+		return hasImgs;
 	}
 
-	public void setHasPhotos(boolean hasPhotos) {
-		this.hasPhotos = hasPhotos;
+	public void setHasImgs(boolean hasImgs) {
+		this.hasImgs = hasImgs;
 	}
 
 	public boolean isHasVedio() {
@@ -88,28 +86,22 @@ public class Notification {
 		this.hasText = hasText;
 	}
 
-	public Array getPhotos() {
-		return photos;
+	
+	
+	public String getImgPath() {
+		return imgPath;
 	}
 
-	public void setPhotos(Array photos) {
-		this.photos = photos;
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
 	}
 
-	public Array getVedio() {
-		return vedio;
+	public String getVideoPath() {
+		return videoPath;
 	}
 
-	public void setVedio(Array vedio) {
-		this.vedio = vedio;
-	}
-
-	public Array getText() {
-		return text;
-	}
-
-	public void setText(Array text) {
-		this.text = text;
+	public void setVideoPath(String videoPath) {
+		this.videoPath = videoPath;
 	}
 
 	public Date getPublishDate() {

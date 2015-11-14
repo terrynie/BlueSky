@@ -5,19 +5,19 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 
-import com.bluesky.bean.Images;
+import com.bluesky.bean.Videos;
 import com.bluesky.database.DBConnection;
 
-public class ImagesDao {
-	// add an image
-	public boolean addImage(Images image) {
+public class VideosDao {
+	// add a video
+	public boolean addImage(Videos video) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "insert into Images values('" + image.getImgId() + "','" + image.getComplaintId() + "','"
-					+ image.getImgPath() + "';";
+			String sql = "insert into Videos values('" + video.getId() + "','" + video.getComplaintId() + "','"
+					+ video.getVideoPath() + "';";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
@@ -26,14 +26,14 @@ public class ImagesDao {
 		}
 	}
 
-	// delete an image
-	public boolean delImages(Images image) {
+	// delete a video
+	public boolean delVideos(Videos video) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "delete from Images where ID='" + image.getImgId() + "';";
+			String sql = "delete from Videos where ID='" + video.getId() + "';";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
@@ -42,22 +42,22 @@ public class ImagesDao {
 		}
 	}
 
-	// query all images
-	public LinkedList<Images> queryImagess() {
-		LinkedList<Images> list = new LinkedList<Images>();
+	// query all videos
+	public LinkedList<Videos> queryVideoss() {
+		LinkedList<Videos> list = new LinkedList<Videos>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from Images";
+			String sql = "select * from Videos";
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
-				Images image = new Images();
-				image.setImgId(rs.getString(1));
-				image.setComplaintId(rs.getString(2));
-				image.setImgPath(rs.getString(3));
-				list.add(image);
+				Videos video = new Videos();
+				video.setId(rs.getString(1));
+				video.setComplaintId(rs.getString(2));
+				video.setVideoPath(rs.getString(3));
+				list.add(video);
 			}
 			return list;
 		} catch (SQLException e) {
@@ -66,44 +66,44 @@ public class ImagesDao {
 		}
 	}
 
-	// query one image
-	public Images queryOne(String id) {
+	// query one video
+	public Videos queryOne(String id) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
-		Images image = new Images();
+		Videos video = new Videos();
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from Images where id = '" + id + "';";
+			String sql = "select * from Videos where id = '" + id + "';";
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
-				image.setImgId(rs.getString(1));
-				image.setComplaintId(rs.getString(2));
-				image.setImgPath(rs.getString(3));
+				video.setId(rs.getString(1));
+				video.setComplaintId(rs.getString(2));
+				video.setVideoPath(rs.getString(3));
 			}
-			return image;
+			return video;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
 
-	// query image counts by given number
-	public LinkedList<Images> queryByPage(int start, int stepLength) {
-		LinkedList<Images> list = new LinkedList<Images>();
+	// query video counts by given number
+	public LinkedList<Videos> queryByPage(int start, int stepLength) {
+		LinkedList<Videos> list = new LinkedList<Videos>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from Images limit " + start + "," + stepLength + ";";
+			String sql = "select * from Videos limit " + start + "," + stepLength + ";";
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
-				Images image = new Images();
-				image.setImgId(rs.getString(1));
-				image.setComplaintId(rs.getString(2));
-				image.setImgPath(rs.getString(3));
-				list.add(image);
+				Videos video = new Videos();
+				video.setId(rs.getString(1));
+				video.setComplaintId(rs.getString(2));
+				video.setVideoPath(rs.getString(3));
+				list.add(video);
 			}
 			return list;
 		} catch (SQLException e) {
@@ -112,15 +112,15 @@ public class ImagesDao {
 		}
 	}
 
-	// query numbers of images
-	public int qureyNumOfImages() {
+	// query numbers of videos
+	public int qureyNumOfVideos() {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		int sum = 0;
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select count(*) from Images";
+			String sql = "select count(*) from Videos";
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				sum = rs.getInt(1);
@@ -130,5 +130,4 @@ public class ImagesDao {
 		}
 		return sum;
 	}
-
 }

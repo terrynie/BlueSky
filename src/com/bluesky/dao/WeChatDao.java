@@ -20,7 +20,7 @@ public class WeChatDao {
 			String sql = "insert into CustomerComplaint values('" + customerComplaint.getId() + "','"
 					+ customerComplaint.getWeChatNo() + "','" + customerComplaint.getDistrict() + "','"
 					+ customerComplaint.getStreet() + "','" + customerComplaint.getConstructionId() + "','"
-					+ customerComplaint.getContent() + "';";
+					+ customerComplaint.getContent() + "','"+customerComplaint.isHasImg()+"','"+customerComplaint.isHasVideo()+"';";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
@@ -63,6 +63,8 @@ public class WeChatDao {
 				customerComplaint.setStreet(rs.getString(4));
 				customerComplaint.setConstructionId(rs.getString(5));
 				customerComplaint.setContent(rs.getString(6));
+				customerComplaint.setHasImg(rs.getBoolean(7));
+				customerComplaint.setHasVideo(rs.getBoolean(8));
 				list.add(customerComplaint);
 			}
 			return list;
@@ -82,13 +84,16 @@ public class WeChatDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from Admin where id = '" + id + "';";
 			ResultSet rs = stmt.executeQuery(sql);
-			while(rs.next()){
-			customerComplaint.setId(rs.getString(1));
-			customerComplaint.setWeChatNo(rs.getString(2));
-			customerComplaint.setDistrict(rs.getString(3));
-			customerComplaint.setDistrict(rs.getString(4));
-			customerComplaint.setConstructionId(rs.getString(5));
-			customerComplaint.setContent(rs.getString(6));}
+			while (rs.next()) {
+				customerComplaint.setId(rs.getString(1));
+				customerComplaint.setWeChatNo(rs.getString(2));
+				customerComplaint.setDistrict(rs.getString(3));
+				customerComplaint.setDistrict(rs.getString(4));
+				customerComplaint.setConstructionId(rs.getString(5));
+				customerComplaint.setContent(rs.getString(6));
+				customerComplaint.setHasImg(rs.getBoolean(7));
+				customerComplaint.setHasVideo(rs.getBoolean(8));
+			}
 			return customerComplaint;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -114,6 +119,8 @@ public class WeChatDao {
 				customerComplaint.setStreet(rs.getString(4));
 				customerComplaint.setConstructionId(rs.getString(5));
 				customerComplaint.setContent(rs.getString(6));
+				customerComplaint.setHasImg(rs.getBoolean(7));
+				customerComplaint.setHasVideo(rs.getBoolean(8));
 				list.add(customerComplaint);
 			}
 			return list;
