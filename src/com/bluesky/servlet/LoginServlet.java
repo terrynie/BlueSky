@@ -1,14 +1,11 @@
 package com.bluesky.servlet;
-import com.bluesky.dao.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
 import com.bluesky.tools.*;
 
 public class LoginServlet extends HttpServlet{
@@ -22,12 +19,12 @@ public class LoginServlet extends HttpServlet{
     	req.setCharacterEncoding("utf-8");
   		resp.setCharacterEncoding("utf-8");
     	resp.setContentType("text/html;charset=utf-8");
-    	PrintWriter out = resp.getWriter();
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-//        String validationCode = req.getParameter("validationCode");
         String dept = req.getParameter("dept");
-        Boolean validationCodeRightOrNot = null;
+        
+//      String validationCode = req.getParameter("validationCode");
+//        Boolean validationCodeRightOrNot = null;
 
         HttpSession session = req.getSession();
 // 		  //下边功能是验证码
@@ -44,45 +41,36 @@ public class LoginServlet extends HttpServlet{
 //      		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
 //            rd.forward(req, resp);
 //        }
+        
+        
+        //验证是否填写表单
         if (username.equals("")||username.equals("用户名")) {
-        	out.println("<!DOCTYPE html>");
-            out.println("<html>");
-      		out.println("<script type='text/javascript'>");
-      		out.println("alert('请输入用户名!')");
-      		out.println("</script></html>");
+        	//如需提示，只需将请求转发至“error/noUser.jsp”即可
       		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
             rd.forward(req, resp);
 		}else if(password.equals("")||password.equals("password")){
-			out.println("<!DOCTYPE html>");
-            out.println("<html>");
-      		out.println("<script type='text/javascript'>");
-      		out.println("alert('请输入密码!')");
-      		out.println("</script></html>");
+			//如需提示，只需将请求转发至“error/noPasswd.jsp”即可
       		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
             rd.forward(req, resp);
-		}else if(dept.equals("")||dept.equals("password")){
-			out.println("<!DOCTYPE html>");
-            out.println("<html>");
-      		out.println("<script type='text/javascript'>");
-      		out.println("alert('请选择部门!')");
-      		out.println("</script></html>");
+		}else if(dept.equals("")){
+			//如需提示，只需将请求转发至“error/noDept.jsp”即可
       		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
             rd.forward(req, resp);
 		}
-        System.out.println(dept+"\n"+username+"\n"+password);
+        //验证账号信息
         CheckUser mss = new CheckUser();
         
         String result = mss.checkUser(dept,username,password);
         
-        if (result.equals("hasUserNameAndPasswordCorrect")) {
-        	out.println("<!DOCTYPE html>");
-            out.println("<html>");
-      		out.println("<script type='text/javascript'>");
-      		out.println("alert('登录成功!')");
-      		out.println("</script></html>");
-      		
+        //没有从数据库获取到信息
+        if(result==null){
+        	RequestDispatcher rd = req.getRequestDispatcher("error/usernameErrorPage.jsp");
+            rd.forward(req, resp);
+        }
+        //用户名和密码均正确
+        else if (result.equals("hasUserNameAndPasswordCorrect")) {
+        	session.setAttribute("dept", dept);
       		if(dept.equals("Admin")){
-      			
       			//跳转至管理员界面
       			RequestDispatcher rd = req.getRequestDispatcher("");
                 rd.forward(req, resp);
@@ -104,11 +92,6 @@ public class LoginServlet extends HttpServlet{
       		RequestDispatcher rd = req.getRequestDispatcher("error/usernameErrorPage.jsp");
             rd.forward(req, resp);
         } else if (result.equals("hasNoUserName")) {
-        	
-        	out.println("<html>");
-      		out.println("<script type='text/javascript'>");
-      		out.println("alert('该用户不存在，请输入正确的用户名!')");
-      		out.println("</script></html>");
       		RequestDispatcher rd = req.getRequestDispatcher("error/usernameErrorPage.jsp");
             rd.forward(req, resp);
         }

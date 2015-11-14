@@ -7,6 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import com.bluesky.bean.TaskList;
 import com.bluesky.dao.TaskListDao;
@@ -22,6 +24,8 @@ public class createTaskList extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+	
+	
     public createTaskList() {
         super();
         // TODO Auto-generated constructor stub
@@ -39,6 +43,7 @@ public class createTaskList extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		// TODO Auto-generated method stub
 		response.setHeader("Pragma", "No-cache");
 		response.setHeader("Cache-Control", "no-cache");
@@ -59,6 +64,7 @@ public class createTaskList extends HttpServlet {
 		}
 		taskList.setId(id);
 		taskList.setContent(content);
+		taskList.setSource(session.getAttribute("dept").toString().trim());
 		taskList.setHasContent(1);
 		taskList.setDone(0);
 		if(src==null){

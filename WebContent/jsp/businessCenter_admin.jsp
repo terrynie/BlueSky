@@ -380,7 +380,7 @@
 					</form>
 				</center>
 			</div>
-			<div id="list_data4" class="none">创建业务</div>
+			<div id="list_data4" class="none"><iframe src="createTaskList.jsp" width="100%" height="100%"></iframe></div>
 		</div>
 	</div>
 	<%
@@ -671,7 +671,7 @@
 					</form>
 				</center>
 			</div>
-			<div id="list_data4" class="none">创建业务</div>
+			<div id="list_data4" class="none"><iframe src="createTaskList.jsp" width="100%" height="100%"></iframe></div>
 		</div>
 	<%
 		}else if(initflag==3){
@@ -962,7 +962,7 @@
 					</form>
 				</center>
 			</div>
-			<div id="list_data4" class="none">创建业务</div>
+			<div id="list_data4" class="none" height=""><iframe src="createTaskList.jsp" width="100%" height="100%"></iframe></div>
 		</div>
 	</div>
 	<%
@@ -1255,7 +1255,7 @@
 					</form>
 				</center>
 			</div>
-			<div id="list_data4" class="none">创建业务</div>
+			<div id="list_data4" class="none"><iframe src="createTaskList.jsp" width="100%" height="100%"></iframe></div>
 		</div>
 	</div>
 	<%
