@@ -9,7 +9,7 @@ import com.bluesky.bean.ConstructionSite;
 import com.bluesky.database.DBConnection;
 
 public class ConstructionSiteDao {
-	// add an construction site
+	// add a construction site
 	public boolean addConSite(ConstructionSite constructionSite) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
@@ -170,8 +170,8 @@ public class ConstructionSiteDao {
 		return sum;
 	}
 
-	//query by district
-	public LinkedList<ConstructionSite> queryByDistrict(String district){
+	// query by district
+	public LinkedList<ConstructionSite> queryByDistrict(String district) {
 		LinkedList<ConstructionSite> list = new LinkedList<ConstructionSite>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
@@ -203,5 +203,62 @@ public class ConstructionSiteDao {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	// query construction site according to street
+	public LinkedList<String> queryConSiteNameByStreet(String street) {
+		LinkedList<String> list = new LinkedList<String>();
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		try {
+			Statement stmt = DBConnection.conn.createStatement();
+			String sql = "select distinct name from ConstructionSite where streets='" + street + "';";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				list.add(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	// query streets according to district
+	public LinkedList<String> queryStreetByDistrict(String district) {
+		LinkedList<String> list = new LinkedList<String>();
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		try {
+			Statement stmt = DBConnection.conn.createStatement();
+			String sql = "select distinct streets from ConstructionSite where districts='" + district + "';";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				list.add(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	//query distinct districts from construction site table
+	public LinkedList<String> queryDistricts(){
+		LinkedList<String> list = new LinkedList<String>();
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		try {
+			Statement stmt = DBConnection.conn.createStatement();
+			String sql = "select distinct districts from ConstructionSite";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				list.add(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 }

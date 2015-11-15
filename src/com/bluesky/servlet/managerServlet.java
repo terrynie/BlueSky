@@ -9,13 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.bluesky.bean.ConstructionSite;
 import com.bluesky.bean.InspectionPersonnel;
-import com.bluesky.dao.ConstructionSiteDao;
 import com.bluesky.dao.InspectionPersonnelDao;
-import com.bluesky.tools.QueryByPrecincts;
-import com.bluesky.tools.QueryPrecincts;
 
 
 /**
@@ -50,11 +45,14 @@ public class managerServlet extends HttpServlet {
 		}
 		//System.out.println(precinct);
 		//System.out.println(str_precinct);
-		QueryPrecincts queryPrecincts=new QueryPrecincts();
-		QueryByPrecincts queryByPrecincts=new QueryByPrecincts();
-		LinkedList<String> precincts=queryPrecincts.queryPrecinct();
+		
+		
+		
+		InspectionPersonnelDao inspectionPersonnel = new InspectionPersonnelDao();
+	
+		LinkedList<String> precincts=inspectionPersonnel.queryPrecinct();
 		System.out.println(precincts+"--------------------");
-		LinkedList<InspectionPersonnel> list_inspectionPersonnels=queryByPrecincts.queryInspByPrecinct(precinct);
+		LinkedList<InspectionPersonnel> list_inspectionPersonnels=inspectionPersonnel.queryInspByPrecinct(precinct);
 		request.setAttribute("precincts", precincts);
 		request.setAttribute("list_inspectionPersonnels", list_inspectionPersonnels);
 		//request.getRequestDispatcher("manager.jsp").forward(request, response);

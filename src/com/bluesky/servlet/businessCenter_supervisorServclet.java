@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bluesky.bean.Notification;
 import com.bluesky.bean.TaskList;
-import com.bluesky.bean.WeChat;
 import com.bluesky.dao.NotificationDao;
 import com.bluesky.dao.TaskListDao;
 

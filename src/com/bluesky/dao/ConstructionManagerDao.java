@@ -19,7 +19,7 @@ public class ConstructionManagerDao {
 			String sql = "insert into ConstructionSiteDirector values('" + conManager.getId() + "','"
 					+ conManager.getPassword() + "','" + conManager.getName() + "','" + conManager.getSex() + "','"
 					+ conManager.getTel() + "','" + conManager.getIdCardNo() + "','" + conManager.getConstructionId()
-					+ "','" + conManager.getCompany() + "';";
+					+ "','" + conManager.getCompany() + "');";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
@@ -145,4 +145,22 @@ public class ConstructionManagerDao {
 		return sum;
 	}
 
+	//query distinct precinct from table--ConstructionSiteDirector
+		public LinkedList<String> queryPrecinctInConDir() {
+			LinkedList<String> list = new LinkedList<String>();
+			if (DBConnection.conn == null) {
+				DBConnection.openConn();
+			}
+			try {
+				Statement stmt = DBConnection.conn.createStatement();
+				String sql = "select distinct ConstructionSite.Districts from ConstructionSite,ConstructionSiteDirector where ConstructionSite.ID = ConstructionSiteDirector.ConstructionSiteID  ";
+				ResultSet rs = stmt.executeQuery(sql);
+				while(rs.next()){
+					list.add(rs.getString(1));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return list;
+		}
 }

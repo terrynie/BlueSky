@@ -6,13 +6,9 @@ import java.util.LinkedList;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import sun.security.action.GetBooleanAction;
-
 import com.bluesky.bean.Notification;
 import com.bluesky.bean.TaskList;
 import com.bluesky.bean.WeChat;

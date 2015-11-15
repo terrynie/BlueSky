@@ -17,7 +17,7 @@ public class ImagesDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "insert into Images values('" + image.getImgId() + "','" + image.getComplaintId() + "','"
-					+ image.getImgPath() + "';";
+					+ image.getImgPath() + "');";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {

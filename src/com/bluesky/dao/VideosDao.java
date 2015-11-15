@@ -17,7 +17,7 @@ public class VideosDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "insert into Videos values('" + video.getId() + "','" + video.getComplaintId() + "','"
-					+ video.getVideoPath() + "';";
+					+ video.getVideoPath() + "');";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
