@@ -19,7 +19,7 @@ public class ConstructionManagerDao {
 			String sql = "insert into ConstructionSiteDirector values('" + conManager.getId() + "','"
 					+ conManager.getPassword() + "','" + conManager.getName() + "','" + conManager.getSex() + "','"
 					+ conManager.getTel() + "','" + conManager.getIdCardNo() + "','" + conManager.getConstructionId()
-					+ "','" + conManager.getCompany() + "';";
+					+ "','" + conManager.getCompany() + "');";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {

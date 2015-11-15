@@ -20,7 +20,7 @@ public class WeChatDao {
 			String sql = "insert into CustomerComplaint values('" + customerComplaint.getId() + "','"
 					+ customerComplaint.getWeChatNo() + "','" + customerComplaint.getDistrict() + "','"
 					+ customerComplaint.getStreet() + "','" + customerComplaint.getConstructionId() + "','"
-					+ customerComplaint.getContent() + "','"+customerComplaint.isHasImg()+"','"+customerComplaint.isHasVideo()+"';";
+					+ customerComplaint.getContent() + "','"+customerComplaint.isHasImg()+"','"+customerComplaint.isHasVideo()+"');";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {

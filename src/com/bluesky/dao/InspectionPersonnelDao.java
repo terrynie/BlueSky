@@ -19,7 +19,7 @@ public class InspectionPersonnelDao {
 			String sql = "insert into InspectionPersonnel values('" + inspector.getId() + "','"
 					+ inspector.getPassword() + "','" + inspector.getName() + "','" + inspector.getSex() + "','"
 					+ inspector.getSection() + "','" + inspector.getPrecinct() + "'" + inspector.getTel() + "','"
-					+ inspector.getIdCardNo() + "';";
+					+ inspector.getIdCardNo() + "');";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {

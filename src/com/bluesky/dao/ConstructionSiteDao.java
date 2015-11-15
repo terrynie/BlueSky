@@ -170,8 +170,8 @@ public class ConstructionSiteDao {
 		return sum;
 	}
 
-	//query by district
-	public LinkedList<ConstructionSite> queryByDistrict(String district){
+	// query by district
+	public LinkedList<ConstructionSite> queryByDistrict(String district) {
 		LinkedList<ConstructionSite> list = new LinkedList<ConstructionSite>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
@@ -204,4 +204,43 @@ public class ConstructionSiteDao {
 			return null;
 		}
 	}
+
+	// query construction site according to street
+	public LinkedList<String> queryConSiteNameByStreet(String street) {
+		LinkedList<String> list = new LinkedList<String>();
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		try {
+			Statement stmt = DBConnection.conn.createStatement();
+			String sql = "select distinct name from ConstructionSite where streets='" + street + "';";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				list.add(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	// query streets according to district
+	public LinkedList<String> queryStreetByDistrict(String district) {
+		LinkedList<String> list = new LinkedList<String>();
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		try {
+			Statement stmt = DBConnection.conn.createStatement();
+			String sql = "select distinct streets from ConstructionSite where districts='" + district + "';";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				list.add(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
 }
