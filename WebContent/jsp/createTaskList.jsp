@@ -30,7 +30,6 @@ function showImage(imgFile){
 </script>
 </head>
 <body>
-	<h1>创建业务</h1>
 	<%
 		Date date=new Date();
 		long d=date.getTime();

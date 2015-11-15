@@ -23,8 +23,7 @@ public class ConstructionSiteDao {
 					+ constructionSite.getTotalFloors() + "','" + constructionSite.getDistrict() + "','"
 					+ constructionSite.getStreet() + "','" + constructionSite.getCompany() + "','"
 					+ constructionSite.getStruct() + "','" + constructionSite.getPrice() + "','"
-					+ constructionSite.getTotalMonitors() + "','" + constructionSite.getProgress() + "','"
-					+ constructionSite.getLongitude() + "','" + constructionSite.getLatitude() + "');";
+					+ constructionSite.getTotalMonitors() + "','"+constructionSite.getProgress()+"');";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
@@ -109,9 +108,6 @@ public class ConstructionSiteDao {
 				constructionSite.setStruct(rs.getString(12));
 				constructionSite.setPrice(rs.getDouble(13));
 				constructionSite.setTotalMonitors(rs.getInt(14));
-				constructionSite.setProgress(rs.getString(15));
-				constructionSite.setLongitude(rs.getDouble(16));
-				constructionSite.setLatitude(rs.getDouble(17));
 			}
 			return constructionSite;
 		} catch (SQLException e) {
@@ -146,9 +142,6 @@ public class ConstructionSiteDao {
 				constructionSite.setStruct(rs.getString(12));
 				constructionSite.setPrice(rs.getDouble(13));
 				constructionSite.setTotalMonitors(rs.getInt(14));
-				constructionSite.setProgress(rs.getString(15));
-				constructionSite.setLongitude(rs.getDouble(16));
-				constructionSite.setLatitude(rs.getDouble(17));
 				list.add(constructionSite);
 			}
 			return list;
@@ -203,9 +196,6 @@ public class ConstructionSiteDao {
 				constructionSite.setStruct(rs.getString(12));
 				constructionSite.setPrice(rs.getDouble(13));
 				constructionSite.setTotalMonitors(rs.getInt(14));
-				constructionSite.setProgress(rs.getString(15));
-				constructionSite.setLongitude(rs.getDouble(16));
-				constructionSite.setLatitude(rs.getDouble(17));
 				list.add(constructionSite);
 			}
 			return list;
@@ -252,9 +242,9 @@ public class ConstructionSiteDao {
 		}
 		return list;
 	}
-
-	// query distinct districts from construction site table
-	public LinkedList<String> queryDistricts() {
+	
+	//query distinct districts from construction site table
+	public LinkedList<String> queryDistricts(){
 		LinkedList<String> list = new LinkedList<String>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
