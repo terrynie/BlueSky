@@ -18,12 +18,13 @@ public class ConstructionSiteDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "insert into ConstructionSite values('" + constructionSite.getId() + "','"
 					+ constructionSite.getProjectName() + "','" + constructionSite.getName() + "','"
-					+ constructionSite.getDirectorId() + "'," + constructionSite.getArea() + ",'"
-					+ constructionSite.getStartTime() + "','" + constructionSite.getCompleteTime() + "',"
-					+ constructionSite.getTotalFloors() + ",'" + constructionSite.getDistrict() + "',"
+					+ constructionSite.getDirectorId() + "','" + constructionSite.getArea() + "','"
+					+ constructionSite.getStartTime() + "','" + constructionSite.getCompleteTime() + "','"
+					+ constructionSite.getTotalFloors() + "','" + constructionSite.getDistrict() + "','"
 					+ constructionSite.getStreet() + "','" + constructionSite.getCompany() + "','"
-					+ constructionSite.getStruct() + "'," + constructionSite.getPrice() + ",'"
-					+ constructionSite.getTotalMonitors() + "');";
+					+ constructionSite.getStruct() + "','" + constructionSite.getPrice() + "','"
+					+ constructionSite.getTotalMonitors() + "','" + constructionSite.getProgress() + "','"
+					+ constructionSite.getLongitude() + "','" + constructionSite.getLatitude() + "');";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
@@ -108,6 +109,9 @@ public class ConstructionSiteDao {
 				constructionSite.setStruct(rs.getString(12));
 				constructionSite.setPrice(rs.getDouble(13));
 				constructionSite.setTotalMonitors(rs.getInt(14));
+				constructionSite.setProgress(rs.getString(15));
+				constructionSite.setLongitude(rs.getDouble(16));
+				constructionSite.setLatitude(rs.getDouble(17));
 			}
 			return constructionSite;
 		} catch (SQLException e) {
@@ -142,6 +146,9 @@ public class ConstructionSiteDao {
 				constructionSite.setStruct(rs.getString(12));
 				constructionSite.setPrice(rs.getDouble(13));
 				constructionSite.setTotalMonitors(rs.getInt(14));
+				constructionSite.setProgress(rs.getString(15));
+				constructionSite.setLongitude(rs.getDouble(16));
+				constructionSite.setLatitude(rs.getDouble(17));
 				list.add(constructionSite);
 			}
 			return list;
@@ -196,6 +203,9 @@ public class ConstructionSiteDao {
 				constructionSite.setStruct(rs.getString(12));
 				constructionSite.setPrice(rs.getDouble(13));
 				constructionSite.setTotalMonitors(rs.getInt(14));
+				constructionSite.setProgress(rs.getString(15));
+				constructionSite.setLongitude(rs.getDouble(16));
+				constructionSite.setLatitude(rs.getDouble(17));
 				list.add(constructionSite);
 			}
 			return list;
@@ -242,9 +252,9 @@ public class ConstructionSiteDao {
 		}
 		return list;
 	}
-	
-	//query distinct districts from construction site table
-	public LinkedList<String> queryDistricts(){
+
+	// query distinct districts from construction site table
+	public LinkedList<String> queryDistricts() {
 		LinkedList<String> list = new LinkedList<String>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();

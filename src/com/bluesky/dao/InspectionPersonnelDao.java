@@ -18,7 +18,7 @@ public class InspectionPersonnelDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "insert into InspectionPersonnel values('" + inspector.getId() + "','"
 					+ inspector.getPassword() + "','" + inspector.getName() + "','" + inspector.getSex() + "','"
-					+ inspector.getSection() + "','" + inspector.getPrecinct() + "'" + inspector.getTel() + "','"
+					+ inspector.getSection() + "','" + inspector.getPrecinct() + "','" + inspector.getTel() + "','"
 					+ inspector.getIdCardNo() + "');";
 			stmt.executeUpdate(sql);
 			return true;
@@ -144,35 +144,36 @@ public class InspectionPersonnelDao {
 		}
 		return sum;
 	}
-	
-	//query inspection personnel according to precinct
-		public LinkedList<InspectionPersonnel> queryInspByPrecinct(String precinct) {
-			LinkedList<InspectionPersonnel> list = new LinkedList<InspectionPersonnel>();
-			if (DBConnection.conn == null) {
-				DBConnection.openConn();
-			}
-			try {
-				Statement stmt = DBConnection.conn.createStatement();
-				String sql = "select * from InspectionPersonnel where precinct = '" + precinct + "';";
-				ResultSet rs = stmt.executeQuery(sql);
-				while (rs.next()) {
-					InspectionPersonnel inspector = new InspectionPersonnel();
-					inspector.setId(rs.getString(1));
-					inspector.setPassword(rs.getString(2));
-					inspector.setName(rs.getString(3));
-					inspector.setSex(rs.getString(4));
-					inspector.setSection(rs.getString(5));
-					inspector.setPrecinct(rs.getString(6));
-					inspector.setTel(rs.getString(7));
-					inspector.setIdCardNo(rs.getString(8));
-					list.add(inspector);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return list;
+
+	// query inspection personnel according to precinct
+	public LinkedList<InspectionPersonnel> queryInspByPrecinct(String precinct) {
+		LinkedList<InspectionPersonnel> list = new LinkedList<InspectionPersonnel>();
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
 		}
-		//query distinct precinct from table--InspectionPersonnel
+		try {
+			Statement stmt = DBConnection.conn.createStatement();
+			String sql = "select * from InspectionPersonnel where precinct = '" + precinct + "';";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				InspectionPersonnel inspector = new InspectionPersonnel();
+				inspector.setId(rs.getString(1));
+				inspector.setPassword(rs.getString(2));
+				inspector.setName(rs.getString(3));
+				inspector.setSex(rs.getString(4));
+				inspector.setSection(rs.getString(5));
+				inspector.setPrecinct(rs.getString(6));
+				inspector.setTel(rs.getString(7));
+				inspector.setIdCardNo(rs.getString(8));
+				list.add(inspector);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	//query distinct precinct from table--InspectionPersonnel
 
 		public LinkedList<String> queryPrecinct() {
 			LinkedList<String> list = new LinkedList<String>();

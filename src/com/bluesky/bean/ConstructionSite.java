@@ -18,6 +18,8 @@ public class ConstructionSite {
 	private double price;//价格
 	private int totalMonitors;//监控数量
 	private String progress;//进度
+	private double longitude;//经度
+	private double latitude;//纬度
 	
 
 	public String getProgress() {
@@ -138,6 +140,22 @@ public class ConstructionSite {
 
 	public void setTotalMonitors(int totalMonitors) {
 		this.totalMonitors = totalMonitors;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
 	}
 
 }

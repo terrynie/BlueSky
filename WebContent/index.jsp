@@ -117,7 +117,8 @@
     </style>
     
     <!-- sidebar -->
-    <div id="sidebar-nav" style="background-color: #336CC1">
+    <div id="sidecontent">
+    	<div id="sidebar-nav" style="background-color: #336CC1">
         <ul id="dashboard-menu">
             <li class="active">
                 <div class="pointer">
@@ -174,6 +175,8 @@
             </li>
         </ul>
     </div>
+    </div>
+    
     <!-- end sidebar -->
 
 

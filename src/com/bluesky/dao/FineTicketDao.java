@@ -18,8 +18,8 @@ public class FineTicketDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "insert into FineTicket values('" + fineTicket.getId() + "','" + fineTicket.getNotificationId()
-					+ "','" + fineTicket.getConSiteId() + "','" + fineTicket.getCompany() + "',"
-					+ fineTicket.getFineMoney() + ",'" + fineTicket.getStartTime() + "','" + fineTicket.getDeadLine() + "','"
+					+ "','" + fineTicket.getConSiteId() + "','" + fineTicket.getCompany() + "','"
+					+ fineTicket.getFineMoney() + "','" + fineTicket.getStartTime() + "','" + fineTicket.getDeadLine() + "','"
 					+ fineTicket.getWho() + "');";
 			stmt.executeUpdate(sql);
 			return true;
