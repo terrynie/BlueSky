@@ -43,17 +43,17 @@ public class LoginServlet extends HttpServlet{
 //        }
         
         
-        //验证是否填写表单
-        if (username.equals("")||username.equals("用户名")) {
-        	//如需提示，只需将请求转发至“error/noUser.jsp”即可
-        	resp.sendRedirect("login.jsp");
-		}else if(password.equals("")||password.equals("password")){
-			//如需提示，只需将请求转发至“error/noPasswd.jsp”即可
-      		resp.sendRedirect("login.jsp");
-		}else if(dept.equals("")){
-			//如需提示，只需将请求转发至“error/noDept.jsp”即可
-			resp.sendRedirect("login.jsp");
-		}
+//        //验证是否填写表单
+//        if (username.equals("")||username.equals("用户名")) {
+//        	//如需提示，只需将请求转发至“error/noUser.jsp”即可
+//        	resp.sendRedirect("login.jsp");
+//		}else if(password.equals("")||password.equals("password")){
+//			//如需提示，只需将请求转发至“error/noPasswd.jsp”即可
+//      		resp.sendRedirect("login.jsp");
+//		}else if(dept.equals("")){
+//			//如需提示，只需将请求转发至“error/noDept.jsp”即可
+//			resp.sendRedirect("login.jsp");
+//		}
         //验证账号信息
         
         String result = CheckUser.checkUser(dept,username,password);
@@ -68,7 +68,7 @@ public class LoginServlet extends HttpServlet{
         	session.setAttribute("dept", dept);
       		if(dept.equals("Admin")){
       			//跳转至管理员界面
-      			RequestDispatcher rd = req.getRequestDispatcher("");
+      			RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
                 rd.forward(req, resp);
       		}else if(dept.equals("InspectionPersonnel")){
       			//跳转至巡检科界面

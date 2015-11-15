@@ -9,7 +9,7 @@ import com.bluesky.bean.ConstructionSite;
 import com.bluesky.database.DBConnection;
 
 public class ConstructionSiteDao {
-	// add an construction site
+	// add a construction site
 	public boolean addConSite(ConstructionSite constructionSite) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
@@ -242,5 +242,23 @@ public class ConstructionSiteDao {
 		}
 		return list;
 	}
-
+	
+	//query distinct districts from construction site table
+	public LinkedList<String> queryDistricts(){
+		LinkedList<String> list = new LinkedList<String>();
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		try {
+			Statement stmt = DBConnection.conn.createStatement();
+			String sql = "select distinct districts from ConstructionSite";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				list.add(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

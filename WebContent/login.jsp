@@ -26,18 +26,19 @@
 		<div class="login">
 			<span>部&nbsp;&nbsp; &nbsp;门</span>
 			<select  id="dept" name="dept" style="width: 174px;">
-            	<option select="selected" value="">请选择部门</option>
+            	<option selected="selected" value="">请选择部门</option>
             	<option value="Admin">管理员</option>
             	<option value="InspectionPersonnel">巡检科</option>
             	<option value="LawEnforcingDept">执法科</option>
             	<option value="ConstructionSiteDirector">工地负责人</option>
        	    </select>
 		</div>
+		<div class="footer-btn">
+			<input type="submit" class="btn btn-primary" value="&nbsp;登录&nbsp;" onclick="checkInput();return false;"/>
+		</div>
 	</form>
 		
-		<div class="footer-btn">
-			<input type="submit" class="btn btn-primary" value="&nbsp;登录&nbsp;" onclick="checkInput();"/>
-		</div>
+		
 		</div>
 		
 		</div>
@@ -47,13 +48,14 @@
 					alert("请输入用户名！");
 				}else if (document.getElementById("password").value == ""||document.getElementById("password").value =="password"){
 					alert("请输入密码！");
-				}else if(document.getElementById("dept").value() == ""){
+				}else if(document.getElementById("dept").value == ""){
 					alert("请选择部门！");
-				}else{
-					 document.getElementById("form").action("loginservlet"); 
+				}else {
+					 document.getElementById("form").action="loginservlet";				 
+					 document.getElementById("form").submit();
 				}
 			}
 		</script>
-	</div>
+</div>
 </body>
 </html>
