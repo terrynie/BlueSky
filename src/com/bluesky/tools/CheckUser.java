@@ -23,13 +23,13 @@ public class CheckUser {
 			Iterator<Admin> iteratorAdmin = tempAdmin.iterator();
 			while (iteratorAdmin.hasNext()) {
 				Admin admin = iteratorAdmin.next();
-				System.out.println(admin.getId().equals(userName));
+				System.out.println(admin.getName().equals(userName));
 				System.out.println(admin.getPassword().equals(passwd));
-				if (admin.getId().equals(userName) && admin.getPassword().equals(passwd)) {
+				if (admin.getName().equals(userName) && admin.getPassword().equals(passwd)) {
 					return "hasUserNameAndPasswordCorrect";
-				} else if (admin.getId().equals(null)) {
+				} else if (admin.getName().equals(null)) {
 					return "hasNoUserName";
-				} else if (admin.getId().equals(userName) && !admin.equals(passwd)) {
+				} else if (admin.getName().equals(userName) && !admin.equals(passwd)) {
 					return "hasUserNameButPasswordInCorrect";
 				}
 			}
@@ -38,11 +38,11 @@ public class CheckUser {
 			Iterator<InspectionPersonnel> iteratorInspector = tempInspector.iterator();
 			while (iteratorInspector.hasNext()) {
 				InspectionPersonnel inspector = iteratorInspector.next();
-				if (inspector.getId().equals(userName) && inspector.getPassword().equals(passwd)) {
+				if (inspector.getName().equals(userName) && inspector.getPassword().equals(passwd)) {
 					return "hasUserNameAndPasswordCorrect";
-				} else if (inspector.getId().equals(null)) {
+				} else if (inspector.getName().equals(null)) {
 					return "hasNoUserName";
-				} else if (inspector.getId().equals(userName) && !inspector.equals(passwd)) {
+				} else if (inspector.getName().equals(userName) && !inspector.equals(passwd)) {
 					return "hasUserNameButPasswordInCorrect";
 				}
 			}
@@ -51,11 +51,11 @@ public class CheckUser {
 			Iterator<LawEnforcing> iteratorLawEnforcing = tempLawEnforcing.iterator();
 			while (iteratorLawEnforcing.hasNext()) {
 				LawEnforcing lawEnforcing = iteratorLawEnforcing.next();
-				if (lawEnforcing.getId().equals(userName) && lawEnforcing.getPassword().equals(passwd)) {
+				if (lawEnforcing.getName().equals(userName) && lawEnforcing.getPassword().equals(passwd)) {
 					return "hasUserNameAndPasswordCorrect";
-				} else if (lawEnforcing.getId().equals(null)) {
+				} else if (lawEnforcing.getName().equals(null)) {
 					return "hasNoUserName";
-				} else if (lawEnforcing.getId().equals(userName) && !lawEnforcing.equals(passwd)) {
+				} else if (lawEnforcing.getName().equals(userName) && !lawEnforcing.equals(passwd)) {
 					return "hasUserNameButPasswordInCorrect";
 				}
 			}
@@ -64,11 +64,11 @@ public class CheckUser {
 			Iterator<ConstructionManager> iteratorConManager = tempConManager.iterator();
 			while (iteratorConManager.hasNext()) {
 				ConstructionManager conManager = iteratorConManager.next();
-				if (conManager.getId().equals(userName) && conManager.getPassword().equals(passwd)) {
+				if (conManager.getName().equals(userName) && conManager.getPassword().equals(passwd)) {
 					return "hasUserNameAndPasswordCorrect";
-				} else if (conManager.getId().equals(null)) {
+				} else if (conManager.getName().equals(null)) {
 					return "hasNoUserName";
-				} else if (conManager.getId().equals(userName) && !conManager.equals(passwd)) {
+				} else if (conManager.getName().equals(userName) && !conManager.equals(passwd)) {
 					return "hasUserNameButPasswordInCorrect";
 				}
 			}

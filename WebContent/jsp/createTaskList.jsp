@@ -41,7 +41,7 @@ function showImage(imgFile){
 		
 		上传附件<input type="file" name="src" onchange="showImage(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		
-		<input type="submit" value="创建"><br>
+		 <input type="submit" value="创建"><br>
 		
 		业务内容<br>
 		<div style='width:100%; height:300px;'>

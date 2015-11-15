@@ -127,48 +127,56 @@
                 </div>
                 <a onclick="changeContent('jsp/dataCenter.jsp');" id="slider-bar" style="background-color: transparent; border: 0;font-color:#ffffff;">
                    	<i class="cus cus-data"></i>
+                   	<input type="hidden" id="side" value="0" width="0px" height="0px">
                     <span>数据中心</span>
                 </a>
             </li>            
             <li>
                 <a onclick="changeContent('jsp/businessCenter_adminServlet');">
                     <i class="cus cus-yewu"></i>
+                    <input type="hidden" id="side" value="0" width="0px" height="0px">
                     <span>业务中心</span>
                 </a>
             </li>
             <li>
                 <a onclick="changeContent('jsp/monitoringcenter_adminServlet');">
                     <i class="cus cus-data"></i>
+                    <input type="hidden" id="side" value="1" width="0px" height="0px">
                     <span>监控中心</span>
                 </a>
             </li>
             <li>
                 <a onclick="changeContent('jsp/weixing.jsp');">
                     <i class="cus cus-weixing"></i>
+                    <input type="hidden" id="side" value="2" width="0px" height="0px">
                     <span>卫星资源</span>
                 </a>
             </li>
             <li>
                 <a onclick="changeContent('jsp/projectManagerServlet');">
                     <i class="cus cus-gongdi"></i>
+                    <input type="hidden" id="side" value="3" width="0px" height="0px">
                     <span>工地管理</span>
                 </a>
             </li>
             <li>
                 <a onclick="changeContent('jsp/managerServlet');">
                     <i class="cus cus-renyuan"></i>
+                    <input type="hidden" id="side" value="4" width="0px" height="0px">
                     <span>人员管理</span>
                 </a>
             </li>
             <li>
                 <a onclick="changeContent('');">
                     <i class="cus cus-set"></i>
+                    <input type="hidden" id="side" value="5" width="0px" height="0px">
                     <span>系统设置</span>
                 </a>
             </li>
             <li>
                 <a onclick="changeContent('');">
                     <i class="cus cus-help" ></i>
+                    <input type="hidden" id="side" value="6" width="0px" height="0px">
                     <span>使用帮助</span>
                     <i class="icon-chevron-down"></i>
                 </a>
@@ -206,6 +214,8 @@
         function changeContent(newUrl){
         	var frame = document.getElementById('frame');
         	frame.src = newUrl;
+/*         	var youbiao = document.getElementById('side');
+        	document.getElementById('arrow').setAttribute("margin-top", parseInt(youbiao.getAttribute("value"))*51); */
         }
         
         

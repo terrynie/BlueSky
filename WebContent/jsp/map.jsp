@@ -23,11 +23,36 @@
 		window.open("vedio.jsp");
 	}
 	map.addEventListener("click", showInfo);
-	var point = new BMap.Point(113.65, 34.78);
+	var point = new BMap.Point(113.70, 34.78);
 	var marker = new BMap.Marker(point); // 创建标注
 	map.addOverlay(marker);              // 将标注添加到地图中
-
-	var label = new BMap.Label("名称：一号工地；负责人：XXX；",{offset:new BMap.Size(20,-10)});
+	var label = new BMap.Label("PM10：75",{offset:new BMap.Size(20,-10)});
 	marker.setLabel(label);
+	
+	point = new BMap.Point(113.85, 34.78);
+	marker = new BMap.Marker(point); // 创建标注
+	map.addOverlay(marker);              // 将标注添加到地图中
+	label = new BMap.Label("名称：2号工地",{offset:new BMap.Size(20,-22)});
+	marker.setLabel(label);
+	
+	var point1 = new BMap.Point(113.75, 34.68);
+	var marker1 = new BMap.Marker(point1); // 创建标注
+	map.addOverlay(marker1);              // 将标注添加到地图中
+	var label1 = new BMap.Label("名称：3号工地",{offset:new BMap.Size(20,-19)});
+	marker1.setLabel(label1);
+	
+	point = new BMap.Point(113.80, 34.75);
+	marker = new BMap.Marker(point); // 创建标注
+	map.addOverlay(marker);              // 将标注添加到地图中
+	label = new BMap.Label("名称：4号工地",{offset:new BMap.Size(20,-18)});
+	marker.setLabel(label);
+	
+	point = new BMap.Point(113.78, 34.70);
+	marker = new BMap.Marker(point); // 创建标注
+	map.addOverlay(marker);              // 将标注添加到地图中
+	label = new BMap.Label("PM10:74",{offset:new BMap.Size(20,-20)});
+	marker.setLabel(label);
+
+	
 	
 </script>

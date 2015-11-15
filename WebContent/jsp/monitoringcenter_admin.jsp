@@ -59,15 +59,30 @@ function callback(){
 		}
 	}
 } 
+
+
+/* function loadvideo(){
+	var point = doucument.getElementById("image");
+	point.ondblclick(){
+		window.open("vedio.jsp");
+	}
+} */
 </script>
-<body id="body">
-<% 
+<body>
+<!-- <body id="body"> -->
+<%-- <% 
 	LinkedList<ConstructionSite> list_constructionSites=(LinkedList<ConstructionSite>)request.getAttribute("list_constructionSites");
 	ConstructionSite constructionSite=(ConstructionSite)request.getAttribute("constructionSite");
 	int totalMonitors=constructionSite.getTotalMonitors();
-%>
+%> --%>
 <div id="data">
-	<div id="data_0">
+
+<img id="image" alt="" src="../images/jiankongcenter.png" ondblclick="window.open('vedio.jsp');">
+
+
+
+
+<%-- 	<div id="data_0">
 		<div class="data_data_video"></div>
 		<div class="data_data_pm">
 		<div id="data_data_pm_top" style="height:165px"></div>
@@ -100,7 +115,7 @@ function callback(){
 	</div>
 	<div id="data_bm">
 	
-	</div>
+	</div> --%>
 	
 </div>
 </body>
