@@ -64,7 +64,7 @@ function callback(){
 					<td width="32%">科室</td>
 					<td width="20%">联系方式</td>
 					<td width="15%">
-						<a src=""></a><button onclick="location.href='addConstructionSite.jsp'" ></button>
+						<a src=""></a><button onclick="location.href='addConstructionSite.jsp'" >创建</button>
 					</td>
 				</tr>
 			</table>
