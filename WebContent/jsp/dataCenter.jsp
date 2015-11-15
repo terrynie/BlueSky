@@ -14,26 +14,34 @@
 			<div class="row-title"><label>数据统计</label></div>
 			<div class="row">
 			  <div class="col-xs-6 col-sm-3">
-			  		<span class="row_span row-1">imag</span>
-			  		<span class="row_span row-2"><span>3285</span><i>/</i><small>3217</small></span>
-			  		<label class="row_span row-3">受举报群众(人次)/有效受理</label>
+			  		<div class="row_title_content">
+			  			<span class="row_span row-1"><img alt="" src="../images/dataImg.png"/></span>
+			  			<span class="row_span row-2"><span>3285</span><i>/</i><small>3217</small></span>
+			  			<label class="row_span row-3">受举报群众(人次)/有效受理</label>
+			  		</div>
+			  		
 			  </div> 
 			  <div class="col-xs-6 col-sm-3">
-			  	<span class="row_span row-1">imag</span>
+			  	<div class="row_title_content">
+			  		<span class="row_span row-1"><img alt="" src="../images/dataImg.png"/></span>
 			  		<span class="row_span row-2"><span>56472</span><i>/</i><small>43217</small></span>
 			  		<label class="row_span row-3">系统反馈(次)/在线巡查</label>
-			  	
+			  	</div>
 				</div>
 			
 			  <div class="col-xs-6 col-sm-3">
-			  	<span class="row_span row-1">imag</span>
+			  <div class="row_title_content">
+			  	<span class="row_span row-1"><img alt="" src="../images/dataImg.png"/></span>
 			  		<span class="row_span row-2"><span>234</span><i>/</i><small>1276</small></span>
 			  		<label class="row_span row-3">PM10数据接入(次)/告警(次)</label>
+			  		</div>
 			  </div>
 			  <div class="col-xs-6 col-sm-3">
-			  	<span class="row_span row-1">imag</span>
+			  <div class="row_title_content row_title_last">
+			  	<span class="row_span row-1"><img alt="" src="../images/dataImg.png"/></span>
 			  		<span class="row_span row-2"><span>678</span><i>/</i><small>4475</small></span>
 			  		<label class="row_span row-3">智能电表箱接入(次)/告警(次)</label>
+			  		</div>
 			  </div>
 			</div>
 			<div class="row-title"><label>易发区分布示意图</label></div>

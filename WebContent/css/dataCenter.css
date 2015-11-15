@@ -14,29 +14,40 @@ div{
 word-wrap: break-word;
 word-break: normal; 
 }
-@media (max-width: 1024px) {
-	body: {
-		max-width: 870px;
-	}
-	;
+body{
+	min-width: 870px;
 }
 
 .dataWrapper .row,
 .row-title {
 	margin: 10px;
+	min-width: 850px;
 }
 
 .row-title {
 	margin-left: 14px;
 	margin-right: 10px;
 }
-
-.row div {
+.row .col-xs-6{
 	height: 120px;
-	border: 1px solid #ccc;
 	background-color: #fff;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
 }
-
+.row .col-xs-6:first-child {
+	border-left: 1px solid #ccc;
+}
+.row .col-xs-6:last-child {
+	border-right: 1px solid #ccc;
+}
+.row_title_content{
+	border-right: 1px solid #e5e5e5;
+	margin: 10px 0;
+	height: 100px;
+}
+.row_title_last{
+	border-right: none;
+}
 .row-title label {
 	display: block;
 	height: 14px;
@@ -51,10 +62,9 @@ word-break: normal;
 	display: block;
 	height: 30px;
 	line-height: 30px;
-	margin-top: 7px;
+	margin: 2px 0;
 	text-align: center;
 }
-
 .row-2 >span {
 	color: #eb6e6e;
 	font-size: 24px;
@@ -75,7 +85,9 @@ word-break: normal;
 	font-family: helvetica, "arial black";
 	font-size: 14px;
 }
-
+.row-3{
+	color: #666;
+}
 .row-map {
 	margin: 0 10px;
 }
@@ -124,7 +136,9 @@ word-break: normal;
 .bottom-frame ul>li .i_3 {
 	background: #329D38;
 }
-
+.row-chart{
+	min-width: 850px;
+}
 .row-chart .one-charts,
 .row-chart .two-charts,
 .row-chart .three-charts {
@@ -309,4 +323,7 @@ word-break: normal;
 	word-wrap: break-word;
 
 	word-break : normal
+}
+@media (min-width:1024px ) {
+	
 }
