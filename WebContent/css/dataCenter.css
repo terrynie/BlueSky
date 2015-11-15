@@ -14,16 +14,14 @@ div{
 word-wrap: break-word;
 word-break: normal; 
 }
-@media (max-width: 1024px) {
-	body: {
-		max-width: 870px;
-	}
-	;
+body{
+	min-width: 870px;
 }
 
 .dataWrapper .row,
 .row-title {
 	margin: 10px;
+	min-width: 850px;
 }
 
 .row-title {
@@ -124,7 +122,9 @@ word-break: normal;
 .bottom-frame ul>li .i_3 {
 	background: #329D38;
 }
-
+.row-chart{
+	min-width: 850px;
+}
 .row-chart .one-charts,
 .row-chart .two-charts,
 .row-chart .three-charts {

@@ -4,6 +4,7 @@ body {
 	font-size: 14px;
 	padding: 0;
 	margin: 0;
+	min-width: 870px;
 }
 
 a, a:hover, a:focus {
@@ -20,7 +21,9 @@ a, a:hover, a:focus {
 	line-height: 74px;
 	margin: 10px 10px 0 10px;
 }
-
+.input-x{
+	min-width: 180px;
+}
 .input-x input[type="text"] {
 	margin-top: 12px;
 	margin-right:20px;
