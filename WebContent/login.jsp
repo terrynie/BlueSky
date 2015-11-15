@@ -45,12 +45,12 @@
 			function checkInput(){
 				if(document.getElementById("username").value == '' || document.getElementById("username").value == '用户名' ){
 					alert("请输入用户名！");
-				}else if (document.getElementById("password").value == ""||document.getElementById("password").valueOf()=="password"){
+				}else if (document.getElementById("password").value == ""||document.getElementById("password").value =="password"){
 					alert("请输入密码！");
 				}else if(document.getElementById("dept").value() == ""){
 					alert("请选择部门！");
 				}else{
-					/* document.getElementById("form").action = "loginservlet"; */
+					 document.getElementById("form").action("loginservlet"); 
 				}
 			}
 		</script>

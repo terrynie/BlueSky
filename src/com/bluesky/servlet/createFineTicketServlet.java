@@ -4,21 +4,12 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.sql.Date;
-import java.util.LinkedList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.naming.java.javaURLContextFactory;
-import org.omg.CORBA.INTERNAL;
-
-import com.bluesky.bean.ConstructionSite;
 import com.bluesky.bean.FineTicket;
-import com.bluesky.bean.Notification;
-import com.bluesky.dao.ConstructionSiteDao;
 import com.bluesky.dao.FineTicketDao;
 import com.bluesky.dao.NotificationDao;
 
@@ -57,7 +48,6 @@ public class createFineTicketServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		
-		String id=request.getParameter("id");
 		String notificationId=request.getParameter("notificationId");
 		String company=request.getParameter("company");
 		String money=request.getParameter("money");

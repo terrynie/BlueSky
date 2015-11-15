@@ -11,11 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bluesky.bean.Con_Dir;
-import com.bluesky.bean.InspectionPersonnel;
+import com.bluesky.dao.ConstructionManagerDao;
 import com.bluesky.tools.ConSite_Director;
-import com.bluesky.tools.QueryByPrecincts;
-import com.bluesky.tools.QueryPrecinctInConDir;
-import com.bluesky.tools.QueryPrecincts;
 
 /**
  * Servlet implementation class projectManagerServlet
@@ -50,9 +47,9 @@ public class projectManagerServlet extends HttpServlet {
 		System.out.println(precinct);
 		System.out.println(str_precinct);
 		
-		QueryPrecinctInConDir queryPrecinctInConDir=new QueryPrecinctInConDir();
+		ConstructionManagerDao conDir = new ConstructionManagerDao();
 		ConSite_Director conSite_Director=new ConSite_Director();
-		LinkedList<String> precincts=queryPrecinctInConDir.queryPrecinctInConDir();
+		LinkedList<String> precincts=conDir.queryPrecinctInConDir();
 		System.out.println(precincts+"--------------------");
 		LinkedList<Con_Dir> list_conDirs=conSite_Director.queryConInfo(precinct);
 		request.setAttribute("precincts", precincts);

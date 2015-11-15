@@ -55,9 +55,8 @@ public class LoginServlet extends HttpServlet{
 			resp.sendRedirect("login.jsp");
 		}
         //验证账号信息
-        CheckUser mss = new CheckUser();
         
-        String result = mss.checkUser(dept,username,password);
+        String result = CheckUser.checkUser(dept,username,password);
         
         //没有从数据库获取到信息
         if(result==null){

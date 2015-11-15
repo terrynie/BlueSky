@@ -8,11 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
-
 import com.bluesky.bean.TaskList;
 import com.bluesky.dao.TaskListDao;
-import com.sun.xml.internal.txw2.Document;
 
 /**
  * Servlet implementation class createTaskList

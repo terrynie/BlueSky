@@ -171,7 +171,6 @@ public class NotificationDao {
 	
 	//query id according to construction site id
 	public String queryConSiteIdById(String id){
-		String conSiteId = null;
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
