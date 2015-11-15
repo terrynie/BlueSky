@@ -1,6 +1,6 @@
 package com.bluesky.bean;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class FineTicket {
 	private String id;// 罚单编号

@@ -1,6 +1,6 @@
 package com.bluesky.bean;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class ConstructionSite {
 	private String id;//工地编号

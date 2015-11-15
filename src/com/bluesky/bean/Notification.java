@@ -1,6 +1,6 @@
 package com.bluesky.bean;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Notification {
 	private String id; // 整改通知编号

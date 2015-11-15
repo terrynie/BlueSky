@@ -46,16 +46,13 @@ public class LoginServlet extends HttpServlet{
         //验证是否填写表单
         if (username.equals("")||username.equals("用户名")) {
         	//如需提示，只需将请求转发至“error/noUser.jsp”即可
-      		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
-            rd.forward(req, resp);
+        	resp.sendRedirect("login.jsp");
 		}else if(password.equals("")||password.equals("password")){
 			//如需提示，只需将请求转发至“error/noPasswd.jsp”即可
-      		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
-            rd.forward(req, resp);
+      		resp.sendRedirect("login.jsp");
 		}else if(dept.equals("")){
 			//如需提示，只需将请求转发至“error/noDept.jsp”即可
-      		RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
-            rd.forward(req, resp);
+			resp.sendRedirect("login.jsp");
 		}
         //验证账号信息
         CheckUser mss = new CheckUser();

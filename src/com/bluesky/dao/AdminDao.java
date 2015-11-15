@@ -7,7 +7,6 @@ import java.util.LinkedList;
 
 import com.bluesky.bean.Admin;
 import com.bluesky.database.DBConnection;
-
 public class AdminDao {
 	// add an administrator
 	public boolean addAdmin(Admin admin) {

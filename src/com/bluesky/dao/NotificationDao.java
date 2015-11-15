@@ -71,7 +71,7 @@ public class NotificationDao {
 				notification.setImgPath(rs.getString(9));
 				notification.setVideoPath(rs.getString(10));
 				notification.setPublishDate(rs.getDate(11));
-				notification.setDeadline(rs.getTime(12));
+				notification.setDeadline(rs.getDate(12));
 				notification.setFeedback(rs.getInt(13));
 				notification.setConstructionName(rs.getString(14));
 				notification.setFeedbackId(rs.getString(15));
@@ -84,7 +84,7 @@ public class NotificationDao {
 		}
 	}
 
-	// query one notification
+	// query one notification according to id
 	public Notification queryOne(String id) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
@@ -104,7 +104,7 @@ public class NotificationDao {
 				notification.setHasVedio(rs.getInt(7));
 				notification.setHasText(rs.getInt(8));
 				notification.setPublishDate(rs.getDate(9));
-				notification.setDeadline(rs.getTime(10));
+				notification.setDeadline(rs.getDate(10));
 				notification.setFeedback(rs.getInt(11));
 				notification.setConstructionName(rs.getString(12));
 				notification.setFeedbackId(rs.getString(13));
@@ -137,7 +137,7 @@ public class NotificationDao {
 				notification.setHasVedio(rs.getInt(7));
 				notification.setHasText(rs.getInt(8));
 				notification.setPublishDate(rs.getDate(9));
-				notification.setDeadline(rs.getTime(10));
+				notification.setDeadline(rs.getDate(10));
 				notification.setFeedback(rs.getInt(11));
 				notification.setConstructionName(rs.getString(12));
 				notification.setFeedbackId(rs.getString(13));
@@ -167,5 +167,25 @@ public class NotificationDao {
 			e.printStackTrace();
 		}
 		return sum;
+	}
+	
+	//query id according to construction site id
+	public String queryConSiteIdById(String id){
+		String conSiteId = null;
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		try {
+			Statement stmt = DBConnection.conn.createStatement();
+			String sql = "select consiteid from CorrectionNotification where id ='"+id+"';";
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				id=rs.getString(1);
+			}
+			return id;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return id;
+		}
 	}
 }
