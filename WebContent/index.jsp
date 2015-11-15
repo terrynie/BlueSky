@@ -182,7 +182,7 @@
 
        <!--  <div class="container-fluid">
         </div> -->
-        <iframe id="frame" src="jsp/dataCenter.jsp" frameborder="0" scrolling="no" width="100%" name="frame"  height="800px"  ></iframe>
+        <iframe id="frame" src="jsp/dataCenter.jsp" frameborder="0" scrolling="no" width="100%" name="frame" height="800px"  ></iframe>
     </div>
 
 

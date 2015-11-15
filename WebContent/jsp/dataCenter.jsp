@@ -109,18 +109,15 @@
 			<div class="row-title"><label>业务走势及饼图分布</label></div>
 			 <div class="row-chart">
 			 	<div class="one-charts">
-			 		<!--<div class="item_title">举报有效率</div>-->
+			 		<span class="item_title">举报有效率</span>
 			 		<div id="one-charts">
 			 		</div>
 			 		<div id="one-charts-pie">
 			 		</div>
-			 		<!--<div class="item_count">
-			 			<span id="it_1"> 50092</span>
-			 			<span id="it_2">61100</span>
-			 		</div>
-			 		<div class="item_footer">
-			 			<span>2015年1月至今</span>
-			 		</div>-->
+		 			<span id="it_1"> 50092</span>
+		 			<span id="it_2">61100</span>
+		 			<span class="item_footer">2015年1月至今</span>
+
 			    </div>
 			    <div class="two-charts">
 			    	
@@ -128,25 +125,55 @@
 			 		</div>
 			 		<div id="two-charts-pie">
 			 		</div>
-			 		
+			 		<span class="item_title_2">出勤效率</span>
+					<span  class="qin_1"> 556</span>
+		 			<span  class="qin_2">1345</span>
+			 		<span class="item_footer_2">2015年1月至今</span>
 			    </div>
+			    <div class="row-title"><label>PM10及最近天气对比图</label></div>
 			    <div class="three-charts">
 			 		<div id="three-charts">
 			 		</div>
 			 		<div id="three-charts-pie">
+			 			<div class="i-charts ch-1"><i></i>PM10(PM10数据检测站报告)</div>
+			 			<div class="i-charts ch-2"><i></i>PM2.5(天气质量检测报告)</div>
+			 			<div class="pro-bar"><span class="trapezoid"></span></div>
+			 			<div class="pro-text">
+			 				<div class="col-xs-6 col-sm-4">轻</div>
+			 				<div class="col-xs-6 col-sm-4">中</div>
+			 				<div class="col-xs-6 col-sm-4">重</div>
+			 			</div>
+			 			<div class="pro-text foot-text">
+			 				<div class="col-xs-6 col-sm-12">
+			 					<label>质量检测报告分析：</label>
+			 					 <p> 4月、6月、8月为工地扬尘问题易发期</p>
+			 					<p>建议工地及有关部门做好防尘准备工作。</p>
+			 				</div>
+			 				
+			 			</div>
 			 		</div>
 			    </div>
-			    <div class="one-charts">
+			     <div class="row-title"><label>智能电表警告柱状统计</label></div>
+			    <div class="one-charts enb-bar">
+			    <span class="item_title">有效事故避免率</span>
 			 		<div id="four-charts">
 			 		</div>
 			 		<div id="four-charts-pie">
 			 		</div>
+			 		<span id="it_1"> 241</span>
+		 			<span id="it_2">453</span>
+		 			<span class="item_footer">2015年1月至今</span>
+			 		
 			    </div>
 			    <div class="two-charts">
 			 		<div id="five-charts">
 			 		</div>
 			 		<div id="five-charts-pie">
 			 		</div>
+			 		<span class="item_title_2">有效事故避免率</span>
+					<span  class="qin_1 deg-1"> 266</span>
+		 			<span  class="qin_2 deg-2">537</span>
+			 		<span class="item_footer_2 last-month">2015年1月至今</span>
 			    </div>
 			 </div>
 			

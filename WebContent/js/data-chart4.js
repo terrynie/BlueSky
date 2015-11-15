@@ -21,7 +21,7 @@ require(
 			},
 			emphasis: {
 				label: {
-					show: true,
+					show: false,
 					position: 'center',
 					textStyle: {
 						fontSize: '30',
@@ -46,57 +46,70 @@ require(
 		};
 		var option = {
 			title: {
-				text: '举报数占比',
-				x: 'left',
-				y: 'left',
-				itemGap: 20,
+				text: '72%',
+				x: 'center',
+				y: 'center',
 				textStyle: {
 					color: 'rgba(30,144,255,0.8)',
 					fontFamily: '微软雅黑',
-					fontSize: 16,
-					fontWeight: 'nomal'
+					fontSize: 30,
+					fontWeight: 'bold'
 				}
 			},
 			tooltip: {
 				show: true,
 				trigger: 'item',
-				formatter: "{a} <br/>{b} : {c} ({d}%)"
+				formatter: "{a} <br/>{b}占比 : {c}%"
 			},
 			legend: {
+				show:false,
 				x: 'center',
 				y: 'bottom',
-				data: ['有效举报', '举报总数']
+				data: ['有效出勤', '出勤总数']
 			},
 			toolbox: {
 				show: false
 			},
 			calculable: false,
 			series: [{
-				name: '举报数',
+				name: '出勤总数',
 				type: 'pie',
-				clockWise: false,
-				center:['50%','50%'],
+				clockWise: true,
+				startAngle: -90,
+				center: ['50%', '50%'],
 				radius: [77, 102],
 				itemStyle: dataStyle,
 				data: [{
-					value: 68,
-					name: '有效举报'
+					value: 72,
+					name: '出勤总数',
+					itemStyle: {
+						normal: {
+							color: '#f8e71c',
+							
+						}
+					}
 				}, {
-					value: 32,
+					value: 23,
 					name: 'invisible',
 					itemStyle: placeHolderStyle
 				}]
 			}, {
-				name: '3',
+				name: '有效出勤',
 				type: 'pie',
-				clockWise: false,
+				clockWise: true,
+				startAngle: -90,
 				radius: [50, 75],
 				itemStyle: dataStyle,
 				data: [{
-					value: 32,
-					name: '举报总数'
+					value: 59,
+					name: '有效出勤',
+					itemStyle: {
+						normal: {
+							color: '#50e3c2'
+						}
+					}
 				}, {
-					value: 68,
+					value: 41,
 					name: 'invisible',
 					itemStyle: placeHolderStyle
 				}]

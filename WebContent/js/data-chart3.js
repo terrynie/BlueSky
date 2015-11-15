@@ -47,7 +47,7 @@ require(
 				formatter: "{a} <br/>{b}为 : {c}"
 			},
 			legend: {
-				data: ['有效举报', '举报总数'],
+				data: ['有效出勤', '出勤总数'],
 				x: 'center',
 				y: 'bottom'
 			},
@@ -63,7 +63,7 @@ require(
 				data: ['1月份', '2月份', '3月份', '4月份', '5月份', '6月份', '7月份', '8月份', '9月份', '10月份', '11月份', '12月份']
 			}],
 			yAxis: [{
-				name: '群众举报次数',
+				name: '出勤次数',
 				type: 'value',
 				//				max:3000,
 				axisLine: {
@@ -86,7 +86,7 @@ require(
 				show: false
 			},
 			series: [{
-				name: '举报总数',
+				name: '有效出勤',
 				type: 'line',
 				stack:'总数',
 				itemStyle: {
@@ -99,7 +99,7 @@ require(
 				},
 				data: [700, 900, 1314, 1000, 1590, 1670, 1330, 1550, 1999, 1011, 1220, 900]
 			}, {
-				name: '有效举报',
+				name: '出勤总数',
 				type: 'line',
 				stack:'总数',
 				itemStyle: {

@@ -46,7 +46,7 @@ require(
 			};
 			var option = {
 					title: {
-						text: '86%',
+						text: '66%',
 						x: 'center',
 						y: 'center',
 						itemGap: 20,
@@ -71,22 +71,21 @@ require(
 						name: '举报数',
 						type: 'pie',
 						startAngle: -90,
-						clockWise: false,
 						center: ['50%', '50%'],
 						radius: [77, 102],
 						clockWise: true,
 						color: 'red',
 						itemStyle: dataStyle,
 						data: [{
-							value: 68,
-							name: '有效举报',
+							value: 66,
+							name: '举报总数',
 							itemStyle: {
 								normal: {
 									color: '#eb6e6e'
 								}
 							}
 						}, {
-							value: 32,
+							value: 34,
 							name: 'invisible',
 							itemStyle: placeHolderStyle
 						}]
@@ -94,20 +93,19 @@ require(
 						name: '举报数',
 						type: 'pie',
 						startAngle: -90,
-						clockWise: false,
 						radius: [50, 75],
 						clockWise: true,
 						itemStyle: dataStyle,
 						data: [{
-							value: 50,
-							name: '举报总数',
+							value: 45,
+							name: '有效举报',
 							itemStyle: {
 								normal: {
 									color: '#4a90e2'
 								}
 							}
 						}, {
-							value: 50,
+							value: 54,
 							name: 'invisible',
 							itemStyle: placeHolderStyle
 						}]

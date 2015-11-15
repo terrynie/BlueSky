@@ -53,9 +53,10 @@ require(
 				}
 			},
 			legend: {
-				data: ['一级电流过载警告', '二级电流过载警告'],
+				data: ['二级电流过载警告', '一级电流过载警告'],
 				x: 'center',
-				y: 'bottom'
+				y: 'bottom',
+				//orient : 'vertical'
 			},
 			toolbox: {
 				show: false
@@ -73,13 +74,23 @@ require(
 				}
 			}],
 			series: [{
-				name: '一级电流过载警告',
-				type: 'bar',
-				data: [15, 21, 16, 7, 19, 33, 12, 5, 19, 15, 17, 11]
-			}, {
 				name: '二级电流过载警告',
+				itemStyle: {
+					normal: {
+						color: '#28abec',
+					}
+				},
 				type: 'bar',
-				data: [37, 44, 27, 26, 28, 40, 30, 18, 27, 22, 35, 19]
+				data: [37, 45, 27, 33, 28, 45, 30, 19, 29, 23, 35, 19]
+			}, {
+				name: '一级电流过载警告',
+				itemStyle: {
+					normal: {
+						color: '#50d6e3',
+					}
+				},
+				type: 'bar',
+				data: [15, 21, 16, 7, 19, 40, 12, 6, 11, 17, 25, 11]
 			}]
 
 		};

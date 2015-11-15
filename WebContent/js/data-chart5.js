@@ -36,7 +36,7 @@ require(
 				formatter: "{a} <br/>{b}月份为 : {c}"
 			},
 			legend: {
-				data: ['有效举报', '举报总数'],
+				data: ['PM2.5(天气质量检测报告)', 'PM10(PM10数据监测站报告)'],
 				x: 'center',
 				y: 'bottom'
 			},
@@ -48,17 +48,25 @@ require(
 						color: '#ccc'
 					}
 				},
+				splitLine: {
+					show: true,
+					lineStyle: {
+						color: '#483d8b',
+						type: 'dotted',
+						width: 0
+					}
+				},
 				boundaryGap: false,
 				data: ['1月份', '2月份', '3月份', '4月份', '5月份', '6月份', '7月份', '8月份', '9月份', '10月份', '11月份', '12月份']
 			}],
 			yAxis: [{
-				name: '群众举报次数',
+				name: 'PM值',
 				type: 'value',
-				//				max:3000,
+				//max:3000,
 				axisLine: {
 					lineStyle: {
 						color: '#ccc',
-						width: 0,
+						width: 2,
 						type: 'solid'
 					}
 				},
@@ -67,14 +75,14 @@ require(
 					lineStyle: {
 						color: '#483d8b',
 						type: 'dotted',
-						width: 1
+						width: 0
 					}
 				},
 				splitArea: {
 					show: true,
 					areaStyle: {
-//						color: ['rgba(205,92,92,0.3)', 'rgba(255,215,0,0.3)']
-						color:'rgba(255,255,255,.3)'
+
+						color: 'rgba(255,255,255,1)'
 					}
 				}
 			}],
@@ -82,29 +90,37 @@ require(
 				show: false
 			},
 			series: [{
-				name: '举报总数',
+				name: 'PM2.5(天气质量检测报告)',
 				type: 'line',
-				stack: '总量',
+				smooth: true,
 				itemStyle: {
 					normal: {
+						color: '#7ed321',
+						borderWidth: 4,
 						areaStyle: {
+							color: 'rgba(255,255,255,1)',
+							width:3,
 							type: 'default'
 						}
 					}
 				},
-				data: [1203, 1322, 1831, 1534, 900, 1230, 2510, 790, 1000, 1245, 1234, 1413]
+				data: [23, 35, 45, 54, 14, 23, 56, 49, 60, 65, 36, 25]
 			}, {
-				name: '有效举报',
+				name: 'PM10(PM10数据监测站报告)',
 				type: 'line',
-				stack: '总量',
+				smooth: true,
 				itemStyle: {
 					normal: {
+						color: '#f5a623',
+						borderWidth: 4,
 						areaStyle: {
+							color: 'rgba(245,166,35,0.6)',
+							width:3,
 							type: 'default'
 						}
 					}
 				},
-				data: [1110, 1200, 1514, 960, 602, 1010, 1530, 630, 704, 1034, 944, 1210]
+				data: [65, 55, 77, 72, 57, 55, 87, 78, 89, 99, 76, 56]
 			}]
 		};
 		areaChart.setOption(option);

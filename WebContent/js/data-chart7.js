@@ -21,7 +21,7 @@ require(
 			},
 			emphasis: {
 				label: {
-					show: true,
+					show: false,
 					position: 'center',
 					textStyle: {
 						fontSize: '30',
@@ -46,15 +46,15 @@ require(
 		};
 		var option = {
 			title: {
-				text: '举报数占比',
-				x: 'left',
-				y: 'left',
-				itemGap: 20,
+				text: '90%',
+				x: 'center',
+				y: 'center',
+				center: 20,
 				textStyle: {
 					color: 'rgba(30,144,255,0.8)',
 					fontFamily: '微软雅黑',
-					fontSize: 16,
-					fontWeight: 'nomal'
+					fontSize: 30,
+					fontWeight: 'bold'
 				}
 			},
 			tooltip: {
@@ -63,40 +63,53 @@ require(
 				formatter: "{a} <br/>{b} : {c} ({d}%)"
 			},
 			legend: {
+				show:false,
 				x: 'center',
 				y: 'bottom',
-				data: ['有效举报', '举报总数']
+				data: ['二级电流过载警告', '一级电流过载警告']
 			},
 			toolbox: {
 				show: false
 			},
 			calculable: false,
 			series: [{
-				name: '举报数',
+				name: '事故避免概率',
 				type: 'pie',
-				clockWise: false,
+				clockWise: true,
+				startAngle: -90,
 				center:['50%','50%'],
 				radius: [77, 102],
 				itemStyle: dataStyle,
 				data: [{
-					value: 68,
-					name: '有效举报'
+					value: 90,
+					name: '二级电流过载警告',
+					itemStyle: {
+						normal: {
+							color: '#28abec'
+						}
+					}
 				}, {
-					value: 32,
+					value: 10,
 					name: 'invisible',
 					itemStyle: placeHolderStyle
 				}]
 			}, {
-				name: '3',
+				name: '事故避免概率',
 				type: 'pie',
-				clockWise: false,
+					clockWise: true,
+				startAngle: -90,
 				radius: [50, 75],
 				itemStyle: dataStyle,
 				data: [{
-					value: 32,
-					name: '举报总数'
+					value: 79,
+					name: '一级电流过载警告',
+					itemStyle: {
+						normal: {
+							color: '#50d6e3'
+						}
+					}
 				}, {
-					value: 68,
+					value: 21,
 					name: 'invisible',
 					itemStyle: placeHolderStyle
 				}]

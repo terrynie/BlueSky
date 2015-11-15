@@ -86,7 +86,7 @@ require(
 				show: false
 			},
 			series: [{
-				name: '举报总数',
+				name: '有效举报',
 				type: 'line',
 				stack:'总数',
 				itemStyle: {
@@ -105,7 +105,7 @@ require(
 				},
 				data: [1010, 1400, 1514, 1130, 902, 1110, 1330, 910, 790, 1011, 1044, 1010]
 			}, {
-				name: '有效举报',
+				name: '举报总数',
 				type: 'line',
 				stack:'总数',
 				itemStyle: {
