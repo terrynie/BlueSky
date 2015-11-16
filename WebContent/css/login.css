@@ -43,7 +43,22 @@ body {
 	color: #666;
 	margin-right: 14px;
 }
-
+input::-webkit-input-placeholder {
+　　color: #999 !important; 
+　　}
+input:-moz-placeholder {
+　　color: #999 !important; 
+　　}
+input::-moz-placeholder {
+　　color: #999 !important; 
+　　}
+input:-ms-input-placeholder {
+　　color: #999 !important;
+　　}
+#form input[type="text"],
+#form input[type="password"]{
+	color: #333;
+}
 .login{
 	margin-top: 10px;
 }
@@ -71,7 +86,7 @@ body {
 	margin-top: 30px;
 	margin-left: 67px;
 }
-.footer-btn input[type="button"]{
+.footer-btn input[type="submit"]{
 	width: 120px;
 	height: 30px;
 	background: #4190e2;
@@ -79,6 +94,6 @@ body {
 	-moz-border-radius:2px ;
 	-webkit-border-radius: 2px;	
 }
-.footer-btn input[type="button"]:hover{
+.footer-btn input[type="submit"]:hover{
 	background: #3c77bc;
 }

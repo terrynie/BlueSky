@@ -9,6 +9,7 @@ html,
 body {
 	white-space: nowrap;
 	background-color: #f6f6f6;
+	font-family: "微软雅黑","arial black";
 }
 div{ 
 word-wrap: break-word;
@@ -31,14 +32,14 @@ body{
 .row .col-xs-6{
 	height: 120px;
 	background-color: #fff;
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
 }
 .row .col-xs-6:first-child {
-	border-left: 1px solid #ccc;
+	border-left: 1px solid #e5e5e5;
 }
 .row .col-xs-6:last-child {
-	border-right: 1px solid #ccc;
+	border-right: 1px solid #e5e5e5;
 }
 .row_title_content{
 	border-right: 1px solid #e5e5e5;
@@ -74,7 +75,8 @@ body{
 
 .row-2 >i {
 	font-size: 32px;
-	color: #ccc;
+	color: #e5e5e5;
+	font-weight:lighter;
 	position: relative;
 	top: 5px;
 	left: -3px;
@@ -87,6 +89,7 @@ body{
 }
 .row-3{
 	color: #666;
+	font-family: "微软雅黑";
 }
 .row-map {
 	margin: 0 10px;
@@ -97,7 +100,7 @@ body{
 	height: 40px;
 	line-height: 40px;
 	background-color: white;
-	border: 1px solid #ccc;
+	border: 1px solid #e5e5e5;
 }
 
 .bottom-frame ul {
@@ -252,11 +255,12 @@ body{
 
 .deg-1 {
 	right: -12%;
-	color: #eb6e6e;
+	
+	color: #d8d8d8;
 }
 
 .deg-2 {
-	color: #d8d8d8;
+	color: #eb6e6e;
 	right: -9.666%;
 }
 

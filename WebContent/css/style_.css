@@ -1,0 +1,52 @@
+.task-lab-1,
+.task-lab-2,
+.task-lab-3{
+	background-color: #D0DDE9;
+	width: 33.333333%;
+	float: left;
+	height: 50px;
+}
+.task-lab-1 input[type="text"]{
+	width: 50%;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	margin-top: 10px;
+}
+.task-lab-1 span,
+.task-lab-2 span{
+	display: block;
+	float: left;
+	width: 60px;
+	height: 50px;
+	line-height: 50px;
+	text-align: right;
+}
+.task-lab-2 input[type=file]{
+	width: 50%;
+	margin-top: 12px;
+	margin-left: 22%;
+	height: 30px
+	
+}
+.task-lab-3 input[type="submit"]{
+	margin-top: 10px;
+}
+.task_title{
+	margin: 10px 0;
+}
+.task_title span{
+	margin-top: 10px;
+}
+.task_1,
+.task_2{
+	margin: 10px;
+}
+.foot-btn{
+	margin: 10px;
+	text-align: right;
+	
+}
+.foot-btn button{
+	width: 100px;
+}

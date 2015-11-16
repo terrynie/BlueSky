@@ -31,7 +31,7 @@
 	<link href='css/cus-icons' rel='stylesheet' type='text/css'>
     <!-- lato font -->
     <link href='css/latofont.css' rel='stylesheet' type='text/css' />
-
+	<link rel="stylesheet" type="text/css" href="css/index-bluesky.css"/>
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -40,13 +40,18 @@
 <body>
 		<!-- navbar -->
     <div class="navbar navbar-inverse" style="background-color: #3A7BDA">
-        <div class="navbar-inner" style="background-color: #3A7BDA">
-            <button type="button" class="btn btn-navbar visible-phone" id="menu-toggler">
-            </button>
+        <div class="navbar-inner logo-nav" style="background-color: #3A7BDA">
+            <!--<button type="button" class="btn btn-navbar visible-phone" id="menu-toggler">
+            </button>-->
             
             <!-- <a class="brand" href="index.html"><img src="img/logo.png" /></a> -->
-            <a class="brand">蓝天卫士</a>
-            
+            <a class="brand"><img alt="蓝天卫士" src="images/icons/logo.png"/></a>
+          	<label class="logo-nav-1">建设工地施工现场</label>
+          	<label class="logo-nav-2">扬尘治理及施工安全管理系统</label>
+          	<ul>
+          		<li id="uesr-nmae">admin</li>
+          		<li id="login-out"><a href="login.jsp" ><em></em>退出</a></li>
+          	</ul>
         </div>
     </div>
     <!-- end navbar -->
@@ -55,130 +60,38 @@
 	
     
     <style type="text/css">
-    	.cus {
-   			background-image: url(images/spritesheet.png);
-    		background-repeat: no-repeat;
-    		display: block;
-		}
-
-		.cus-data {
-    		width: 20px;
-   		 	height: 20px;
-    		background-position: -5px -5px;
-		}
-
-		.cus-exit {
-    		width: 20px;
-    		height: 20px;
-    		background-position: -35px -5px;
-		}
-
-		.cus-gongdi {
-    		width: 20px;
-   		 	height: 20px;
-    		background-position: -65px -5px;
-		}
-
-		.cus-help {
-    		width: 20px;
-    		height: 20px;
-    		background-position: -95px -5px;
-		}
-
-		.cus-jiankong {
-   			width: 20px;
-    		height: 20px;
-    		background-position: -125px -5px;
-		}
-
-		.cus-renyuan {
-    		width: 20px;
-    		height: 20px;
-    		background-position: -155px -5px;
-		}
-
-		.cus-set {
-    		width: 20px;
-    		height: 20px;
-    		background-position: -185px -5px;
-		}
-
-		.cus-weixing {
-    		width: 20px;
-    		height: 20px;
-    		background-position: -215px -5px;
-		}
-
-		.cus-yewu {
-    		width: 20px;
-    		height: 20px;
-    		background-position: -245px -5px;
     	
     </style>
     
     <!-- sidebar -->
     <div id="sidecontent">
-    	<div id="sidebar-nav" style="background-color: #336CC1">
-        <ul id="dashboard-menu">
+    	<div id="sidebar-nav" >
+        <ul id="dashboard-menu" >
             <li class="active">
-                <div class="pointer">
-                    <div class="arrow"></div>
-                    <div class="arrow_border"></div>
-                </div>
-                <a onclick="changeContent('jsp/dataCenter.jsp');" id="slider-bar" style="background-color: transparent; border: 0;font-color:#ffffff;">
-                   	<i class="cus cus-data"></i>
-                   	<input type="hidden" id="side" value="0" width="0px" height="0px">
-                    <span>数据中心</span>
-                </a>
+               <a onclick="changeContent('jsp/dataCenter.jsp');" id="slider-bar " class="slider-bar-1" ><em></em> 数据中心</a>
             </li>            
             <li>
-                <a onclick="changeContent('jsp/businessCenter_adminServlet');">
-                    <i class="cus cus-yewu"></i>
-                    <input type="hidden" id="side" value="0" width="0px" height="0px">
-                    <span>业务中心</span>
+                <a onclick="changeContent('jsp/businessCenter_adminServlet'); " class="slider-bar-2"><em></em>业务中心</a>
+            </li>
+            <li>
+                <a onclick="changeContent('jsp/monitoringcenter_adminServlet');" class="slider-bar-3"><em></em>监控中心</a>
+            </li>
+            <li>
+                <a onclick="changeContent('jsp/weixing.jsp');" class="slider-bar-4"><em></em>卫星资源</a>
+            </li>
+            <li>
+                <a onclick="changeContent('jsp/projectManagerServlet');" class="slider-bar-5"><em></em>工地管理</a>
+            </li>
+            <li>
+                <a onclick="changeContent('jsp/managerServlet');" class="slider-bar-6"><em></em>人员管理
                 </a>
             </li>
             <li>
-                <a onclick="changeContent('jsp/monitoringcenter_adminServlet');">
-                    <i class="cus cus-data"></i>
-                    <input type="hidden" id="side" value="1" width="0px" height="0px">
-                    <span>监控中心</span>
+                <a onclick="changeContent('');" class="slider-bar-7"><em></em>系统设置
                 </a>
             </li>
             <li>
-                <a onclick="changeContent('jsp/weixing.jsp');">
-                    <i class="cus cus-weixing"></i>
-                    <input type="hidden" id="side" value="2" width="0px" height="0px">
-                    <span>卫星资源</span>
-                </a>
-            </li>
-            <li>
-                <a onclick="changeContent('jsp/projectManagerServlet');">
-                    <i class="cus cus-gongdi"></i>
-                    <input type="hidden" id="side" value="3" width="0px" height="0px">
-                    <span>工地管理</span>
-                </a>
-            </li>
-            <li>
-                <a onclick="changeContent('jsp/managerServlet');">
-                    <i class="cus cus-renyuan"></i>
-                    <input type="hidden" id="side" value="4" width="0px" height="0px">
-                    <span>人员管理</span>
-                </a>
-            </li>
-            <li>
-                <a onclick="changeContent('');">
-                    <i class="cus cus-set"></i>
-                    <input type="hidden" id="side" value="5" width="0px" height="0px">
-                    <span>系统设置</span>
-                </a>
-            </li>
-            <li>
-                <a onclick="changeContent('');">
-                    <i class="cus cus-help" ></i>
-                    <input type="hidden" id="side" value="6" width="0px" height="0px">
-                    <span>使用帮助</span>
-                    <i class="icon-chevron-down"></i>
+                <a onclick="changeContent('');" class="slider-bar-8"><em></em>使用帮助    
                 </a>
             </li>
         </ul>
@@ -199,6 +112,7 @@
 
 	<!-- scripts -->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
     <!-- knob -->
@@ -208,7 +122,7 @@
     <script src="js/jquery.flot.stack.js"></script>
     <script src="js/jquery.flot.resize.js"></script>
     <script src="js/theme.js"></script>
-
+	<script src="js/index-blursky.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
     
         function changeContent(newUrl){

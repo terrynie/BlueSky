@@ -5,6 +5,7 @@ body {
 	padding: 0;
 	margin: 0;
 	min-width: 870px;
+	/*font-family: "微软雅黑","arial black";*/
 }
 
 a, a:hover, a:focus {
@@ -54,7 +55,7 @@ a, a:hover, a:focus {
 	
 	transform: all 0.4s ease;
 }
-.active{
+.openline{
 	color: #4a90e2;
 	border-bottom: 2px solid #4a90e2;
 }
@@ -191,4 +192,7 @@ a, a:hover, a:focus {
 	body:{
 		max-width: 870px;
 	};
+}
+#task_id_1{
+	border: 1px solid #0081C2;
 }

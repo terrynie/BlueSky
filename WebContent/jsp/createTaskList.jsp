@@ -7,6 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap/zui.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/style_.css"/>
 <script type="text/javascript">
 function showImage(imgFile){
 	var pattern= /(\.*.jpg$)|(\.*.png$)|(\.*.jpeg$)|(\.*.gif$)|(\.*.bmp$)/; 
@@ -35,21 +37,23 @@ function showImage(imgFile){
 		long d=date.getTime();
 	%>
 	<form action="createTaskList"method="post">
-		业务编号<input type="text"  disabled="disabled" value="<%=d%>">&nbsp;&nbsp;&nbsp;&nbsp;
-			
-			<input   name="id"type="hidden" value="<%=d %>">
-		
-		上传附件<input type="file" name="src" onchange="showImage(this)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		
-		 <input type="submit" value="创建"><br>
-		
-		业务内容<br>
-		<div style='width:100%; height:300px;'>
-			<textarea name="content" rows="15%" cols="100%"><%=date.getYear()+1990%>/<%=date.getMonth()%>/<%=date.getDay()%></textarea> 
-			<div id="imgPreview" style='width:100; height:80;'>	
-   			</div>
-		</div>
-		<br><br>
+			<div class="task_1">
+				<div class="task-lab-1">
+					<span>业务编号:</span><input type="text" class="form-control"   disabled="disabled" value="<%=d%>">
+				</div>
+				<div class="task-lab-2">
+					<input   name="id"type="hidden" value="<%=d %>">
+					<span>上传附件:</span>
+					<input type="file" name="src" onchange="showImage(this)" />
+				</div>
+				<div class="task-lab-3"> <input type="submit" class="btn btn-primary" value="创建"></div>
+			</div>
+			<div class="task_2">
+				 <div class="task_title"><span class= "label label-badge label-primary">业务内容</span> </div>
+					<textarea name="content"  class="form-control" rows="5"><%=date.getYear()+1990%>/<%=date.getMonth()%>/<%=date.getDay()%></textarea> 
+					<div id="imgPreview" style='width:100; height:80;'>	</div> 
+			</div>
+		<div class="foot-btn"><button class="btn btn-success">提交</button></div>
 	</form>
 </body>
 </html>

@@ -17,11 +17,11 @@
 		<div class="login-content">
 			<div class="login">
 			<span>用户名</span>
-			<input type="text" name="username" id="username" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}"/>
+			<input type="text" name="username" placeholder="请输入您的用户名" id="username"  />
 		</div>
 		<div class="login">
 		<span>密&nbsp;&nbsp;  &nbsp;码</span>
-		<input type="password" name="password" id="password" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}">
+		<input type="password" name="password" id="password" placeholder="请输入您的密码">
 		</div>
 		<div class="login">
 			<span>部&nbsp;&nbsp; &nbsp;门</span>
@@ -34,7 +34,7 @@
        	    </select>
 		</div>
 		<div class="footer-btn">
-			<input type="submit" class="btn btn-primary" value="&nbsp;登录&nbsp;" onclick="checkInput();return false;"/>
+			<input type="submit" id="login-in" class="btn btn-primary " value="&nbsp;登录&nbsp;" onclick="checkInput();return false;"/>
 		</div>
 	</form>
 		
@@ -44,9 +44,10 @@
 		</div>
 		<script type="text/javascript">
 			function checkInput(){
-				if(document.getElementById("username").value == '' || document.getElementById("username").value == '用户名' ){
+				if(document.getElementById("username").value == ''  ){
 					alert("请输入用户名！");
-				}else if (document.getElementById("password").value == ""||document.getElementById("password").value =="password"){
+					document.getElementById("username").focus();
+				}else if (document.getElementById("password").value == ""){
 					alert("请输入密码！");
 				}else if(document.getElementById("dept").value == ""){
 					alert("请选择部门！");
@@ -56,6 +57,7 @@
 				}
 			}
 		</script>
+		
 </div>
 </body>
 </html>

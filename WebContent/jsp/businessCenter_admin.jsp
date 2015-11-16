@@ -16,7 +16,7 @@
 
 <script src="../js/SpryAccordion.js" type="text/javascript"></script>
 
-
+<script src="../js/admin-center.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 	function tab_list(thisObj, n) {
 		if (thisObj.className == "active")
@@ -65,7 +65,7 @@
 			
 			<ul id="ul_style4">
 				<li class="normal" onclick="tab_list(this,3);">微信数据</li>
-				<li class="active" onclick="tab_list(this,0);">待办业务</li>
+				<li class="active openline" onclick="tab_list(this,0);">待办业务</li>
 				<li class="normal" onclick="tab_list(this,1);">已处理</li>
 				<li class="normal" onclick="tab_list(this,2);">通知公告</li>				
 				<li class="normal" onclick="tab_list(this,4);">创建任务</li>
@@ -1255,7 +1255,7 @@
 					</form>
 				</center>
 			</div>
-			<div id="list_data4" class="none"><iframe src="createTaskList.jsp" width="100%" height="600px"></iframe></div>
+			<div id="list_data4" class="none"><iframe width="100%" height="600px" src="createTaskList.jsp" ></iframe></div>
 		</div>
 	</div>
 	<%
