@@ -276,7 +276,7 @@ input.search{
 	margin-left: 20px;
 }
 
-#dashboard-menu > li > a {
+/*#dashboard-menu > li > a {
 	display: block;
 	margin-right: -15px;
 	margin-left: -15px;
@@ -284,10 +284,10 @@ input.search{
 	margin-bottom: 5px;
 	/*border-bottom: 1px solid #dae1e8;*/
 	/*box-shadow: 0 2px 1px -1px #FFFFFF;*/
-	color: rgb(255,255,255);
-	outline: 0px;
-	width: 88%;
-}
+	/*color: rgb(255,255,255);*/
+	/*outline: 0px;*/
+	/*width: 88%;*/
+/*}*/
 
 
 /*#dashboard-menu > li > button {
@@ -338,119 +338,14 @@ input.search{
 	left: 0;
 	margin-left: 100%;
 }
-#dashboard-menu .pointer .arrow_border {
-	border-color: transparent rgb(192, 210, 221) transparent transparent;
-	border-width: 11px;
-	margin-left: -1px;
-	border-style: solid;
-	z-index: 1001;
-	top: 0px;
-}
-#dashboard-menu a span {
-	margin-left:3px;
-	transition: color .1s linear;
-	-moz-transition: color .1s linear;
-	-webkit-transition: color .1s linear;
-	-o-transition: color .1s linear;
-}
-#dashboard-menu a.ui-elements span {
-	margin-left: 25px;
-}
-#dashboard-menu a i {
-	margin-left:-25px;
-	position: absolute;
-	left: 0;
-	height: 24px;
-	width: 24px;
-	opacity: 0.7;
-	transition: opacity .1s ease;
-	-moz-transition: opacity .1s ease;
-	-webkit-transition: opacity .1s ease;
-	-o-transition: opacity .1s ease;
-}
-#dashboard-menu a i.icon-chevron-down {
-	position: relative;
-	float: right;
-	top: 5px;
-	font-size: 11px;
-	color: rgb(104, 104, 104);
-	width: initial;
-	height: initial;
-}
-#dashboard-menu > li:hover i{
-	opacity: 1;
-}
-#dashboard-menu > li.active > a,
-#dashboard-menu > li > a:hover {
-	color: rgba(255,255,255,255);
-	text-decoration: none;
-}
-#dashboard-menu > li.active a {
-	font-weight: 600;
-	/*text-shadow: 1px 1px 1px #fff;*/
-}
-#dashboard-menu > li.active i{
-	opacity: 1;
-}
-
-
-/*#dashboard-menu > li.active > button,
-#dashboard-menu > li > button:hover {
-	color: rgba(255,255,255,255);
-	text-decoration: none;
-}
-#dashboard-menu > li.active button {
-	font-weight: 600;
-}*/	/*text-shadow: 1px 1px 1px #fff;*/
-
-
 
 /* sidebar submenus */
 #dashboard-menu > li.active .dropdown-toggle {
 	border-bottom: 0px;
 	box-shadow: none;
 }
-#dashboard-menu ul.submenu {
-	list-style-type: none;
-	display: none;
-	margin-top: 7px;
-	margin-bottom: 15px;
-	margin-right: 5px;
-	margin-left: -15px;
-	padding-left: 15px;
-	border-bottom: 1px solid #dae1e8;
-	box-shadow: 0 2px 1px -1px #FFFFFF;
-	padding-bottom: 10px;
-}
-#dashboard-menu ul.submenu.active {
-	display: block;
-}
-#dashboard-menu ul.submenu a {
-	font-weight: normal;
-	font-size: 13px;
-	color: rgb(76, 83, 90);
-	text-decoration: none;
-	display: block;
-	margin-bottom: 7px;
-}
-#dashboard-menu ul.submenu a:hover {
-	text-decoration: underline;
-}
-#dashboard-menu ul.submenu a.active {
-	font-weight: bold;
-	text-shadow: none;
-}
 
 
-#pad-wrapper {
-	padding: 0px 25px;
-	margin-top: 55px;
-}
-#pad-wrapper h4 {
-	margin: 0 0 0 20px;
-	color: #696d73;
-	font-style: italic;
-}
 .content {
 	min-width: 870px;
 	margin-bottom: 0px;
@@ -476,78 +371,6 @@ input.search{
 	margin-left: 10%;
 	width: 80%;
 }
-
-/* starts skins changer */
-.content .skins-nav {
-	opacity: 1;
-	-webkit-transition: right .3s;
-	-moz-transition: right .3s;
-	-ms-transition: right .3s;
-	-o-transition: right .3s;
-	transition: right .3s;
-
-	position: fixed;
-	right: -85px;
-	top: 135px;
-	font-size: 13px;
-	z-index: 9999;
-}
-.content .skins-nav:hover {
-	right: 0;
-}
-.content .skins-nav a {
-	display: block;
-	color: #fff;
-	text-decoration: none;
-	padding-left: 10px;
-	height: 37px;
-	-webkit-border-radius: 4px 0 0 4px;
-	-moz-border-radius: 4px 0 0 4px;
-	border-radius: 4px 0 0 4px;
-	margin-bottom: 3px;
-	-webkit-transition: all .5s;
-	-moz-transition: all .5s;
-	-ms-transition: all .5s;
-	-o-transition: all .5s;
-	transition: all .5s;
-}
-.content .skins-nav a.first_nav {
-	background: rgba(95, 175, 228, 0.8);
-}
-.content .skins-nav a.second_nav {
-	background: rgba(36, 43, 77, 0.8);
-}
-.content .skins-nav a.first_nav:hover {
-	background: rgba(95, 175, 228, 1);
-}
-.content .skins-nav a.second_nav:hover {
-	background: rgba(36, 43, 77, 1);
-}
-.content .skins-nav a .icon {
-	float: left;
-	width: 9px;
-	height: 10px;
-	background: url('../img/skin-nav-bullets.png') 0 0 no-repeat;
-	margin: 15px 15px 0 5px;
-}
-.content .skins-nav a.selected .icon {
-	background-position: 0 -9px;
-}
-.content .skins-nav a .text {
-	padding-right: 12px;
-	white-space: nowrap;
-	display: block;
-	width: 100px;
-	position: relative;
-	top: 9px;
-	-webkit-transition: width .2s;
-	-moz-transition: width .2s;
-	-ms-transition: width .2s;
-	-o-transition: width .2s;
-	transition: width .2s;
-}
-/* end skin changer*/
-
 
 
 /* responsive */

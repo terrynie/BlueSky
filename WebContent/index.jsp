@@ -11,18 +11,18 @@
     <link href="css/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
     <link href="css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
-
+<!---->
     <!-- libraries -->
-    <link href="css/lib/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />
+    <!--<link href="css/lib/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
    <!-- <link href="css/lib/font-awesome.css" type="text/css" rel="stylesheet" /> -->
 
     <!-- global styles -->
-    <link rel="stylesheet" type="text/css" href="css/layout.css" />
-    <link rel="stylesheet" type="text/css" href="css/elements.css" />
-    <link rel="stylesheet" type="text/css" href="css/icons.css" />
+    <!--<link rel="stylesheet" type="text/css" href="css/layout.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="css/elements.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="css/icons.css" />-->
 
     <!-- this page specific styles -->
-    <link rel="stylesheet" href="css/compiled/index.css" type="text/css" media="screen" />    
+    <!--<link rel="stylesheet" href="css/compiled/index.css" type="text/css" media="screen" />-->    
 
     <!-- open sans font -->
     <link href='css/opensansfont.' rel='stylesheet' type='text/css' />
@@ -64,9 +64,14 @@
     </style>
     
     <!-- sidebar -->
+    <div class="wrapper-content">
+    	<div class="go-top dn" id="go-top">
+      			<a href="javascript:;" class="go"></a>
+		</div>
     <div id="sidecontent">
     	<div id="sidebar-nav" >
         <ul id="dashboard-menu" >
+       		 <li style="height: 40px;"></li>
             <li class="active">
                <a onclick="changeContent('jsp/dataCenter.jsp');" id="slider-bar " class="slider-bar-1" ><em></em> 数据中心</a>
             </li>            
@@ -108,7 +113,8 @@
         </div> -->
         <iframe id="frame" src="jsp/dataCenter.jsp" frameborder="0" scrolling="no" width="100%" name="frame" height="3800px"  ></iframe>
     </div>
-
+    
+	</div>
 
 	<!-- scripts -->
     <script src="http://code.jquery.com/jquery-latest.js"></script>

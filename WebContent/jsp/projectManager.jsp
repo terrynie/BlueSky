@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="../css/pintuer.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/manager.css"/>
 <title>Insert title here</title>
 </head>
 <script type="text/javascript">
@@ -49,11 +51,16 @@ function callback(){
 	%>
 	<div id="body">
 		<div id="body_table">
-			<table width="100%">
+			<div class="tab_btn">
+				<a src=""></a>
+				<button class="button bg-sub 	button-small"  >添加</button>
+			</div>
+			<table width="100%" class="table  table-bordered  green center">
 				<tr>
 					<td width="20%">工地名称</td>
-					<td width="13%">
-						<select  id="manager" style="width: 100%" onchange="changeSelect()">
+					<td width="20%">
+						<span>所属</span>
+						<select  id="manager" style="width: 50%" onchange="changeSelect()">
 							<% 
 								for(String s:precincts){
 							%>
@@ -63,22 +70,20 @@ function callback(){
 							%>
 						</select>
 					</td>
-					<td width="32%">负责人</td>
-					<td width="20%">项目进度</td>
-					<td width="15%">
-						<input type="submit" value="添加">
-					</td>
+					<td width="30%">负责人</td>
+					<td width="30%">项目进度</td>
+					
 				</tr>
 			</table>
 		</div>
-		<hr>
 		<div id="body_info">
-			<table width="100%">
+			<table width="100%" class=" table table-striped table-bordered  table-hover center">
 				<%
 					for(Con_Dir c : list_conDirs){				
 				%>
 				<tr>
-					<td width="30%"><%=c.getConName() %></td>
+					<td width="20%"><%=c.getConName() %></td>
+					<td width="20%">金水区</td>
 					<td width="30%"><%=c.getDirectorName() %></td>
 					<td width="30%"><%=c.getProgress() %></td>
 				</tr>
