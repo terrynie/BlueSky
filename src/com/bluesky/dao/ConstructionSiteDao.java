@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
-
 import com.bluesky.bean.ConstructionSite;
 import com.bluesky.database.DBConnection;
 
@@ -260,5 +259,24 @@ public class ConstructionSiteDao {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	//query construction site id by name
+	public String queryIdByName(String conSiteName){
+		String id = null;
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		try {
+			Statement stmt = DBConnection.conn.createStatement();
+			String sql = "select id from ConstructionSite where name = '"+conSiteName+"'";
+			ResultSet rs = stmt.executeQuery(sql);
+			while(rs.next()){
+				id = rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return id;
 	}
 }

@@ -20,8 +20,10 @@ public class WeChatDao {
 			String sql = "insert into CustomerComplaint values('" + customerComplaint.getId() + "','"
 					+ customerComplaint.getWeChatNo() + "','" + customerComplaint.getDistrict() + "','"
 					+ customerComplaint.getStreet() + "','" + customerComplaint.getConstructionId() + "','"
-					+ customerComplaint.getContent() + "','" + customerComplaint.isHasImg() + "','"
-					+ customerComplaint.isHasVideo() + "');";
+					+ customerComplaint.getContent() + "'," + customerComplaint.isHasImg() + ","
+					+ customerComplaint.isHasVideo() + ");";
+			System.out.println(sql);
+			System.out.println();
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
@@ -64,8 +66,8 @@ public class WeChatDao {
 				customerComplaint.setStreet(rs.getString(4));
 				customerComplaint.setConstructionId(rs.getString(5));
 				customerComplaint.setContent(rs.getString(6));
-				customerComplaint.setHasImg(rs.getInt(7));
-				customerComplaint.setHasVideo(rs.getInt(8));
+				customerComplaint.setHasImg(rs.getBoolean(7));
+				customerComplaint.setHasVideo(rs.getBoolean(8));
 				list.add(customerComplaint);
 			}
 			return list;
@@ -92,8 +94,8 @@ public class WeChatDao {
 				customerComplaint.setDistrict(rs.getString(4));
 				customerComplaint.setConstructionId(rs.getString(5));
 				customerComplaint.setContent(rs.getString(6));
-				customerComplaint.setHasImg(rs.getInt(7));
-				customerComplaint.setHasVideo(rs.getInt(8));
+				customerComplaint.setHasImg(rs.getBoolean(7));
+				customerComplaint.setHasVideo(rs.getBoolean(8));
 			}
 			return customerComplaint;
 		} catch (SQLException e) {
@@ -120,8 +122,8 @@ public class WeChatDao {
 				customerComplaint.setStreet(rs.getString(4));
 				customerComplaint.setConstructionId(rs.getString(5));
 				customerComplaint.setContent(rs.getString(6));
-				customerComplaint.setHasImg(rs.getInt(7));
-				customerComplaint.setHasVideo(rs.getInt(8));
+				customerComplaint.setHasImg(rs.getBoolean(7));
+				customerComplaint.setHasVideo(rs.getBoolean(8));
 				list.add(customerComplaint);
 			}
 			return list;
