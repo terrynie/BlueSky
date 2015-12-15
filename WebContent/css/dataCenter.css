@@ -9,13 +9,15 @@ html,
 body {
 	white-space: nowrap;
 	background-color: #f6f6f6;
-	font-family: "微软雅黑","arial black";
+	font-family: "微软雅黑", "arial black";
 }
-div{ 
-word-wrap: break-word;
-word-break: normal; 
+
+div {
+	word-wrap: break-word;
+	word-break: normal;
 }
-body{
+
+body {
 	min-width: 870px;
 }
 
@@ -29,26 +31,32 @@ body{
 	margin-left: 14px;
 	margin-right: 10px;
 }
-.row .col-xs-6{
+
+.row .col-xs-6 {
 	height: 120px;
 	background-color: #fff;
 	border-top: 1px solid #e5e5e5;
 	border-bottom: 1px solid #e5e5e5;
 }
+
 .row .col-xs-6:first-child {
 	border-left: 1px solid #e5e5e5;
 }
+
 .row .col-xs-6:last-child {
 	border-right: 1px solid #e5e5e5;
 }
-.row_title_content{
+
+.row_title_content {
 	border-right: 1px solid #e5e5e5;
 	margin: 10px 0;
 	height: 100px;
 }
-.row_title_last{
+
+.row_title_last {
 	border-right: none;
 }
+
 .row-title label {
 	display: block;
 	height: 14px;
@@ -66,31 +74,94 @@ body{
 	margin: 2px 0;
 	text-align: center;
 }
+
 .row-2 >span {
 	color: #eb6e6e;
+	position: relative;
+	z-index: 1;
 	font-size: 24px;
 	font-weight: bold;
 	font-family: helvetica, "arial black";
 }
 
 .row-2 >i {
-	font-size: 32px;
-	color: #e5e5e5;
-	font-weight:lighter;
+	display: block;
+	width: 24px;
+	height: 23px;
+	background: url(../images/icons/zhezhao.png)no-repeat center center;
 	position: relative;
-	top: 5px;
-	left: -3px;
+	z-index: 2;
 }
 
 .row-2 >small {
 	color: #4a90e2;
+	position: relative;
 	font-family: helvetica, "arial black";
 	font-size: 14px;
+	z-index: 3;
 }
-.row-3{
+
+.row-span-1 span {
+	left: -9.666%;
+}
+
+.row-span-1 i {
+	top: -23px;
+	left: 44.111%;
+}
+
+.row-span-1 small {
+	top: -47px;
+	left: 7.777%;
+}
+
+.row-span-2 span {
+	left: -5.555%;
+}
+
+.row-span-2 i {
+	top: -23px;
+	left: 50.222%;
+}
+
+.row-span-2 small {
+	top: -47px;
+	left: 14.999%;
+}
+
+.row-span-3 span {
+	left: -22px;
+}
+
+.row-span-3 i {
+	top: -23px;
+	left: 44.444%;
+}
+
+.row-span-3 small {
+	top: -47px;
+	left: 7.999%;
+}
+
+.row-span-4 span {
+	left: -7.999%;
+}
+
+.row-span-4 i {
+	top: -23px;
+	left: 43.555%;
+}
+
+.row-span-4 small {
+	top: -47px;
+	left: 7.777%;
+}
+
+.row-3 {
 	color: #666;
 	font-family: "微软雅黑";
 }
+
 .row-map {
 	margin: 0 10px;
 }
@@ -139,9 +210,11 @@ body{
 .bottom-frame ul>li .i_3 {
 	background: #329D38;
 }
-.row-chart{
+
+.row-chart {
 	min-width: 850px;
 }
+
 .row-chart .one-charts,
 .row-chart .two-charts,
 .row-chart .three-charts {
@@ -255,7 +328,6 @@ body{
 
 .deg-1 {
 	right: -12%;
-	
 	color: #d8d8d8;
 }
 
@@ -264,7 +336,7 @@ body{
 	right: -9.666%;
 }
 
-.i-charts{
+.i-charts {
 	width: 60%;
 	margin-top: 10px;
 	margin-left: auto;
@@ -306,7 +378,7 @@ body{
 	display: block;
 	height: 0;
 	width: 0px;
-	border-width: 0px 0px 35px 245px;
+	border-width: 0px 0px 35px 265px;
 	border-style: none solid solid;
 	border-color: transparent transparent #f5a623;
 }
@@ -321,13 +393,54 @@ body{
 	text-align: center;
 }
 
-.foot-text .col-xs-6 >p{
+.foot-text .col-xs-6 >p {
 	margin-top: 35px;
 	text-align: left;
 	word-wrap: break-word;
-
-	word-break : normal
+	word-break: normal
 }
-@media (min-width:1024px ) {
+
+@media (min-width:1080px) {
+	#it_1 {
+		position: relative;
+		bottom: -229px;
+		right: -21.777%;
+		color: #4a90e2;
+	}
+	#it_2 {
+		position: relative;
+		bottom: -255px;
+		right: -17.777%;
+		color: #eb6e6e;
+	}
+	.enb-bar #it_1 {
+		color: #50d6e3;
+	}
+	.enb-bar #it_2 {
+		right: -19.333%;
+		color: #28abec;
+	}
+	.qin_1 {
+		position: relative;
+		bottom: -215px;
+		right: -16.666%;
+		color: #50e3c2;
+	}
+	.qin_2 {
+		position: relative;
+		bottom: -245px;
+		right: -13.999%;
+		color: #f8e71c;
+	}
+	.deg-1 {
+		right: -12.777%;
+		color: #d8d8d8;
+	}
+	.deg-2 {
+		color: #eb6e6e;
+		right: -10.111%;
+	}
+}
+@media (min-width:1024px){
 	
 }

@@ -1,0 +1,37 @@
+
+#body_table,#body_info{
+	margin: 10px;
+}
+#body_table{
+	margin-bottom: 0;
+}
+.table th,.table td{
+	text-align: center !important;
+	}
+	.addDiv table td{
+		text-align: left !important;
+	}
+	.addDiv table th{
+		text-align: right !important;
+	}
+#body_info{
+	margin-top: 0;
+}
+.tab_btn{
+	text-align: right;
+	margin: 10px 0;
+}
+.tab_btn button{
+	width: 100px;
+	height: 32px;
+}
+.addDiv{
+	margin: 10px;
+}
+.footer-addbtn{
+	margin: 10px 0;
+}
+.footer-addbtn input[type="submit"]{
+	width: 100px;
+	height: 32px;
+}

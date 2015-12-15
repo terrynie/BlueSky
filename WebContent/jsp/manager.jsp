@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/pintuer.css"/>
+<link rel="stylesheet" type="text/css" href="../css/manager.css"/>
 <script type="text/javascript">
 var xmlHttp=false;
 
@@ -47,11 +49,15 @@ function callback(){
 	%>
 	<div id="body">
 		<div id="body_table">
-			<table width="100%">
+			<div class="tab_btn">
+				<a src=""></a><button class="button bg-sub 	button-small" onclick="location.href='addConstructionSite.jsp'" >创建</button>
+			</div>
+			<table width="100%" class=" table  table-bordered  green center">
 				<tr>
 					<td width="20%">姓名</td>
-					<td width="13%">
-						<select  id="manager" style="width: 100%" onchange="changeSelect()">
+					<td width="20%">
+						<span>所属</span>
+						<select  id="manager" style="width: 50%" onchange="changeSelect()">
 							<% 
 								for(String s:precincts){
 							%>
@@ -61,22 +67,19 @@ function callback(){
 							%>
 						</select>
 					</td>
-					<td width="32%">科室</td>
-					<td width="20%">联系方式</td>
-					<td width="15%">
-						<a src=""></a><button onclick="location.href='addConstructionSite.jsp'" >创建</button>
-					</td>
+					<td width="30%">科室</td>
+					<td width="30%">联系方式</td>
 				</tr>
 			</table>
 		</div>
-		<hr>
 		<div id="body_info">
-			<table width="100%">
+			<table width="100%" class=" table table-striped table-bordered  table-hover center">
 				<%
 					for(InspectionPersonnel i : list_inspectionPersonnels){				
 				%>
 				<tr>
-					<td width="30%"><%=i.getName() %></td>
+					<td width="20%"><%=i.getName() %></td>
+					<td width="20%">二七区</td>
 					<td width="30%"><%=i.getSection() %></td>
 					<td width="30%"><%=i.getTel() %></td>
 				</tr>
