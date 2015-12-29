@@ -7,7 +7,13 @@ public class TaskList {
 	private boolean hasContent;// 是否有文字
 	private boolean hasImg;// 是否有图片
 	private boolean hasVideo;// 是否有视频
-	private int status;// 当前处理状态
+	private int status;// 处理状态
+	
+	/**
+	 * 管理：初始化（initialize -- 0） 处理转下级（dealing -- 1） 处理完成（done -- 3）
+	 * 巡检：待办（waitting to be dealed -- 1） 处理转下级（dealing -- 2）  处理完成（done -- 3） 
+	 * 执法：待办（waitting to be dealed -- 2）  处理完成（done -- 3）
+	 */
 
 	public String getId() {
 		return id;
