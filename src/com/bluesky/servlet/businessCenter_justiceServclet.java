@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.bluesky.bean.TaskList;
 import com.bluesky.dao.TaskListDao;
 
-
-
 /**
  * Servlet implementation class businessCenter_adminServclet
  */
@@ -35,7 +33,6 @@ public class businessCenter_justiceServclet extends HttpServlet {
      */
     public businessCenter_justiceServclet() {
         super();
-        // TODO Auto-generated constructor stub
     }
     public int getcount(int countinfo, int pagesize) {
 		if (countinfo % pagesize == 0) {
@@ -48,7 +45,6 @@ public class businessCenter_justiceServclet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init() throws ServletException {
-		// TODO Auto-generated method stub
 		super.init();
 	}
 
@@ -56,7 +52,6 @@ public class businessCenter_justiceServclet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.setHeader("Pragma", "No-cache");
 		response.setHeader("Cache-Control", "no-cache");
 		response.setDateHeader("Expires", 0);
@@ -76,15 +71,15 @@ public class businessCenter_justiceServclet extends HttpServlet {
 		startNum = ((Integer.parseInt(page)) - 1) * pagesize;
 		int flagnum=Integer.parseInt(flag);
 		if (flagnum== 1) {
-			countInfo = taskListDao.qureyNumOfTaskNotDone();
+			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.queryTaskNotDone(startNum, pagesize);
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(startNum, pagesize, "InspectionPersonnel");
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
 			//
-			countInfo = taskListDao.qureyNumOfTaskDone();
+			countInfo = taskListDao.qureyNumOfTaskDealing("InspectionPersonnel");
 			count_done = this.getcount(countInfo, pagesize);
-			perInfos_done = taskListDao.queryTaskDone(0, pagesize);
+			perInfos_done = taskListDao.queryTaskDoneByPage(0, pagesize);
 			request.setAttribute("count_done", count_done);
 			request.setAttribute("perInfos_done", perInfos_done);
 			//
@@ -92,15 +87,15 @@ public class businessCenter_justiceServclet extends HttpServlet {
 					request, response);
 			
 		} else if (flagnum == 2) {
-			countInfo = taskListDao.qureyNumOfTaskDone();
+			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
 			count_done = this.getcount(countInfo, pagesize);
-			perInfos_done = taskListDao.queryTaskDone(startNum, pagesize);
+			perInfos_done = taskListDao.queryTaskDoneByPage(startNum, pagesize);
 			request.setAttribute("count_done", count_done);
 			request.setAttribute("perInfos_done", perInfos_done);
 			//
-			countInfo = taskListDao.qureyNumOfTaskNotDone();
+			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.queryTaskNotDone(0, pagesize);
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "InspectionPersonnel");
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
 			//

@@ -3,7 +3,9 @@ package com.bluesky.database;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
 public class DBConnection {
@@ -34,18 +36,13 @@ public class DBConnection {
 	public static void openConn() {
 		try {
 			Class.forName(driverClass).newInstance();
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-			return;
-		}
-
-		try {
 			conn = DriverManager.getConnection(dbURL, dbUser, dbPwd);
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
+			return;
 		}
 	}
 
-	public void closeConn() {
+	public static void closeConn() {
 		if (conn != null) {
 			try {
 				conn.close();
@@ -55,5 +52,26 @@ public class DBConnection {
 			conn = null;
 		}
 	}
-
+	
+	public static void closeStatement(Statement stmt) {
+		if (stmt != null) {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			stmt = null;
+		}
+	}
+	
+	public static void closeResultSet(ResultSet rs) {
+		if (rs != null) {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			rs = null;
+		}
+	}
 }
