@@ -18,7 +18,7 @@ public class TaskListDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "insert into TaskList values('" + task.getId() + "','" + task.getSource() + "','"
 					+ task.getContent() + "','" + task.isHasContent() + "','" + task.isHasImg() + "','"
-					+ task.isHasVideo() + "','" + task.isDone() + "');";
+					+ task.isHasVideo() + "','" + task.getStatus() + "');";
 			stmt.executeUpdate(sql);
 			return true;
 		} catch (SQLException e) {
@@ -58,10 +58,10 @@ public class TaskListDao {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasContent(rs.getInt(4));
-				task.setHasImg(rs.getInt(5));
-				task.setHasVideo(rs.getInt(6));
-				task.setDone(rs.getInt(7));
+				task.setHasContent(rs.getBoolean(4));
+				task.setHasImg(rs.getBoolean(5));
+				task.setHasVideo(rs.getBoolean(6));
+				task.setStatus(rs.getInt(7));
 				list.add(task);
 			}
 			return list;
@@ -85,10 +85,10 @@ public class TaskListDao {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasContent(rs.getInt(4));
-				task.setHasImg(rs.getInt(5));
-				task.setHasVideo(rs.getInt(6));
-				task.setDone(rs.getInt(7));
+				task.setHasContent(rs.getBoolean(4));
+				task.setHasImg(rs.getBoolean(5));
+				task.setHasVideo(rs.getBoolean(6));
+				task.setStatus(rs.getInt(7));
 			}
 			return task;
 		} catch (SQLException e) {
@@ -112,10 +112,10 @@ public class TaskListDao {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasContent(rs.getInt(4));
-				task.setHasImg(rs.getInt(5));
-				task.setHasVideo(rs.getInt(6));
-				task.setDone(rs.getInt(7));
+				task.setHasContent(rs.getBoolean(4));
+				task.setHasImg(rs.getBoolean(5));
+				task.setHasVideo(rs.getBoolean(6));
+				task.setStatus(rs.getInt(7));
 				list.add(task);
 			}
 			return list;
@@ -197,10 +197,10 @@ public class TaskListDao {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasContent(rs.getInt(4));
-				task.setHasImg(rs.getInt(5));
-				task.setHasVideo(rs.getInt(6));
-				task.setDone(rs.getInt(7));
+				task.setHasContent(rs.getBoolean(4));
+				task.setHasImg(rs.getBoolean(5));
+				task.setHasVideo(rs.getBoolean(6));
+				task.setStatus(rs.getInt(7));
 				list.add(task);
 			}
 			return list;
@@ -225,10 +225,10 @@ public class TaskListDao {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasContent(rs.getInt(4));
-				task.setHasImg(rs.getInt(5));
-				task.setHasVideo(rs.getInt(6));
-				task.setDone(rs.getInt(7));
+				task.setHasContent(rs.getBoolean(4));
+				task.setHasImg(rs.getBoolean(5));
+				task.setHasVideo(rs.getBoolean(6));
+				task.setStatus(rs.getInt(7));
 				list.add(task);
 			}
 			return list;

@@ -21,18 +21,14 @@ public class createTaskList extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-	
-	
     public createTaskList() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
@@ -41,7 +37,6 @@ public class createTaskList extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		// TODO Auto-generated method stub
 		response.setHeader("Pragma", "No-cache");
 		response.setHeader("Cache-Control", "no-cache");
 		response.setDateHeader("Expires", 0);
@@ -54,32 +49,26 @@ public class createTaskList extends HttpServlet {
 		String src=request.getParameter("src");
 		String content=request.getParameter("content");
 		String src_split = null;
-		if(src !=null){
+		if(src != null){
 			String[] srcArray=src.split(".");
-			//System.out.println("length"+srcArray.length);
 			src_split = srcArray[0];
 		}
 		taskList.setId(id);
 		taskList.setContent(content);
 		taskList.setSource(session.getAttribute("dept").toString().trim());
-		taskList.setHasContent(1);
-		taskList.setDone(0);
+		taskList.setHasContent(true);
+		taskList.setStatus(0);
 		if(src==null){
-			taskList.setHasImg(0);
-			taskList.setHasVideo(0);
+			taskList.setHasImg(false);
+			taskList.setHasVideo(false);
 		}else if("img".equals(src_split) || "png".equals(src_split) || "jpeg".equals(src_split) || "bmp".equals(src_split) ||  "gif".equals(src_split)){
-			taskList.setHasImg(1);
-			taskList.setHasVideo(0);
+			taskList.setHasImg(true);
+			taskList.setHasVideo(false);
 		}else{
-			taskList.setHasVideo(1);
-			taskList.setHasImg(0);
+			taskList.setHasVideo(true);
+			taskList.setHasImg(false);
 		}
 		taskListDao.addTask(taskList);
-//		System.out.println(id);
-//		System.out.println(src);
-//		System.out.println(src_split);
-//		System.out.println(content);
 		request.getRequestDispatcher("createTaskList.jsp").forward(request, response);
 	}
-
 }

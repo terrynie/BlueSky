@@ -4,6 +4,7 @@ public class Con_Dir {
 	private String conName;//工地名称
 	private String progress;//进度
 	private String directorName;//负责人姓名
+	
 	public String getConName() {
 		return conName;
 	}
@@ -22,5 +23,4 @@ public class Con_Dir {
 	public void setDirectorName(String directorName) {
 		this.directorName = directorName;
 	}
-
 }
