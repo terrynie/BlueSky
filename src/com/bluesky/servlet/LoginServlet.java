@@ -68,19 +68,19 @@ public class LoginServlet extends HttpServlet{
         	session.setAttribute("dept", dept);
       		if(dept.equals("Admin")){
       			//跳转至管理员界面
-      			RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
+      			RequestDispatcher rd = req.getRequestDispatcher("index-bluesky.jsp");
                 rd.forward(req, resp);
       		}else if(dept.equals("InspectionPersonnel")){
       			//跳转至巡检科界面
-      			RequestDispatcher rd = req.getRequestDispatcher("");
+      			RequestDispatcher rd = req.getRequestDispatcher("index-bluesky.jsp");
                 rd.forward(req, resp);
       		}else if(dept.equals("LawEnforcingDept")){
       			//跳转至执法科界面
-      			RequestDispatcher rd = req.getRequestDispatcher("");
+      			RequestDispatcher rd = req.getRequestDispatcher("index-bluesky.jsp");
                 rd.forward(req, resp);
       		}else if(dept.equals("ConstructionSiteDirector")){
       			//跳转至工地负责人界面
-      			RequestDispatcher rd = req.getRequestDispatcher("");
+      			RequestDispatcher rd = req.getRequestDispatcher("index-bluesky.jsp");
                 rd.forward(req, resp);
       		}
             
