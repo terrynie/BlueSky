@@ -1,27 +1,35 @@
 package com.bluesky.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.LinkedList;
-
 import com.bluesky.bean.ConstructionManager;
 import com.bluesky.database.DBConnection;
 
 public class ConstructionManagerDao {
+
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
 	// add an director
 	public boolean addManager(ConstructionManager conManager) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "insert into ConstructionSiteDirector values('" + conManager.getId() + "','"
-					+ conManager.getPassword() + "','" + conManager.getName() + "','" + conManager.getSex() + "','"
-					+ conManager.getTel() + "','" + conManager.getIdCardNo() + "','" + conManager.getConstructionId()
-					+ "','" + conManager.getCompany() + "');";
-			stmt.executeUpdate(sql);
-			DBConnection.closeStatement(stmt);
+			String sql = "insert into ConstructionSiteDirector values(?,?,?,?,?,?,?)";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, conManager.getId());
+			ps.setString(2, conManager.getPassword());
+			ps.setString(3, conManager.getName());
+			ps.setString(4, conManager.getSex());
+			ps.setString(5, conManager.getTel());
+			ps.setString(6, conManager.getIdCardNo());
+			ps.setString(7, conManager.getConstructionId());
+			ps.setString(8, conManager.getCompany());
+			ps.executeUpdate();
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
@@ -36,10 +44,11 @@ public class ConstructionManagerDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "delete from ConstructionSiteDirector where id='" + conManager.getId() + "';";
-			stmt.executeUpdate(sql);
-			DBConnection.closeStatement(stmt);
+			String sql = "delete from ConstructionSiteDirector where id=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, conManager.getId());
+			ps.executeUpdate(sql);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
@@ -55,9 +64,9 @@ public class ConstructionManagerDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from ConstructionSiteDirector";
-			ResultSet rs = stmt.executeQuery(sql);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				ConstructionManager conManager = new ConstructionManager();
 				conManager.setId(rs.getString(1));
@@ -71,7 +80,7 @@ public class ConstructionManagerDao {
 				list.add(conManager);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
@@ -87,9 +96,10 @@ public class ConstructionManagerDao {
 		}
 		ConstructionManager conManager = new ConstructionManager();
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from ConstructionSiteDirector where id = '" + id + "';";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from ConstructionSiteDirector where id = ?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				conManager.setId(rs.getString(1));
 				conManager.setPassword(rs.getString(2));
@@ -98,7 +108,7 @@ public class ConstructionManagerDao {
 				conManager.setIdCardNo(rs.getString(5));
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return conManager;
 		} catch (SQLException e) {
@@ -114,9 +124,11 @@ public class ConstructionManagerDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from ConstructionSiteDirector limit " + start + "," + stepLength + ";";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from ConstructionSiteDirector limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, start);
+			ps.setInt(2, stepLength);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				ConstructionManager conManager = new ConstructionManager();
 				conManager.setId(rs.getString(1));
@@ -130,7 +142,7 @@ public class ConstructionManagerDao {
 				list.add(conManager);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
@@ -146,40 +158,39 @@ public class ConstructionManagerDao {
 		}
 		int sum = 0;
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select count(*) from ConstructionSiteDirector";
-			ResultSet rs = stmt.executeQuery(sql);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return sum;
 	}
-	
+
 	public LinkedList<String> queryPrecinctInConDir() {
 		LinkedList<String> list = new LinkedList<String>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select distinct ConstructionSite.Districts from ConstructionSite,ConstructionSiteDirector where ConstructionSite.ID = ConstructionSiteDirector.ConstructionSiteID  ";
-			ResultSet rs = stmt.executeQuery(sql);
-			while(rs.next()){
+			String sql = "select distinct ConstructionSite.Districts from ConstructionSite,ConstructionSiteDirector where ConstructionSite.ID = ConstructionSiteDirector.ConstructionSiteID";
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
 				list.add(rs.getString(1));
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return list;
 	}
-
 }

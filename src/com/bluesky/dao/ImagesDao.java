@@ -1,25 +1,30 @@
 package com.bluesky.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.LinkedList;
-
 import com.bluesky.bean.Images;
 import com.bluesky.database.DBConnection;
 
 public class ImagesDao {
+
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
 	// add an image
 	public boolean addImage(Images image) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "insert into Images values('" + image.getImgId() + "','" + image.getComplaintId() + "','"
-					+ image.getImgPath() + "');";
-			stmt.executeUpdate(sql);
-			DBConnection.closeStatement(stmt);
+			String sql = "insert into Images values(?,?,?)";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, image.getImgId());
+			ps.setString(2, image.getComplaintId());
+			ps.setString(3, image.getImgPath());
+			ps.executeUpdate();
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
@@ -34,10 +39,11 @@ public class ImagesDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "delete from Images where ID='" + image.getImgId() + "';";
-			stmt.executeUpdate(sql);
-			DBConnection.closeStatement(stmt);
+			String sql = "delete from Images where ID=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, image.getImgId());
+			ps.executeUpdate();
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
@@ -53,9 +59,9 @@ public class ImagesDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from Images";
-			ResultSet rs = stmt.executeQuery(sql);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery(sql);
 			while (rs.next()) {
 				Images image = new Images();
 				image.setImgId(rs.getString(1));
@@ -64,7 +70,7 @@ public class ImagesDao {
 				list.add(image);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
@@ -80,16 +86,17 @@ public class ImagesDao {
 		}
 		Images image = new Images();
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from Images where id = '" + id + "';";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from Images where id = ?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				image.setImgId(rs.getString(1));
 				image.setComplaintId(rs.getString(2));
 				image.setImgPath(rs.getString(3));
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return image;
 		} catch (SQLException e) {
@@ -105,9 +112,11 @@ public class ImagesDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from Images limit " + start + "," + stepLength + ";";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from Images limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, start);
+			ps.setInt(2, stepLength);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				Images image = new Images();
 				image.setImgId(rs.getString(1));
@@ -116,7 +125,7 @@ public class ImagesDao {
 				list.add(image);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
@@ -132,14 +141,14 @@ public class ImagesDao {
 		}
 		int sum = 0;
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select count(*) from Images";
-			ResultSet rs = stmt.executeQuery(sql);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -1,31 +1,42 @@
 package com.bluesky.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.LinkedList;
-
 import com.bluesky.bean.Notification;
 import com.bluesky.database.DBConnection;
 
 public class NotificationDao {
+
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
 	// add an notification
 	public boolean addNotification(Notification notification) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "insert into CorrectionNotification values('" + notification.getId() + "','"
-					+ notification.getTitle() + "','" + notification.getContent() + "','"
-					+ notification.getPublishDept() + "','" + notification.getAccordingTo() + "','"
-					+ notification.isHasImgs() + "','" + notification.isHasVedio() + "','" + notification.isHasText()
-					+ "','" + notification.getImgPath() + "','" + notification.getVideoPath() + "','"
-					+ notification.getPublishDate() + "','" + notification.getDeadline() + "','"
-					+ notification.isFeedback() + "','" + notification.getConstructionName() + "','"
-					+ notification.getFeedbackId() + "');";
-			stmt.executeUpdate(sql);
-			DBConnection.closeStatement(stmt);
+			String sql = "insert into CorrectionNotification values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			ps.setString(1, notification.getId());
+			ps.setString(2, notification.getTitle());
+			ps.setString(3, notification.getContent());
+			ps.setString(4, notification.getPublishDept());
+			ps.setString(5, notification.getAccordingTo());
+			ps.setInt(6, notification.isHasImgs());
+			ps.setInt(7, notification.isHasVedio());
+			ps.setInt(8, notification.isHasText());
+			ps.setString(9, notification.getImgPath());
+			ps.setString(10, notification.getVideoPath());
+			ps.setDate(11, notification.getPublishDate());
+			ps.setDate(12, notification.getDeadline());
+			ps.setInt(13, notification.isFeedback());
+			ps.setString(14, notification.getConstructionName());
+			ps.setString(15, notification.getFeedbackId());
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.executeUpdate();
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
@@ -40,10 +51,11 @@ public class NotificationDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "delete from CorrectionNotification where ID='" + notification.getId() + "'";
-			stmt.executeUpdate(sql);
-			DBConnection.closeStatement(stmt);
+			String sql = "delete from CorrectionNotification where ID=?";
+			ps.setString(1, notification.getId());
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.executeUpdate();
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
@@ -59,9 +71,9 @@ public class NotificationDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from CorrectionNotification";
-			ResultSet rs = stmt.executeQuery(sql);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				Notification notification = new Notification();
 				notification.setId(rs.getString(1));
@@ -82,7 +94,7 @@ public class NotificationDao {
 				list.add(notification);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
@@ -98,9 +110,10 @@ public class NotificationDao {
 		}
 		Notification notification = new Notification();
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from CorrectionNotification where id = '" + id + "';";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from CorrectionNotification where id =?";
+			ps.setString(1, id);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				notification.setId(rs.getString(1));
 				notification.setTitle(rs.getString(2));
@@ -117,7 +130,7 @@ public class NotificationDao {
 				notification.setFeedbackId(rs.getString(13));
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return notification;
 		} catch (SQLException e) {
@@ -133,9 +146,11 @@ public class NotificationDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from CorrectionNotification limit " + start + "," + stepLength + ";";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from CorrectionNotification limit ?,?";
+			ps.setInt(1, start);
+			ps.setInt(2, stepLength);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				Notification notification = new Notification();
 				notification.setId(rs.getString(1));
@@ -154,7 +169,7 @@ public class NotificationDao {
 				list.add(notification);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
@@ -170,35 +185,36 @@ public class NotificationDao {
 		}
 		int sum = 0;
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select count(*) from CorrectionNotification";
-			ResultSet rs = stmt.executeQuery(sql);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return sum;
 	}
-	
-	//query id according to construction site id
-	public String queryConSiteIdById(String id){
+
+	// query id according to construction site id
+	public String queryConSiteIdById(String id) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select consiteid from CorrectionNotification where id ='"+id+"';";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select consiteid from CorrectionNotification where id = ?";
+			ps.setString(1, id);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
-				id=rs.getString(1);
+				id = rs.getString(1);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return id;
 		} catch (SQLException e) {
