@@ -1,32 +1,40 @@
 package com.bluesky.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.LinkedList;
-
 import com.bluesky.bean.TaskList;
 import com.bluesky.database.DBConnection;
 
 public class TaskListDao {
+
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
 	// add a task
 	public boolean addTask(TaskList task) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "insert into TaskList values('" + task.getId() + "','" + task.getSource() + "','"
-					+ task.getContent() + "','" + task.getHasContent() + "','" + task.getHasImg() + "','"
-					+ task.getHasVideo() + "','" + task.getStatus() + "');";
-			stmt.executeUpdate(sql);
-			DBConnection.closeStatement(stmt);
+			String sql = "insert into TaskList values(?,?,?,?,?,?,?)";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, task.getId());
+			ps.setString(2, task.getSource());
+			ps.setString(3, task.getContent());
+			ps.setInt(4, task.getHasContent());
+			ps.setInt(5, task.getHasImg());
+			ps.setInt(6, task.getHasVideo());
+			ps.setInt(7, task.getStatus());
+			ps.executeUpdate();
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
-		} 
+		}
 	}
 
 	// delete a task
@@ -35,10 +43,11 @@ public class TaskListDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "delete from TaskList where id='" + task.getId() + "';";
-			stmt.executeUpdate(sql);
-			DBConnection.closeStatement(stmt);
+			String sql = "delete from TaskList where id=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, task.getId());
+			ps.executeUpdate();
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
@@ -54,9 +63,9 @@ public class TaskListDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from TaskList";
-			ResultSet rs = stmt.executeQuery(sql);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				TaskList task = new TaskList();
 				task.setId(rs.getString(1));
@@ -69,7 +78,7 @@ public class TaskListDao {
 				list.add(task);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
@@ -85,9 +94,10 @@ public class TaskListDao {
 		}
 		TaskList task = new TaskList();
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from TaskList where id = '" + id + "';";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from TaskList where id=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, task.getId());
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
@@ -98,7 +108,7 @@ public class TaskListDao {
 				task.setStatus(rs.getInt(7));
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return task;
 		} catch (SQLException e) {
@@ -114,9 +124,11 @@ public class TaskListDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from TaskList limit '" + start + "','" + stepLength + "';";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from TaskList limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, start);
+			ps.setInt(2, stepLength);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				TaskList task = new TaskList();
 				task.setId(rs.getString(1));
@@ -129,7 +141,7 @@ public class TaskListDao {
 				list.add(task);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
@@ -145,14 +157,14 @@ public class TaskListDao {
 		}
 		int sum = 0;
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select count(*) from TaskList";
-			ResultSet rs = stmt.executeQuery(sql);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -171,19 +183,20 @@ public class TaskListDao {
 		}
 		int sum = 0;
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select count(*) from TaskList where Status=0";
+			String sql = "select count(*) from TaskList where Status=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, 0);
 			if (role.trim().equals("InspectionPersonnel")) {
-				sql = "select count(*) from TaskList where Status=1";
+				ps.setInt(1, 2);
 			} else if (role.trim().equals("LawInforcing")) {
-				sql = "select count(*) from TaskList where Status=2";
+				ps.setInt(1, 3);
 			}
-			ResultSet rs = stmt.executeQuery(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -197,14 +210,18 @@ public class TaskListDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from TaskList where Status=0 limit " + start + "," + stepLength + ";";
+			String sql = "select * from TaskList where Status=? limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, 0);
+			ps.setInt(2, start);
+			ps.setInt(3, stepLength);
 			if (role.trim().equals("InspectionPersonnel")) {
-				sql = "select * from TaskList where Status=1 limit " + start + "," + stepLength + ";";
+				ps.setInt(1, 1);
 			} else if (role.trim().equals("LawInforcing")) {
-				sql = "select * from TaskList where Status=2 limit " + start + "," + stepLength + ";";
+				ps.setInt(1, 2);
 			}
-			ResultSet rs = stmt.executeQuery(sql);
+			
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				TaskList task = new TaskList();
 				task.setId(rs.getString(1));
@@ -217,7 +234,7 @@ public class TaskListDao {
 				list.add(task);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
@@ -237,38 +254,42 @@ public class TaskListDao {
 		}
 		int sum = 0;
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select count(*) from TaskList where Status=1";
+			String sql = "select count(*) from TaskList where Status=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, 1);
 			if (role.trim().equals("InspectionPersonnel")) {
-				sql = "select count(*) from TaskList where Status = 2";
+				ps.setInt(1, 2);
 			}
-			ResultSet rs = stmt.executeQuery(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return sum;
 	}
-	
+
 	public LinkedList<TaskList> qureyTaskDealingByPage(int start, int stepLength, String role) {
 		LinkedList<TaskList> list = new LinkedList<TaskList>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from TaskList where Status=0 limit " + start + "," + stepLength + ";";
+			String sql = "select * from TaskList where Status=? limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, 0);
+			ps.setInt(2, start);
+			ps.setInt(3, stepLength);
 			if (role.trim().equals("InspectionPersonnel")) {
-				sql = "select * from TaskList where Status=1 limit " + start + "," + stepLength + ";";
+				ps.setInt(1, 1);
 			} else if (role.trim().equals("LawInforcing")) {
-				sql = "select * from TaskList where Status=2 limit " + start + "," + stepLength + ";";
+				ps.setInt(1, 2);
 			}
-			ResultSet rs = stmt.executeQuery(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				TaskList task = new TaskList();
 				task.setId(rs.getString(1));
@@ -281,7 +302,7 @@ public class TaskListDao {
 				list.add(task);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
@@ -289,21 +310,22 @@ public class TaskListDao {
 			return list;
 		}
 	}
-	
+
 	public int qureyNumOfTaskListDone() {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		int sum = 0;
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select count(*) from TaskList where Status=3";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select count(*) from TaskList where Status=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, 3);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -320,9 +342,12 @@ public class TaskListDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from TaskList where Status=3 limit " + start + "," + stepLength + ";";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from TaskList where status=? limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, 0);
+			ps.setInt(2, start);
+			ps.setInt(3, stepLength);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				TaskList task = new TaskList();
 				task.setId(rs.getString(1));
@@ -335,7 +360,7 @@ public class TaskListDao {
 				list.add(task);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
@@ -344,4 +369,18 @@ public class TaskListDao {
 		}
 	}
 
+	public void updateTaskStatus(String id,int status) {
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		try {
+			String sql = "update TaskList set status=? where id=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, status);
+			ps.setString(2, id);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

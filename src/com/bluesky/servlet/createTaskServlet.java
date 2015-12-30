@@ -42,26 +42,18 @@ public class createTaskServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		
 		String id=request.getParameter("id");
-		String source=request.getParameter("source");
-		String content=request.getParameter("content");
+		int status=Integer.parseInt(request.getParameter("status"));
 		TaskList taskList=new TaskList();
 		TaskListDao taskListDao=new TaskListDao();
 		WeChat wechat=new WeChat();
 		WeChatDao wechatdao=new WeChatDao();
 		taskList.setId(id);
-		taskList.setSource(source);
-		taskList.setContent(content);
-		//随便写的
-		taskList.setHasContent(0);
-		taskList.setHasImg(0);
-		taskList.setHasVideo(0);
-		taskList.setStatus(0);
-		taskListDao.addTask(taskList);
-		wechat.setId(id);
-		wechatdao.delManager(wechat);
-		System.out.println("success");
+	
+		taskList.setStatus(status);
+		taskListDao.updateTaskStatus(id, status);;
+		System.out.println("status change success");
 		response.setContentType("text/html;charset=utf-8");//这里是防止出现乱码，很重要的
-		response.getWriter().print( " <script> location.href= '"+request.getContextPath()+"/jsp/businessCenter_adminServlet'; </script> ");
+		response.getWriter().print( " <script> location.href= '"+request.getContextPath()+"/jsp/businessCenter_adminServlet?flag=1&page=1'; </script> ");
 		//response.sendRedirect("/jsp/businessCenter_adminServclet");
 		//request.getRequestDispatcher("jsp/businessCenter_adminServlet").forward(request, response);
     }
