@@ -18,6 +18,8 @@ public class AdminDao {
 			String sql = "insert into Admin values('" + admin.getId() + "','" + admin.getPassword() + "','"
 					+ admin.getName() + "','" + admin.getTel() + "','" + admin.getIdCardNo() + "');";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -34,6 +36,8 @@ public class AdminDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from Admin where ID='" + admin.getId() + "';";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -60,6 +64,9 @@ public class AdminDao {
 				admin.setIdCardNo(rs.getString(5));
 				list.add(admin);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -84,6 +91,9 @@ public class AdminDao {
 				admin.setTel(rs.getString(4));
 				admin.setIdCardNo(rs.getString(5));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return admin;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -110,6 +120,9 @@ public class AdminDao {
 				admin.setIdCardNo(rs.getString(5));
 				list.add(admin);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -130,6 +143,9 @@ public class AdminDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

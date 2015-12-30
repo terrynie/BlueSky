@@ -73,6 +73,8 @@
     	<div id="sidebar-nav" >
         <ul id="dashboard-menu" >
        		 <li style="height: 40px;"></li>
+       		 
+       		 <!-- 不同的用户显示不同的业务中心 -->
        		 <c:set var="dept" value=""/>
        		 <c:choose>
        		 <c:when test="${sessionScope.dept=='Admin' }">
@@ -88,6 +90,7 @@
        		 	<c:set var='dept' value='jsp/businessCenter_constructionManagerServclet'></c:set>
        		 </c:otherwise>
        		 </c:choose>
+       		 
             <li class="active">
                <a onclick="changeContent('jsp/dataCenter.jsp');" id="slider-bar " class="slider-bar-1" ><em></em> 数据中心</a>
             </li>            
@@ -100,7 +103,8 @@
             <li>
                 <a onclick="changeContent('jsp/weixing.jsp');" class="slider-bar-4"><em></em>卫星资源</a>
             </li>
-            <!-- 判断是否为管理员登陆 -->
+            
+            <!-- 判断是否为管理员登陆 因为人员管理和工地管理只有管理员才有 -->
             <c:choose>
             <c:when test="${sessionScope.dept =='Admin'}">
        		 	<li>
@@ -154,15 +158,8 @@
         function changeContent(newUrl){
         	var frame = document.getElementById('frame');
         	frame.src = newUrl;
-/*         	var youbiao = document.getElementById('side');
-        	document.getElementById('arrow').setAttribute("margin-top", parseInt(youbiao.getAttribute("value"))*51); */
+        	
         }
-        
-        
-        /* var divInitTop;
-        function moveDivAd(){
-        	if(document.getElementById("sidecontent").style.pixel)
-        } */
     </script>
 
 	</div>

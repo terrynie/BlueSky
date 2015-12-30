@@ -19,6 +19,8 @@ public class LawEnforcingDao {
 					+ "','" + lawEnforcing.getName() + "','" + lawEnforcing.getTel() + "','"
 					+ lawEnforcing.getIdCardNo() + "');";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -34,6 +36,8 @@ public class LawEnforcingDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from LawEnforcing where ID='" + lawEnforcing.getId() + "';";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -59,6 +63,9 @@ public class LawEnforcingDao {
 				lawEnforcing.setIdCardNo(rs.getString(5));
 				list.add(lawEnforcing);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -82,6 +89,9 @@ public class LawEnforcingDao {
 				lawEnforcing.setTel(rs.getString(4));
 				lawEnforcing.setIdCardNo(rs.getString(5));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return lawEnforcing;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -107,6 +117,9 @@ public class LawEnforcingDao {
 				lawEnforcing.setIdCardNo(rs.getString(5));
 				list.add(lawEnforcing);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -126,6 +139,9 @@ public class LawEnforcingDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

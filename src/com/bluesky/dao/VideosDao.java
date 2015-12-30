@@ -19,6 +19,8 @@ public class VideosDao {
 			String sql = "insert into Videos values('" + video.getId() + "','" + video.getComplaintId() + "','"
 					+ video.getVideoPath() + "');";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -35,6 +37,8 @@ public class VideosDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from Videos where ID='" + video.getId() + "';";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -59,6 +63,9 @@ public class VideosDao {
 				video.setVideoPath(rs.getString(3));
 				list.add(video);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -81,6 +88,9 @@ public class VideosDao {
 				video.setComplaintId(rs.getString(2));
 				video.setVideoPath(rs.getString(3));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return video;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -105,6 +115,9 @@ public class VideosDao {
 				video.setVideoPath(rs.getString(3));
 				list.add(video);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -125,6 +138,9 @@ public class VideosDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

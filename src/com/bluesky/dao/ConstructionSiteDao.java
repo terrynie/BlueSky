@@ -24,6 +24,8 @@ public class ConstructionSiteDao {
 					+ constructionSite.getStruct() + "','" + constructionSite.getPrice() + "','"
 					+ constructionSite.getTotalMonitors() + "','"+constructionSite.getProgress()+"');";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -40,6 +42,8 @@ public class ConstructionSiteDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from ConstructionSite where id='" + constructionSite.getId() + "';";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -75,6 +79,9 @@ public class ConstructionSiteDao {
 				constructionSite.setTotalMonitors(rs.getInt(14));
 				list.add(constructionSite);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -108,6 +115,9 @@ public class ConstructionSiteDao {
 				constructionSite.setPrice(rs.getDouble(13));
 				constructionSite.setTotalMonitors(rs.getInt(14));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return constructionSite;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -143,6 +153,9 @@ public class ConstructionSiteDao {
 				constructionSite.setTotalMonitors(rs.getInt(14));
 				list.add(constructionSite);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -163,6 +176,9 @@ public class ConstructionSiteDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -197,6 +213,9 @@ public class ConstructionSiteDao {
 				constructionSite.setTotalMonitors(rs.getInt(14));
 				list.add(constructionSite);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -217,6 +236,9 @@ public class ConstructionSiteDao {
 			while (rs.next()) {
 				list.add(rs.getString(1));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -236,6 +258,9 @@ public class ConstructionSiteDao {
 			while (rs.next()) {
 				list.add(rs.getString(1));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -255,6 +280,9 @@ public class ConstructionSiteDao {
 			while (rs.next()) {
 				list.add(rs.getString(1));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -274,6 +302,9 @@ public class ConstructionSiteDao {
 			while(rs.next()){
 				id = rs.getString(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

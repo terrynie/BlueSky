@@ -50,23 +50,26 @@ public class createTaskList extends HttpServlet {
 		String content=request.getParameter("content");
 		String src_split = null;
 		if(src != null){
-			String[] srcArray=src.split(".");
+			System.out.println(src);
+			String [] srcArray=src.split(".");
+			System.out.println(srcArray[0]);
 			src_split = srcArray[0];
 		}
 		taskList.setId(id);
 		taskList.setContent(content);
 		taskList.setSource(session.getAttribute("dept").toString().trim());
-		taskList.setHasContent(true);
+		taskList.setHasContent(1);
 		taskList.setStatus(0);
-		if(src==null){
-			taskList.setHasImg(false);
-			taskList.setHasVideo(false);
-		}else if("img".equals(src_split) || "png".equals(src_split) || "jpeg".equals(src_split) || "bmp".equals(src_split) ||  "gif".equals(src_split)){
-			taskList.setHasImg(true);
-			taskList.setHasVideo(false);
-		}else{
-			taskList.setHasVideo(true);
-			taskList.setHasImg(false);
+		if (src == null) {
+			taskList.setHasImg(0);
+			taskList.setHasVideo(0);
+		} else if ("img".equals(src_split) || "png".equals(src_split) || "jpeg".equals(src_split)
+				|| "bmp".equals(src_split) || "gif".equals(src_split)) {
+			taskList.setHasImg(1);
+			taskList.setHasVideo(0);
+		} else {
+			taskList.setHasVideo(1);
+			taskList.setHasImg(0);
 		}
 		taskListDao.addTask(taskList);
 		request.getRequestDispatcher("createTaskList.jsp").forward(request, response);

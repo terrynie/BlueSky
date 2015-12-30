@@ -17,14 +17,16 @@ public class TaskListDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "insert into TaskList values('" + task.getId() + "','" + task.getSource() + "','"
-					+ task.getContent() + "','" + task.isHasContent() + "','" + task.isHasImg() + "','"
-					+ task.isHasVideo() + "','" + task.getStatus() + "');";
+					+ task.getContent() + "','" + task.getContent() + "','" + task.getHasImg() + "','"
+					+ task.getHasVideo() + "','" + task.getStatus() + "');";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
-		}
+		} 
 	}
 
 	// delete a task
@@ -36,6 +38,8 @@ public class TaskListDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from TaskList where id='" + task.getId() + "';";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -58,12 +62,15 @@ public class TaskListDao {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasContent(rs.getBoolean(4));
-				task.setHasImg(rs.getBoolean(5));
-				task.setHasVideo(rs.getBoolean(6));
+				task.setHasContent(rs.getInt(4));
+				task.setHasImg(rs.getInt(5));
+				task.setHasVideo(rs.getInt(6));
 				task.setStatus(rs.getInt(7));
 				list.add(task);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -85,11 +92,14 @@ public class TaskListDao {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasContent(rs.getBoolean(4));
-				task.setHasImg(rs.getBoolean(5));
-				task.setHasVideo(rs.getBoolean(6));
+				task.setHasContent(rs.getInt(4));
+				task.setHasImg(rs.getInt(5));
+				task.setHasVideo(rs.getInt(6));
 				task.setStatus(rs.getInt(7));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return task;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -112,12 +122,15 @@ public class TaskListDao {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasContent(rs.getBoolean(4));
-				task.setHasImg(rs.getBoolean(5));
-				task.setHasVideo(rs.getBoolean(6));
+				task.setHasContent(rs.getInt(4));
+				task.setHasImg(rs.getInt(5));
+				task.setHasVideo(rs.getInt(6));
 				task.setStatus(rs.getInt(7));
 				list.add(task);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -138,6 +151,9 @@ public class TaskListDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -166,6 +182,9 @@ public class TaskListDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -186,18 +205,20 @@ public class TaskListDao {
 				sql = "select * from TaskList where Status=2 limit " + start + "," + stepLength + ";";
 			}
 			ResultSet rs = stmt.executeQuery(sql);
-			System.out.println(sql + "sql clause");
 			while (rs.next()) {
 				TaskList task = new TaskList();
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasContent(rs.getBoolean(4));
-				task.setHasImg(rs.getBoolean(5));
-				task.setHasVideo(rs.getBoolean(6));
+				task.setHasContent(rs.getInt(4));
+				task.setHasImg(rs.getInt(5));
+				task.setHasVideo(rs.getInt(6));
 				task.setStatus(rs.getInt(7));
 				list.add(task);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -225,6 +246,9 @@ public class TaskListDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -250,12 +274,15 @@ public class TaskListDao {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasContent(rs.getBoolean(4));
-				task.setHasImg(rs.getBoolean(5));
-				task.setHasVideo(rs.getBoolean(6));
+				task.setHasContent(rs.getInt(4));
+				task.setHasImg(rs.getInt(5));
+				task.setHasVideo(rs.getInt(6));
 				task.setStatus(rs.getInt(7));
 				list.add(task);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -275,6 +302,9 @@ public class TaskListDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -298,12 +328,15 @@ public class TaskListDao {
 				task.setId(rs.getString(1));
 				task.setSource(rs.getString(2));
 				task.setContent(rs.getString(3));
-				task.setHasContent(rs.getBoolean(4));
-				task.setHasImg(rs.getBoolean(5));
-				task.setHasVideo(rs.getBoolean(6));
+				task.setHasContent(rs.getInt(4));
+				task.setHasImg(rs.getInt(5));
+				task.setHasVideo(rs.getInt(6));
 				task.setStatus(rs.getInt(7));
 				list.add(task);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();

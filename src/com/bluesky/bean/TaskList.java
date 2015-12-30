@@ -4,9 +4,9 @@ public class TaskList {
 	private String id;// 业务编号
 	private String source;// 来源
 	private String content;// 内容
-	private boolean hasContent;// 是否有文字
-	private boolean hasImg;// 是否有图片
-	private boolean hasVideo;// 是否有视频
+	private int hasContent;// 是否有文字
+	private int hasImg;// 是否有图片
+	private int hasVideo;// 是否有视频
 	private int status;// 处理状态
 	
 	/**
@@ -39,27 +39,27 @@ public class TaskList {
 		this.content = content;
 	}
 
-	public boolean isHasContent() {
+	public int getHasContent() {
 		return hasContent;
 	}
 
-	public void setHasContent(boolean hasContent) {
+	public void setHasContent(int hasContent) {
 		this.hasContent = hasContent;
 	}
 
-	public boolean isHasImg() {
+	public int getHasImg() {
 		return hasImg;
 	}
 
-	public void setHasImg(boolean hasImg) {
+	public void setHasImg(int hasImg) {
 		this.hasImg = hasImg;
 	}
 
-	public boolean isHasVideo() {
+	public int getHasVideo() {
 		return hasVideo;
 	}
 
-	public void setHasVideo(boolean hasVideo) {
+	public void setHasVideo(int hasVideo) {
 		this.hasVideo = hasVideo;
 	}
 
