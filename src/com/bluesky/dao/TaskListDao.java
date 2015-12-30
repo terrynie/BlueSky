@@ -17,7 +17,7 @@ public class TaskListDao {
 		try {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "insert into TaskList values('" + task.getId() + "','" + task.getSource() + "','"
-					+ task.getContent() + "','" + task.getContent() + "','" + task.getHasImg() + "','"
+					+ task.getContent() + "','" + task.getHasContent() + "','" + task.getHasImg() + "','"
 					+ task.getHasVideo() + "','" + task.getStatus() + "');";
 			stmt.executeUpdate(sql);
 			DBConnection.closeStatement(stmt);

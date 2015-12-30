@@ -33,8 +33,18 @@
 			}
 		}
 	}
-</script>
-<script type="text/javascript">
+
+	function creat_task(id,source,content){
+		alert("处理成功"+id);
+		var url="../createTaskServlet.do?id="+id+"&source="+source+"&content="+content;
+		window.location.href=url;	
+	}
+	function it_notture(id){
+		alert("处理成功"+id);
+		var url="../createTaskServlet.do?id="+id+"&source="+source+"&content="+content;
+		window.location.href=url;
+	}
+	
 
 </script>
 
@@ -334,9 +344,16 @@
 							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
 							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
 							<div class="info_item">
-							<input type="button" class="btn btn-primary" value="在线巡查"/>
-							<input type="button" class="btn btn-primary" value="生成任务"/>
-							<input type="button" class="btn btn-primary" value="不属实"/>
+							<!-- -<button class="btn btn-primary">在线巡查</button>
+							<button class="btn btn-primary" onclick="javascript:textz()">生成任务</button>-->
+							 <input type="hidden" value="<%=w.getId()%>" id="id">
+							<input type="hidden" value="<%=w.getWeChatNo()%>" id="sourse">
+							<input type="hidden" value="<%=w.getContent()%>" id="content">
+							<input type="button" class="btn btn-primary" value="在线巡查" />
+							<input type="button" class="btn btn-primary" value="生成任务"  
+							onclick="javascript:creat_task('<%=w.getId()%>','<%=w.getWeChatNo()%>','<%=w.getContent()%>')"/>
+							<input type="button" class="btn btn-primary" value="不属实"
+							onclick="javascript:it_notture('<%=w.getId()%>')"/>
 							</div>
 						</div>
 					</div>
@@ -1261,6 +1278,7 @@
 	<%
 		}
 	%>
+</div>
 <script type="text/javascript">
 	var Accordion1 = new Spry.Widget.Accordion("Accordion1");
 	var Accordion2 = new Spry.Widget.Accordion("Accordion2");

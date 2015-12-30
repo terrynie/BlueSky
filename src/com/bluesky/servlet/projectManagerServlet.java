@@ -37,7 +37,7 @@ public class projectManagerServlet extends HttpServlet {
 		response.setDateHeader("Expires", 0);
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		PrintWriter out = response.getWriter();
+
 		
 		String precinct = "金水区";
 		String str_precinct = request.getParameter("precinct");
@@ -53,27 +53,10 @@ public class projectManagerServlet extends HttpServlet {
 		System.out.println(precincts+"--------------------");
 		LinkedList<Con_Dir> list_conDirs=conSite_Director.queryConInfo(precinct);
 		request.setAttribute("precincts", precincts);
+		request.setAttribute("precinct", str_precinct);
 		request.setAttribute("list_conDirs", list_conDirs);
-		//request.getRequestDispatcher("manager.jsp").forward(request, response);
-		if(str_precinct ==null){
-			request.getRequestDispatcher("projectManager.jsp").forward(request, response);
-		}else {
-			out.println("<table width="+100+"%"+">");
-			for(Con_Dir c : list_conDirs){
-				out.println("<tr>");
-				out.println("<td width="+30+"%"+">");
-				out.println(c.getConName());
-				out.println("</td>");
-				out.println("<td width="+30+"%"+">");
-				out.println(c.getDirectorName());
-				out.println("</td>");
-				out.println("<td width="+30+"%"+">");
-				out.println(c.getProgress());
-				out.println("</td>");
-				out.println("</tr>");
-			}
-			out.println("</table>");
-		}
+		request.getRequestDispatcher("projectManager.jsp").forward(request, response);
+		
 		
     }
 

@@ -63,4 +63,12 @@
     <servlet-name>loginservlet</servlet-name>
     <url-pattern>/loginservlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>createTaskServlet</servlet-name>
+    <servlet-class>com.bluesky.servlet.createTaskServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>createTaskServlet</servlet-name>
+    <url-pattern>/createTaskServlet.do</url-pattern>
+  </servlet-mapping>
 </web-app>
