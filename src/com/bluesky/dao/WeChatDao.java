@@ -89,7 +89,7 @@ public class WeChatDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -157,7 +157,7 @@ public class WeChatDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -178,10 +178,11 @@ public class WeChatDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return sum;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}
-		return sum;
 	}
 
 	// query numbers of customer complaints
@@ -201,10 +202,11 @@ public class WeChatDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return sum;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}
-		return sum;
 	}
 
 	/*
@@ -252,7 +254,7 @@ public class WeChatDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 

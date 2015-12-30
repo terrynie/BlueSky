@@ -98,7 +98,7 @@ public class ConstructionSiteDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -175,7 +175,7 @@ public class ConstructionSiteDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -195,10 +195,11 @@ public class ConstructionSiteDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return sum;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}
-		return sum;
 	}
 
 	// query by district
@@ -257,10 +258,11 @@ public class ConstructionSiteDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return list;
 	}
 
 	// query streets according to district
@@ -280,10 +282,11 @@ public class ConstructionSiteDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return list;
 	}
 
 	// query distinct districts from construction site table
@@ -302,10 +305,11 @@ public class ConstructionSiteDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return list;
 	}
 
 	// query construction site id by name
@@ -325,9 +329,10 @@ public class ConstructionSiteDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return id;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return id;
 	}
 }

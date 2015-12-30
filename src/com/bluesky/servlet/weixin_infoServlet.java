@@ -59,8 +59,8 @@ public class weixin_infoServlet extends HttpServlet {
 		weChat.setStreet(request.getParameter("select_street"));
 		weChat.setWeChatNo(weChatNo);
 		if(!("").equals(request.getParameter("src"))){
-			weChat.setHasImg(true);
-			weChat.setHasVideo(true);
+			weChat.setHasImg(1);
+			weChat.setHasVideo(1);
 		}
 		weChatDao.addManager(weChat);
 	}

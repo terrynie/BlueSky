@@ -99,7 +99,7 @@ public class NotificationDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -174,7 +174,7 @@ public class NotificationDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -194,10 +194,11 @@ public class NotificationDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return sum;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}
-		return sum;
 	}
 
 	// query id according to construction site id
@@ -219,7 +220,7 @@ public class NotificationDao {
 			return id;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return id;
+			return null;
 		}
 	}
 }

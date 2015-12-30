@@ -9,10 +9,10 @@ import com.bluesky.bean.InspectionPersonnel;
 import com.bluesky.database.DBConnection;
 
 public class InspectionPersonnelDao {
-	
+
 	PreparedStatement ps = null;
 	ResultSet rs = null;
-	
+
 	// add an inspector
 	public boolean addManager(InspectionPersonnel inspector) {
 		if (DBConnection.conn == null) {
@@ -86,7 +86,7 @@ public class InspectionPersonnelDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -148,7 +148,7 @@ public class InspectionPersonnelDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -168,10 +168,11 @@ public class InspectionPersonnelDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return sum;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}
-		return sum;
 	}
 
 	// query inspection personnel according to precinct
@@ -200,33 +201,34 @@ public class InspectionPersonnelDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return list;
 	}
-	
-	//query distinct precinct from table--InspectionPersonnel
 
-		public LinkedList<String> queryPrecinct() {
-			LinkedList<String> list = new LinkedList<String>();
-			if (DBConnection.conn == null) {
-				DBConnection.openConn();
-			}
-			try {
-				String sql = "select distinct precinct from InspectionPersonnel";
-				ps = DBConnection.conn.prepareStatement(sql);
-				rs = ps.executeQuery();
-				while(rs.next()){
-					list.add(rs.getString(1));
-				}
-				DBConnection.closeResultSet(rs);
-				DBConnection.closeStatement(ps);
-				DBConnection.closeConn();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return list;
+	// query distinct precinct from table--InspectionPersonnel
+	public LinkedList<String> queryPrecinct() {
+		LinkedList<String> list = new LinkedList<String>();
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
 		}
+		try {
+			String sql = "select distinct precinct from InspectionPersonnel";
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				list.add(rs.getString(1));
+			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(ps);
+			DBConnection.closeConn();
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }

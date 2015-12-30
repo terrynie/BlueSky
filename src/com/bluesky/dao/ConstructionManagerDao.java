@@ -85,7 +85,7 @@ public class ConstructionManagerDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -147,7 +147,7 @@ public class ConstructionManagerDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -167,10 +167,11 @@ public class ConstructionManagerDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return sum;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}
-		return sum;
 	}
 
 	public LinkedList<String> queryPrecinctInConDir() {
@@ -188,9 +189,10 @@ public class ConstructionManagerDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return list;
 	}
 }

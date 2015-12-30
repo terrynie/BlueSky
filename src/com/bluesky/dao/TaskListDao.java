@@ -8,10 +8,10 @@ import com.bluesky.bean.TaskList;
 import com.bluesky.database.DBConnection;
 
 public class TaskListDao {
-	
+
 	PreparedStatement ps = null;
 	ResultSet rs = null;
-	
+
 	// add a task
 	public boolean addTask(TaskList task) {
 		if (DBConnection.conn == null) {
@@ -34,7 +34,7 @@ public class TaskListDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
-		} 
+		}
 	}
 
 	// delete a task
@@ -83,7 +83,7 @@ public class TaskListDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -146,7 +146,7 @@ public class TaskListDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -166,10 +166,11 @@ public class TaskListDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return sum;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}
-		return sum;
 	}
 
 	/*
@@ -184,13 +185,13 @@ public class TaskListDao {
 		int sum = 0;
 		try {
 			String sql = "select count(*) from TaskList where Status=?";
+			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setInt(1, 0);
 			if (role.trim().equals("InspectionPersonnel")) {
 				ps.setInt(1, 2);
 			} else if (role.trim().equals("LawInforcing")) {
 				ps.setInt(1, 3);
 			}
-			ps = DBConnection.conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
@@ -198,10 +199,11 @@ public class TaskListDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return sum;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}
-		return sum;
 	}
 
 	public LinkedList<TaskList> qureyTaskWaitDealedByPage(int start, int stepLength, String role) {
@@ -211,6 +213,7 @@ public class TaskListDao {
 		}
 		try {
 			String sql = "select * from TaskList where Status=? limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setInt(1, 0);
 			ps.setInt(2, start);
 			ps.setInt(3, stepLength);
@@ -219,7 +222,6 @@ public class TaskListDao {
 			} else if (role.trim().equals("LawInforcing")) {
 				ps.setInt(1, 2);
 			}
-			ps = DBConnection.conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				TaskList task = new TaskList();
@@ -238,7 +240,7 @@ public class TaskListDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -254,11 +256,11 @@ public class TaskListDao {
 		int sum = 0;
 		try {
 			String sql = "select count(*) from TaskList where Status=?";
+			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setInt(1, 1);
 			if (role.trim().equals("InspectionPersonnel")) {
 				ps.setInt(1, 2);
 			}
-			ps = DBConnection.conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
@@ -266,12 +268,13 @@ public class TaskListDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return sum;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}
-		return sum;
 	}
-	
+
 	public LinkedList<TaskList> qureyTaskDealingByPage(int start, int stepLength, String role) {
 		LinkedList<TaskList> list = new LinkedList<TaskList>();
 		if (DBConnection.conn == null) {
@@ -279,6 +282,7 @@ public class TaskListDao {
 		}
 		try {
 			String sql = "select * from TaskList where Status=? limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setInt(1, 0);
 			ps.setInt(2, start);
 			ps.setInt(3, stepLength);
@@ -287,7 +291,6 @@ public class TaskListDao {
 			} else if (role.trim().equals("LawInforcing")) {
 				ps.setInt(1, 2);
 			}
-			ps = DBConnection.conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				TaskList task = new TaskList();
@@ -306,10 +309,10 @@ public class TaskListDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
-	
+
 	public int qureyNumOfTaskListDone() {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
@@ -317,8 +320,8 @@ public class TaskListDao {
 		int sum = 0;
 		try {
 			String sql = "select count(*) from TaskList where Status=?";
-			ps.setInt(1, 3);
 			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, 3);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
@@ -326,10 +329,11 @@ public class TaskListDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return sum;
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		return sum;
+			return 0;
+		} 
 	}
 
 	/*
@@ -342,11 +346,11 @@ public class TaskListDao {
 		}
 		try {
 			String sql = "select * from TaskList where status=? limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setInt(1, 3);
 			ps.setInt(2, start);
 			ps.setInt(3, stepLength);
-			ps = DBConnection.conn.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				TaskList task = new TaskList();
 				task.setId(rs.getString(1));
@@ -364,8 +368,25 @@ public class TaskListDao {
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
-		}
+			return null;
+		} 
 	}
 
+	public int updateTaskStatus(String id, int status) {
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		int num = 0;
+		try {
+			String sql = "update TaskList set status=? where id=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, status);
+			ps.setString(2, id);
+			num = ps.executeUpdate();
+			return num;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		} 
+	}
 }
