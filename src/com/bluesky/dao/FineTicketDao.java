@@ -22,6 +22,8 @@ public class FineTicketDao {
 					+ fineTicket.getFineMoney() + "','" + fineTicket.getStartTime() + "','" + fineTicket.getDeadLine() + "','"
 					+ fineTicket.getWho() + "');";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -38,6 +40,8 @@ public class FineTicketDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from FineTicket where ID='" + fineTicket.getId() + "';";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -67,6 +71,9 @@ public class FineTicketDao {
 				fineTicket.setWho(rs.getString(8));
 				list.add(fineTicket);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -94,6 +101,9 @@ public class FineTicketDao {
 				fineTicket.setDeadLine(rs.getDate(7));
 				fineTicket.setWho(rs.getString(8));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return fineTicket;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -123,6 +133,9 @@ public class FineTicketDao {
 				fineTicket.setWho(rs.getString(8));
 				list.add(fineTicket);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -143,6 +156,9 @@ public class FineTicketDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

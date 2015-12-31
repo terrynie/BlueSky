@@ -21,6 +21,8 @@ public class InspectionPersonnelDao {
 					+ inspector.getSection() + "','" + inspector.getPrecinct() + "','" + inspector.getTel() + "','"
 					+ inspector.getIdCardNo() + "');";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -37,6 +39,8 @@ public class InspectionPersonnelDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from InspectionPersonnel where id='" + inspector.getId() + "';";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -66,6 +70,9 @@ public class InspectionPersonnelDao {
 				inspector.setIdCardNo(rs.getString(8));
 				list.add(inspector);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -90,6 +97,9 @@ public class InspectionPersonnelDao {
 				inspector.setTel(rs.getString(4));
 				inspector.setIdCardNo(rs.getString(5));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return inspector;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -119,6 +129,9 @@ public class InspectionPersonnelDao {
 				inspector.setIdCardNo(rs.getString(8));
 				list.add(inspector);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -139,6 +152,9 @@ public class InspectionPersonnelDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -167,6 +183,9 @@ public class InspectionPersonnelDao {
 				inspector.setIdCardNo(rs.getString(8));
 				list.add(inspector);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -187,6 +206,9 @@ public class InspectionPersonnelDao {
 				while(rs.next()){
 					list.add(rs.getString(1));
 				}
+				DBConnection.closeResultSet(rs);
+				DBConnection.closeStatement(stmt);
+				DBConnection.closeConn();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

@@ -7,8 +7,16 @@ public class WeChat {
 	private String street;// 街道
 	private String constructionId;// 工地编号
 	private String content;// 投诉内容
-	private Boolean hasImg;//是否有图片
-	private Boolean hasVideo;//是否有视频
+	private Boolean hasImg;// 是否有图片
+	private Boolean hasVideo;// 是否有视频
+	private int status;// 状态判断（是否处理，是否属实）
+	
+	/*
+	 * field:status
+	 * 0:未处理(waiting dealed)
+	 * 1:管理员审核通过(passed)
+	 * 2:管理员审核未通过(not passed)
+	 */
 
 	public WeChat() {
 	}
@@ -25,13 +33,9 @@ public class WeChat {
 		return hasVideo;
 	}
 
-
-
 	public void setHasVideo(Boolean hasVideo) {
 		this.hasVideo = hasVideo;
 	}
-
-
 
 	public String getId() {
 		return id;
@@ -79,6 +83,22 @@ public class WeChat {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public Boolean getHasImg() {
+		return hasImg;
+	}
+
+	public Boolean getHasVideo() {
+		return hasVideo;
 	}
 
 }

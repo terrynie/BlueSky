@@ -21,6 +21,8 @@ public class ConstructionManagerDao {
 					+ conManager.getTel() + "','" + conManager.getIdCardNo() + "','" + conManager.getConstructionId()
 					+ "','" + conManager.getCompany() + "');";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -37,6 +39,8 @@ public class ConstructionManagerDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from ConstructionSiteDirector where id='" + conManager.getId() + "';";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -66,6 +70,9 @@ public class ConstructionManagerDao {
 				conManager.setCompany(rs.getString(8));
 				list.add(conManager);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -90,6 +97,9 @@ public class ConstructionManagerDao {
 				conManager.setTel(rs.getString(4));
 				conManager.setIdCardNo(rs.getString(5));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return conManager;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -119,6 +129,9 @@ public class ConstructionManagerDao {
 				conManager.setCompany(rs.getString(8));
 				list.add(conManager);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -139,6 +152,9 @@ public class ConstructionManagerDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -157,6 +173,9 @@ public class ConstructionManagerDao {
 			while(rs.next()){
 				list.add(rs.getString(1));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -86,27 +86,29 @@ public class createTaskList extends HttpServlet {
 		TaskList taskList=new TaskList();
 		TaskListDao taskListDao=new TaskListDao();
 		String id=request.getParameter("id");
-		String src1=request.getParameter("src1");
+		String src=request.getParameter("src");
 		String content=request.getParameter("content");
-		String src1_split = null;
-		if(src1 != null){
-			String[] srcArray=src1.split(".");
-			src1_split = srcArray[0];
+		String src_split = null;
+		if(src != null){
+			System.out.println(src);
+			String [] srcArray=src.split(".");
+			System.out.println(srcArray[0]);
+			src_split = srcArray[0];
 		}
 		taskList.setId(id);
 		taskList.setContent(content);
 		taskList.setSource(session.getAttribute("dept").toString().trim());
-		taskList.setHasVideo(false);
+		taskList.setHasContent(1);
+		taskList.setHasVideo(0);
 		taskList.setStatus(0);
-		if (content==null) {
-			taskList.setHasContent(false);
-		}else {
-			taskList.setHasContent(true);
-		}
-		if(src1==null){
-			taskList.setHasImg(false);
-		}else{
-			taskList.setHasImg(true);
+		if (src == null) {
+			taskList.setHasImg(0);
+			taskList.setHasVideo(0);
+		} else if ("img".equals(src_split) || "png".equals(src_split) || "jpeg".equals(src_split)
+				|| "bmp".equals(src_split) || "gif".equals(src_split)) {
+			taskList.setHasImg(1);
+		} else {
+			taskList.setHasImg(0);
 		}
 		taskListDao.addTask(taskList);
 		

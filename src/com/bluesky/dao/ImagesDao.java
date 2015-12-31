@@ -19,6 +19,8 @@ public class ImagesDao {
 			String sql = "insert into Images values('" + image.getImgId() + "','" + image.getComplaintId() + "','"
 					+ image.getImgPath() + "');";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -35,6 +37,8 @@ public class ImagesDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from Images where ID='" + image.getImgId() + "';";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -59,6 +63,9 @@ public class ImagesDao {
 				image.setImgPath(rs.getString(3));
 				list.add(image);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -81,6 +88,9 @@ public class ImagesDao {
 				image.setComplaintId(rs.getString(2));
 				image.setImgPath(rs.getString(3));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return image;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -105,6 +115,9 @@ public class ImagesDao {
 				image.setImgPath(rs.getString(3));
 				list.add(image);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -125,6 +138,9 @@ public class ImagesDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

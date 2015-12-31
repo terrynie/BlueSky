@@ -25,6 +25,8 @@ public class NotificationDao {
 					+ notification.isFeedback() + "','" + notification.getConstructionName() + "','"
 					+ notification.getFeedbackId() + "');";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -41,6 +43,8 @@ public class NotificationDao {
 			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "delete from CorrectionNotification where ID='" + notification.getId() + "'";
 			stmt.executeUpdate(sql);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -77,6 +81,9 @@ public class NotificationDao {
 				notification.setFeedbackId(rs.getString(15));
 				list.add(notification);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -109,6 +116,9 @@ public class NotificationDao {
 				notification.setConstructionName(rs.getString(12));
 				notification.setFeedbackId(rs.getString(13));
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return notification;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -143,6 +153,9 @@ public class NotificationDao {
 				notification.setFeedbackId(rs.getString(13));
 				list.add(notification);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -163,6 +176,9 @@ public class NotificationDao {
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -181,6 +197,9 @@ public class NotificationDao {
 			while (rs.next()) {
 				id=rs.getString(1);
 			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(stmt);
+			DBConnection.closeConn();
 			return id;
 		} catch (SQLException e) {
 			e.printStackTrace();
