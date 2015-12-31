@@ -18,23 +18,24 @@ public class NotificationDao {
 			DBConnection.openConn();
 		}
 		try {
-			String sql = "insert into CorrectionNotification values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into CorrectionNotification values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setString(1, notification.getId());
 			ps.setString(2, notification.getTitle());
 			ps.setString(3, notification.getContent());
 			ps.setString(4, notification.getPublishDept());
 			ps.setString(5, notification.getAccordingTo());
-			ps.setInt(6, notification.isHasImgs());
-			ps.setInt(7, notification.isHasVedio());
-			ps.setInt(8, notification.isHasText());
+			ps.setInt(6, notification.getHasImgs());
+			ps.setInt(7, notification.getHasVedio());
+			ps.setInt(8, notification.getHasText());
 			ps.setString(9, notification.getImgPath());
 			ps.setString(10, notification.getVideoPath());
 			ps.setDate(11, notification.getPublishDate());
 			ps.setDate(12, notification.getDeadline());
-			ps.setInt(13, notification.isFeedback());
+			ps.setInt(13, notification.getIsFeedback());
 			ps.setString(14, notification.getConstructionName());
 			ps.setString(15, notification.getFeedbackId());
-			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(16, notification.getStatus());
 			ps.executeUpdate();
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
@@ -52,8 +53,8 @@ public class NotificationDao {
 		}
 		try {
 			String sql = "delete from CorrectionNotification where ID=?";
-			ps.setString(1, notification.getId());
 			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, notification.getId());
 			ps.executeUpdate();
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
@@ -88,9 +89,10 @@ public class NotificationDao {
 				notification.setVideoPath(rs.getString(10));
 				notification.setPublishDate(rs.getDate(11));
 				notification.setDeadline(rs.getDate(12));
-				notification.setFeedback(rs.getInt(13));
+				notification.setIsFeedback(rs.getInt(13));
 				notification.setConstructionName(rs.getString(14));
 				notification.setFeedbackId(rs.getString(15));
+				notification.setStatus(rs.getInt(16));
 				list.add(notification);
 			}
 			DBConnection.closeResultSet(rs);
@@ -111,8 +113,8 @@ public class NotificationDao {
 		Notification notification = new Notification();
 		try {
 			String sql = "select * from CorrectionNotification where id =?";
-			ps.setString(1, id);
 			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, id);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				notification.setId(rs.getString(1));
@@ -123,11 +125,12 @@ public class NotificationDao {
 				notification.setHasImgs(rs.getInt(6));
 				notification.setHasVedio(rs.getInt(7));
 				notification.setHasText(rs.getInt(8));
-				notification.setPublishDate(rs.getDate(9));
-				notification.setDeadline(rs.getDate(10));
-				notification.setFeedback(rs.getInt(11));
-				notification.setConstructionName(rs.getString(12));
-				notification.setFeedbackId(rs.getString(13));
+				notification.setPublishDate(rs.getDate(11));
+				notification.setDeadline(rs.getDate(12));
+				notification.setIsFeedback(rs.getInt(13));
+				notification.setConstructionName(rs.getString(14));
+				notification.setFeedbackId(rs.getString(15));
+				notification.setStatus(rs.getInt(16));
 			}
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
@@ -147,9 +150,9 @@ public class NotificationDao {
 		}
 		try {
 			String sql = "select * from CorrectionNotification limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setInt(1, start);
 			ps.setInt(2, stepLength);
-			ps = DBConnection.conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Notification notification = new Notification();
@@ -161,11 +164,12 @@ public class NotificationDao {
 				notification.setHasImgs(rs.getInt(6));
 				notification.setHasVedio(rs.getInt(7));
 				notification.setHasText(rs.getInt(8));
-				notification.setPublishDate(rs.getDate(9));
-				notification.setDeadline(rs.getDate(10));
-				notification.setFeedback(rs.getInt(11));
-				notification.setConstructionName(rs.getString(12));
-				notification.setFeedbackId(rs.getString(13));
+				notification.setPublishDate(rs.getDate(11));
+				notification.setDeadline(rs.getDate(12));
+				notification.setIsFeedback(rs.getInt(13));
+				notification.setConstructionName(rs.getString(14));
+				notification.setFeedbackId(rs.getString(15));
+				notification.setStatus(rs.getInt(16));
 				list.add(notification);
 			}
 			DBConnection.closeResultSet(rs);
@@ -208,8 +212,8 @@ public class NotificationDao {
 		}
 		try {
 			String sql = "select consiteid from CorrectionNotification where id = ?";
-			ps.setString(1, id);
 			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, id);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				id = rs.getString(1);
