@@ -98,16 +98,16 @@ public class businessCenter_adminServclet extends HttpServlet {
 			request.setAttribute("perInfos_weChat", perInfos_weChat);
 			//wait dealed
 			countInfo = taskListDao.qureyNumOfTaskWaitDealed("admin");
-			count_done = this.getcount(countInfo, pagesize);
-			perInfos_done = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "admin");
-			request.setAttribute("count_done", count_done);
-			request.setAttribute("perInfos_done", perInfos_done);
-			//dealed 
-			countInfo = taskListDao.qureyNumOfTaskListDone();
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.queryTaskDoneByPage(startNum, pagesize);
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(startNum, pagesize, "admin");
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
+			//dealed 
+			countInfo = taskListDao.qureyNumOfTaskListDone();
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDoneByPage(0, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
 			//
 			countInfo = notificationDao.qureyNumOfNotifications();
 			count = this.getcount(countInfo, pagesize);
@@ -127,16 +127,16 @@ public class businessCenter_adminServclet extends HttpServlet {
 			request.setAttribute("perInfos_weChat", perInfos_weChat);
 			//wait dealed
 			countInfo = taskListDao.qureyNumOfTaskWaitDealed("admin");
-			count_done = this.getcount(countInfo, pagesize);
-			perInfos_done = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "admin");
-			request.setAttribute("count_done", count_done);
-			request.setAttribute("perInfos_done", perInfos_done);
-			//dealed 
-			countInfo = taskListDao.qureyNumOfTaskListDone();
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.queryTaskDoneByPage(startNum, pagesize);
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "admin");
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
+			//dealed 
+			countInfo = taskListDao.qureyNumOfTaskListDone();
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDoneByPage(startNum, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
 			//
 			countInfo = notificationDao.qureyNumOfNotifications();
 			count = this.getcount(countInfo, pagesize);
@@ -156,20 +156,20 @@ public class businessCenter_adminServclet extends HttpServlet {
 			request.setAttribute("perInfos_weChat", perInfos_weChat);
 			//wait dealed
 			countInfo = taskListDao.qureyNumOfTaskWaitDealed("admin");
-			count_done = this.getcount(countInfo, pagesize);
-			perInfos_done = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "admin");
-			request.setAttribute("count_done", count_done);
-			request.setAttribute("perInfos_done", perInfos_done);
-			//dealed 
-			countInfo = taskListDao.qureyNumOfTaskListDone();
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.queryTaskDoneByPage(startNum, pagesize);
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "admin");
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
+			//dealed 
+			countInfo = taskListDao.qureyNumOfTaskListDone();
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDoneByPage(0, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
 			//
 			countInfo = notificationDao.qureyNumOfNotifications();
 			count = this.getcount(countInfo, pagesize);
-			perInfos = notificationDao.queryByPage(0, pagesize);
+			perInfos = notificationDao.queryByPage(startNum, pagesize);
 			request.setAttribute("count", count);
 			request.setAttribute("perInfos", perInfos);
 			//
@@ -180,21 +180,21 @@ public class businessCenter_adminServclet extends HttpServlet {
 			//we chat datas
 			countInfo = weChatDao.qureyNumOfComplaints();
 			count_weChat = this.getcount(countInfo, pagesize);
-			perInfos_weChat = weChatDao.queryByPage(0, pagesize);
+			perInfos_weChat = weChatDao.queryByPage(startNum, pagesize);
 			request.setAttribute("count_weChat", count_weChat);
 			request.setAttribute("perInfos_weChat", perInfos_weChat);
 			//wait dealed
 			countInfo = taskListDao.qureyNumOfTaskWaitDealed("admin");
-			count_done = this.getcount(countInfo, pagesize);
-			perInfos_done = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "admin");
-			request.setAttribute("count_done", count_done);
-			request.setAttribute("perInfos_done", perInfos_done);
-			//dealed 
-			countInfo = taskListDao.qureyNumOfTaskListDone();
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.queryTaskDoneByPage(startNum, pagesize);
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "admin");
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
+			//dealed 
+			countInfo = taskListDao.qureyNumOfTaskListDone();
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDoneByPage(0, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
 			//
 			countInfo = notificationDao.qureyNumOfNotifications();
 			count = this.getcount(countInfo, pagesize);
