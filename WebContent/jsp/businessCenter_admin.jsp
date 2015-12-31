@@ -34,16 +34,12 @@
 		}
 	}
 
-	function creat_task(id,source,content){
+	function creat_task(id,status){
 		alert("处理成功"+id);
-		var url="../createTaskServlet.do?id="+id+"&source="+source+"&content="+content;
+		var url="../createTaskServlet.do?id="+id+"&status="+status;
 		window.location.href=url;	
 	}
-	function it_notture(id){
-		alert("处理成功"+id);
-		var url="../createTaskServlet.do?id="+id+"&source="+source+"&content="+content;
-		window.location.href=url;
-	}
+
 	
 
 </script>
@@ -119,8 +115,10 @@
 							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
 							<div class="info_item">
 							<input type="button" class="btn btn-primary" value="查看数据监控"/>
-							<input type="button" class="btn btn-primary" value="属实，转下级"/>
-							<input type="button" class="btn btn-primary" value="不属实，驳回"/>
+							<input type="button" class="btn btn-primary" value="属实，转下级"
+							onclick="javascript:creat_task('<%=t.getId()%>',1)"/>
+							<input type="button" class="btn btn-primary" value="不属实，驳回"
+							onclick="javascript:creat_task('<%=t.getId()%>',2)"/>
 							</div>
 						</div>
 						
@@ -351,9 +349,9 @@
 							<input type="hidden" value="<%=w.getContent()%>" id="content">
 							<input type="button" class="btn btn-primary" value="在线巡查" />
 							<input type="button" class="btn btn-primary" value="生成任务"  
-							onclick="javascript:creat_task('<%=w.getId()%>','<%=w.getWeChatNo()%>','<%=w.getContent()%>')"/>
+							onclick="javascript:creat_task('<%=w.getId()%>',1)"/>
 							<input type="button" class="btn btn-primary" value="不属实"
-							onclick="javascript:it_notture('<%=w.getId()%>')"/>
+							onclick="javascript:creat_task('<%=w.getId()%>',2)"/>
 							</div>
 						</div>
 					</div>

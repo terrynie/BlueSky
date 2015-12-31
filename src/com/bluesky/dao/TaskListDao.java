@@ -222,6 +222,7 @@ public class TaskListDao {
 			} else if (role.trim().equals("LawInforcing")) {
 				ps.setInt(1, 2);
 			}
+
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				TaskList task = new TaskList();
@@ -372,11 +373,13 @@ public class TaskListDao {
 		} 
 	}
 
+
 	public int updateTaskStatus(String id, int status) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		int num = 0;
+
 		try {
 			String sql = "update TaskList set status=? where id=?";
 			ps = DBConnection.conn.prepareStatement(sql);
@@ -388,5 +391,6 @@ public class TaskListDao {
 			e.printStackTrace();
 			return 0;
 		} 
+
 	}
 }
