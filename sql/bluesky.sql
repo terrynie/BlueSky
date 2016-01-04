@@ -1,21 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : root
-Source Server Version : 50627
+Source Server         : localhost_3306
+Source Server Version : 50624
 Source Host           : localhost:3306
 Source Database       : bluesky
 
 Target Server Type    : MYSQL
-Target Server Version : 50627
+Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2015-12-31 16:59:43
+Date: 2016-01-04 17:20:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
 -- ----------------------------
--- Table structure for `admin`
+-- Table structure for admin
 -- ----------------------------
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
@@ -24,6 +25,8 @@ CREATE TABLE `admin` (
   `Name` varchar(30) NOT NULL,
   `Tel` varchar(20) NOT NULL,
   `IDcardNO` varchar(30) NOT NULL,
+  `RegisterTime` date NOT NULL,
+  `LogoffTime` date NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `IDcardNO` (`IDcardNO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -31,49 +34,49 @@ CREATE TABLE `admin` (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES ('00010', 'admin', 'admin', '18811181111', '412232197808082111');
-INSERT INTO `admin` VALUES ('00011', '111', '王先生', '18811181111', '412232197808082112');
-INSERT INTO `admin` VALUES ('00012', '111', '王先生', '18811181111', '412232197808082113');
-INSERT INTO `admin` VALUES ('00013', '111', '王先生', '18811181111', '412232197808082114');
-INSERT INTO `admin` VALUES ('00014', '111', '王先生', '18811181111', '412232197808082115');
-INSERT INTO `admin` VALUES ('00015', '111', '王先生', '18811181111', '412232197808082116');
-INSERT INTO `admin` VALUES ('00016', '111', '王先生', '18811181111', '412232197808082117');
-INSERT INTO `admin` VALUES ('00017', '111', '王先生', '18811181111', '412232197808082118');
-INSERT INTO `admin` VALUES ('00018', '111', '王先生', '18811181111', '412232197808082119');
-INSERT INTO `admin` VALUES ('00019', '111', '王先生', '18811181111', '412232197808082120');
-INSERT INTO `admin` VALUES ('00020', '111', '王先生', '18811181111', '412232197808082121');
-INSERT INTO `admin` VALUES ('00021', '111', '王先生', '18811181111', '412232197808082122');
-INSERT INTO `admin` VALUES ('00022', '111', '李先生', '18811181111', '412232197808082123');
-INSERT INTO `admin` VALUES ('00023', '111', '李先生', '18811111111', '412232197808082124');
-INSERT INTO `admin` VALUES ('00024', '111', '李先生', '18811111111', '412232197808082125');
-INSERT INTO `admin` VALUES ('00025', '111', '李先生', '18811111111', '412232197808082126');
-INSERT INTO `admin` VALUES ('00026', '111', '李先生', '18811111111', '412232197808082127');
-INSERT INTO `admin` VALUES ('00027', '111', '李先生', '18811111111', '412232197808082128');
-INSERT INTO `admin` VALUES ('00028', '111', '李先生', '18811111111', '412232197808082129');
-INSERT INTO `admin` VALUES ('00029', '111', '李先生', '18811111111', '412232197808082130');
+INSERT INTO `admin` VALUES ('00010', 'admin', 'admin', '18811181111', '412232197808082111', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00011', '111', '王先生', '18811181111', '412232197808082112', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00012', '111', '王先生', '18811181111', '412232197808082113', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00013', '111', '王先生', '18811181111', '412232197808082114', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00014', '111', '王先生', '18811181111', '412232197808082115', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00015', '111', '王先生', '18811181111', '412232197808082116', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00016', '111', '王先生', '18811181111', '412232197808082117', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00017', '111', '王先生', '18811181111', '412232197808082118', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00018', '111', '王先生', '18811181111', '412232197808082119', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00019', '111', '王先生', '18811181111', '412232197808082120', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00020', '111', '王先生', '18811181111', '412232197808082121', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00021', '111', '王先生', '18811181111', '412232197808082122', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00022', '111', '李先生', '18811181111', '412232197808082123', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00023', '111', '李先生', '18811111111', '412232197808082124', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00024', '111', '李先生', '18811111111', '412232197808082125', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00025', '111', '李先生', '18811111111', '412232197808082126', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00026', '111', '李先生', '18811111111', '412232197808082127', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00027', '111', '李先生', '18811111111', '412232197808082128', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00028', '111', '李先生', '18811111111', '412232197808082129', '0000-00-00', '0000-00-00');
+INSERT INTO `admin` VALUES ('00029', '111', '李先生', '18811111111', '412232197808082130', '0000-00-00', '0000-00-00');
 
 -- ----------------------------
--- Table structure for `constructionsite`
+-- Table structure for constructionsite
 -- ----------------------------
 DROP TABLE IF EXISTS `constructionsite`;
 CREATE TABLE `constructionsite` (
   `ID` varchar(30) NOT NULL,
   `Project` varchar(100) NOT NULL,
   `Name` varchar(100) NOT NULL,
-  `Directory` varchar(30) DEFAULT NULL,
-  `Area` double DEFAULT NULL,
-  `StartTime` date DEFAULT NULL,
-  `CompleteTime` date DEFAULT NULL,
-  `TotalFloors` int(4) DEFAULT NULL,
+  `Directory` varchar(30) NOT NULL,
+  `Area` double NOT NULL,
+  `StartTime` date NOT NULL,
+  `CompleteTime` date NOT NULL,
+  `TotalFloors` int(4) NOT NULL,
   `Districts` varchar(50) NOT NULL,
   `Streets` varchar(50) NOT NULL,
   `Company` varchar(50) NOT NULL,
-  `Struct` varchar(200) DEFAULT NULL,
-  `Price` double DEFAULT NULL,
+  `Struct` varchar(200) NOT NULL,
+  `Price` double NOT NULL,
   `TotalMonitors` int(11) NOT NULL,
-  `Progress` varchar(30) DEFAULT NULL,
-  `Langitude` double DEFAULT NULL,
-  `Latitude` double DEFAULT NULL,
+  `Progress` varchar(30) NOT NULL,
+  `Langitude` double NOT NULL,
+  `Latitude` double NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -282,18 +285,20 @@ INSERT INTO `constructionsite` VALUES ('111298', '项目一', '工地名称309',
 INSERT INTO `constructionsite` VALUES ('111299', '项目一', '工地名称310', '000310', '1000', '2015-10-10', '2017-10-10', '60', '二七区', '六一街', '建设单位299', '结构', '300000', '10', '在建', '120', '34');
 
 -- ----------------------------
--- Table structure for `constructionsitedirector`
+-- Table structure for constructionsitedirector
 -- ----------------------------
 DROP TABLE IF EXISTS `constructionsitedirector`;
 CREATE TABLE `constructionsitedirector` (
   `ID` varchar(30) NOT NULL,
   `Password` varchar(20) NOT NULL,
   `Name` varchar(30) NOT NULL,
-  `Sex` char(4) DEFAULT '男',
+  `Sex` char(4) NOT NULL DEFAULT '男',
   `Tel` varchar(20) NOT NULL,
   `IDcardNO` varchar(30) NOT NULL,
   `ConstructionSiteID` varchar(50) NOT NULL,
-  `Company` varchar(50) DEFAULT NULL,
+  `Company` varchar(50) NOT NULL,
+  `RegisterTime` date NOT NULL,
+  `LogoffTime` date NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `IDcardNO` (`IDcardNO`),
   KEY `ConDir_ConSite_FK` (`ConstructionSiteID`),
@@ -303,67 +308,67 @@ CREATE TABLE `constructionsitedirector` (
 -- ----------------------------
 -- Records of constructionsitedirector
 -- ----------------------------
-INSERT INTO `constructionsitedirector` VALUES ('000111', 'admin', 'admin', '男', '15567000000', '422112196809121100', '111100', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000112', '111', '和先生', '男', '15567000000', '422112196809121101', '111101', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000113', '111', '和先生', '男', '15567000000', '422112196809121102', '111102', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000114', '111', '和先生', '男', '15567000000', '422112196809121103', '111103', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000115', '111', '和先生', '男', '15567000000', '422112196809121104', '111104', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000116', '111', '和先生', '男', '15567000000', '422112196809121105', '111105', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000117', '111', '和先生', '男', '15567000000', '422112196809121106', '111106', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000118', '111', '和先生', '男', '15567000000', '422112196809121107', '111107', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000119', '111', '和先生', '男', '15567000000', '422112196809121108', '111108', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000120', '111', '和先生', '男', '15567000000', '422112196809121109', '111109', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000121', '111', '和先生', '男', '15567000000', '422112196809121110', '111110', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000122', '111', '和先生', '男', '15567000000', '422112196809121111', '111111', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000123', '111', '和先生', '男', '15567000000', '422112196809121112', '111112', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000124', '111', '和先生', '男', '15567000000', '422112196809121113', '111113', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000125', '111', '和先生', '男', '15567000000', '422112196809121114', '111114', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000126', '111', '和先生', '男', '15567000000', '422112196809121115', '111115', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000127', '111', '和先生', '男', '15567000000', '422112196809121116', '111116', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000128', '111', '和先生', '男', '15567000000', '422112196809121117', '111117', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000129', '111', '和先生', '男', '15567000000', '422112196809121118', '111118', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000130', '111', '和先生', '男', '15567000000', '422112196809121119', '111119', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000131', '111', '和先生', '男', '15567000000', '422112196809121120', '111120', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000132', '111', '和先生', '男', '15567000000', '422112196809121121', '111121', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000133', '111', '李先生', '男', '15567000000', '422112196809121122', '111122', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000134', '111', '李先生', '男', '15567000000', '422112196809121123', '111123', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000135', '111', '李先生', '男', '15567000000', '422112196809121124', '111124', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000136', '111', '李先生', '男', '15500000000', '422112196809121125', '111125', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000137', '111', '李先生', '男', '15500000000', '422112196809121126', '111126', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000138', '111', '李先生', '男', '15500000000', '422112196809121127', '111127', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000139', '111', '李先生', '男', '15500000000', '422112196809121128', '111128', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000140', '111', '张先生', '男', '15500000000', '422112196809121129', '111129', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000141', '111', '张先生', '男', '15500000000', '422112196809121130', '111130', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000142', '111', '张先生', '男', '15500000000', '422112196809121131', '111131', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000143', '111', '张先生', '男', '15500000000', '422112196809121132', '111132', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000144', '111', '张先生', '男', '15500000000', '422112196809121133', '111133', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000145', '111', '张先生', '男', '15500000000', '422112196809121134', '111134', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000146', '111', '张先生', '男', '15500000000', '422112196809121135', '111135', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000147', '111', '张先生', '男', '15500000000', '422112196809121136', '111136', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000148', '111', '张先生', '男', '15500000000', '422112196809121137', '111137', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000149', '111', '张先生', '男', '15500000000', '422112196809121138', '111138', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000150', '111', '张先生', '男', '15500000000', '422112196809121139', '111139', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000151', '111', '张先生', '男', '15500000000', '422112196809121140', '111140', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000152', '111', '张先生', '男', '15500000000', '422112196809121141', '111141', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000153', '111', '张先生', '男', '15500000000', '422112196809121142', '111142', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000154', '111', '张先生', '男', '15500000000', '422112196809121143', '111143', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000155', '111', '张先生', '男', '15500000000', '422112196809121144', '111144', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000156', '111', '张先生', '男', '15500000000', '422112196809121145', '111145', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000157', '111', '张先生', '男', '15500000000', '422112196809121146', '111146', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000158', '111', '张先生', '男', '15500000000', '422112196809121147', '111147', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000159', '111', '张先生', '男', '15500000000', '422112196809121148', '111148', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000160', '111', '张先生', '男', '15500000000', '422112196809121149', '111149', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000161', '111', '张先生', '男', '15500000000', '422112196809121150', '111150', '建设公司');
-INSERT INTO `constructionsitedirector` VALUES ('000162', '111', '张先生', '男', '15500000000', '422112196809121151', '111151', '建设公司');
+INSERT INTO `constructionsitedirector` VALUES ('000111', 'admin', 'admin', '男', '15567000000', '422112196809121100', '111100', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000112', '111', '和先生', '男', '15567000000', '422112196809121101', '111101', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000113', '111', '和先生', '男', '15567000000', '422112196809121102', '111102', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000114', '111', '和先生', '男', '15567000000', '422112196809121103', '111103', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000115', '111', '和先生', '男', '15567000000', '422112196809121104', '111104', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000116', '111', '和先生', '男', '15567000000', '422112196809121105', '111105', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000117', '111', '和先生', '男', '15567000000', '422112196809121106', '111106', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000118', '111', '和先生', '男', '15567000000', '422112196809121107', '111107', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000119', '111', '和先生', '男', '15567000000', '422112196809121108', '111108', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000120', '111', '和先生', '男', '15567000000', '422112196809121109', '111109', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000121', '111', '和先生', '男', '15567000000', '422112196809121110', '111110', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000122', '111', '和先生', '男', '15567000000', '422112196809121111', '111111', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000123', '111', '和先生', '男', '15567000000', '422112196809121112', '111112', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000124', '111', '和先生', '男', '15567000000', '422112196809121113', '111113', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000125', '111', '和先生', '男', '15567000000', '422112196809121114', '111114', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000126', '111', '和先生', '男', '15567000000', '422112196809121115', '111115', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000127', '111', '和先生', '男', '15567000000', '422112196809121116', '111116', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000128', '111', '和先生', '男', '15567000000', '422112196809121117', '111117', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000129', '111', '和先生', '男', '15567000000', '422112196809121118', '111118', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000130', '111', '和先生', '男', '15567000000', '422112196809121119', '111119', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000131', '111', '和先生', '男', '15567000000', '422112196809121120', '111120', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000132', '111', '和先生', '男', '15567000000', '422112196809121121', '111121', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000133', '111', '李先生', '男', '15567000000', '422112196809121122', '111122', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000134', '111', '李先生', '男', '15567000000', '422112196809121123', '111123', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000135', '111', '李先生', '男', '15567000000', '422112196809121124', '111124', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000136', '111', '李先生', '男', '15500000000', '422112196809121125', '111125', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000137', '111', '李先生', '男', '15500000000', '422112196809121126', '111126', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000138', '111', '李先生', '男', '15500000000', '422112196809121127', '111127', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000139', '111', '李先生', '男', '15500000000', '422112196809121128', '111128', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000140', '111', '张先生', '男', '15500000000', '422112196809121129', '111129', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000141', '111', '张先生', '男', '15500000000', '422112196809121130', '111130', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000142', '111', '张先生', '男', '15500000000', '422112196809121131', '111131', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000143', '111', '张先生', '男', '15500000000', '422112196809121132', '111132', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000144', '111', '张先生', '男', '15500000000', '422112196809121133', '111133', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000145', '111', '张先生', '男', '15500000000', '422112196809121134', '111134', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000146', '111', '张先生', '男', '15500000000', '422112196809121135', '111135', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000147', '111', '张先生', '男', '15500000000', '422112196809121136', '111136', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000148', '111', '张先生', '男', '15500000000', '422112196809121137', '111137', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000149', '111', '张先生', '男', '15500000000', '422112196809121138', '111138', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000150', '111', '张先生', '男', '15500000000', '422112196809121139', '111139', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000151', '111', '张先生', '男', '15500000000', '422112196809121140', '111140', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000152', '111', '张先生', '男', '15500000000', '422112196809121141', '111141', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000153', '111', '张先生', '男', '15500000000', '422112196809121142', '111142', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000154', '111', '张先生', '男', '15500000000', '422112196809121143', '111143', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000155', '111', '张先生', '男', '15500000000', '422112196809121144', '111144', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000156', '111', '张先生', '男', '15500000000', '422112196809121145', '111145', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000157', '111', '张先生', '男', '15500000000', '422112196809121146', '111146', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000158', '111', '张先生', '男', '15500000000', '422112196809121147', '111147', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000159', '111', '张先生', '男', '15500000000', '422112196809121148', '111148', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000160', '111', '张先生', '男', '15500000000', '422112196809121149', '111149', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000161', '111', '张先生', '男', '15500000000', '422112196809121150', '111150', '建设公司', '0000-00-00', '0000-00-00');
+INSERT INTO `constructionsitedirector` VALUES ('000162', '111', '张先生', '男', '15500000000', '422112196809121151', '111151', '建设公司', '0000-00-00', '0000-00-00');
 
 -- ----------------------------
--- Table structure for `correctionnotification`
+-- Table structure for correctionnotification
 -- ----------------------------
 DROP TABLE IF EXISTS `correctionnotification`;
 CREATE TABLE `correctionnotification` (
   `ID` varchar(30) NOT NULL,
   `Title` varchar(50) NOT NULL,
-  `Content` text,
+  `Content` text NOT NULL,
   `Department` varchar(50) NOT NULL,
   `According` varchar(50) NOT NULL,
   `HasImg` bit(1) NOT NULL,
@@ -386,77 +391,77 @@ CREATE TABLE `correctionnotification` (
 -- ----------------------------
 -- Records of correctionnotification
 -- ----------------------------
-INSERT INTO `correctionnotification` VALUES ('777100', '整改标题100', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111100', '888100', '0');
-INSERT INTO `correctionnotification` VALUES ('777101', '整改标题101', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111101', '888101', '0');
-INSERT INTO `correctionnotification` VALUES ('777102', '整改标题102', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111102', '888102', '0');
-INSERT INTO `correctionnotification` VALUES ('777103', '整改标题103', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111103', '888103', '0');
-INSERT INTO `correctionnotification` VALUES ('777104', '整改标题104', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111104', '888104', '0');
-INSERT INTO `correctionnotification` VALUES ('777105', '整改标题105', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111105', '888105', '0');
-INSERT INTO `correctionnotification` VALUES ('777106', '整改标题106', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111106', '888106', '0');
-INSERT INTO `correctionnotification` VALUES ('777107', '整改标题107', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111107', '888107', '0');
-INSERT INTO `correctionnotification` VALUES ('777108', '整改标题108', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111108', '888108', '0');
-INSERT INTO `correctionnotification` VALUES ('777109', '整改标题109', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111109', '888109', '0');
-INSERT INTO `correctionnotification` VALUES ('777110', '整改标题110', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111110', '888110', '0');
-INSERT INTO `correctionnotification` VALUES ('777111', '整改标题111', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111111', '888111', '0');
-INSERT INTO `correctionnotification` VALUES ('777112', '整改标题112', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111112', '888112', '0');
-INSERT INTO `correctionnotification` VALUES ('777113', '整改标题113', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111113', '888113', '0');
-INSERT INTO `correctionnotification` VALUES ('777114', '整改标题114', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111114', '888114', '0');
-INSERT INTO `correctionnotification` VALUES ('777115', '整改标题115', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111115', '888115', '0');
-INSERT INTO `correctionnotification` VALUES ('777116', '整改标题116', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111116', '888116', '0');
-INSERT INTO `correctionnotification` VALUES ('777117', '整改标题117', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111117', '888117', '0');
-INSERT INTO `correctionnotification` VALUES ('777118', '整改标题118', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111118', '888118', '0');
-INSERT INTO `correctionnotification` VALUES ('777119', '整改标题119', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111119', '888119', '0');
-INSERT INTO `correctionnotification` VALUES ('777120', '整改标题120', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111120', '888120', '0');
-INSERT INTO `correctionnotification` VALUES ('777121', '整改标题121', '整改内容', '管理中心', '微信投诉', '\0', '', '', '', '', '2015-11-01', '2015-11-10', '', '111121', '888121', '0');
-INSERT INTO `correctionnotification` VALUES ('777122', '整改标题122', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '', '', '2015-11-01', '2015-11-10', '', '111122', '888122', '0');
-INSERT INTO `correctionnotification` VALUES ('777123', '整改标题123', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '', '', '2015-11-01', '2015-11-10', '', '111123', '888123', '0');
-INSERT INTO `correctionnotification` VALUES ('777124', '整改标题124', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '', '', '2015-11-01', '2015-11-10', '', '111124', '888124', '0');
-INSERT INTO `correctionnotification` VALUES ('777125', '整改标题125', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '', '', '2015-11-01', '2015-11-10', '', '111125', '888125', '0');
-INSERT INTO `correctionnotification` VALUES ('777126', '整改标题126', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '', '', '2015-11-01', '2015-11-10', '', '111126', '888126', '0');
-INSERT INTO `correctionnotification` VALUES ('777127', '整改标题127', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '', '', '2015-11-01', '2015-11-10', '', '111127', '888127', '0');
-INSERT INTO `correctionnotification` VALUES ('777128', '整改标题128', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '', '', '2015-11-01', '2015-11-10', '', '111128', '888128', '0');
-INSERT INTO `correctionnotification` VALUES ('777129', '整改标题129', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '', '', '2015-11-01', '2015-11-10', '', '111129', '888129', '0');
-INSERT INTO `correctionnotification` VALUES ('777130', '整改标题130', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111130', '888130', '0');
-INSERT INTO `correctionnotification` VALUES ('777131', '整改标题131', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111131', '888131', '0');
-INSERT INTO `correctionnotification` VALUES ('777132', '整改标题132', '整改内容', '管理中心', '微信投诉', '\0', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111132', '888132', '0');
-INSERT INTO `correctionnotification` VALUES ('777133', '整改标题133', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111133', '888133', '0');
-INSERT INTO `correctionnotification` VALUES ('777134', '整改标题134', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111134', '888134', '0');
-INSERT INTO `correctionnotification` VALUES ('777135', '整改标题135', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111135', '888135', '0');
-INSERT INTO `correctionnotification` VALUES ('777136', '整改标题136', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111136', '888136', '0');
-INSERT INTO `correctionnotification` VALUES ('777137', '整改标题137', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111137', '888137', '0');
-INSERT INTO `correctionnotification` VALUES ('777138', '整改标题138', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111138', '888138', '0');
-INSERT INTO `correctionnotification` VALUES ('777139', '整改标题139', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111139', '888139', '0');
-INSERT INTO `correctionnotification` VALUES ('777140', '整改标题140', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111140', '888140', '0');
-INSERT INTO `correctionnotification` VALUES ('777141', '整改标题141', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111141', '888141', '0');
-INSERT INTO `correctionnotification` VALUES ('777142', '整改标题142', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111142', '888142', '0');
-INSERT INTO `correctionnotification` VALUES ('777143', '整改标题143', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111143', '888143', '0');
-INSERT INTO `correctionnotification` VALUES ('777144', '整改标题144', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111144', '888144', '0');
-INSERT INTO `correctionnotification` VALUES ('777145', '整改标题145', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111145', '888145', '0');
-INSERT INTO `correctionnotification` VALUES ('777146', '整改标题146', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111146', '888146', '0');
-INSERT INTO `correctionnotification` VALUES ('777147', '整改标题147', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111147', '888147', '0');
-INSERT INTO `correctionnotification` VALUES ('777148', '整改标题148', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111148', '888148', '0');
-INSERT INTO `correctionnotification` VALUES ('777149', '整改标题149', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111149', '888149', '0');
-INSERT INTO `correctionnotification` VALUES ('777150', '整改标题150', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111150', '888150', '0');
-INSERT INTO `correctionnotification` VALUES ('777151', '整改标题151', '整改内容', '管理中心', '微信投诉', '', '', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111151', '888151', '0');
-INSERT INTO `correctionnotification` VALUES ('777152', '整改标题152', '整改内容', '管理中心', '微信投诉', '', '', '\0', '', '', '2015-11-01', '2015-11-10', '\0', '111152', '888152', '0');
-INSERT INTO `correctionnotification` VALUES ('777153', '整改标题153', '整改内容', '管理中心', '微信投诉', '', '', '\0', '', '', '2015-11-01', '2015-11-10', '', '111153', '888153', '0');
-INSERT INTO `correctionnotification` VALUES ('777154', '整改标题154', '整改内容', '管理中心', '微信投诉', '', '', '\0', '', '', '2015-11-01', '2015-11-10', '', '111154', '888154', '0');
-INSERT INTO `correctionnotification` VALUES ('777155', '整改标题155', '整改内容', '管理中心', '微信投诉', '', '', '', '', '', '2015-11-01', '2015-11-10', '', '111155', '888155', '0');
-INSERT INTO `correctionnotification` VALUES ('777156', '整改标题156', '整改内容', '管理中心', '微信投诉', '', '', '', '', '', '2015-11-01', '2015-11-10', '', '111156', '888156', '0');
-INSERT INTO `correctionnotification` VALUES ('777157', '整改标题157', '整改内容', '管理中心', '微信投诉', '', '', '', '', '', '2015-11-01', '2015-11-10', '', '111157', '888157', '0');
-INSERT INTO `correctionnotification` VALUES ('777158', '整改标题158', '整改内容', '管理中心', '微信投诉', '', '', '', '', '', '2015-11-01', '2015-11-10', '', '111158', '888158', '0');
-INSERT INTO `correctionnotification` VALUES ('777159', '整改标题159', '整改内容', '管理中心', '微信投诉', '', '', '', '', '', '2015-11-01', '2015-11-10', '', '111159', '888159', '0');
-INSERT INTO `correctionnotification` VALUES ('777160', '整改标题160', '整改内容', '管理中心', '微信投诉', '', '', '', '', '', '2015-11-01', '2015-11-10', '', '111160', '888160', '0');
-INSERT INTO `correctionnotification` VALUES ('777161', '整改标题161', '整改内容', '管理中心', '微信投诉', '', '', '', '', '', '2015-11-01', '2015-11-10', '', '111161', '888161', '0');
-INSERT INTO `correctionnotification` VALUES ('777162', '整改标题162', '整改内容', '管理中心', '微信投诉', '', '', '', '', '', '2015-11-01', '2015-11-10', '', '111162', '888162', '0');
+INSERT INTO `correctionnotification` VALUES ('777100', '整改标题100', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111100', '888100', '0');
+INSERT INTO `correctionnotification` VALUES ('777101', '整改标题101', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111101', '888101', '0');
+INSERT INTO `correctionnotification` VALUES ('777102', '整改标题102', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111102', '888102', '0');
+INSERT INTO `correctionnotification` VALUES ('777103', '整改标题103', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111103', '888103', '0');
+INSERT INTO `correctionnotification` VALUES ('777104', '整改标题104', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111104', '888104', '0');
+INSERT INTO `correctionnotification` VALUES ('777105', '整改标题105', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111105', '888105', '0');
+INSERT INTO `correctionnotification` VALUES ('777106', '整改标题106', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111106', '888106', '0');
+INSERT INTO `correctionnotification` VALUES ('777107', '整改标题107', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111107', '888107', '0');
+INSERT INTO `correctionnotification` VALUES ('777108', '整改标题108', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111108', '888108', '0');
+INSERT INTO `correctionnotification` VALUES ('777109', '整改标题109', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111109', '888109', '0');
+INSERT INTO `correctionnotification` VALUES ('777110', '整改标题110', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111110', '888110', '0');
+INSERT INTO `correctionnotification` VALUES ('777111', '整改标题111', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111111', '888111', '0');
+INSERT INTO `correctionnotification` VALUES ('777112', '整改标题112', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111112', '888112', '0');
+INSERT INTO `correctionnotification` VALUES ('777113', '整改标题113', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111113', '888113', '0');
+INSERT INTO `correctionnotification` VALUES ('777114', '整改标题114', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111114', '888114', '0');
+INSERT INTO `correctionnotification` VALUES ('777115', '整改标题115', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111115', '888115', '0');
+INSERT INTO `correctionnotification` VALUES ('777116', '整改标题116', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111116', '888116', '0');
+INSERT INTO `correctionnotification` VALUES ('777117', '整改标题117', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111117', '888117', '0');
+INSERT INTO `correctionnotification` VALUES ('777118', '整改标题118', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111118', '888118', '0');
+INSERT INTO `correctionnotification` VALUES ('777119', '整改标题119', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111119', '888119', '0');
+INSERT INTO `correctionnotification` VALUES ('777120', '整改标题120', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111120', '888120', '0');
+INSERT INTO `correctionnotification` VALUES ('777121', '整改标题121', '整改内容', '管理中心', '微信投诉', '\0', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111121', '888121', '0');
+INSERT INTO `correctionnotification` VALUES ('777122', '整改标题122', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111122', '888122', '0');
+INSERT INTO `correctionnotification` VALUES ('777123', '整改标题123', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111123', '888123', '0');
+INSERT INTO `correctionnotification` VALUES ('777124', '整改标题124', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111124', '888124', '0');
+INSERT INTO `correctionnotification` VALUES ('777125', '整改标题125', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111125', '888125', '0');
+INSERT INTO `correctionnotification` VALUES ('777126', '整改标题126', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111126', '888126', '0');
+INSERT INTO `correctionnotification` VALUES ('777127', '整改标题127', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111127', '888127', '0');
+INSERT INTO `correctionnotification` VALUES ('777128', '整改标题128', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111128', '888128', '0');
+INSERT INTO `correctionnotification` VALUES ('777129', '整改标题129', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111129', '888129', '0');
+INSERT INTO `correctionnotification` VALUES ('777130', '整改标题130', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111130', '888130', '0');
+INSERT INTO `correctionnotification` VALUES ('777131', '整改标题131', '整改内容', '管理中心', '微信投诉', '\0', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111131', '888131', '0');
+INSERT INTO `correctionnotification` VALUES ('777132', '整改标题132', '整改内容', '管理中心', '微信投诉', '\0', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111132', '888132', '0');
+INSERT INTO `correctionnotification` VALUES ('777133', '整改标题133', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111133', '888133', '0');
+INSERT INTO `correctionnotification` VALUES ('777134', '整改标题134', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111134', '888134', '0');
+INSERT INTO `correctionnotification` VALUES ('777135', '整改标题135', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111135', '888135', '0');
+INSERT INTO `correctionnotification` VALUES ('777136', '整改标题136', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111136', '888136', '0');
+INSERT INTO `correctionnotification` VALUES ('777137', '整改标题137', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111137', '888137', '0');
+INSERT INTO `correctionnotification` VALUES ('777138', '整改标题138', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111138', '888138', '0');
+INSERT INTO `correctionnotification` VALUES ('777139', '整改标题139', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111139', '888139', '0');
+INSERT INTO `correctionnotification` VALUES ('777140', '整改标题140', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111140', '888140', '0');
+INSERT INTO `correctionnotification` VALUES ('777141', '整改标题141', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111141', '888141', '0');
+INSERT INTO `correctionnotification` VALUES ('777142', '整改标题142', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111142', '888142', '0');
+INSERT INTO `correctionnotification` VALUES ('777143', '整改标题143', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111143', '888143', '0');
+INSERT INTO `correctionnotification` VALUES ('777144', '整改标题144', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111144', '888144', '0');
+INSERT INTO `correctionnotification` VALUES ('777145', '整改标题145', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111145', '888145', '0');
+INSERT INTO `correctionnotification` VALUES ('777146', '整改标题146', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111146', '888146', '0');
+INSERT INTO `correctionnotification` VALUES ('777147', '整改标题147', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111147', '888147', '0');
+INSERT INTO `correctionnotification` VALUES ('777148', '整改标题148', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111148', '888148', '0');
+INSERT INTO `correctionnotification` VALUES ('777149', '整改标题149', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111149', '888149', '0');
+INSERT INTO `correctionnotification` VALUES ('777150', '整改标题150', '整改内容', '管理中心', '微信投诉', '', '\0', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111150', '888150', '0');
+INSERT INTO `correctionnotification` VALUES ('777151', '整改标题151', '整改内容', '管理中心', '微信投诉', '', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111151', '888151', '0');
+INSERT INTO `correctionnotification` VALUES ('777152', '整改标题152', '整改内容', '管理中心', '微信投诉', '', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '\0', '111152', '888152', '0');
+INSERT INTO `correctionnotification` VALUES ('777153', '整改标题153', '整改内容', '管理中心', '微信投诉', '', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111153', '888153', '0');
+INSERT INTO `correctionnotification` VALUES ('777154', '整改标题154', '整改内容', '管理中心', '微信投诉', '', '', '\0', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111154', '888154', '0');
+INSERT INTO `correctionnotification` VALUES ('777155', '整改标题155', '整改内容', '管理中心', '微信投诉', '', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111155', '888155', '0');
+INSERT INTO `correctionnotification` VALUES ('777156', '整改标题156', '整改内容', '管理中心', '微信投诉', '', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111156', '888156', '0');
+INSERT INTO `correctionnotification` VALUES ('777157', '整改标题157', '整改内容', '管理中心', '微信投诉', '', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111157', '888157', '0');
+INSERT INTO `correctionnotification` VALUES ('777158', '整改标题158', '整改内容', '管理中心', '微信投诉', '', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111158', '888158', '0');
+INSERT INTO `correctionnotification` VALUES ('777159', '整改标题159', '整改内容', '管理中心', '微信投诉', '', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111159', '888159', '0');
+INSERT INTO `correctionnotification` VALUES ('777160', '整改标题160', '整改内容', '管理中心', '微信投诉', '', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111160', '888160', '0');
+INSERT INTO `correctionnotification` VALUES ('777161', '整改标题161', '整改内容', '管理中心', '微信投诉', '', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111161', '888161', '0');
+INSERT INTO `correctionnotification` VALUES ('777162', '整改标题162', '整改内容', '管理中心', '微信投诉', '', '', '', '../images/copy 2.png', '', '2015-11-01', '2015-11-10', '', '111162', '888162', '0');
 
 -- ----------------------------
--- Table structure for `customercomplaint`
+-- Table structure for customercomplaint
 -- ----------------------------
 DROP TABLE IF EXISTS `customercomplaint`;
 CREATE TABLE `customercomplaint` (
   `ID` varchar(30) NOT NULL,
-  `WeChatNO` varchar(30) DEFAULT NULL,
+  `WeChatNO` varchar(30) NOT NULL,
   `Districts` varchar(50) NOT NULL,
   `Streets` varchar(50) NOT NULL,
   `ConSiteID` varchar(30) NOT NULL,
@@ -464,6 +469,8 @@ CREATE TABLE `customercomplaint` (
   `HasImg` smallint(1) NOT NULL,
   `HasVideo` smallint(1) NOT NULL,
   `Status` smallint(1) NOT NULL,
+  `ComplainTime` date NOT NULL,
+  `DealedTime` date NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `ConSite_CusComplaint_FK` (`ConSiteID`),
   CONSTRAINT `ConSite_CusComplaint_FK` FOREIGN KEY (`ConSiteID`) REFERENCES `constructionsite` (`ID`)
@@ -472,140 +479,140 @@ CREATE TABLE `customercomplaint` (
 -- ----------------------------
 -- Records of customercomplaint
 -- ----------------------------
-INSERT INTO `customercomplaint` VALUES ('1450087462273', 'weChatNo', '金水区', '六一街', '111124', 'qwweq', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333100', 'weixin111', '管城区', '解放街', '111123', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333101', 'weixin112', '管城区', '解放街', '111124', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333102', 'weixin113', '管城区', '解放街', '111125', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333103', 'weixin114', '管城区', '解放街', '111126', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333104', 'weixin115', '管城区', '解放街', '111127', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333105', 'weixin116', '管城区', '解放街', '111128', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333106', 'weixin117', '管城区', '解放街', '111129', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333107', 'weixin118', '管城区', '解放街', '111130', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333108', 'weixin119', '管城区', '解放街', '111131', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333109', 'weixin120', '管城区', '解放街', '111132', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333110', 'weixin121', '管城区', '解放街', '111133', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333111', 'weixin122', '管城区', '解放街', '111134', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333112', 'weixin123', '管城区', '解放街', '111135', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333113', 'weixin124', '管城区', '解放街', '111136', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333114', 'weixin125', '管城区', '解放街', '111137', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333135', 'weixin146', '二七区', '八一街', '111158', '噪音很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333136', 'weixin147', '二七区', '八一街', '111159', '噪音很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333137', 'weixin148', '二七区', '八一街', '111160', '噪音很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333138', 'weixin149', '二七区', '八一街', '111161', '噪音很大', '1', '0', '1');
-INSERT INTO `customercomplaint` VALUES ('333139', 'weixin150', '二七区', '八一街', '111162', '噪音很大', '1', '0', '1');
-INSERT INTO `customercomplaint` VALUES ('333140', 'weixin151', '二七区', '八一街', '111163', '噪音很大', '1', '0', '1');
-INSERT INTO `customercomplaint` VALUES ('333141', 'weixin152', '二七区', '八一街', '111164', '噪音很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333142', 'weixin153', '二七区', '八一街', '111165', '噪音很大', '1', '0', '1');
-INSERT INTO `customercomplaint` VALUES ('333143', 'weixin154', '二七区', '八一街', '111166', '噪音很大', '1', '0', '1');
-INSERT INTO `customercomplaint` VALUES ('333144', 'weixin155', '二七区', '八一街', '111167', '噪音很大', '1', '0', '1');
-INSERT INTO `customercomplaint` VALUES ('333145', 'weixin156', '金水区', '八一街', '111168', '噪音很大', '1', '0', '1');
-INSERT INTO `customercomplaint` VALUES ('333146', 'weixin157', '金水区', '八一街', '111169', '噪音很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333147', 'weixin158', '金水区', '八一街', '111170', '噪音很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333148', 'weixin159', '金水区', '八一街', '111171', '噪音很大', '1', '0', '1');
-INSERT INTO `customercomplaint` VALUES ('333149', 'weixin160', '金水区', '八一街', '111172', '灰尘很大', '1', '0', '1');
-INSERT INTO `customercomplaint` VALUES ('333150', 'weixin161', '金水区', '八一街', '111173', '灰尘很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333151', 'weixin162', '金水区', '八一街', '111174', '灰尘很大', '1', '0', '1');
-INSERT INTO `customercomplaint` VALUES ('333152', 'weixin163', '金水区', '八一街', '111175', '灰尘很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333153', 'weixin164', '金水区', '八一街', '111176', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333154', 'weixin165', '金水区', '八一街', '111177', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333155', 'weixin166', '金水区', '八一街', '111178', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333156', 'weixin167', '金水区', '八一街', '111179', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333157', 'weixin168', '二七区', '八一街', '111180', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333158', 'weixin169', '二七区', '八一街', '111181', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333159', 'weixin170', '二七区', '八一街', '111182', '灰尘很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333160', 'weixin171', '二七区', '八一街', '111183', '灰尘很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333161', 'weixin172', '二七区', '八一街', '111184', '灰尘很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333162', 'weixin173', '二七区', '八一街', '111185', '灰尘很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333163', 'weixin174', '二七区', '八一街', '111186', '灰尘很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333164', 'weixin175', '二七区', '八一街', '111187', '灰尘很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333165', 'weixin176', '二七区', '八一街', '111188', '灰尘很大', '1', '0', '2');
-INSERT INTO `customercomplaint` VALUES ('333166', 'weixin177', '东区', '八一街', '111189', '灰尘很大', '1', '0', '2');
-INSERT INTO `customercomplaint` VALUES ('333167', 'weixin178', '东区', '八一街', '111190', '灰尘很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333168', 'weixin179', '东区', '八一街', '111191', '灰尘很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333169', 'weixin180', '东区', '八一街', '111192', '灰尘很大', '1', '0', '2');
-INSERT INTO `customercomplaint` VALUES ('333170', 'weixin181', '东区', '八一街', '111193', '灰尘很大', '1', '0', '2');
-INSERT INTO `customercomplaint` VALUES ('333171', 'weixin182', '东区', '八一街', '111194', '灰尘很大', '1', '0', '0');
-INSERT INTO `customercomplaint` VALUES ('333172', 'weixin183', '东区', '八一街', '111195', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333173', 'weixin184', '东区', '八一街', '111196', '灰尘很大', '1', '1', '2');
-INSERT INTO `customercomplaint` VALUES ('333174', 'weixin185', '东区', '八一街', '111197', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333175', 'weixin186', '东区', '八一街', '111198', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333176', 'weixin187', '东区', '八一街', '111199', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333177', 'weixin188', '东区', '八一街', '111200', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333178', 'weixin189', '东区', '八一街', '111201', '灰尘很大', '0', '1', '2');
-INSERT INTO `customercomplaint` VALUES ('333179', 'weixin190', '东区', '八一街', '111202', '灰尘很大', '0', '1', '2');
-INSERT INTO `customercomplaint` VALUES ('333180', 'weixin191', '东区', '八一街', '111203', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333181', 'weixin192', '东区', '八一街', '111204', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333182', 'weixin193', '东区', '八一街', '111205', '灰尘很大', '0', '1', '2');
-INSERT INTO `customercomplaint` VALUES ('333183', 'weixin194', '东区', '八一街', '111206', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333184', 'weixin195', '东区', '八一街', '111207', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333185', 'weixin196', '二七区', '八一街', '111208', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333186', 'weixin197', '二七区', '八一街', '111209', '灰尘很大', '0', '1', '2');
-INSERT INTO `customercomplaint` VALUES ('333187', 'weixin198', '二七区', '八一街', '111210', '灰尘很大', '0', '1', '2');
-INSERT INTO `customercomplaint` VALUES ('333188', 'weixin199', '二七区', '八一街', '111211', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333189', 'weixin200', '二七区', '八一街', '111212', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333190', 'weixin201', '二七区', '八一街', '111213', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333191', 'weixin202', '二七区', '八一街', '111214', '灰尘很大', '0', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333192', 'weixin203', '二七区', '八一街', '111215', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333193', 'weixin204', '二七区', '八一街', '111216', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333194', 'weixin205', '二七区', '八一街', '111217', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333195', 'weixin206', '二七区', '八一街', '111218', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333196', 'weixin207', '二七区', '八一街', '111219', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333197', 'weixin208', '二七区', '八一街', '111220', '灰尘很大', '1', '1', '2');
-INSERT INTO `customercomplaint` VALUES ('333198', 'weixin209', '二七区', '八一街', '111221', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333199', 'weixin210', '二七区', '八一街', '111222', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333200', 'weixin211', '二七区', '八一街', '111223', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333201', 'weixin212', '二七区', '八一街', '111224', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333202', 'weixin213', '二七区', '八一街', '111225', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333203', 'weixin214', '二七区', '八一街', '111226', '灰尘很大', '1', '1', '2');
-INSERT INTO `customercomplaint` VALUES ('333204', 'weixin215', '二七区', '八一街', '111227', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333205', 'weixin216', '二七区', '八一街', '111228', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333206', 'weixin217', '二七区', '八一街', '111229', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333207', 'weixin218', '二七区', '八一街', '111230', '灰尘很大', '1', '1', '2');
-INSERT INTO `customercomplaint` VALUES ('333208', 'weixin219', '二七区', '八一街', '111231', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333209', 'weixin220', '二七区', '八一街', '111232', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333210', 'weixin221', '二七区', '八一街', '111233', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333211', 'weixin222', '二七区', '八一街', '111234', '灰尘很大', '1', '1', '2');
-INSERT INTO `customercomplaint` VALUES ('333212', 'weixin223', '二七区', '八一街', '111235', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333213', 'weixin224', '二七区', '八一街', '111236', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333214', 'weixin225', '二七区', '八一街', '111237', '灰尘很大', '1', '1', '2');
-INSERT INTO `customercomplaint` VALUES ('333215', 'weixin226', '二七区', '八一街', '111238', '灰尘很大', '1', '1', '1');
-INSERT INTO `customercomplaint` VALUES ('333216', 'weixin227', '二七区', '八一街', '111239', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333217', 'weixin228', '二七区', '八一街', '111240', '灰尘很大', '1', '1', '1');
-INSERT INTO `customercomplaint` VALUES ('333218', 'weixin229', '北区', '八一街', '111241', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333219', 'weixin230', '北区', '八一街', '111242', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333220', 'weixin231', '北区', '八一街', '111243', '灰尘很大', '1', '1', '1');
-INSERT INTO `customercomplaint` VALUES ('333221', 'weixin232', '北区', '八一街', '111244', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333222', 'weixin233', '北区', '八一街', '111245', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333223', 'weixin234', '北区', '八一街', '111246', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333224', 'weixin235', '北区', '八一街', '111247', '灰尘很大', '1', '1', '1');
-INSERT INTO `customercomplaint` VALUES ('333225', 'weixin236', '北区', '八一街', '111248', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333226', 'weixin237', '北区', '八一街', '111249', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333227', 'weixin238', '北区', '八一街', '111250', '灰尘很大', '1', '1', '1');
-INSERT INTO `customercomplaint` VALUES ('333228', 'weixin239', '北区', '八一街', '111251', '灰尘很大', '1', '1', '1');
-INSERT INTO `customercomplaint` VALUES ('333229', 'weixin240', '北区', '八一街', '111252', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333230', 'weixin241', '北区', '八一街', '111253', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333231', 'weixin242', '北区', '八一街', '111254', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333232', 'weixin243', '北区', '八一街', '111255', '灰尘很大', '1', '1', '1');
-INSERT INTO `customercomplaint` VALUES ('333233', 'weixin244', '北区', '八一街', '111256', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333234', 'weixin245', '北区', '八一街', '111257', '灰尘很大', '1', '1', '1');
-INSERT INTO `customercomplaint` VALUES ('333235', 'weixin246', '北区', '八一街', '111258', '灰尘很大', '1', '1', '1');
-INSERT INTO `customercomplaint` VALUES ('333236', 'weixin247', '北区', '八一街', '111259', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333237', 'weixin248', '北区', '八一街', '111260', '灰尘很大', '1', '1', '0');
-INSERT INTO `customercomplaint` VALUES ('333238', 'weixin249', '北区', '八一街', '111261', '灰尘很大', '1', '1', '0');
+INSERT INTO `customercomplaint` VALUES ('1450087462273', 'weChatNo', '金水区', '六一街', '111124', 'qwweq', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333100', 'weixin111', '管城区', '解放街', '111123', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333101', 'weixin112', '管城区', '解放街', '111124', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333102', 'weixin113', '管城区', '解放街', '111125', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333103', 'weixin114', '管城区', '解放街', '111126', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333104', 'weixin115', '管城区', '解放街', '111127', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333105', 'weixin116', '管城区', '解放街', '111128', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333106', 'weixin117', '管城区', '解放街', '111129', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333107', 'weixin118', '管城区', '解放街', '111130', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333108', 'weixin119', '管城区', '解放街', '111131', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333109', 'weixin120', '管城区', '解放街', '111132', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333110', 'weixin121', '管城区', '解放街', '111133', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333111', 'weixin122', '管城区', '解放街', '111134', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333112', 'weixin123', '管城区', '解放街', '111135', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333113', 'weixin124', '管城区', '解放街', '111136', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333114', 'weixin125', '管城区', '解放街', '111137', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333135', 'weixin146', '二七区', '八一街', '111158', '噪音很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333136', 'weixin147', '二七区', '八一街', '111159', '噪音很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333137', 'weixin148', '二七区', '八一街', '111160', '噪音很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333138', 'weixin149', '二七区', '八一街', '111161', '噪音很大', '1', '0', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333139', 'weixin150', '二七区', '八一街', '111162', '噪音很大', '1', '0', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333140', 'weixin151', '二七区', '八一街', '111163', '噪音很大', '1', '0', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333141', 'weixin152', '二七区', '八一街', '111164', '噪音很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333142', 'weixin153', '二七区', '八一街', '111165', '噪音很大', '1', '0', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333143', 'weixin154', '二七区', '八一街', '111166', '噪音很大', '1', '0', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333144', 'weixin155', '二七区', '八一街', '111167', '噪音很大', '1', '0', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333145', 'weixin156', '金水区', '八一街', '111168', '噪音很大', '1', '0', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333146', 'weixin157', '金水区', '八一街', '111169', '噪音很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333147', 'weixin158', '金水区', '八一街', '111170', '噪音很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333148', 'weixin159', '金水区', '八一街', '111171', '噪音很大', '1', '0', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333149', 'weixin160', '金水区', '八一街', '111172', '灰尘很大', '1', '0', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333150', 'weixin161', '金水区', '八一街', '111173', '灰尘很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333151', 'weixin162', '金水区', '八一街', '111174', '灰尘很大', '1', '0', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333152', 'weixin163', '金水区', '八一街', '111175', '灰尘很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333153', 'weixin164', '金水区', '八一街', '111176', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333154', 'weixin165', '金水区', '八一街', '111177', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333155', 'weixin166', '金水区', '八一街', '111178', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333156', 'weixin167', '金水区', '八一街', '111179', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333157', 'weixin168', '二七区', '八一街', '111180', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333158', 'weixin169', '二七区', '八一街', '111181', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333159', 'weixin170', '二七区', '八一街', '111182', '灰尘很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333160', 'weixin171', '二七区', '八一街', '111183', '灰尘很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333161', 'weixin172', '二七区', '八一街', '111184', '灰尘很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333162', 'weixin173', '二七区', '八一街', '111185', '灰尘很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333163', 'weixin174', '二七区', '八一街', '111186', '灰尘很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333164', 'weixin175', '二七区', '八一街', '111187', '灰尘很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333165', 'weixin176', '二七区', '八一街', '111188', '灰尘很大', '1', '0', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333166', 'weixin177', '东区', '八一街', '111189', '灰尘很大', '1', '0', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333167', 'weixin178', '东区', '八一街', '111190', '灰尘很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333168', 'weixin179', '东区', '八一街', '111191', '灰尘很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333169', 'weixin180', '东区', '八一街', '111192', '灰尘很大', '1', '0', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333170', 'weixin181', '东区', '八一街', '111193', '灰尘很大', '1', '0', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333171', 'weixin182', '东区', '八一街', '111194', '灰尘很大', '1', '0', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333172', 'weixin183', '东区', '八一街', '111195', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333173', 'weixin184', '东区', '八一街', '111196', '灰尘很大', '1', '1', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333174', 'weixin185', '东区', '八一街', '111197', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333175', 'weixin186', '东区', '八一街', '111198', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333176', 'weixin187', '东区', '八一街', '111199', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333177', 'weixin188', '东区', '八一街', '111200', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333178', 'weixin189', '东区', '八一街', '111201', '灰尘很大', '0', '1', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333179', 'weixin190', '东区', '八一街', '111202', '灰尘很大', '0', '1', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333180', 'weixin191', '东区', '八一街', '111203', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333181', 'weixin192', '东区', '八一街', '111204', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333182', 'weixin193', '东区', '八一街', '111205', '灰尘很大', '0', '1', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333183', 'weixin194', '东区', '八一街', '111206', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333184', 'weixin195', '东区', '八一街', '111207', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333185', 'weixin196', '二七区', '八一街', '111208', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333186', 'weixin197', '二七区', '八一街', '111209', '灰尘很大', '0', '1', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333187', 'weixin198', '二七区', '八一街', '111210', '灰尘很大', '0', '1', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333188', 'weixin199', '二七区', '八一街', '111211', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333189', 'weixin200', '二七区', '八一街', '111212', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333190', 'weixin201', '二七区', '八一街', '111213', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333191', 'weixin202', '二七区', '八一街', '111214', '灰尘很大', '0', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333192', 'weixin203', '二七区', '八一街', '111215', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333193', 'weixin204', '二七区', '八一街', '111216', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333194', 'weixin205', '二七区', '八一街', '111217', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333195', 'weixin206', '二七区', '八一街', '111218', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333196', 'weixin207', '二七区', '八一街', '111219', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333197', 'weixin208', '二七区', '八一街', '111220', '灰尘很大', '1', '1', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333198', 'weixin209', '二七区', '八一街', '111221', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333199', 'weixin210', '二七区', '八一街', '111222', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333200', 'weixin211', '二七区', '八一街', '111223', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333201', 'weixin212', '二七区', '八一街', '111224', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333202', 'weixin213', '二七区', '八一街', '111225', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333203', 'weixin214', '二七区', '八一街', '111226', '灰尘很大', '1', '1', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333204', 'weixin215', '二七区', '八一街', '111227', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333205', 'weixin216', '二七区', '八一街', '111228', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333206', 'weixin217', '二七区', '八一街', '111229', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333207', 'weixin218', '二七区', '八一街', '111230', '灰尘很大', '1', '1', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333208', 'weixin219', '二七区', '八一街', '111231', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333209', 'weixin220', '二七区', '八一街', '111232', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333210', 'weixin221', '二七区', '八一街', '111233', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333211', 'weixin222', '二七区', '八一街', '111234', '灰尘很大', '1', '1', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333212', 'weixin223', '二七区', '八一街', '111235', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333213', 'weixin224', '二七区', '八一街', '111236', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333214', 'weixin225', '二七区', '八一街', '111237', '灰尘很大', '1', '1', '2', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333215', 'weixin226', '二七区', '八一街', '111238', '灰尘很大', '1', '1', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333216', 'weixin227', '二七区', '八一街', '111239', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333217', 'weixin228', '二七区', '八一街', '111240', '灰尘很大', '1', '1', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333218', 'weixin229', '北区', '八一街', '111241', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333219', 'weixin230', '北区', '八一街', '111242', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333220', 'weixin231', '北区', '八一街', '111243', '灰尘很大', '1', '1', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333221', 'weixin232', '北区', '八一街', '111244', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333222', 'weixin233', '北区', '八一街', '111245', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333223', 'weixin234', '北区', '八一街', '111246', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333224', 'weixin235', '北区', '八一街', '111247', '灰尘很大', '1', '1', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333225', 'weixin236', '北区', '八一街', '111248', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333226', 'weixin237', '北区', '八一街', '111249', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333227', 'weixin238', '北区', '八一街', '111250', '灰尘很大', '1', '1', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333228', 'weixin239', '北区', '八一街', '111251', '灰尘很大', '1', '1', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333229', 'weixin240', '北区', '八一街', '111252', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333230', 'weixin241', '北区', '八一街', '111253', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333231', 'weixin242', '北区', '八一街', '111254', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333232', 'weixin243', '北区', '八一街', '111255', '灰尘很大', '1', '1', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333233', 'weixin244', '北区', '八一街', '111256', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333234', 'weixin245', '北区', '八一街', '111257', '灰尘很大', '1', '1', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333235', 'weixin246', '北区', '八一街', '111258', '灰尘很大', '1', '1', '1', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333236', 'weixin247', '北区', '八一街', '111259', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333237', 'weixin248', '北区', '八一街', '111260', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
+INSERT INTO `customercomplaint` VALUES ('333238', 'weixin249', '北区', '八一街', '111261', '灰尘很大', '1', '1', '0', '0000-00-00', '0000-00-00');
 
 -- ----------------------------
--- Table structure for `fineticket`
+-- Table structure for fineticket
 -- ----------------------------
 DROP TABLE IF EXISTS `fineticket`;
 CREATE TABLE `fineticket` (
   `ID` varchar(30) NOT NULL,
   `NotificationID` varchar(30) DEFAULT NULL,
   `ConSiteID` varchar(30) DEFAULT NULL,
-  `Company` varchar(50) DEFAULT NULL,
-  `FineMoney` double DEFAULT NULL,
-  `StartTime` date DEFAULT NULL,
-  `DeadLine` date DEFAULT NULL,
-  `Who` varchar(30) DEFAULT NULL,
+  `Company` varchar(50) NOT NULL,
+  `FineMoney` double NOT NULL,
+  `StartTime` date NOT NULL,
+  `DeadLine` date NOT NULL,
+  `Who` varchar(30) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `Fine_Notification_FK` (`NotificationID`),
   KEY `Fine_ConSite_FK` (`ConSiteID`),
@@ -661,7 +668,7 @@ INSERT INTO `fineticket` VALUES ('666141', '777141', '111141', '施工单位四'
 INSERT INTO `fineticket` VALUES ('666142', '777142', '111142', '施工单位四', '2000', '2015-11-01', '2015-11-07', '钱先生');
 
 -- ----------------------------
--- Table structure for `images`
+-- Table structure for images
 -- ----------------------------
 DROP TABLE IF EXISTS `images`;
 CREATE TABLE `images` (
@@ -676,20 +683,39 @@ CREATE TABLE `images` (
 -- ----------------------------
 -- Records of images
 -- ----------------------------
+INSERT INTO `images` VALUES ('111111110', '1450087462273', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111111', '1450087462273', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111112', '1450087462273', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111113', '333100', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111114', '333100', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111115', '333101', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111116', '333102', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111117', '333103', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111118', '333104', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111119', '333105', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111120', '333106', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111121', '333107', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111122', '333108', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111123', '333109', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111124', '333110', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111125', '333111', '../images/copy 2.png');
+INSERT INTO `images` VALUES ('111111126', '333112', '../images/copy 2.png');
 
 -- ----------------------------
--- Table structure for `inspectionpersonnel`
+-- Table structure for inspectionpersonnel
 -- ----------------------------
 DROP TABLE IF EXISTS `inspectionpersonnel`;
 CREATE TABLE `inspectionpersonnel` (
   `ID` varchar(30) NOT NULL,
   `Password` varchar(30) NOT NULL,
   `Name` varchar(30) NOT NULL,
-  `Sex` char(4) DEFAULT '男',
+  `Sex` char(4) NOT NULL DEFAULT '男',
   `Section` varchar(30) NOT NULL,
   `Precinct` varchar(50) NOT NULL,
   `Tel` varchar(20) NOT NULL,
   `IDcardNO` varchar(30) NOT NULL,
+  `RegisterTime` date NOT NULL,
+  `LogoffTime` date NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `IDcardNO` (`IDcardNO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -697,36 +723,36 @@ CREATE TABLE `inspectionpersonnel` (
 -- ----------------------------
 -- Records of inspectionpersonnel
 -- ----------------------------
-INSERT INTO `inspectionpersonnel` VALUES ('555100', 'admin', 'admin', '男', '巡检一科', '二七区', '13400000000', '4232232197506061100');
-INSERT INTO `inspectionpersonnel` VALUES ('555101', '111', '王先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061101');
-INSERT INTO `inspectionpersonnel` VALUES ('555102', '111', '王先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061102');
-INSERT INTO `inspectionpersonnel` VALUES ('555103', '111', '王先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061103');
-INSERT INTO `inspectionpersonnel` VALUES ('555104', '111', '王先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061104');
-INSERT INTO `inspectionpersonnel` VALUES ('555105', '111', '王先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061105');
-INSERT INTO `inspectionpersonnel` VALUES ('555106', '111', '王先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061106');
-INSERT INTO `inspectionpersonnel` VALUES ('555107', '111', '李先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061107');
-INSERT INTO `inspectionpersonnel` VALUES ('555108', '111', '李先生', '男', '巡检一科', '管城区', '13400000000', '4232232197506061108');
-INSERT INTO `inspectionpersonnel` VALUES ('555109', '111', '李先生', '男', '巡检一科', '管城区', '13400000000', '4232232197506061109');
-INSERT INTO `inspectionpersonnel` VALUES ('555110', '111', '李先生', '男', '巡检一科', '管城区', '13400000000', '4232232197506061110');
-INSERT INTO `inspectionpersonnel` VALUES ('555111', '111', '李先生', '男', '巡检一科', '管城区', '13400000000', '4232232197506061111');
-INSERT INTO `inspectionpersonnel` VALUES ('555112', '111', '李先生', '男', '巡检一科', '管城区', '13400000000', '4232232197506061112');
-INSERT INTO `inspectionpersonnel` VALUES ('555113', '111', '李先生', '男', '巡检一科', '管城区', '13400000000', '4232232197506061113');
-INSERT INTO `inspectionpersonnel` VALUES ('555114', '111', '李先生', '男', '巡检二科', '管城区', '13400000000', '4232232197506061114');
-INSERT INTO `inspectionpersonnel` VALUES ('555115', '111', '李先生', '男', '巡检二科', '管城区', '13400000000', '4232232197506061115');
-INSERT INTO `inspectionpersonnel` VALUES ('555116', '111', '李先生', '男', '巡检二科', '管城区', '13400000000', '4232232197506061116');
-INSERT INTO `inspectionpersonnel` VALUES ('555117', '111', '李先生', '男', '巡检二科', '二七区', '13400000000', '4232232197506061117');
-INSERT INTO `inspectionpersonnel` VALUES ('555118', '111', '王先生', '男', '巡检二科', '二七区', '13400000000', '4232232197506061118');
-INSERT INTO `inspectionpersonnel` VALUES ('555119', '111', '王先生', '男', '巡检二科', '二七区', '13400000000', '4232232197506061119');
-INSERT INTO `inspectionpersonnel` VALUES ('555120', '111', '王先生', '男', '巡检二科', '新区', '13400000000', '4232232197506061120');
-INSERT INTO `inspectionpersonnel` VALUES ('555121', '111', '王先生', '男', '巡检二科', '新区', '13400000000', '4232232197506061121');
-INSERT INTO `inspectionpersonnel` VALUES ('555122', '111', '王先生', '男', '巡检二科', '新区', '13400000000', '4232232197506061122');
-INSERT INTO `inspectionpersonnel` VALUES ('555123', '111', '王先生', '男', '巡检二科', '新区', '13400000000', '4232232197506061123');
-INSERT INTO `inspectionpersonnel` VALUES ('555124', '111', '王先生', '男', '巡检二科', '二七区', '13400000000', '4232232197506061124');
-INSERT INTO `inspectionpersonnel` VALUES ('555125', '111', '王先生', '男', '巡检二科', '二七区', '13400000000', '4232232197506061125');
-INSERT INTO `inspectionpersonnel` VALUES ('555126', '111', '王先生', '男', '巡检二科', '二七区', '13400000000', '4232232197506061126');
+INSERT INTO `inspectionpersonnel` VALUES ('555100', 'admin', 'admin', '男', '巡检一科', '二七区', '13400000000', '4232232197506061100', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555101', '111', '王先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061101', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555102', '111', '王先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061102', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555103', '111', '王先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061103', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555104', '111', '王先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061104', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555105', '111', '王先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061105', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555106', '111', '王先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061106', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555107', '111', '李先生', '男', '巡检一科', '二七区', '13400000000', '4232232197506061107', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555108', '111', '李先生', '男', '巡检一科', '管城区', '13400000000', '4232232197506061108', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555109', '111', '李先生', '男', '巡检一科', '管城区', '13400000000', '4232232197506061109', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555110', '111', '李先生', '男', '巡检一科', '管城区', '13400000000', '4232232197506061110', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555111', '111', '李先生', '男', '巡检一科', '管城区', '13400000000', '4232232197506061111', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555112', '111', '李先生', '男', '巡检一科', '管城区', '13400000000', '4232232197506061112', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555113', '111', '李先生', '男', '巡检一科', '管城区', '13400000000', '4232232197506061113', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555114', '111', '李先生', '男', '巡检二科', '管城区', '13400000000', '4232232197506061114', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555115', '111', '李先生', '男', '巡检二科', '管城区', '13400000000', '4232232197506061115', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555116', '111', '李先生', '男', '巡检二科', '管城区', '13400000000', '4232232197506061116', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555117', '111', '李先生', '男', '巡检二科', '二七区', '13400000000', '4232232197506061117', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555118', '111', '王先生', '男', '巡检二科', '二七区', '13400000000', '4232232197506061118', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555119', '111', '王先生', '男', '巡检二科', '二七区', '13400000000', '4232232197506061119', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555120', '111', '王先生', '男', '巡检二科', '新区', '13400000000', '4232232197506061120', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555121', '111', '王先生', '男', '巡检二科', '新区', '13400000000', '4232232197506061121', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555122', '111', '王先生', '男', '巡检二科', '新区', '13400000000', '4232232197506061122', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555123', '111', '王先生', '男', '巡检二科', '新区', '13400000000', '4232232197506061123', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555124', '111', '王先生', '男', '巡检二科', '二七区', '13400000000', '4232232197506061124', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555125', '111', '王先生', '男', '巡检二科', '二七区', '13400000000', '4232232197506061125', '0000-00-00', '0000-00-00');
+INSERT INTO `inspectionpersonnel` VALUES ('555126', '111', '王先生', '男', '巡检二科', '二七区', '13400000000', '4232232197506061126', '0000-00-00', '0000-00-00');
 
 -- ----------------------------
--- Table structure for `lawenforcing`
+-- Table structure for lawenforcing
 -- ----------------------------
 DROP TABLE IF EXISTS `lawenforcing`;
 CREATE TABLE `lawenforcing` (
@@ -735,6 +761,8 @@ CREATE TABLE `lawenforcing` (
   `Name` varchar(30) NOT NULL,
   `Tel` varchar(20) NOT NULL,
   `IDcardNO` varchar(30) NOT NULL,
+  `RegisterTime` date NOT NULL,
+  `LogoffTime` date NOT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `IDcardNO` (`IDcardNO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -742,29 +770,29 @@ CREATE TABLE `lawenforcing` (
 -- ----------------------------
 -- Records of lawenforcing
 -- ----------------------------
-INSERT INTO `lawenforcing` VALUES ('00010', 'admin', 'admin', '18811111111', '412232197808082111');
-INSERT INTO `lawenforcing` VALUES ('00011', '111', '张先生', '18811111111', '412232197808082112');
-INSERT INTO `lawenforcing` VALUES ('00012', '111', '张先生', '18811111111', '412232197808082113');
-INSERT INTO `lawenforcing` VALUES ('00013', '111', '张先生', '18811111111', '412232197808082114');
-INSERT INTO `lawenforcing` VALUES ('00014', '111', '张先生', '18811111111', '412232197808082115');
-INSERT INTO `lawenforcing` VALUES ('00015', '111', '张先生', '18811111111', '412232197808082116');
-INSERT INTO `lawenforcing` VALUES ('00016', '111', '张先生', '18811111111', '412232197808082117');
-INSERT INTO `lawenforcing` VALUES ('00017', '111', '张先生', '18811111111', '412232197808082118');
-INSERT INTO `lawenforcing` VALUES ('00018', '111', '张先生', '18811111111', '412232197808082119');
-INSERT INTO `lawenforcing` VALUES ('00019', '111', '张先生', '18811111111', '412232197808082120');
-INSERT INTO `lawenforcing` VALUES ('00020', '111', '张先生', '18811111111', '412232197808082121');
-INSERT INTO `lawenforcing` VALUES ('00021', '111', '张先生', '18811111111', '412232197808082122');
-INSERT INTO `lawenforcing` VALUES ('00022', '111', '张先生', '18811111111', '412232197808082123');
-INSERT INTO `lawenforcing` VALUES ('00023', '111', '李先生', '18811111111', '412232197808082124');
-INSERT INTO `lawenforcing` VALUES ('00024', '111', '李先生', '18811111111', '412232197808082125');
-INSERT INTO `lawenforcing` VALUES ('00025', '111', '李先生', '18811111111', '412232197808082126');
-INSERT INTO `lawenforcing` VALUES ('00026', '111', '李先生', '18811111111', '412232197808082127');
-INSERT INTO `lawenforcing` VALUES ('00027', '111', '李先生', '18811111111', '412232197808082128');
-INSERT INTO `lawenforcing` VALUES ('00028', '111', '李先生', '18811111111', '412232197808082129');
-INSERT INTO `lawenforcing` VALUES ('00029', '111', '李先生', '18811111111', '412232197808082130');
+INSERT INTO `lawenforcing` VALUES ('00010', 'admin', 'admin', '18811111111', '412232197808082111', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00011', '111', '张先生', '18811111111', '412232197808082112', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00012', '111', '张先生', '18811111111', '412232197808082113', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00013', '111', '张先生', '18811111111', '412232197808082114', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00014', '111', '张先生', '18811111111', '412232197808082115', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00015', '111', '张先生', '18811111111', '412232197808082116', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00016', '111', '张先生', '18811111111', '412232197808082117', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00017', '111', '张先生', '18811111111', '412232197808082118', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00018', '111', '张先生', '18811111111', '412232197808082119', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00019', '111', '张先生', '18811111111', '412232197808082120', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00020', '111', '张先生', '18811111111', '412232197808082121', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00021', '111', '张先生', '18811111111', '412232197808082122', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00022', '111', '张先生', '18811111111', '412232197808082123', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00023', '111', '李先生', '18811111111', '412232197808082124', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00024', '111', '李先生', '18811111111', '412232197808082125', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00025', '111', '李先生', '18811111111', '412232197808082126', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00026', '111', '李先生', '18811111111', '412232197808082127', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00027', '111', '李先生', '18811111111', '412232197808082128', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00028', '111', '李先生', '18811111111', '412232197808082129', '0000-00-00', '0000-00-00');
+INSERT INTO `lawenforcing` VALUES ('00029', '111', '李先生', '18811111111', '412232197808082130', '0000-00-00', '0000-00-00');
 
 -- ----------------------------
--- Table structure for `tasklist`
+-- Table structure for tasklist
 -- ----------------------------
 DROP TABLE IF EXISTS `tasklist`;
 CREATE TABLE `tasklist` (
@@ -775,74 +803,75 @@ CREATE TABLE `tasklist` (
   `HasImg` tinyint(1) NOT NULL,
   `HasVideo` tinyint(1) NOT NULL,
   `Status` smallint(1) NOT NULL,
+  `CreateTime` date NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tasklist
 -- ----------------------------
-INSERT INTO `tasklist` VALUES ('999100', '巡检检查', '业务具体内容', '0', '1', '1', '2');
-INSERT INTO `tasklist` VALUES ('999101', '巡检检查', '业务具体内容', '0', '1', '1', '0');
-INSERT INTO `tasklist` VALUES ('999102', '巡检检查', '业务具体内容', '0', '1', '1', '0');
-INSERT INTO `tasklist` VALUES ('999103', '巡检检查', '业务具体内容', '0', '1', '1', '0');
-INSERT INTO `tasklist` VALUES ('999104', '巡检检查', '业务具体内容', '0', '1', '1', '0');
-INSERT INTO `tasklist` VALUES ('999105', '巡检检查', '业务具体内容', '0', '1', '1', '0');
-INSERT INTO `tasklist` VALUES ('999106', '巡检检查', '业务具体内容', '0', '1', '1', '0');
-INSERT INTO `tasklist` VALUES ('999107', '巡检检查', '业务具体内容', '0', '1', '1', '0');
-INSERT INTO `tasklist` VALUES ('999108', '巡检检查', '业务具体内容', '0', '1', '1', '2');
-INSERT INTO `tasklist` VALUES ('999109', '巡检检查', '业务具体内容', '0', '1', '1', '2');
-INSERT INTO `tasklist` VALUES ('999110', '巡检检查', '业务具体内容', '0', '1', '1', '0');
-INSERT INTO `tasklist` VALUES ('999111', '巡检检查', '业务具体内容', '0', '1', '1', '2');
-INSERT INTO `tasklist` VALUES ('999112', '巡检检查', '业务具体内容', '0', '1', '1', '2');
-INSERT INTO `tasklist` VALUES ('999113', '巡检检查', '业务具体内容', '0', '1', '1', '0');
-INSERT INTO `tasklist` VALUES ('999114', '巡检检查', '业务具体内容', '0', '1', '1', '2');
-INSERT INTO `tasklist` VALUES ('999115', '巡检检查', '业务具体内容', '0', '1', '1', '0');
-INSERT INTO `tasklist` VALUES ('999116', '微信投诉', '业务具体内容', '0', '1', '0', '0');
-INSERT INTO `tasklist` VALUES ('999117', '微信投诉', '业务具体内容', '0', '1', '0', '0');
-INSERT INTO `tasklist` VALUES ('999118', '微信投诉', '业务具体内容', '0', '1', '0', '0');
-INSERT INTO `tasklist` VALUES ('999119', '微信投诉', '业务具体内容', '0', '1', '0', '0');
-INSERT INTO `tasklist` VALUES ('999120', '微信投诉', '业务具体内容', '0', '1', '0', '1');
-INSERT INTO `tasklist` VALUES ('999121', '微信投诉', '业务具体内容', '0', '1', '0', '1');
-INSERT INTO `tasklist` VALUES ('999122', '微信投诉', '业务具体内容', '0', '1', '0', '1');
-INSERT INTO `tasklist` VALUES ('999123', '微信投诉', '业务具体内容', '0', '1', '0', '1');
-INSERT INTO `tasklist` VALUES ('999124', '微信投诉', '业务具体内容', '1', '1', '0', '1');
-INSERT INTO `tasklist` VALUES ('999125', '微信投诉', '业务具体内容', '1', '1', '0', '1');
-INSERT INTO `tasklist` VALUES ('999126', '微信投诉', '业务具体内容', '1', '1', '0', '1');
-INSERT INTO `tasklist` VALUES ('999127', '微信投诉', '业务具体内容', '1', '1', '0', '2');
-INSERT INTO `tasklist` VALUES ('999128', '微信投诉', '业务具体内容', '1', '1', '0', '2');
-INSERT INTO `tasklist` VALUES ('999129', '微信投诉', '业务具体内容', '1', '1', '0', '2');
-INSERT INTO `tasklist` VALUES ('999130', '微信投诉', '业务具体内容', '1', '1', '0', '2');
-INSERT INTO `tasklist` VALUES ('999131', '微信投诉', '业务具体内容', '1', '1', '0', '2');
-INSERT INTO `tasklist` VALUES ('999132', '微信投诉', '业务具体内容', '1', '0', '0', '1');
-INSERT INTO `tasklist` VALUES ('999133', '微信投诉', '业务具体内容', '1', '0', '0', '2');
-INSERT INTO `tasklist` VALUES ('999134', '微信投诉', '业务具体内容', '1', '0', '0', '1');
-INSERT INTO `tasklist` VALUES ('999135', '微信投诉', '业务具体内容', '1', '0', '1', '2');
-INSERT INTO `tasklist` VALUES ('999136', '微信投诉', '业务具体内容', '1', '0', '1', '2');
-INSERT INTO `tasklist` VALUES ('999137', '微信投诉', '业务具体内容', '1', '0', '1', '1');
-INSERT INTO `tasklist` VALUES ('999138', '微信投诉', '业务具体内容', '1', '0', '1', '1');
-INSERT INTO `tasklist` VALUES ('999139', '微信投诉', '业务具体内容', '1', '0', '1', '1');
-INSERT INTO `tasklist` VALUES ('999140', '微信投诉', '业务具体内容', '1', '0', '1', '1');
-INSERT INTO `tasklist` VALUES ('999141', '微信投诉', '业务具体内容', '1', '0', '1', '1');
-INSERT INTO `tasklist` VALUES ('999142', '微信投诉', '业务具体内容', '1', '0', '1', '0');
-INSERT INTO `tasklist` VALUES ('999143', '微信投诉', '业务具体内容', '1', '0', '1', '0');
-INSERT INTO `tasklist` VALUES ('999144', '微信投诉', '业务具体内容', '1', '0', '1', '0');
-INSERT INTO `tasklist` VALUES ('999145', '微信投诉', '业务具体内容', '1', '0', '1', '0');
-INSERT INTO `tasklist` VALUES ('999146', '微信投诉', '业务具体内容', '1', '0', '1', '0');
-INSERT INTO `tasklist` VALUES ('999147', '微信投诉', '业务具体内容', '1', '0', '1', '3');
-INSERT INTO `tasklist` VALUES ('999148', '微信投诉', '业务具体内容', '1', '0', '1', '0');
-INSERT INTO `tasklist` VALUES ('999149', '微信投诉', '业务具体内容', '1', '0', '1', '3');
-INSERT INTO `tasklist` VALUES ('999150', '微信投诉', '业务具体内容', '1', '0', '1', '0');
-INSERT INTO `tasklist` VALUES ('999151', '微信投诉', '业务具体内容', '1', '0', '1', '3');
-INSERT INTO `tasklist` VALUES ('999152', '微信投诉', '业务具体内容', '1', '0', '1', '3');
-INSERT INTO `tasklist` VALUES ('999153', '微信投诉', '业务具体内容', '1', '0', '1', '0');
-INSERT INTO `tasklist` VALUES ('999154', '微信投诉', '业务具体内容', '1', '1', '1', '3');
-INSERT INTO `tasklist` VALUES ('999155', '微信投诉', '业务具体内容', '1', '1', '1', '3');
-INSERT INTO `tasklist` VALUES ('999156', '微信投诉', '业务具体内容', '1', '1', '1', '3');
-INSERT INTO `tasklist` VALUES ('999157', '微信投诉', '业务具体内容', '1', '1', '1', '0');
-INSERT INTO `tasklist` VALUES ('999158', '微信投诉', '业务具体内容', '1', '1', '1', '0');
+INSERT INTO `tasklist` VALUES ('999100', '巡检检查', '业务具体内容', '0', '1', '1', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999101', '巡检检查', '业务具体内容', '0', '1', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999102', '巡检检查', '业务具体内容', '0', '1', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999103', '巡检检查', '业务具体内容', '0', '1', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999104', '巡检检查', '业务具体内容', '0', '1', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999105', '巡检检查', '业务具体内容', '0', '1', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999106', '巡检检查', '业务具体内容', '0', '1', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999107', '巡检检查', '业务具体内容', '0', '1', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999108', '巡检检查', '业务具体内容', '0', '1', '1', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999109', '巡检检查', '业务具体内容', '0', '1', '1', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999110', '巡检检查', '业务具体内容', '0', '1', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999111', '巡检检查', '业务具体内容', '0', '1', '1', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999112', '巡检检查', '业务具体内容', '0', '1', '1', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999113', '巡检检查', '业务具体内容', '0', '1', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999114', '巡检检查', '业务具体内容', '0', '1', '1', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999115', '巡检检查', '业务具体内容', '0', '1', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999116', '微信投诉', '业务具体内容', '0', '1', '0', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999117', '微信投诉', '业务具体内容', '0', '1', '0', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999118', '微信投诉', '业务具体内容', '0', '1', '0', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999119', '微信投诉', '业务具体内容', '0', '1', '0', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999120', '微信投诉', '业务具体内容', '0', '1', '0', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999121', '微信投诉', '业务具体内容', '0', '1', '0', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999122', '微信投诉', '业务具体内容', '0', '1', '0', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999123', '微信投诉', '业务具体内容', '0', '1', '0', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999124', '微信投诉', '业务具体内容', '1', '1', '0', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999125', '微信投诉', '业务具体内容', '1', '1', '0', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999126', '微信投诉', '业务具体内容', '1', '1', '0', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999127', '微信投诉', '业务具体内容', '1', '1', '0', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999128', '微信投诉', '业务具体内容', '1', '1', '0', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999129', '微信投诉', '业务具体内容', '1', '1', '0', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999130', '微信投诉', '业务具体内容', '1', '1', '0', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999131', '微信投诉', '业务具体内容', '1', '1', '0', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999132', '微信投诉', '业务具体内容', '1', '0', '0', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999133', '微信投诉', '业务具体内容', '1', '0', '0', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999134', '微信投诉', '业务具体内容', '1', '0', '0', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999135', '微信投诉', '业务具体内容', '1', '0', '1', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999136', '微信投诉', '业务具体内容', '1', '0', '1', '2', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999137', '微信投诉', '业务具体内容', '1', '0', '1', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999138', '微信投诉', '业务具体内容', '1', '0', '1', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999139', '微信投诉', '业务具体内容', '1', '0', '1', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999140', '微信投诉', '业务具体内容', '1', '0', '1', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999141', '微信投诉', '业务具体内容', '1', '0', '1', '1', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999142', '微信投诉', '业务具体内容', '1', '0', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999143', '微信投诉', '业务具体内容', '1', '0', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999144', '微信投诉', '业务具体内容', '1', '0', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999145', '微信投诉', '业务具体内容', '1', '0', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999146', '微信投诉', '业务具体内容', '1', '0', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999147', '微信投诉', '业务具体内容', '1', '0', '1', '3', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999148', '微信投诉', '业务具体内容', '1', '0', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999149', '微信投诉', '业务具体内容', '1', '0', '1', '3', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999150', '微信投诉', '业务具体内容', '1', '0', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999151', '微信投诉', '业务具体内容', '1', '0', '1', '3', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999152', '微信投诉', '业务具体内容', '1', '0', '1', '3', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999153', '微信投诉', '业务具体内容', '1', '0', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999154', '微信投诉', '业务具体内容', '1', '1', '1', '3', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999155', '微信投诉', '业务具体内容', '1', '1', '1', '3', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999156', '微信投诉', '业务具体内容', '1', '1', '1', '3', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999157', '微信投诉', '业务具体内容', '1', '1', '1', '0', '0000-00-00');
+INSERT INTO `tasklist` VALUES ('999158', '微信投诉', '业务具体内容', '1', '1', '1', '0', '0000-00-00');
 
 -- ----------------------------
--- Table structure for `videos`
+-- Table structure for videos
 -- ----------------------------
 DROP TABLE IF EXISTS `videos`;
 CREATE TABLE `videos` (
