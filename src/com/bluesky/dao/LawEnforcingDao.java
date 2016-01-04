@@ -7,6 +7,7 @@ import java.util.LinkedList;
 
 import com.bluesky.bean.LawEnforcing;
 import com.bluesky.database.DBConnection;
+import com.bluesky.tools.TimeConvert;
 
 public class LawEnforcingDao {
 
@@ -18,12 +19,14 @@ public class LawEnforcingDao {
 			DBConnection.openConn();
 		}
 		try {
-			String sql = "insert into LawEnforcing values(?,?,?,?,?)";
+			String sql = "insert into LawEnforcing values(?,?,?,?,?,?,?)";
 			ps.setString(1, lawEnforcing.getId());
 			ps.setString(2, lawEnforcing.getPassword());
 			ps.setString(3, lawEnforcing.getName());
 			ps.setString(4, lawEnforcing.getTel());
 			ps.setString(5, lawEnforcing.getIdCardNo());
+			ps.setDate(6, TimeConvert.ConvertToSqlDate(lawEnforcing.getRegisterDate()));
+			ps.setDate(7, TimeConvert.ConvertToSqlDate(lawEnforcing.getLogoffTime()));
 			ps = DBConnection.conn.prepareStatement(sql);
 
 			ps.executeUpdate();
@@ -70,6 +73,8 @@ public class LawEnforcingDao {
 				lawEnforcing.setName(rs.getString(3));
 				lawEnforcing.setTel(rs.getString(4));
 				lawEnforcing.setIdCardNo(rs.getString(5));
+				lawEnforcing.setRegisterDate(rs.getDate(6));
+				lawEnforcing.setLogoffTime(rs.getDate(7));
 				list.add(lawEnforcing);
 			}
 			DBConnection.closeResultSet(rs);
@@ -98,6 +103,8 @@ public class LawEnforcingDao {
 				lawEnforcing.setName(rs.getString(3));
 				lawEnforcing.setTel(rs.getString(4));
 				lawEnforcing.setIdCardNo(rs.getString(5));
+				lawEnforcing.setRegisterDate(rs.getDate(6));
+				lawEnforcing.setLogoffTime(rs.getDate(7));
 			}
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
@@ -127,6 +134,8 @@ public class LawEnforcingDao {
 				lawEnforcing.setName(rs.getString(3));
 				lawEnforcing.setTel(rs.getString(4));
 				lawEnforcing.setIdCardNo(rs.getString(5));
+				lawEnforcing.setRegisterDate(rs.getDate(6));
+				lawEnforcing.setLogoffTime(rs.getDate(7));
 				list.add(lawEnforcing);
 			}
 			DBConnection.closeResultSet(rs);

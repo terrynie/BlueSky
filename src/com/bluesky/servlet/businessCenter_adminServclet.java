@@ -25,7 +25,7 @@ public class businessCenter_adminServclet extends HttpServlet {
 	String page = "1";
 	String flag = "1";
 	LinkedList<Notification> perInfos;
-	LinkedList<TaskList> perInfos_not;
+	LinkedList<WeChat> perInfos_not;
 	LinkedList<TaskList> perInfos_done;
 	LinkedList<WeChat> perInfos_weChat;
 
@@ -97,9 +97,9 @@ public class businessCenter_adminServclet extends HttpServlet {
 			request.setAttribute("count_weChat", count_weChat);
 			request.setAttribute("perInfos_weChat", perInfos_weChat);
 			//wait dealed
-			countInfo = taskListDao.qureyNumOfTaskWaitDealed("admin");
+			countInfo = weChatDao.queryNumOfComplaintsByStatus(0);
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(startNum, pagesize, "admin");
+			perInfos_not = weChatDao.queryComplaintsByStatus(0, startNum, pagesize);
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
 			//dealed 
@@ -126,9 +126,9 @@ public class businessCenter_adminServclet extends HttpServlet {
 			request.setAttribute("count_weChat", count_weChat);
 			request.setAttribute("perInfos_weChat", perInfos_weChat);
 			//wait dealed
-			countInfo = taskListDao.qureyNumOfTaskWaitDealed("admin");
+			countInfo = weChatDao.qureyNumOfComplaints();
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "admin");
+			perInfos_not = weChatDao.queryComplaintsByStatus(0, 0, pagesize);
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
 			//dealed 
@@ -155,9 +155,9 @@ public class businessCenter_adminServclet extends HttpServlet {
 			request.setAttribute("count_weChat", count_weChat);
 			request.setAttribute("perInfos_weChat", perInfos_weChat);
 			//wait dealed
-			countInfo = taskListDao.qureyNumOfTaskWaitDealed("admin");
+			countInfo = weChatDao.queryNumOfComplaintsByStatus(0);
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "admin");
+			perInfos_not = weChatDao.queryComplaintsByStatus(0, 0, pagesize);
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
 			//dealed 
@@ -184,9 +184,9 @@ public class businessCenter_adminServclet extends HttpServlet {
 			request.setAttribute("count_weChat", count_weChat);
 			request.setAttribute("perInfos_weChat", perInfos_weChat);
 			//wait dealed
-			countInfo = taskListDao.qureyNumOfTaskWaitDealed("admin");
+			countInfo = weChatDao.queryNumOfComplaintsByStatus(0);
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "admin");
+			perInfos_not = weChatDao.queryComplaintsByStatus(0, 0, pagesize);
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
 			//dealed 

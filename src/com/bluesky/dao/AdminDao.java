@@ -7,6 +7,7 @@ import java.util.LinkedList;
 
 import com.bluesky.bean.Admin;
 import com.bluesky.database.DBConnection;
+import com.bluesky.tools.TimeConvert;
 
 public class AdminDao {
 
@@ -19,13 +20,15 @@ public class AdminDao {
 			DBConnection.openConn();
 		}
 		try {
-			String sql = "insert into Admin values(?,?,?,?,?)";
+			String sql = "insert into Admin values(?,?,?,?,?,?,?)";
 			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setString(1, admin.getId());
 			ps.setString(2, admin.getPassword());
 			ps.setString(3, admin.getName());
 			ps.setString(4, admin.getTel());
 			ps.setString(5, admin.getIdCardNo());
+			ps.setDate(6, TimeConvert.ConvertToSqlDate(admin.getRegisterDate()));
+			ps.setDate(7, TimeConvert.ConvertToSqlDate(admin.getLogoffTime()));
 			ps.executeUpdate();
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
@@ -72,6 +75,8 @@ public class AdminDao {
 				admin.setName(rs.getString(3));
 				admin.setTel(rs.getString(4));
 				admin.setIdCardNo(rs.getString(5));
+				admin.setRegisterDate(rs.getDate(6));
+				admin.setLogoffTime(rs.getDate(7));
 				list.add(admin);
 			}
 			DBConnection.closeResultSet(rs);
@@ -100,6 +105,8 @@ public class AdminDao {
 				admin.setName(rs.getString(3));
 				admin.setTel(rs.getString(4));
 				admin.setIdCardNo(rs.getString(5));
+				admin.setRegisterDate(rs.getDate(6));
+				admin.setLogoffTime(rs.getDate(7));
 			}
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
@@ -130,6 +137,8 @@ public class AdminDao {
 				admin.setName(rs.getString(3));
 				admin.setTel(rs.getString(4));
 				admin.setIdCardNo(rs.getString(5));
+				admin.setRegisterDate(rs.getDate(6));
+				admin.setLogoffTime(rs.getDate(7));
 				list.add(admin);
 			}
 			DBConnection.closeResultSet(rs);

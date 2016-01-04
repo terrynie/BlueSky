@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import com.bluesky.bean.TaskList;
 import com.bluesky.database.DBConnection;
+import com.bluesky.tools.TimeConvert;
 
 public class TaskListDao {
 
@@ -18,7 +19,7 @@ public class TaskListDao {
 			DBConnection.openConn();
 		}
 		try {
-			String sql = "insert into TaskList values(?,?,?,?,?,?,?)";
+			String sql = "insert into TaskList values(?,?,?,?,?,?,?,?)";
 			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setString(1, task.getId());
 			ps.setString(2, task.getSource());
@@ -27,6 +28,7 @@ public class TaskListDao {
 			ps.setInt(5, task.getHasImg());
 			ps.setInt(6, task.getHasVideo());
 			ps.setInt(7, task.getStatus());
+			ps.setDate(8, TimeConvert.ConvertToSqlDate(task.getCreateTime()));
 			ps.executeUpdate();
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
@@ -75,6 +77,7 @@ public class TaskListDao {
 				task.setHasImg(rs.getInt(5));
 				task.setHasVideo(rs.getInt(6));
 				task.setStatus(rs.getInt(7));
+				task.setCreateTime(rs.getDate(8));
 				list.add(task);
 			}
 			DBConnection.closeResultSet(rs);
@@ -106,6 +109,7 @@ public class TaskListDao {
 				task.setHasImg(rs.getInt(5));
 				task.setHasVideo(rs.getInt(6));
 				task.setStatus(rs.getInt(7));
+				task.setCreateTime(rs.getDate(8));
 			}
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
@@ -138,6 +142,7 @@ public class TaskListDao {
 				task.setHasImg(rs.getInt(5));
 				task.setHasVideo(rs.getInt(6));
 				task.setStatus(rs.getInt(7));
+				task.setCreateTime(rs.getDate(8));
 				list.add(task);
 			}
 			DBConnection.closeResultSet(rs);
@@ -222,7 +227,6 @@ public class TaskListDao {
 			} else if (role.trim().equals("LawInforcing")) {
 				ps.setInt(1, 2);
 			}
-
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				TaskList task = new TaskList();
@@ -233,6 +237,7 @@ public class TaskListDao {
 				task.setHasImg(rs.getInt(5));
 				task.setHasVideo(rs.getInt(6));
 				task.setStatus(rs.getInt(7));
+				task.setCreateTime(rs.getDate(8));
 				list.add(task);
 			}
 			DBConnection.closeResultSet(rs);
@@ -302,6 +307,7 @@ public class TaskListDao {
 				task.setHasImg(rs.getInt(5));
 				task.setHasVideo(rs.getInt(6));
 				task.setStatus(rs.getInt(7));
+				task.setCreateTime(rs.getDate(8));
 				list.add(task);
 			}
 			DBConnection.closeResultSet(rs);
@@ -361,6 +367,7 @@ public class TaskListDao {
 				task.setHasImg(rs.getInt(5));
 				task.setHasVideo(rs.getInt(6));
 				task.setStatus(rs.getInt(7));
+				task.setCreateTime(rs.getDate(8));
 				list.add(task);
 			}
 			DBConnection.closeResultSet(rs);
@@ -373,13 +380,11 @@ public class TaskListDao {
 		} 
 	}
 
-
 	public int updateTaskStatus(String id, int status) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		int num = 0;
-
 		try {
 			String sql = "update TaskList set status=? where id=?";
 			ps = DBConnection.conn.prepareStatement(sql);
@@ -391,6 +396,5 @@ public class TaskListDao {
 			e.printStackTrace();
 			return 0;
 		} 
-
 	}
 }

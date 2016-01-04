@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import com.bluesky.bean.ConstructionManager;
 import com.bluesky.database.DBConnection;
+import com.bluesky.tools.TimeConvert;
 
 public class ConstructionManagerDao {
 
@@ -18,7 +19,7 @@ public class ConstructionManagerDao {
 			DBConnection.openConn();
 		}
 		try {
-			String sql = "insert into ConstructionSiteDirector values(?,?,?,?,?,?,?)";
+			String sql = "insert into ConstructionSiteDirector values(?,?,?,?,?,?,?,?,?)";
 			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setString(1, conManager.getId());
 			ps.setString(2, conManager.getPassword());
@@ -28,6 +29,8 @@ public class ConstructionManagerDao {
 			ps.setString(6, conManager.getIdCardNo());
 			ps.setString(7, conManager.getConstructionId());
 			ps.setString(8, conManager.getCompany());
+			ps.setDate(9, TimeConvert.ConvertToSqlDate(conManager.getRegisterDate()));
+			ps.setDate(10, TimeConvert.ConvertToSqlDate(conManager.getLogoffTime()));
 			ps.executeUpdate();
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
@@ -77,6 +80,8 @@ public class ConstructionManagerDao {
 				conManager.setIdCardNo(rs.getString(6));
 				conManager.setConstructionId(rs.getString(7));
 				conManager.setCompany(rs.getString(8));
+				conManager.setRegisterDate(rs.getDate(9));
+				conManager.setLogoffTime(rs.getDate(10));
 				list.add(conManager);
 			}
 			DBConnection.closeResultSet(rs);
@@ -106,6 +111,11 @@ public class ConstructionManagerDao {
 				conManager.setName(rs.getString(3));
 				conManager.setTel(rs.getString(4));
 				conManager.setIdCardNo(rs.getString(5));
+				conManager.setIdCardNo(rs.getString(6));
+				conManager.setConstructionId(rs.getString(7));
+				conManager.setCompany(rs.getString(8));
+				conManager.setRegisterDate(rs.getDate(9));
+				conManager.setLogoffTime(rs.getDate(10));
 			}
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
@@ -139,6 +149,8 @@ public class ConstructionManagerDao {
 				conManager.setIdCardNo(rs.getString(6));
 				conManager.setConstructionId(rs.getString(7));
 				conManager.setCompany(rs.getString(8));
+				conManager.setRegisterDate(rs.getDate(9));
+				conManager.setLogoffTime(rs.getDate(10));
 				list.add(conManager);
 			}
 			DBConnection.closeResultSet(rs);
