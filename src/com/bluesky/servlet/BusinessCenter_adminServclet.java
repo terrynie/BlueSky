@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.bluesky.bean.Notification;
 import com.bluesky.bean.TaskList;
 import com.bluesky.bean.WeChat;
@@ -16,11 +17,13 @@ import com.bluesky.dao.NotificationDao;
 import com.bluesky.dao.TaskListDao;
 import com.bluesky.dao.WeChatDao;
 
+
+
 /**
  * Servlet implementation class businessCenter_adminServclet
  */
 //@WebServlet("/jsp/businessCenter_adminServlet")
-public class businessCenter_adminServclet extends HttpServlet {
+public class BusinessCenter_adminServclet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String page = "1";
 	String flag = "1";
@@ -44,7 +47,7 @@ public class businessCenter_adminServclet extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public businessCenter_adminServclet() {
+	public BusinessCenter_adminServclet() {
 		super();
 	}
 

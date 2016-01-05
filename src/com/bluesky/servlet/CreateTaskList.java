@@ -22,13 +22,13 @@ import com.oreilly.servlet.multipart.FileRenamePolicy;
  * Servlet implementation class createTaskList
  */
 @WebServlet("/jsp/createTaskList")
-public class createTaskList extends HttpServlet {
+public class CreateTaskList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public createTaskList() {
+    public CreateTaskList() {
         super();
     }
 

@@ -18,13 +18,13 @@ import com.bluesky.dao.WeChatDao;
  * Servlet implementation class creattaskServlet
  */
 
-public class createTaskServlet extends HttpServlet {
+public class CreateTaskServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public createTaskServlet() {
+    public CreateTaskServlet() {
         super();
         System.out.println("run");
         // TODO Auto-generated constructor stub

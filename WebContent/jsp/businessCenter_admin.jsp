@@ -1,8 +1,10 @@
+<%@page import="com.bluesky.dao.ImagesDao"%>
 <%@page import="com.sun.xml.internal.txw2.Document"%>
 <%@page import="com.bluesky.bean.*"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -89,6 +91,25 @@
 
 						</div>
 						<div class="panelContent">
+							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
+							<div  class="time_item"><span><%=w.getContent() %></span></div>
+							<%if(w.getHasImg()==1){ 
+								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
+								for(Images i:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看数据监控"/>
+							<input type="button" class="btn btn-primary" value="属实，转下级"
+							onclick="javascript:creat_task('<%=w.getId()%>',1)"/>
+							<input type="button" class="btn btn-primary" value="不属实，驳回"
+							onclick="javascript:creat_task('<%=w.getId()%>',2)"/>
+							</div>
 							<%-- <!-- <div class="AccordionPanelContent"><%=w.getContent()%></div> -->
 							<div class="time_item"><span>2015/09/10</span></div>
 							<div  class="time_item"><span>WE二期工地扬尘漫天，多次沟通，拒不改正。态度及其恶劣，严重影响附近居民的正常生活。特提交有关部门，望你部积极整治，还老百姓一个好的生活环境。</span></div>
@@ -245,13 +266,13 @@
 							
 						</div>
 						<div class="panelContent">
-							<div class="time_item li_title"><span>2015/09/10</span></div>
-							<ul>
+							<div class="time_item li_title"><span>发布日期：<%=n.getPublishDate() %> 截止日期：<%=n.getDeadline() %></span></div>
+							<ul><li><p><%=n.getContent() %></p></li></ul>
+							<!-- <ul>
 								<li><p>一、提高思想认识、加强施工现场安全管理</p></li>
 								<li><p>二、强化从业人员的素质，加大安全教育培训力度</p></li>
 								<li><p>三、全面排查施工现场隐患，严格做好安全工作</p></li>
-							</ul>	
-							
+							</ul> -->
 						</div>
 					</div>
 					<%
@@ -318,6 +339,18 @@
 							
 						</div>
 						<div class="panelContent">
+							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
+							<div  class="time_item"><span><%=w.getContent() %></span></div>
+							<%if(w.getHasImg()==1){ 
+								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
+								for(Images i:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
 							<%-- <div class="time_item"><span>2015/09/10</span></div>
 							<div  class="time_item"><span>WE二期工地扬尘漫天，多次沟通，拒不改正。态度及其恶劣，严重影响附近居民的正常生活。特提交有关部门，望你部积极整治，还老百姓一个好的生活环境。</span></div>
 							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
@@ -424,7 +457,25 @@
 							
 						</div>
 						<div class="panelContent">
-							
+							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
+							<div  class="time_item"><span><%=w.getContent() %></span></div>
+							<%if(w.getHasImg()==1){ 
+								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
+								for(Images i:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看数据监控"/>
+							<input type="button" class="btn btn-primary" value="属实，转下级"
+							onclick="javascript:creat_task('<%=w.getId()%>',1)"/>
+							<input type="button" class="btn btn-primary" value="不属实，驳回"
+							onclick="javascript:creat_task('<%=w.getId()%>',2)"/>
+							</div>
 						</div>
 					</div>
 					<%
@@ -558,7 +609,8 @@
 							
 						</div>
 						<div class="panelContent">
-							
+							<div class="time_item li_title"><span>发布日期：<%=n.getPublishDate() %> 截止日期：<%=n.getDeadline() %></span></div>
+							<ul><li><p><%=n.getContent() %></p></li></ul>
 						</div>
 					</div>
 					<%
@@ -625,7 +677,18 @@
 							
 						</div>
 						<div class="panelContent">
-							
+							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
+							<div  class="time_item"><span><%=w.getContent() %></span></div>
+							<%if(w.getHasImg()==1){ 
+								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
+								for(Images i:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
 						</div>
 					</div>
 					<%
@@ -714,8 +777,25 @@
 							
 						</div>
 						<div class="panelContent">
-							
-							
+							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
+							<div  class="time_item"><span><%=w.getContent() %></span></div>
+							<%if(w.getHasImg()==1){ 
+								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
+								for(Images i:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看数据监控"/>
+							<input type="button" class="btn btn-primary" value="属实，转下级"
+							onclick="javascript:creat_task('<%=w.getId()%>',1)"/>
+							<input type="button" class="btn btn-primary" value="不属实，驳回"
+							onclick="javascript:creat_task('<%=w.getId()%>',2)"/>
+							</div>
 						</div>
 					</div>
 					<%
@@ -849,7 +929,9 @@
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=n.getContent()%></div>
+							<%-- <div class="AccordionPanelContent"><%=n.getContent()%></div> --%>
+							<div class="time_item li_title"><span>发布日期：<%=n.getPublishDate() %> 截止日期：<%=n.getDeadline() %></span></div>
+							<ul><li><p><%=n.getContent() %></p></li></ul>
 						</div>
 					</div>
 					<%
@@ -916,7 +998,19 @@
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=w.getContent()%></div>
+							<%-- <div class="AccordionPanelContent"><%=w.getContent()%></div> --%>
+							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
+							<div  class="time_item"><span><%=w.getContent() %></span></div>
+							<%if(w.getHasImg()==1){ 
+								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
+								for(Images i:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
 						</div>
 					</div>
 					<%
@@ -1007,7 +1101,25 @@
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=w.getContent()%></div>
+							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
+							<div  class="time_item"><span><%=w.getContent() %></span></div>
+							<%if(w.getHasImg()==1){ 
+								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
+								for(Images i:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看数据监控"/>
+							<input type="button" class="btn btn-primary" value="属实，转下级"
+							onclick="javascript:creat_task('<%=w.getId()%>',1)"/>
+							<input type="button" class="btn btn-primary" value="不属实，驳回"
+							onclick="javascript:creat_task('<%=w.getId()%>',2)"/>
+							</div>
 						</div>
 					</div>
 					<%
@@ -1142,7 +1254,9 @@
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=n.getContent()%></div>
+							<%-- <div class="AccordionPanelContent"><%=n.getContent()%></div> --%>
+							<div class="time_item li_title"><span>发布日期：<%=n.getPublishDate() %> 截止日期：<%=n.getDeadline() %></span></div>
+							<ul><li><p><%=n.getContent() %></p></li></ul>
 						</div>
 					</div>
 					<%
@@ -1209,7 +1323,19 @@
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=w.getContent()%></div>
+							<%-- <div class="AccordionPanelContent"><%=w.getContent()%></div> --%>
+							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
+							<div  class="time_item"><span><%=w.getContent() %></span></div>
+							<%if(w.getHasImg()==1){ 
+								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
+								for(Images i:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
 						</div>
 					</div>
 					<%
