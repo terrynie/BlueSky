@@ -11,7 +11,7 @@ import com.bluesky.database.DBConnection;
 public class ConSite_Director {
 	public LinkedList<Con_Dir> queryConInfo(String prcinct) {
 		LinkedList<Con_Dir> list = new LinkedList<Con_Dir>();
-		
+
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}

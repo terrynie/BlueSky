@@ -90,7 +90,7 @@ public class businessCenter_adminServclet extends HttpServlet {
 		startNum = ((Integer.parseInt(page)) - 1) * pagesize;
 		int flagnum=Integer.parseInt(flag);
 		if (flagnum == 1) {
-			//we chat datas
+			//we chat datas  代办
 			countInfo = weChatDao.qureyNumOfComplaints();
 			count_weChat = this.getcount(countInfo, pagesize);
 			perInfos_weChat = weChatDao.queryByPage(0, pagesize);
@@ -119,7 +119,7 @@ public class businessCenter_adminServclet extends HttpServlet {
 					request, response);
 			
 		} else if (flagnum == 2) {
-			//we chat datas
+			//we chat datas已处理
 			countInfo = weChatDao.qureyNumOfComplaints();
 			count_weChat = this.getcount(countInfo, pagesize);
 			perInfos_weChat = weChatDao.queryByPage(0, pagesize);
@@ -148,7 +148,7 @@ public class businessCenter_adminServclet extends HttpServlet {
 					request, response);
 			
 		} else if (flagnum == 3) {
-			//we chat datas
+			//we chat datas通知公告
 			countInfo = weChatDao.qureyNumOfComplaints();
 			count_weChat = this.getcount(countInfo, pagesize);
 			perInfos_weChat = weChatDao.queryByPage(0, pagesize);
@@ -177,7 +177,7 @@ public class businessCenter_adminServclet extends HttpServlet {
 					request, response);
 			
 		} else if (flagnum == 4) {
-			//we chat datas
+			//we chat datas  微信数据
 			countInfo = weChatDao.qureyNumOfComplaints();
 			count_weChat = this.getcount(countInfo, pagesize);
 			perInfos_weChat = weChatDao.queryByPage(startNum, pagesize);

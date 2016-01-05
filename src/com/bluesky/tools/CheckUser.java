@@ -14,17 +14,12 @@ import com.bluesky.dao.LawEnforcingDao;
 
 public class CheckUser {
 	public static String checkUser(String dept, String userName, String passwd) {
-		System.out.println(dept);
-		System.out.println(userName);
-		System.out.println(passwd);
 		switch (dept) {
 		case "Admin":
 			LinkedList<Admin> tempAdmin = new AdminDao().queryAdmins();
 			Iterator<Admin> iteratorAdmin = tempAdmin.iterator();
 			while (iteratorAdmin.hasNext()) {
 				Admin admin = iteratorAdmin.next();
-				System.out.println(admin.getName().equals(userName));
-				System.out.println(admin.getPassword().equals(passwd));
 				if (admin.getName().equals(userName) && admin.getPassword().equals(passwd)) {
 					return "hasUserNameAndPasswordCorrect";
 				} else if (admin.getName().equals(null)) {

@@ -62,7 +62,7 @@ public class weixin_infoServlet extends HttpServlet {
 			weChat.setHasImg(1);
 			weChat.setHasVideo(1);
 		}
-		weChatDao.addManager(weChat);
+		
 	}
 
 }

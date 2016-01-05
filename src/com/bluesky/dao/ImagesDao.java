@@ -53,7 +53,7 @@ public class ImagesDao {
 	}
 
 	// query all images
-	public LinkedList<Images> queryImagess() {
+	public LinkedList<Images> queryAllImagess() {
 		LinkedList<Images> list = new LinkedList<Images>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
@@ -79,26 +79,28 @@ public class ImagesDao {
 		}
 	}
 
-	// query one image
-	public Images queryOne(String id) {
+	// query images according to complaintId 
+	public LinkedList<Images> queryImages(String complaintId) {
+		LinkedList<Images> list = new LinkedList<Images>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		Images image = new Images();
 		try {
-			String sql = "select * from Images where id = ?";
+			String sql = "select * from Images where ComplaintId = ?";
 			ps = DBConnection.conn.prepareStatement(sql);
-			ps.setString(1, id);
+			ps.setString(1, complaintId);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				image.setImgId(rs.getString(1));
 				image.setComplaintId(rs.getString(2));
 				image.setImgPath(rs.getString(3));
+				list.add(image);
 			}
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
-			return image;
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

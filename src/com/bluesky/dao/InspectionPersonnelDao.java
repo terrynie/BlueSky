@@ -7,6 +7,7 @@ import java.util.LinkedList;
 
 import com.bluesky.bean.InspectionPersonnel;
 import com.bluesky.database.DBConnection;
+import com.bluesky.tools.TimeConvert;
 
 public class InspectionPersonnelDao {
 
@@ -19,7 +20,7 @@ public class InspectionPersonnelDao {
 			DBConnection.openConn();
 		}
 		try {
-			String sql = "insert into InspectionPersonnel values(?,?,?,?,?,?,?,?)";
+			String sql = "insert into InspectionPersonnel values(?,?,?,?,?,?,?,?,?,?)";
 			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setString(1, inspector.getId());
 			ps.setString(2, inspector.getPassword());
@@ -29,6 +30,8 @@ public class InspectionPersonnelDao {
 			ps.setString(6, inspector.getPrecinct());
 			ps.setString(7, inspector.getTel());
 			ps.setString(8, inspector.getIdCardNo());
+			ps.setDate(9, TimeConvert.ConvertToSqlDate(inspector.getRegisterDate()));
+			ps.setDate(10, TimeConvert.ConvertToSqlDate(inspector.getLogoffTime()));
 			ps.executeUpdate();
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
@@ -78,6 +81,8 @@ public class InspectionPersonnelDao {
 				inspector.setPrecinct(rs.getString(6));
 				inspector.setTel(rs.getString(7));
 				inspector.setIdCardNo(rs.getString(8));
+				inspector.setRegisterDate(rs.getDate(9));
+				inspector.setLogoffTime(rs.getDate(10));
 				list.add(inspector);
 			}
 			DBConnection.closeResultSet(rs);
@@ -107,6 +112,11 @@ public class InspectionPersonnelDao {
 				inspector.setName(rs.getString(3));
 				inspector.setTel(rs.getString(4));
 				inspector.setIdCardNo(rs.getString(5));
+				inspector.setPrecinct(rs.getString(6));
+				inspector.setTel(rs.getString(7));
+				inspector.setIdCardNo(rs.getString(8));
+				inspector.setRegisterDate(rs.getDate(9));
+				inspector.setLogoffTime(rs.getDate(10));
 			}
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
@@ -140,6 +150,8 @@ public class InspectionPersonnelDao {
 				inspector.setPrecinct(rs.getString(6));
 				inspector.setTel(rs.getString(7));
 				inspector.setIdCardNo(rs.getString(8));
+				inspector.setRegisterDate(rs.getDate(9));
+				inspector.setLogoffTime(rs.getDate(10));
 				list.add(inspector);
 			}
 			DBConnection.closeResultSet(rs);
@@ -196,6 +208,8 @@ public class InspectionPersonnelDao {
 				inspector.setPrecinct(rs.getString(6));
 				inspector.setTel(rs.getString(7));
 				inspector.setIdCardNo(rs.getString(8));
+				inspector.setRegisterDate(rs.getDate(9));
+				inspector.setLogoffTime(rs.getDate(10));
 				list.add(inspector);
 			}
 			DBConnection.closeResultSet(rs);

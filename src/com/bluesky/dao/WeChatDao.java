@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import com.bluesky.bean.WeChat;
 import com.bluesky.database.DBConnection;
+import com.bluesky.tools.TimeConvert;
 
 public class WeChatDao {
 
@@ -13,12 +14,12 @@ public class WeChatDao {
 	private ResultSet rs = null;
 
 	// add customer_complaints
-	public boolean addManager(WeChat customerComplaint) {
+	public boolean addOneComplaint(WeChat customerComplaint) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
-			String sql = "insert into CustomerComplaint values(?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into CustomerComplaint values(?,?,?,?,?,?,?,?,?,?,?)";
 			ps = DBConnection.conn.prepareStatement(sql);
 
 			ps.setString(1, customerComplaint.getId());
@@ -30,7 +31,9 @@ public class WeChatDao {
 			ps.setInt(7, customerComplaint.getHasImg());
 			ps.setInt(8, customerComplaint.getHasVideo());
 			ps.setInt(9, customerComplaint.getStatus());
-
+			ps.setDate(10, TimeConvert.ConvertToSqlDate(customerComplaint.getComplainTime()));
+			ps.setDate(11, TimeConvert.ConvertToSqlDate(customerComplaint.getDealedTime()));
+			
 			ps.executeUpdate();
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
@@ -42,7 +45,7 @@ public class WeChatDao {
 	}
 
 	// delete a customer_complaint
-	public boolean delManager(WeChat customerComplaint) {
+	public boolean delOneComplaint(WeChat customerComplaint) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -61,7 +64,7 @@ public class WeChatDao {
 	}
 
 	// query all customer_complaints
-	public LinkedList<WeChat> queryManagers() {
+	public LinkedList<WeChat> queryNumbers() {
 		LinkedList<WeChat> list = new LinkedList<WeChat>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
@@ -81,6 +84,8 @@ public class WeChatDao {
 				customerComplaint.setHasImg(rs.getInt(7));
 				customerComplaint.setHasVideo(rs.getInt(8));
 				customerComplaint.setStatus(rs.getInt(9));
+				customerComplaint.setComplainTime(rs.getDate(10));
+				customerComplaint.setDealedTime(rs.getDate(11));
 				list.add(customerComplaint);
 			}
 			DBConnection.closeResultSet(rs);
@@ -114,6 +119,8 @@ public class WeChatDao {
 				customerComplaint.setHasImg(rs.getInt(7));
 				customerComplaint.setHasVideo(rs.getInt(8));
 				customerComplaint.setStatus(rs.getInt(9));
+				customerComplaint.setComplainTime(rs.getDate(10));
+				customerComplaint.setDealedTime(rs.getDate(11));
 			}
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
@@ -149,6 +156,8 @@ public class WeChatDao {
 				customerComplaint.setHasImg(rs.getInt(7));
 				customerComplaint.setHasVideo(rs.getInt(8));
 				customerComplaint.setStatus(rs.getInt(9));
+				customerComplaint.setComplainTime(rs.getDate(10));
+				customerComplaint.setDealedTime(rs.getDate(11));
 				list.add(customerComplaint);
 			}
 			DBConnection.closeResultSet(rs);
@@ -225,14 +234,16 @@ public class WeChatDao {
 		}
 		try {
 			String sql = null;
-			if (status == 0 && start == 0 && stepLength == 0) {
-				sql = "select * from CustomerComplaint limit ?,? where status = 0";
-			} else if (status == 1 && start == 0 && stepLength == 0) {
-				sql = "select * from CustomerComplaint limit ?,? where status=1";
-			} else if (status == 2 && start == 0 && stepLength == 0) {
-				sql = "select * from CustomerComplaint limit ?,? where status=2";
+			if (status == 0) {
+				sql = "select * from CustomerComplaint where status=0 limit ?,?";
+			} else if (status == 1) {
+				sql = "select * from CustomerComplaint where status=1 limit ?,?";
+			} else if (status == 2) {
+				sql = "select * from CustomerComplaint where status=2 limit ?,?";
 			}
 			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, start);
+			ps.setInt(2, stepLength);
 
 			rs = ps.executeQuery();
 			while (rs.next()) {
@@ -246,6 +257,8 @@ public class WeChatDao {
 				customerComplaint.setHasImg(rs.getInt(7));
 				customerComplaint.setHasVideo(rs.getInt(8));
 				customerComplaint.setStatus(rs.getInt(9));
+				customerComplaint.setComplainTime(rs.getDate(10));
+				customerComplaint.setDealedTime(rs.getDate(11));
 				list.add(customerComplaint);
 			}
 			DBConnection.closeResultSet(rs);
