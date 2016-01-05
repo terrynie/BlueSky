@@ -43,14 +43,12 @@ public class CreateTaskServlet extends HttpServlet {
 		
 		String id=request.getParameter("id");
 		int status=Integer.parseInt(request.getParameter("status"));
-		TaskList taskList=new TaskList();
-		TaskListDao taskListDao=new TaskListDao();
 		WeChat wechat=new WeChat();
 		WeChatDao wechatdao=new WeChatDao();
-		taskList.setId(id);
-	
-		taskList.setStatus(status);
-		taskListDao.updateTaskStatus(id, status);;
+		wechatdao.updateStatusById(id, status);
+		TaskList taskList=new TaskList();
+		TaskListDao taskListDao=new TaskListDao();
+		//taskList.setContent(wechat.getk);
 		System.out.println("status change success");
 		response.setContentType("text/html;charset=utf-8");//这里是防止出现乱码，很重要的
 		response.getWriter().print( " <script> location.href= '"+request.getContextPath()+"/jsp/businessCenter_adminServlet?flag=1&page=1'; </script> ");

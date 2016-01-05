@@ -1,4 +1,5 @@
-<%@page import="com.bluesky.dao.ImagesDao"%>
+<%@page import="com.bluesky.dao.TaskImageDao"%>
+<%@page import="com.bluesky.dao.WeChatImagesDao"%>
 <%@page import="com.sun.xml.internal.txw2.Document"%>
 <%@page import="com.bluesky.bean.*"%>
 <%@page import="java.util.*"%>
@@ -94,10 +95,10 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
-								for(Images i:link_images){
+								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								for(WeChatImages wi:link_images){
 							%>
-								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
 							<%	}
 							}else{
 							%>
@@ -190,6 +191,22 @@
 							
 						</div>
 						<div class="panelContent">
+							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
+							<div  class="time_item"><span><%=t.getContent() %></span></div>
+							<%if(t.getHasImg()==1){ 
+								LinkedList<TaskImages> link_images=(new TaskImageDao()).queryImages(t.getId());
+								for(TaskImages ti:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看监控数据"/>
+							<input type="button" class="btn btn-primary" disabled="disabled" value="属实，已转下级"/>
+							</div>
 							<!-- <div class="time_item"><span>2015/09/10</span></div>
 							<div  class="time_item"><span>WE二期工地扬尘漫天，多次沟通，拒不改正。态度及其恶劣，严重影响附近居民的正常生活。特提交有关部门，望你部积极整治，还老百姓一个好的生活环境。</span></div>
 							<div class="img_item"><img alt="" src="../images/copy 2.png"></div>
@@ -342,10 +359,10 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
-								for(Images i:link_images){
+								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								for(WeChatImages wi:link_images){
 							%>
-								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
 							<%	}
 							}else{
 							%>
@@ -460,10 +477,10 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
-								for(Images i:link_images){
+								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								for(WeChatImages wi:link_images){
 							%>
-								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
 							<%	}
 							}else{
 							%>
@@ -542,7 +559,22 @@
 							
 						</div>
 						<div class="panelContent">
-							
+							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
+							<div  class="time_item"><span><%=t.getContent() %></span></div>
+							<%if(t.getHasImg()==1){ 
+								LinkedList<TaskImages> link_images=(new TaskImageDao()).queryImages(t.getId());
+								for(TaskImages ti:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看监控数据"/>
+							<input type="button" class="btn btn-primary" disabled="disabled" value="属实，已转下级"/>
+							</div>
 						</div>
 					</div>
 					<%
@@ -680,10 +712,10 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
-								for(Images i:link_images){
+								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								for(WeChatImages wi:link_images){
 							%>
-								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
 							<%	}
 							}else{
 							%>
@@ -780,10 +812,10 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
-								for(Images i:link_images){
+								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								for(WeChatImages wi:link_images){
 							%>
-								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
 							<%	}
 							}else{
 							%>
@@ -862,7 +894,23 @@
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+							<%-- <div class="AccordionPanelContent"><%=t.getContent()%></div> --%>
+							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
+							<div  class="time_item"><span><%=t.getContent() %></span></div>
+							<%if(t.getHasImg()==1){ 
+								LinkedList<TaskImages> link_images=(new TaskImageDao()).queryImages(t.getId());
+								for(TaskImages ti:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看监控数据"/>
+							<input type="button" class="btn btn-primary" disabled="disabled" value="属实，已转下级"/>
+							</div>
 						</div>
 					</div>
 					<%
@@ -1002,10 +1050,10 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
-								for(Images i:link_images){
+								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								for(WeChatImages wi:link_images){
 							%>
-								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
 							<%	}
 							}else{
 							%>
@@ -1104,10 +1152,10 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
-								for(Images i:link_images){
+								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								for(WeChatImages wi:link_images){
 							%>
-								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
 							<%	}
 							}else{
 							%>
@@ -1186,7 +1234,23 @@
 							
 						</div>
 						<div class="panelContent">
-							<div class="AccordionPanelContent"><%=t.getContent()%></div>
+							<%-- <div class="AccordionPanelContent"><%=t.getContent()%></div> --%>
+							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
+							<div  class="time_item"><span><%=t.getContent() %></span></div>
+							<%if(t.getHasImg()==1){ 
+								LinkedList<TaskImages> link_images=(new TaskImageDao()).queryImages(t.getId());
+								for(TaskImages ti:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看监控数据"/>
+							<input type="button" class="btn btn-primary" disabled="disabled" value="属实，已转下级"/>
+							</div>
 						</div>
 					</div>
 					<%
@@ -1327,10 +1391,10 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<Images> link_images=(new ImagesDao()).queryImages(w.getId());
-								for(Images i:link_images){
+								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								for(WeChatImages wi:link_images){
 							%>
-								<div class="img_item"><img alt="" src="<%=i.getImgPath() %>"></div>
+								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
 							<%	}
 							}else{
 							%>

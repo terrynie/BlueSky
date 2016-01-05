@@ -208,13 +208,13 @@ public class ConstructionSiteDao {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
-		ConstructionSite constructionSite = new ConstructionSite();
 		try {
-			String sql = "select * from ConstructionSite where district = ?";
+			String sql = "select * from ConstructionSite where districts = ?";
 			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setString(1, district);
 			rs = ps.executeQuery();
 			while (rs.next()) {
+				ConstructionSite constructionSite = new ConstructionSite();
 				constructionSite.setId(rs.getString(1));
 				constructionSite.setProjectName(rs.getString(2));
 				constructionSite.setName(rs.getString(3));

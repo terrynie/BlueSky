@@ -270,5 +270,28 @@ public class WeChatDao {
 			return null;
 		}
 	}
+	/**
+	 * update status by id 
+	 * @param id
+	 * @param status
+	 * @return
+	 */
+	public int updateStatusById(String id, int status) {
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		int num = 0;
+		try {
+			String sql = "update CustomerComplaint set status=? where id=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, status);
+			ps.setString(2, id);
 
+			num = ps.executeUpdate();
+			return num;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
 }

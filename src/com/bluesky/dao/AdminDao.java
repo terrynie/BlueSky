@@ -75,8 +75,8 @@ public class AdminDao {
 				admin.setName(rs.getString(3));
 				admin.setTel(rs.getString(4));
 				admin.setIdCardNo(rs.getString(5));
-				admin.setRegisterDate(rs.getDate(6));
-				admin.setLogoffTime(rs.getDate(7));
+				admin.setRegisterDate((java.util.Date)rs.getDate(6));
+				admin.setLogoffTime((java.util.Date)rs.getDate(7));
 				list.add(admin);
 			}
 			DBConnection.closeResultSet(rs);
