@@ -21,7 +21,7 @@ import com.bluesky.dao.ConstructionSiteDao;
 /**
  * Servlet implementation class monitoringcenter_adminServlet
  */
-//@WebServlet("/jsp/monitoringcenter_adminServlet")
+ //@WebServlet("/jsp/monitoringcenter_adminServlet")
 public class monitoringcenter_adminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -91,7 +91,7 @@ public class monitoringcenter_adminServlet extends HttpServlet {
 				 out.println("}");		 
 				 out.println("</script>");*/
 				 out.println("<tr>");
-				 out.println("<a  href='javascript:dealConstructionSite('"+c.getDistrict()+"','"+c.getStreet() +"','"+c.getCompany() +"')'>"+c.getName()+"</a>");
+				 out.println("<a  href=\"javascript:dealConstructionSite('"+c.getDistrict()+"','"+c.getStreet() +"','"+c.getCompany() +"')\">"+c.getName()+"</a>");
 				 out.println("</tr>");
 				 out.println("<br>");
 			}

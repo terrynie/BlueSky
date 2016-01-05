@@ -125,7 +125,6 @@
 		 			<span id="it_1"> 50092</span>
 		 			<span id="it_2">61100</span>
 		 			<span class="item_footer">2015年1月至今</span>
-
 			    </div>
 			    <div class="two-charts">
 			    	

@@ -64,7 +64,7 @@
 	                <a onclick="changeContent('jsp/businessCenter_adminServlet'); " class="slider-bar-2"><em></em>业务中心</a>
 	            </li>
 	            <li>
-	                <a onclick="changeContent('jsp/monitoringcenter_adminServlet');" class="slider-bar-3"><em></em>监控中心</a>
+	                <a onclick="changeContent('/jsp/monitoringcenter_adminServlet');" class="slider-bar-3"><em></em>监控中心</a>
 	            </li>
 	            <li>
 	                <a onclick="changeContent('jsp/weixing.jsp');" class="slider-bar-4"><em></em>卫星资源</a>

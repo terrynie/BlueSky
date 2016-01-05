@@ -54,13 +54,13 @@ public class managerServlet extends HttpServlet {
 		System.out.println(precincts+"--------------------");
 		LinkedList<InspectionPersonnel> list_inspectionPersonnels=inspectionPersonnel.queryInspByPrecinct(precinct);
 		request.setAttribute("precincts", precincts);
-		request.setAttribute("precinct", str_precinct);
+//		request.setAttribute("precinct", str_precinct);
 		request.setAttribute("list_inspectionPersonnels", list_inspectionPersonnels);
-		request.getRequestDispatcher("manager.jsp").forward(request, response);
-		/*if(str_precinct ==null){
+		//request.getRequestDispatcher("manager.jsp").forward(request, response);
+		if(str_precinct ==null){
 			request.getRequestDispatcher("manager.jsp").forward(request, response);
 		}else {
-			out.println("<table width="+100+"%"+" class="+" table table-striped table-bordered  table-hover center"+">");
+			out.println("<table width=\"100%\" class=\" table table-striped table-bordered  table-hover center\">");
 			for(InspectionPersonnel i : list_inspectionPersonnels){
 				out.println("<tr>");
 				out.println("<td width="+20+"%"+">");
@@ -77,7 +77,7 @@ public class managerServlet extends HttpServlet {
 				out.println("</tr>");
 			}
 			out.println("</table>");
-		}*/
+		}
 		
     }
 	/**

@@ -46,11 +46,10 @@ function callback(){
 	<%
 		LinkedList<InspectionPersonnel> list_inspectionPersonnels=(LinkedList<InspectionPersonnel>)request.getAttribute("list_inspectionPersonnels");
 		LinkedList<String> precincts=(LinkedList<String>)request.getAttribute("precincts");
-		String str_precinct = request.getParameter("precinct");
+		//String str_precinct = request.getParameter("precinct");
 	%>
 	<div id="body">
 		<div id="body_table">
-			<%if(str_precinct==null){ %>
 			<div class="tab_btn">
 				<a src=""></a><button class="button bg-sub 	button-small" onclick="location.href='addConstructionSite.jsp'" >创建</button>
 			</div>
@@ -73,7 +72,6 @@ function callback(){
 					<td width="30%">联系方式</td>
 				</tr>
 			</table>
-		<%} %>
 		</div>
 		<div id="body_info">
 			<table width="100%" class=" table table-striped table-bordered  table-hover center">

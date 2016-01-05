@@ -52,7 +52,7 @@ public class createTaskServlet extends HttpServlet {
 		taskList.setStatus(status);
 		taskListDao.updateTaskStatus(id, status);;
 		System.out.println("status change success");
-		response.setContentType("text/html;charset=utf-8");//这里是防止出现乱码，很重要的
+		response.setContentType("text/html;charset=utf-8");
 		response.getWriter().print( " <script> location.href= '"+request.getContextPath()+"/jsp/businessCenter_adminServlet?flag=1&page=1'; </script> ");
 		//response.sendRedirect("/jsp/businessCenter_adminServclet");
 		//request.getRequestDispatcher("jsp/businessCenter_adminServlet").forward(request, response);
