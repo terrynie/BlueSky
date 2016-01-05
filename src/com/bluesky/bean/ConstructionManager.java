@@ -1,5 +1,7 @@
 package com.bluesky.bean;
 
+import java.util.Date;
+
 public class ConstructionManager {
 	private String id; // 编号
 	private String password; // 密码
@@ -9,6 +11,8 @@ public class ConstructionManager {
 	private String idCardNo; // 身份证号
 	private String constructionId; // 工地编号，用作外键
 	private String company; // 隶属公司
+	private Date registerDate;// 注册时间
+	private Date logoffTime;// 注销时间
 
 	public ConstructionManager() {
 	}
@@ -77,4 +81,19 @@ public class ConstructionManager {
 		this.company = company;
 	}
 
+	public Date getRegisterDate() {
+		return registerDate;
+	}
+
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
+	}
+
+	public Date getLogoffTime() {
+		return logoffTime;
+	}
+
+	public void setLogoffTime(Date logoffTime) {
+		this.logoffTime = logoffTime;
+	}
 }

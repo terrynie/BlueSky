@@ -17,14 +17,14 @@ import com.bluesky.dao.NotificationDao;
  * Servlet implementation class createFineTicketServlet
  */
 @WebServlet("/jsp/createFineTicketServlet")
-public class createFineTicketServlet extends HttpServlet {
+public class CreateFineTicketServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Date sqlEndDate;
 	java.sql.Date sqlStartDate;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public createFineTicketServlet() {
+    public CreateFineTicketServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

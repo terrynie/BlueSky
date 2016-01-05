@@ -6,44 +6,36 @@ import java.util.LinkedList;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bluesky.bean.FineTicket;
-import com.bluesky.bean.Notification;
-import com.bluesky.dao.FineTicketDao;
-import com.bluesky.dao.NotificationDao;
-
-
+import com.bluesky.bean.TaskList;
+import com.bluesky.dao.TaskListDao;
 
 /**
  * Servlet implementation class businessCenter_adminServclet
  */
 //@WebServlet("/jsp/businessCenter_adminServclet")
-public class businessCenter_constructionManagerServclet extends HttpServlet {
+public class BusinessCenter_justiceServclet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String page = "1";
 	String flag = "1";
-	LinkedList<Notification> perInfos;
-	LinkedList<FineTicket> perInfos_fineTickets;
-	
-	int pagesize = 1;
-	int startNum;
+	int pagesize=1;
 	int countInfo;
-	int count;
-	int count_fineTickets;
-
-	NotificationDao notificationDao = new NotificationDao();
-	FineTicketDao fineTicketDao = new FineTicketDao();
-    /**
+	int startNum;
+	LinkedList<TaskList> perInfos_not;
+	LinkedList<TaskList> perInfos_done;
+	int count_not;
+	int count_done;
+	TaskListDao taskListDao = new TaskListDao();
+	/**
      * @see HttpServlet#HttpServlet()
      */
-    public businessCenter_constructionManagerServclet() {
+    public BusinessCenter_justiceServclet() {
         super();
-        // TODO Auto-generated constructor stub
     }
-    
     public int getcount(int countinfo, int pagesize) {
 		if (countinfo % pagesize == 0) {
 			return countinfo / pagesize;
@@ -55,7 +47,6 @@ public class businessCenter_constructionManagerServclet extends HttpServlet {
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init() throws ServletException {
-		// TODO Auto-generated method stub
 		super.init();
 	}
 
@@ -63,7 +54,6 @@ public class businessCenter_constructionManagerServclet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.setHeader("Pragma", "No-cache");
 		response.setHeader("Cache-Control", "no-cache");
 		response.setDateHeader("Expires", 0);
@@ -80,37 +70,39 @@ public class businessCenter_constructionManagerServclet extends HttpServlet {
 		if (flag1 != null) {
 			flag = request.getParameter("flag");
 		}
-		System.out.println("zheli page"+page);
-		System.out.println("zheli flag"+flag);
 		startNum = ((Integer.parseInt(page)) - 1) * pagesize;
 		int flagnum=Integer.parseInt(flag);
-		if(flagnum==1){
-			countInfo = notificationDao.qureyNumOfNotifications();
-			count = this.getcount(countInfo, pagesize);
-			perInfos = notificationDao.queryByPage(startNum, pagesize);
-			request.setAttribute("count", count);
-			request.setAttribute("perInfos", perInfos);
+		if (flagnum== 1) {
+			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
+			count_not = this.getcount(countInfo, pagesize);
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(startNum, pagesize, "InspectionPersonnel");
+			request.setAttribute("count_not", count_not);
+			request.setAttribute("perInfos_not", perInfos_not);
 			//
-			countInfo = fineTicketDao.qureyNumOfFineTicket();
-			count_fineTickets = this.getcount(countInfo, pagesize);
-			perInfos_fineTickets = fineTicketDao.queryByPage(0, pagesize);
-			request.setAttribute("count_fineTickets", count_fineTickets);
-			request.setAttribute("perInfos_fineTickets", perInfos_fineTickets);
-			request.getRequestDispatcher("businessCenter_constructionManager.jsp").forward(
+			countInfo = taskListDao.qureyNumOfTaskDealing("InspectionPersonnel");
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDoneByPage(0, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
+			//
+			request.getRequestDispatcher("businessCenter_justice.jsp").forward(
 					request, response);
-		}else if(flagnum==2){
-			countInfo = fineTicketDao.qureyNumOfFineTicket();
-			count_fineTickets = this.getcount(countInfo, pagesize);
-			perInfos_fineTickets = fineTicketDao.queryByPage(startNum, pagesize);
-			request.setAttribute("count_fineTickets", count_fineTickets);
-			request.setAttribute("perInfos_fineTickets", perInfos_fineTickets);
+			
+		} else if (flagnum == 2) {
+			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
+			count_done = this.getcount(countInfo, pagesize);
+			perInfos_done = taskListDao.queryTaskDoneByPage(startNum, pagesize);
+			request.setAttribute("count_done", count_done);
+			request.setAttribute("perInfos_done", perInfos_done);
 			//
-			countInfo = notificationDao.qureyNumOfNotifications();
-			count = this.getcount(countInfo, pagesize);
-			perInfos = notificationDao.queryByPage(0, pagesize);
-			request.setAttribute("count", count);
-			request.setAttribute("perInfos", perInfos);
-			request.getRequestDispatcher("businessCenter_constructionManager.jsp").forward(request, response);
+			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
+			count_not = this.getcount(countInfo, pagesize);
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "InspectionPersonnel");
+			request.setAttribute("count_not", count_not);
+			request.setAttribute("perInfos_not", perInfos_not);
+			//
+			request.getRequestDispatcher("businessCenter_justice.jsp").forward(
+					request, response);
 		}
 	}
 

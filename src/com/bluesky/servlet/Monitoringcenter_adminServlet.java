@@ -19,13 +19,13 @@ import com.bluesky.dao.ConstructionSiteDao;
  * Servlet implementation class monitoringcenter_adminServlet
  */
 //@WebServlet("/jsp/monitoringcenter_adminServlet")
-public class monitoringcenter_adminServlet extends HttpServlet {
+public class Monitoringcenter_adminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public monitoringcenter_adminServlet() {
+	public Monitoringcenter_adminServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

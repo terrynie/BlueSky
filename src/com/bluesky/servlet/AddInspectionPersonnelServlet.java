@@ -15,13 +15,13 @@ import com.bluesky.dao.InspectionPersonnelDao;
  * Servlet implementation class addInspectionPersonnelServlet
  */
 @WebServlet("/jsp/addInspectionPersonnelServlet")
-public class addInspectionPersonnelServlet extends HttpServlet {
+public class AddInspectionPersonnelServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addInspectionPersonnelServlet() {
+    public AddInspectionPersonnelServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
