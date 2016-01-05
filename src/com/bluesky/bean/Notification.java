@@ -18,7 +18,8 @@ public class Notification {
 	private int isFeedback; // 是否反馈
 	private String constructionName; // 工地名称
 	private String feedbackId; // 反馈编号
-	
+	private int status;// 状态
+
 	public Notification() {
 	}
 
@@ -62,7 +63,7 @@ public class Notification {
 		this.accordingTo = accordingTo;
 	}
 
-	public int isHasImgs() {
+	public int getHasImgs() {
 		return hasImgs;
 	}
 
@@ -70,7 +71,7 @@ public class Notification {
 		this.hasImgs = hasImgs;
 	}
 
-	public int isHasVedio() {
+	public int getHasVedio() {
 		return hasVedio;
 	}
 
@@ -78,7 +79,7 @@ public class Notification {
 		this.hasVedio = hasVedio;
 	}
 
-	public int isHasText() {
+	public int getHasText() {
 		return hasText;
 	}
 
@@ -86,8 +87,6 @@ public class Notification {
 		this.hasText = hasText;
 	}
 
-	
-	
 	public String getImgPath() {
 		return imgPath;
 	}
@@ -120,11 +119,11 @@ public class Notification {
 		this.deadline = deadline;
 	}
 
-	public int isFeedback() {
+	public int getIsFeedback() {
 		return isFeedback;
 	}
 
-	public void setFeedback(int isFeedback) {
+	public void setIsFeedback(int isFeedback) {
 		this.isFeedback = isFeedback;
 	}
 
@@ -143,4 +142,13 @@ public class Notification {
 	public void setFeedbackId(String feedbackId) {
 		this.feedbackId = feedbackId;
 	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 }

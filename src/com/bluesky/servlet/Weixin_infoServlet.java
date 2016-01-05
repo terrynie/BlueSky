@@ -15,13 +15,13 @@ import com.bluesky.dao.WeChatDao;
  * Servlet implementation class weixin_infoServlet
  */
 @WebServlet("/jsp/weixin_infoServlet")
-public class weixin_infoServlet extends HttpServlet {
+public class Weixin_infoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public weixin_infoServlet() {
+    public Weixin_infoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -59,10 +59,10 @@ public class weixin_infoServlet extends HttpServlet {
 		weChat.setStreet(request.getParameter("select_street"));
 		weChat.setWeChatNo(weChatNo);
 		if(!("").equals(request.getParameter("src"))){
-			weChat.setHasImg(true);
-			weChat.setHasVideo(true);
+			weChat.setHasImg(1);
+			weChat.setHasVideo(1);
 		}
-		weChatDao.addManager(weChat);
+		weChatDao.addOneComplaint(weChat);
 	}
 
 }

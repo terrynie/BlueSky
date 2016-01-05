@@ -1,22 +1,17 @@
 package com.bluesky.bean;
 
+import java.util.Date;
+
 public class Admin {
 	private String id;// 账号
 	private String password;// 密码
 	private String name;// 姓名
 	private String tel;// 联系方式
 	private String idCardNo;// 身份证号
+	private Date registerDate;// 注册时间
+	private Date logoffTime;// 注销时间
 
 	public Admin() {
-	}
-
-	public Admin(String id, String name, String password, String tel, String idCardNo) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.password = password;
-		this.tel = tel;
-		this.idCardNo = idCardNo;
 	}
 
 	public String getId() {
@@ -57,6 +52,22 @@ public class Admin {
 
 	public void setIdCardNo(String idCardNo) {
 		this.idCardNo = idCardNo;
+	}
+
+	public Date getRegisterDate() {
+		return registerDate;
+	}
+
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
+	}
+
+	public Date getLogoffTime() {
+		return logoffTime;
+	}
+
+	public void setLogoffTime(Date logoffTime) {
+		this.logoffTime = logoffTime;
 	}
 
 }

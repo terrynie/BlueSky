@@ -16,13 +16,13 @@ import com.bluesky.dao.ConstructionSiteDao;
  * Servlet implementation class weixin_selectFirServlet
  */
 @WebServlet("/jsp/weixin_selectFirServlet")
-public class weixin_selectFirServlet extends HttpServlet {
+public class Weixin_selectFirServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public weixin_selectFirServlet() {
+    public Weixin_selectFirServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

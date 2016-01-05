@@ -1,24 +1,36 @@
 package com.bluesky.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.LinkedList;
 
 import com.bluesky.bean.Admin;
 import com.bluesky.database.DBConnection;
+import com.bluesky.tools.TimeConvert;
+
 public class AdminDao {
+
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
 	// add an administrator
 	public boolean addAdmin(Admin admin) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "insert into Admin values('" + admin.getId() + "','" + admin.getPassword() + "','"
-					+ admin.getName() + "','" + admin.getTel() + "','" + admin.getIdCardNo() + "');";
-			stmt.executeUpdate(sql);
-			DBConnection.closeStatement(stmt);
+			String sql = "insert into Admin values(?,?,?,?,?,?,?)";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, admin.getId());
+			ps.setString(2, admin.getPassword());
+			ps.setString(3, admin.getName());
+			ps.setString(4, admin.getTel());
+			ps.setString(5, admin.getIdCardNo());
+			ps.setDate(6, TimeConvert.ConvertToSqlDate(admin.getRegisterDate()));
+			ps.setDate(7, TimeConvert.ConvertToSqlDate(admin.getLogoffTime()));
+			ps.executeUpdate();
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
@@ -33,10 +45,11 @@ public class AdminDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "delete from Admin where ID='" + admin.getId() + "';";
-			stmt.executeUpdate(sql);
-			DBConnection.closeStatement(stmt);
+			String sql = "delete from Admin where ID=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, admin.getId());
+			ps.executeUpdate();
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
@@ -52,9 +65,9 @@ public class AdminDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from Admin";
-			ResultSet rs = stmt.executeQuery(sql);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				Admin admin = new Admin();
 				admin.setId(rs.getString(1));
@@ -62,15 +75,17 @@ public class AdminDao {
 				admin.setName(rs.getString(3));
 				admin.setTel(rs.getString(4));
 				admin.setIdCardNo(rs.getString(5));
+				admin.setRegisterDate(rs.getDate(6));
+				admin.setLogoffTime(rs.getDate(7));
 				list.add(admin);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -81,18 +96,20 @@ public class AdminDao {
 		}
 		Admin admin = new Admin();
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from Admin where id = '" + id + "';";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from Admin where id = ?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				admin.setId(rs.getString(1));
 				admin.setPassword(rs.getString(2));
 				admin.setName(rs.getString(3));
 				admin.setTel(rs.getString(4));
 				admin.setIdCardNo(rs.getString(5));
+				admin.setRegisterDate(rs.getDate(6));
+				admin.setLogoffTime(rs.getDate(7));
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return admin;
 		} catch (SQLException e) {
@@ -108,9 +125,11 @@ public class AdminDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from Admin limit " + start + "," + stepLength + ";";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from Admin limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, start);
+			ps.setInt(2, stepLength);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				Admin admin = new Admin();
 				admin.setId(rs.getString(1));
@@ -118,15 +137,17 @@ public class AdminDao {
 				admin.setName(rs.getString(3));
 				admin.setTel(rs.getString(4));
 				admin.setIdCardNo(rs.getString(5));
+				admin.setRegisterDate(rs.getDate(6));
+				admin.setLogoffTime(rs.getDate(7));
 				list.add(admin);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -137,18 +158,19 @@ public class AdminDao {
 		}
 		int sum = 0;
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select count(*) from Admin";
-			ResultSet rs = stmt.executeQuery(sql);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return sum;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}
-		return sum;
 	}
 }
