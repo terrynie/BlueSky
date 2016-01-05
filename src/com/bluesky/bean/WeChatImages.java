@@ -1,9 +1,9 @@
 package com.bluesky.bean;
 
-public class Images {
+public class WeChatImages {
 	private String imgId;//图片编号
 	private String complaintId;//投诉编号
-	private String ImgPath;//图片路径
+	private String imgPath;//图片路径
 
 	public String getImgId() {
 		return imgId;
@@ -24,11 +24,11 @@ public class Images {
 	}
 
 	public String getImgPath() {
-		return ImgPath;
+		return imgPath;
 	}
 
 	public void setImgPath(String imgPath) {
-		ImgPath = imgPath;
+		this.imgPath = imgPath;
 	}
 
 }

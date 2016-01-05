@@ -1,5 +1,7 @@
 package com.bluesky.bean;
 
+import java.util.Date;
+
 public class TaskList {
 	private String id;// 业务编号
 	private String source;// 来源
@@ -8,11 +10,12 @@ public class TaskList {
 	private int hasImg;// 是否有图片
 	private int hasVideo;// 是否有视频
 	private int status;// 处理状态
-	
+	private Date createTime;// 创建时间
+
 	/**
 	 * 管理：初始化（initialize -- 0） 处理转下级（dealing -- 1） 处理完成（done -- 3）
-	 * 巡检：待办（waitting to be dealed -- 1） 处理转下级（dealing -- 2）  处理完成（done -- 3） 
-	 * 执法：待办（waitting to be dealed -- 2）  处理完成（done -- 3）
+	 * 巡检：待办（waitting to be dealed -- 1） 处理转下级（dealing -- 2） 处理完成（done -- 3）
+	 * 执法：待办（waitting to be dealed -- 2） 处理完成（done -- 3）
 	 */
 
 	public String getId() {
@@ -69,6 +72,14 @@ public class TaskList {
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
 }

@@ -1,27 +1,39 @@
 package com.bluesky.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.LinkedList;
 
 import com.bluesky.bean.InspectionPersonnel;
 import com.bluesky.database.DBConnection;
+import com.bluesky.tools.TimeConvert;
 
 public class InspectionPersonnelDao {
+
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+
 	// add an inspector
 	public boolean addManager(InspectionPersonnel inspector) {
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "insert into InspectionPersonnel values('" + inspector.getId() + "','"
-					+ inspector.getPassword() + "','" + inspector.getName() + "','" + inspector.getSex() + "','"
-					+ inspector.getSection() + "','" + inspector.getPrecinct() + "','" + inspector.getTel() + "','"
-					+ inspector.getIdCardNo() + "');";
-			stmt.executeUpdate(sql);
-			DBConnection.closeStatement(stmt);
+			String sql = "insert into InspectionPersonnel values(?,?,?,?,?,?,?,?,?,?)";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, inspector.getId());
+			ps.setString(2, inspector.getPassword());
+			ps.setString(3, inspector.getName());
+			ps.setString(4, inspector.getSex());
+			ps.setString(5, inspector.getSection());
+			ps.setString(6, inspector.getPrecinct());
+			ps.setString(7, inspector.getTel());
+			ps.setString(8, inspector.getIdCardNo());
+			ps.setDate(9, TimeConvert.ConvertToSqlDate(inspector.getRegisterDate()));
+			ps.setDate(10, TimeConvert.ConvertToSqlDate(inspector.getLogoffTime()));
+			ps.executeUpdate();
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
@@ -36,10 +48,11 @@ public class InspectionPersonnelDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "delete from InspectionPersonnel where id='" + inspector.getId() + "';";
-			stmt.executeUpdate(sql);
-			DBConnection.closeStatement(stmt);
+			String sql = "delete from InspectionPersonnel where id=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, inspector.getId());
+			ps.executeUpdate();
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return true;
 		} catch (SQLException e) {
@@ -55,9 +68,9 @@ public class InspectionPersonnelDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select * from InspectionPersonnel";
-			ResultSet rs = stmt.executeQuery(sql);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				InspectionPersonnel inspector = new InspectionPersonnel();
 				inspector.setId(rs.getString(1));
@@ -68,15 +81,17 @@ public class InspectionPersonnelDao {
 				inspector.setPrecinct(rs.getString(6));
 				inspector.setTel(rs.getString(7));
 				inspector.setIdCardNo(rs.getString(8));
+				inspector.setRegisterDate(rs.getDate(9));
+				inspector.setLogoffTime(rs.getDate(10));
 				list.add(inspector);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -87,18 +102,24 @@ public class InspectionPersonnelDao {
 		}
 		InspectionPersonnel inspector = new InspectionPersonnel();
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from InspectionPersonnel where id = '" + id + "';";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from InspectionPersonnel where id = ?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				inspector.setId(rs.getString(1));
 				inspector.setPassword(rs.getString(2));
 				inspector.setName(rs.getString(3));
 				inspector.setTel(rs.getString(4));
 				inspector.setIdCardNo(rs.getString(5));
+				inspector.setPrecinct(rs.getString(6));
+				inspector.setTel(rs.getString(7));
+				inspector.setIdCardNo(rs.getString(8));
+				inspector.setRegisterDate(rs.getDate(9));
+				inspector.setLogoffTime(rs.getDate(10));
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return inspector;
 		} catch (SQLException e) {
@@ -114,9 +135,11 @@ public class InspectionPersonnelDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from InspectionPersonnel limit " + start + "," + stepLength + ";";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from InspectionPersonnel limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, start);
+			ps.setInt(2, stepLength);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				InspectionPersonnel inspector = new InspectionPersonnel();
 				inspector.setId(rs.getString(1));
@@ -127,15 +150,17 @@ public class InspectionPersonnelDao {
 				inspector.setPrecinct(rs.getString(6));
 				inspector.setTel(rs.getString(7));
 				inspector.setIdCardNo(rs.getString(8));
+				inspector.setRegisterDate(rs.getDate(9));
+				inspector.setLogoffTime(rs.getDate(10));
 				list.add(inspector);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
 			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return list;
+			return null;
 		}
 	}
 
@@ -146,19 +171,20 @@ public class InspectionPersonnelDao {
 		}
 		int sum = 0;
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
 			String sql = "select count(*) from InspectionPersonnel";
-			ResultSet rs = stmt.executeQuery(sql);
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return sum;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return 0;
 		}
-		return sum;
 	}
 
 	// query inspection personnel according to precinct
@@ -168,9 +194,10 @@ public class InspectionPersonnelDao {
 			DBConnection.openConn();
 		}
 		try {
-			Statement stmt = DBConnection.conn.createStatement();
-			String sql = "select * from InspectionPersonnel where precinct = '" + precinct + "';";
-			ResultSet rs = stmt.executeQuery(sql);
+			String sql = "select * from InspectionPersonnel where precinct = ?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, precinct);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				InspectionPersonnel inspector = new InspectionPersonnel();
 				inspector.setId(rs.getString(1));
@@ -181,38 +208,41 @@ public class InspectionPersonnelDao {
 				inspector.setPrecinct(rs.getString(6));
 				inspector.setTel(rs.getString(7));
 				inspector.setIdCardNo(rs.getString(8));
+				inspector.setRegisterDate(rs.getDate(9));
+				inspector.setLogoffTime(rs.getDate(10));
 				list.add(inspector);
 			}
 			DBConnection.closeResultSet(rs);
-			DBConnection.closeStatement(stmt);
+			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			return list;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return list;
 	}
-	
-	//query distinct precinct from table--InspectionPersonnel
 
-		public LinkedList<String> queryPrecinct() {
-			LinkedList<String> list = new LinkedList<String>();
-			if (DBConnection.conn == null) {
-				DBConnection.openConn();
-			}
-			try {
-				Statement stmt = DBConnection.conn.createStatement();
-				String sql = "select distinct precinct from InspectionPersonnel";
-				ResultSet rs = stmt.executeQuery(sql);
-				while(rs.next()){
-					list.add(rs.getString(1));
-				}
-				DBConnection.closeResultSet(rs);
-				DBConnection.closeStatement(stmt);
-				DBConnection.closeConn();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return list;
+	// query distinct precinct from table--InspectionPersonnel
+	public LinkedList<String> queryPrecinct() {
+		LinkedList<String> list = new LinkedList<String>();
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
 		}
+		try {
+			String sql = "select distinct precinct from InspectionPersonnel";
+			ps = DBConnection.conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				list.add(rs.getString(1));
+			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(ps);
+			DBConnection.closeConn();
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }

@@ -18,13 +18,13 @@ import com.bluesky.dao.ConstructionSiteDao;
  * Servlet implementation class addConstructionSiteServlet
  */
 @WebServlet("/jsp/addConstructionSiteServlet")
-public class addConstructionSiteServlet extends HttpServlet {
+public class AddConstructionSiteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addConstructionSiteServlet() {
+    public AddConstructionSiteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
