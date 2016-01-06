@@ -18,7 +18,6 @@
     <servlet-name>bussiness_admin</servlet-name>
     <url-pattern>/jsp/businessCenter_adminServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>bussiness_constructionManager</servlet-name>
     <servlet-class>com.bluesky.servlet.BusinessCenter_constructionManagerServclet</servlet-class>
@@ -27,7 +26,6 @@
     <servlet-name>bussiness_constructionManager</servlet-name>
     <url-pattern>/jsp/businessCenter_constructionManagerServclet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>bussiness_justice</servlet-name>
     <servlet-class>com.bluesky.servlet.BusinessCenter_justiceServclet</servlet-class>
@@ -36,7 +34,6 @@
     <servlet-name>bussiness_justice</servlet-name>
     <url-pattern>/jsp/businessCenter_justiceServclet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>bussiness_supervisor</servlet-name>
     <servlet-class>com.bluesky.servlet.BusinessCenter_supervisorServclet</servlet-class>
@@ -45,7 +42,6 @@
     <servlet-name>bussiness_supervisor</servlet-name>
     <url-pattern>/jsp/businessCenter_supervisorServclet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>monitoringcenter_adminServlet</servlet-name>
     <servlet-class>com.bluesky.servlet.Monitoringcenter_adminServlet</servlet-class>
@@ -54,7 +50,6 @@
     <servlet-name>monitoringcenter_adminServlet</servlet-name>
     <url-pattern>/jsp/monitoringcenter_adminServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>loginservlet</servlet-name>
     <servlet-class>com.bluesky.servlet.LoginServlet</servlet-class>

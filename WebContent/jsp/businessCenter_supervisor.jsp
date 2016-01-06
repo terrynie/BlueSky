@@ -1,3 +1,4 @@
+<%@page import="com.bluesky.dao.TaskImageDao"%>
 <%@page import="com.bluesky.bean.*"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -11,21 +12,12 @@
 	type="text/css" />
 <script src="../js/SpryAccordion.js" type="text/javascript"></script>
 <link href="../css/SpryAccordion.css" rel="stylesheet" type="text/css" />
+<script src="../js/change_table.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-	function tab_list(thisObj, n) {
-		if (thisObj.className == "active")
-			return;
-		var tabList = document.getElementById("ul_style4")
-				.getElementsByTagName("li");
-		for (i = 0; i < tabList.length; i++) {
-			if (i == n) {
-				thisObj.className = "active";
-				document.getElementById("list_data" + i).style.display = "block";
-			} else {
-				tabList[i].className = "normal";
-				document.getElementById("list_data" + i).style.display = "none";
-			}
-		}
+	function creat_task(id,status){
+		alert("处理成功"+id);
+		var url="../UpdateStatus_supervisorServlet.do?id="+id+"&status="+status;
+		window.location.href=url;	
 	}
 </script>
 </head>
@@ -55,9 +47,9 @@
 				<input type="submit" value="搜索" name="search_sub" onclick="search();">
 			</form> -->
 			<ul id="ul_style4">
-				<li class="active" onclick="tab_list(this,0);">待办事物</li>
+				<li class="active openline" onclick="tab_list(this,0);">待办事物</li>
 				<li class="normal" onclick="tab_list(this,1);">已处理</li>
-				<li class="normal" onclick="tab_list(this,2);">通知</li>
+				<li class="normal" onclick="tab_list(this,2);">整改通知</li>
 				<li class="normal" onclick="tab_list(this,3);">创建业务</li>
 			</ul>  
 		</div>
@@ -73,18 +65,36 @@
 								<tr>
 									<td>任务编号</td>
 									<td>来源</td>
-									<td>任务简报</td>
+									<!-- <td>任务简报</td> -->
 									<td>附件</td>
 								</tr>
 								<tr>
 									<td><%=t.getId()%></td>
 									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
+									<%-- <td><%=t.getContent()%></td> --%>
 									<td>图视文</td>
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
+							<div  class="time_item"><span><%=t.getContent() %></span></div>
+							<%if(t.getHasImg()==1){ 
+								LinkedList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
+								for(TaskImages ti:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看数据监控"/>
+							<input type="button" class="btn btn-primary" value="属实，转下级"
+							onclick="javascript:creat_task('<%=t.getId()%>',1)"/>
+							</div>
+						</div>
 					</div>
 					<%
 						}
@@ -137,18 +147,36 @@
 								<tr>
 									<td>任务编号</td>
 									<td>来源</td>
-									<td>任务简报</td>
+									<!-- <td>任务简报</td> -->
 									<td>附件</td>
 								</tr>
 								<tr>
 									<td><%=t.getId()%></td>
 									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
+									<%-- <td><%=t.getContent()%></td> --%>
 									<td>图视文</td>
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
+							<div  class="time_item"><span><%=t.getContent() %></span></div>
+							<%if(t.getHasImg()==1){ 
+								LinkedList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
+								for(TaskImages ti:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看数据监控"/>
+							<input type="button" class="btn btn-primary" value="属实，已处理" disabled="disabled"
+							onclick="javascript:creat_task('<%=t.getId()%>',1)"/>
+							</div>
+						</div>
 					</div>
 					<%
 						}
@@ -201,18 +229,21 @@
 								<tr>
 									<td>任务编号</td>
 									<td>来源</td>
-									<td>任务简报</td>
+									<!-- <td>任务简报</td> -->
 									<td>附件</td>
 								</tr>
 								<tr>
 									<td><%=n.getId()%></td>
 									<td><%=n.getAccordingTo()%></td>
-									<td><%=n.getContent()%></td>
+									<%-- <td><%=n.getContent()%></td> --%>
 									<td>图视文</td>
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item li_title"><span>发布日期：<%=n.getPublishDate() %> 截止日期：<%=n.getDeadline() %></span></div>
+							<ul><li><p><%=n.getContent() %></p></li></ul>
+						</div>
 					</div>
 					<%
 						}
@@ -269,10 +300,9 @@
 			</form> -->
 			<ul id="ul_style4">
 				<li class="normal" onclick="tab_list(this,0);">待办事物</li>
-				<li class="active" onclick="tab_list(this,1);">已处理</li>
-				<li class="normal" onclick="tab_list(this,2);">通知</li>
-				<li class="normal" onclick="tab_list(this,3);">微信数据</li>
-				<li class="normal" onclick="tab_list(this,4);">创建业务</li>
+				<li class="active openline" onclick="tab_list(this,1);">已处理</li>
+				<li class="normal" onclick="tab_list(this,2);">整改通知</li>
+				<li class="normal" onclick="tab_list(this,3);">创建业务</li>
 			</ul>
 		</div>
 		<div class="list_data">
@@ -287,18 +317,36 @@
 								<tr>
 									<td>任务编号</td>
 									<td>来源</td>
-									<td>任务简报</td>
+									<!-- <td>任务简报</td> -->
 									<td>附件</td>
 								</tr>
 								<tr>
 									<td><%=t.getId()%></td>
 									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
+									<%-- <td><%=t.getContent()%></td> --%>
 									<td>图视文</td>
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
+							<div  class="time_item"><span><%=t.getContent() %></span></div>
+							<%if(t.getHasImg()==1){ 
+								LinkedList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
+								for(TaskImages ti:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看数据监控"/>
+							<input type="button" class="btn btn-primary" value="属实，转下级"
+							onclick="javascript:creat_task('<%=t.getId()%>',1)"/>
+							</div>
+						</div>
 					</div>
 					<%
 						}
@@ -351,18 +399,36 @@
 								<tr>
 									<td>任务编号</td>
 									<td>来源</td>
-									<td>任务简报</td>
+									<!-- <td>任务简报</td> -->
 									<td>附件</td>
 								</tr>
 								<tr>
 									<td><%=t.getId()%></td>
 									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
+									<%-- <td><%=t.getContent()%></td> --%>
 									<td>图视文</td>
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
+							<div  class="time_item"><span><%=t.getContent() %></span></div>
+							<%if(t.getHasImg()==1){ 
+								LinkedList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
+								for(TaskImages ti:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看数据监控"/>
+							<input type="button" class="btn btn-primary" value="属实，已处理" disabled="disabled"
+							onclick="javascript:creat_task('<%=t.getId()%>',1)"/>
+							</div>
+						</div>
 					</div>
 					<%
 						}
@@ -415,18 +481,21 @@
 								<tr>
 									<td>任务编号</td>
 									<td>来源</td>
-									<td>任务简报</td>
+									<!-- <td>任务简报</td> -->
 									<td>附件</td>
 								</tr>
 								<tr>
 									<td><%=n.getId()%></td>
 									<td><%=n.getAccordingTo()%></td>
-									<td><%=n.getContent()%></td>
+									<%-- <td><%=n.getContent()%></td> --%>
 									<td>图视文</td>
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item li_title"><span>发布日期：<%=n.getPublishDate() %> 截止日期：<%=n.getDeadline() %></span></div>
+							<ul><li><p><%=n.getContent() %></p></li></ul>
+						</div>
 					</div>
 					<%
 						}
@@ -483,9 +552,8 @@
 			<ul id="ul_style4">
 				<li class="normal" onclick="tab_list(this,0);">待办事物</li>
 				<li class="normal" onclick="tab_list(this,1);">已处理</li>
-				<li class="active" onclick="tab_list(this,2);">通知</li>
-				<li class="normal" onclick="tab_list(this,3);">微信数据</li>
-				<li class="normal" onclick="tab_list(this,4);">创建业务</li>
+				<li class="active openline" onclick="tab_list(this,2);">整改通知</li>
+				<li class="normal" onclick="tab_list(this,3);">创建业务</li>
 			</ul>
 		</div>
 		<div class="list_data">
@@ -500,18 +568,36 @@
 								<tr>
 									<td>任务编号</td>
 									<td>来源</td>
-									<td>任务简报</td>
+									<!-- <td>任务简报</td> -->
 									<td>附件</td>
 								</tr>
 								<tr>
 									<td><%=t.getId()%></td>
 									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
+									<%-- <td><%=t.getContent()%></td> --%>
 									<td>图视文</td>
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
+							<div  class="time_item"><span><%=t.getContent() %></span></div>
+							<%if(t.getHasImg()==1){ 
+								LinkedList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
+								for(TaskImages ti:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看数据监控"/>
+							<input type="button" class="btn btn-primary" value="属实，转下级"
+							onclick="javascript:creat_task('<%=t.getId()%>',1)"/>
+							</div>
+						</div>
 					</div>
 					<%
 						}
@@ -564,18 +650,36 @@
 								<tr>
 									<td>任务编号</td>
 									<td>来源</td>
-									<td>任务简报</td>
+									<!-- <td>任务简报</td> -->
 									<td>附件</td>
 								</tr>
 								<tr>
 									<td><%=t.getId()%></td>
 									<td><%=t.getSource()%></td>
-									<td><%=t.getContent()%></td>
+									<%-- <td><%=t.getContent()%></td> --%>
 									<td>图视文</td>
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=t.getContent()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
+							<div  class="time_item"><span><%=t.getContent() %></span></div>
+							<%if(t.getHasImg()==1){ 
+								LinkedList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
+								for(TaskImages ti:link_images){
+							%>
+								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
+							<%	}
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+							<div class="info_item">
+							<input type="button" class="btn btn-primary" value="查看数据监控"/>
+							<input type="button" class="btn btn-primary" value="属实，已处理" disabled="disabled"
+							onclick="javascript:creat_task('<%=t.getId()%>',1)"/>
+							</div>
+						</div>
 					</div>
 					<%
 						}
@@ -628,18 +732,21 @@
 								<tr>
 									<td>任务编号</td>
 									<td>来源</td>
-									<td>任务简报</td>
+									<!-- <td>任务简报</td> -->
 									<td>附件</td>
 								</tr>
 								<tr>
 									<td><%=n.getId()%></td>
 									<td><%=n.getAccordingTo()%></td>
-									<td><%=n.getContent()%></td>
+									<%-- <td><%=n.getContent()%></td> --%>
 									<td>图视文</td>
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item li_title"><span>发布日期：<%=n.getPublishDate() %> 截止日期：<%=n.getDeadline() %></span></div>
+							<ul><li><p><%=n.getContent() %></p></li></ul>
+						</div>
 					</div>
 					<%
 						}

@@ -28,7 +28,7 @@ public class BusinessCenter_supervisorServclet extends HttpServlet {
 	LinkedList<Notification> perInfos;
 	LinkedList<TaskList> perInfos_not;
 	LinkedList<TaskList> perInfos_done;
-	int pagesize = 1;
+	int pagesize = 5;
 	int startNum;
 	int countInfo;
 	int count;
@@ -87,15 +87,15 @@ public class BusinessCenter_supervisorServclet extends HttpServlet {
 		startNum = ((Integer.parseInt(page)) - 1) * pagesize;
 		int flagnum=Integer.parseInt(flag);
 		if (flagnum== 1) {
-			countInfo = taskListDao.qureyNumOfTaskWaitDealed("LawInforcing");
+			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(startNum, pagesize, "LawInforcing");
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(startNum, pagesize, "InspectionPersonnel");
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
 			//
-			countInfo = taskListDao.qureyNumOfTaskDealing("LawInforcing");
+			countInfo = taskListDao.qureyNumOfTaskDealing("InspectionPersonnel");
 			count_done = this.getcount(countInfo, pagesize);
-			perInfos_done = taskListDao.queryTaskDoneByPage(0, pagesize);
+			perInfos_done = taskListDao.qureyTaskDealingByPage(0, pagesize, "InspectionPersonnel");
 			request.setAttribute("count_done", count_done);
 			request.setAttribute("perInfos_done", perInfos_done);
 			//
@@ -109,15 +109,15 @@ public class BusinessCenter_supervisorServclet extends HttpServlet {
 					request, response);
 			
 		} else if (flagnum == 2) {
-			countInfo = taskListDao.qureyNumOfTaskWaitDealed("LawInforcing");
+			countInfo = taskListDao.qureyNumOfTaskDealing("InspectionPersonnel");
 			count_done = this.getcount(countInfo, pagesize);
-			perInfos_done = taskListDao.queryTaskDoneByPage(startNum, pagesize);
+			perInfos_done = taskListDao.qureyTaskDealingByPage(startNum, pagesize, "InspectionPersonnel");
 			request.setAttribute("count_done", count_done);
 			request.setAttribute("perInfos_done", perInfos_done);
 			//
-			countInfo = taskListDao.qureyNumOfTaskDealing("LawInforcing");
+			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "LawInforcing");
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "InspectionPersonnel");
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
 			//
@@ -136,15 +136,15 @@ public class BusinessCenter_supervisorServclet extends HttpServlet {
 			request.setAttribute("count", count);
 			request.setAttribute("perInfos", perInfos);
 			//
-			countInfo = taskListDao.qureyNumOfTaskWaitDealed("LawInforcing");
+			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "LawInforcing");
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "InspectionPersonnel");
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
 			//
-			countInfo = taskListDao.qureyNumOfTaskWaitDealed("LawInforcing");
+			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
 			count_done = this.getcount(countInfo, pagesize);
-			perInfos_done = taskListDao.queryTaskDoneByPage(0, pagesize);
+			perInfos_done = taskListDao.qureyTaskDealingByPage(0, pagesize, "InspectionPersonnel");
 			request.setAttribute("count_done", count_done);
 			request.setAttribute("perInfos_done", perInfos_done);
 			request.getRequestDispatcher("businessCenter_supervisor.jsp").forward(
