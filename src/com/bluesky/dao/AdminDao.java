@@ -174,4 +174,45 @@ public class AdminDao {
 			return 0;
 		}
 	}
+	
+	// update admin info
+	public int updateAdmin(Admin admin) {
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		int num = 0;
+		String sql = "update admin set password=?,name=?,tel=?,idcardno=? where id=?";
+		try {
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, admin.getPassword());
+			ps.setString(2, admin.getName());
+			ps.setString(3, admin.getTel());
+			ps.setString(4, admin.getIdCardNo());
+			ps.setString(5, admin.getId());
+			num = ps.executeUpdate();
+			return num;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
+	// update password
+	public int updatePasswd(String id, String passwd) {
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		int num = 0;
+		String sql = "update admin set password=? where id=?";
+		try {
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, passwd);
+			ps.setString(2, id);
+			num = ps.executeUpdate();
+			return num;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
 }
