@@ -22,7 +22,7 @@ public class BusinessCenter_justiceServclet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String page = "1";
 	String flag = "1";
-	int pagesize=1;
+	int pagesize=5;
 	int countInfo;
 	int startNum;
 	LinkedList<TaskList> perInfos_not;
@@ -73,15 +73,15 @@ public class BusinessCenter_justiceServclet extends HttpServlet {
 		startNum = ((Integer.parseInt(page)) - 1) * pagesize;
 		int flagnum=Integer.parseInt(flag);
 		if (flagnum== 1) {
-			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
+			countInfo = taskListDao.qureyNumOfTaskWaitDealed("LawInforcing");
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(startNum, pagesize, "InspectionPersonnel");
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(startNum, pagesize, "LawInforcing");
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
 			//
-			countInfo = taskListDao.qureyNumOfTaskDealing("InspectionPersonnel");
+			countInfo = taskListDao.qureyNumOfTaskDealing("LawInforcing");
 			count_done = this.getcount(countInfo, pagesize);
-			perInfos_done = taskListDao.queryTaskDoneByPage(0, pagesize);
+			perInfos_done = taskListDao.qureyTaskDealingByPage(0, pagesize, "LawInforcing");
 			request.setAttribute("count_done", count_done);
 			request.setAttribute("perInfos_done", perInfos_done);
 			//
@@ -89,15 +89,15 @@ public class BusinessCenter_justiceServclet extends HttpServlet {
 					request, response);
 			
 		} else if (flagnum == 2) {
-			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
+			countInfo = taskListDao.qureyNumOfTaskDealing("LawInforcing");
 			count_done = this.getcount(countInfo, pagesize);
-			perInfos_done = taskListDao.queryTaskDoneByPage(startNum, pagesize);
+			perInfos_done = taskListDao.qureyTaskDealingByPage(startNum, pagesize, "LawInforcing");
 			request.setAttribute("count_done", count_done);
 			request.setAttribute("perInfos_done", perInfos_done);
 			//
-			countInfo = taskListDao.qureyNumOfTaskWaitDealed("InspectionPersonnel");
+			countInfo = taskListDao.qureyNumOfTaskWaitDealed("LawInforcing");
 			count_not = this.getcount(countInfo, pagesize);
-			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "InspectionPersonnel");
+			perInfos_not = taskListDao.qureyTaskWaitDealedByPage(0, pagesize, "LawInforcing");
 			request.setAttribute("count_not", count_not);
 			request.setAttribute("perInfos_not", perInfos_not);
 			//
