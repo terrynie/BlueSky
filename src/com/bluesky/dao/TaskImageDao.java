@@ -79,17 +79,17 @@ public class TaskImageDao {
 		}
 	}
 
-	// query images according to complaintId
-	public LinkedList<TaskImages> queryImages(String complaintId) {
+	// query images according to TaskID
+	public LinkedList<TaskImages> queryImages(String TaskID) {
 		LinkedList<TaskImages> list = new LinkedList<TaskImages>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
 		TaskImages image = new TaskImages();
 		try {
-			String sql = "select * from taskimages where ComplaintId = ?";
+			String sql = "select * from taskimages where TaskID = ?";
 			ps = DBConnection.conn.prepareStatement(sql);
-			ps.setString(1, complaintId);
+			ps.setString(1, TaskID);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				image.setImgId(rs.getString(1));

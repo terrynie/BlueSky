@@ -193,9 +193,9 @@ public class TaskListDao {
 			ps = DBConnection.conn.prepareStatement(sql);
 			ps.setInt(1, 0);
 			if (role.trim().equals("InspectionPersonnel")) {
-				ps.setInt(1, 2);
+				ps.setInt(1, 0);
 			} else if (role.trim().equals("LawInforcing")) {
-				ps.setInt(1, 3);
+				ps.setInt(1, 1);
 			}
 			rs = ps.executeQuery();
 			while (rs.next()) {
@@ -223,9 +223,9 @@ public class TaskListDao {
 			ps.setInt(2, start);
 			ps.setInt(3, stepLength);
 			if (role.trim().equals("InspectionPersonnel")) {
-				ps.setInt(1, 1);
+				ps.setInt(1, 0);
 			} else if (role.trim().equals("LawInforcing")) {
-				ps.setInt(1, 2);
+				ps.setInt(1, 1);
 			}
 			rs = ps.executeQuery();
 			while (rs.next()) {
@@ -254,6 +254,7 @@ public class TaskListDao {
 	 * query numbers of tasks dealing(Administrator and InspectionPersonnel)
 	 * default value "status = 1" -- Administrator else "status = 2" --
 	 * InspectionPersonnel
+	 * dealing==已处理的查询
 	 */
 	public int qureyNumOfTaskDealing(String role) {
 		if (DBConnection.conn == null) {
@@ -263,9 +264,9 @@ public class TaskListDao {
 		try {
 			String sql = "select count(*) from TaskList where Status=?";
 			ps = DBConnection.conn.prepareStatement(sql);
-			ps.setInt(1, 1);
+			ps.setInt(1, 2);
 			if (role.trim().equals("InspectionPersonnel")) {
-				ps.setInt(1, 2);
+				ps.setInt(1, 1);
 			}
 			rs = ps.executeQuery();
 			while (rs.next()) {
@@ -328,7 +329,7 @@ public class TaskListDao {
 		try {
 			String sql = "select count(*) from TaskList where Status=?";
 			ps = DBConnection.conn.prepareStatement(sql);
-			ps.setInt(1, 3);
+			ps.setInt(1, 2);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				sum = rs.getInt(1);
@@ -354,7 +355,7 @@ public class TaskListDao {
 		try {
 			String sql = "select * from TaskList where status=? limit ?,?";
 			ps = DBConnection.conn.prepareStatement(sql);
-			ps.setInt(1, 3);
+			ps.setInt(1, 2);
 			ps.setInt(2, start);
 			ps.setInt(3, stepLength);
 			rs = ps.executeQuery();
