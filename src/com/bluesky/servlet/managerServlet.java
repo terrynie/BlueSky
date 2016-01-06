@@ -9,22 +9,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.bluesky.bean.InspectionPersonnel;
+import com.bluesky.dao.InspectionPersonnelDao;
 
-import com.bluesky.bean.Con_Dir;
-import com.bluesky.dao.ConstructionManagerDao;
-import com.bluesky.tools.ConSite_Director;
 
 /**
- * Servlet implementation class projectManagerServlet
+ * Servlet implementation class managerServlet
  */
-@WebServlet("/jsp/projectManagerServlet")
-public class ProjectManagerServlet extends HttpServlet {
+@WebServlet("/jsp/managerServlet")
+public class managerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProjectManagerServlet() {
+    public managerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,34 +36,56 @@ public class ProjectManagerServlet extends HttpServlet {
 		response.setDateHeader("Expires", 0);
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-
+		PrintWriter out = response.getWriter();
 		
-		String precinct = "金水区";
+		String precinct = "二七区";
 		String str_precinct = request.getParameter("precinct");
 		if (str_precinct != null) {
 			precinct = str_precinct;
 		}
-		System.out.println(precinct);
-		System.out.println(str_precinct);
+		//System.out.println(precinct);
+		//System.out.println(str_precinct);
 		
-		ConstructionManagerDao conDir = new ConstructionManagerDao();
-		ConSite_Director conSite_Director=new ConSite_Director();
-		LinkedList<String> precincts=conDir.queryPrecinctInConDir();
+		
+		
+		InspectionPersonnelDao inspectionPersonnel = new InspectionPersonnelDao();
+	
+		LinkedList<String> precincts=inspectionPersonnel.queryPrecinct();
 		System.out.println(precincts+"--------------------");
-		LinkedList<Con_Dir> list_conDirs=conSite_Director.queryConInfo(precinct);
+		LinkedList<InspectionPersonnel> list_inspectionPersonnels=inspectionPersonnel.queryInspByPrecinct(precinct);
 		request.setAttribute("precincts", precincts);
-		request.setAttribute("precinct", str_precinct);
-		request.setAttribute("list_conDirs", list_conDirs);
-		request.getRequestDispatcher("projectManager.jsp").forward(request, response);
-		
+//		request.setAttribute("precinct", str_precinct);
+		request.setAttribute("list_inspectionPersonnels", list_inspectionPersonnels);
+		//request.getRequestDispatcher("manager.jsp").forward(request, response);
+		if(str_precinct ==null){
+			request.getRequestDispatcher("manager.jsp").forward(request, response);
+		}else {
+			out.println("<table width=\"100%\" class=\" table table-striped table-bordered  table-hover center\">");
+			for(InspectionPersonnel i : list_inspectionPersonnels){
+				out.println("<tr>");
+				out.println("<td width="+20+"%"+">");
+				out.println(i.getName());
+				out.println("</td>");
+				out.println("<td width="+20+"%"+">");
+				out.println("</td>");
+				out.println("<td width="+30+"%"+">");
+				out.println(i.getSection());
+				out.println("</td>");
+				out.println("<td width="+30+"%"+">");
+				out.println(i.getTel());
+				out.println("</td>");
+				out.println("</tr>");
+			}
+			out.println("</table>");
+		}
 		
     }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 	}
 
 	/**
@@ -72,6 +93,7 @@ public class ProjectManagerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
