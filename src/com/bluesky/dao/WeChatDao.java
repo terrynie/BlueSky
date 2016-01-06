@@ -105,10 +105,10 @@ public class WeChatDao {
 		}
 		WeChat customerComplaint = new WeChat();
 		try {
-			String sql = "select * from Admin where id = ?";
+			String sql = "select * from CustomerComplaint where id = ?";
 			ps = DBConnection.conn.prepareStatement(sql);
-			ps.setString(1, customerComplaint.getId());
-			rs = ps.executeQuery(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
 			while (rs.next()) {
 				customerComplaint.setId(rs.getString(1));
 				customerComplaint.setWeChatNo(rs.getString(2));
@@ -125,6 +125,7 @@ public class WeChatDao {
 			DBConnection.closeResultSet(rs);
 			DBConnection.closeStatement(ps);
 			DBConnection.closeConn();
+			System.out.println("wechatdao:"+customerComplaint.getContent()+customerComplaint.getDistrict());
 			return customerComplaint;
 		} catch (SQLException e) {
 			e.printStackTrace();
