@@ -11,6 +11,7 @@ public class FineTicket {
 	private Date startTime;// 开具日期
 	private Date deadLine;// 缴纳期限
 	private String who;// 罚单开具人
+	private int status;//处理状态
 
 	public String getId() {
 		return id;
@@ -76,4 +77,12 @@ public class FineTicket {
 		this.who = who;
 	}
 
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
 }

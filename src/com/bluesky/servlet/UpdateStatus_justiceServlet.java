@@ -14,7 +14,7 @@ import com.bluesky.dao.TaskListDao;
 /**
  * Servlet implementation class UpdateStatus_justiceServlet
  */
-@WebServlet("/UpdateStatus_justiceServlet")
+@WebServlet("/UpdateStatus_justiceServlet.do")
 public class UpdateStatus_justiceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

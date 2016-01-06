@@ -227,4 +227,88 @@ public class NotificationDao {
 			return null;
 		}
 	}
+	
+	/**
+	 * query notifications by status
+	 * 
+	 * @param status
+	 *            the status of the queryed item
+	 * @param start
+	 *            the location of the first item in table
+	 * @param stepLength
+	 *            item accounts show in one page
+	 * @return a set of results
+	 */
+	public LinkedList<Notification> queryByStatusByPage(int status, int start, int stepLength) {
+		LinkedList<Notification> list = new LinkedList<Notification>();
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		try {
+			String sql = "select * from CorrectionNotification where status=? limit ?,?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, status);
+			ps.setInt(2, start);
+			ps.setInt(3, stepLength);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Notification notification = new Notification();
+				notification.setId(rs.getString(1));
+				notification.setTitle(rs.getString(2));
+				notification.setContent(rs.getString(3));
+				notification.setPublishDept(rs.getString(4));
+				notification.setAccordingTo(rs.getString(5));
+				notification.setHasImgs(rs.getInt(6));
+				notification.setHasVedio(rs.getInt(7));
+				notification.setHasText(rs.getInt(8));
+				notification.setImgPath(rs.getString(9));
+				notification.setVideoPath(rs.getString(10));
+				notification.setPublishDate(rs.getDate(11));
+				notification.setDeadline(rs.getDate(12));
+				notification.setIsFeedback(rs.getInt(13));
+				notification.setConstructionName(rs.getString(14));
+				notification.setFeedbackId(rs.getString(15));
+				notification.setStatus(rs.getInt(16));
+				list.add(notification);
+			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(ps);
+			DBConnection.closeConn();
+			return list;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
+	 * query number of notification according to different status
+	 * 
+	 * @param status
+	 *            the status of the queryed item
+	 * @return the accounts of items queryed by given status
+	 */
+	public int queryNumOfNotificationByStatus(int status) {
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		int sum = 0;
+		try {
+			String sql = "select count(*) from CorrectionNotification where status=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, status);
+			rs=ps.executeQuery();
+			while (rs.next()) {
+				sum = rs.getInt(1);
+			}
+			DBConnection.closeResultSet(rs);
+			DBConnection.closeStatement(ps);
+			DBConnection.closeConn();
+			return sum;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
 }
