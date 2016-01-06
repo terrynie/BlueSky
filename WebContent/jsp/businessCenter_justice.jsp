@@ -16,7 +16,7 @@
 <script type="text/javascript">
 	function creat_task(id,status){
 		alert("处理成功"+id);
-		var url="../UpdateStatus_supervisorServlet.do?id="+id+"&status="+status;
+		var url="../UpdateStatus_justiceServlet.do?id="+id+"&status="+status;
 		window.location.href=url;	
 	}
 </script>

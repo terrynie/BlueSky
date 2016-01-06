@@ -11,23 +11,7 @@
 	type="text/css" />
 <script src="../js/SpryAccordion.js" type="text/javascript"></script>
 <link href="../css/SpryAccordion.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript">
-	function tab_list(thisObj, n) {
-		if (thisObj.className == "active")
-			return;
-		var tabList = document.getElementById("ul_style4")
-				.getElementsByTagName("li");
-		for (i = 0; i < tabList.length; i++) {
-			if (i == n) {
-				thisObj.className = "active";
-				document.getElementById("list_data" + i).style.display = "block";
-			} else {
-				tabList[i].className = "normal";
-				document.getElementById("list_data" + i).style.display = "none";
-			}
-		}
-	}
-</script>
+<script src="../js/change_table.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body id="body">
 	<%
@@ -54,7 +38,7 @@
 				<input type="submit" value="搜索" name="search_sub" onclick="search();">
 			</form> -->
 			<ul id="ul_style4">
-				<li class="active" onclick="tab_list(this,0);">整改通知</li>
+				<li class="active openline" onclick="tab_list(this,0);">整改通知</li>
 				<li class="normal" onclick="tab_list(this,1);">罚单</li>
 			</ul>  
 		</div>
@@ -70,18 +54,29 @@
 								<tr>
 									<td>任务编号</td>
 									<td>来源</td>
-									<td>任务简报</td>
+									<!-- <td>任务简报</td> -->
 									<td>附件</td>
 								</tr>
 								<tr>
 									<td><%=n.getId()%></td>
 									<td><%=n.getAccordingTo()%></td>
-									<td><%=n.getContent()%></td>
+									<%-- <td><%=n.getContent()%></td> --%>
 									<td>图视文</td>
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item"><span><%=n.getPublishDate() %></span></div>
+							<div  class="time_item"><span><%=n.getContent() %></span></div>
+							<%if(n.getHasImgs()==1){ 
+							%>
+								<div class="img_item"><img alt="" src="<%=n.getImgPath() %>"></div>
+							<%
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+						</div>
 					</div>
 					<%
 						}
@@ -145,7 +140,15 @@
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=f.getCompany()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item li_title"><span>发布日期：<%=f.getStartTime() %> 截止日期：<%=f.getDeadLine() %></span></div>
+							<ul>
+							<li><p>处罚单位：<%=f.getCompany() %></p></li>
+							<li><p>处罚金额：¥<%=f.getFineMoney() %></p></li>
+							<br><br>
+							<li><p>开具人姓名：<%=f.getWho() %></p></li>
+							</ul>
+						</div>
 					</div>
 					<%
 						}
@@ -200,8 +203,8 @@
 				<input type="submit" value="搜索" name="search_sub" onclick="search();">
 			</form> -->
 			<ul id="ul_style4">
-				<li class="active" onclick="tab_list(this,0);">整改通知</li>
-				<li class="normal" onclick="tab_list(this,1);">罚单</li>
+				<li class="normal" onclick="tab_list(this,0);">整改通知</li>
+				<li class="active openline" onclick="tab_list(this,1);">罚单</li>
 			</ul>  
 		</div>
 		<div class="list_data">
@@ -216,18 +219,29 @@
 								<tr>
 									<td>任务编号</td>
 									<td>来源</td>
-									<td>任务简报</td>
+									<!-- <td>任务简报</td> -->
 									<td>附件</td>
 								</tr>
 								<tr>
 									<td><%=n.getId()%></td>
 									<td><%=n.getAccordingTo()%></td>
-									<td><%=n.getContent()%></td>
+									<%-- <td><%=n.getContent()%></td> --%>
 									<td>图视文</td>
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=n.getContent()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item"><span><%=n.getPublishDate() %></span></div>
+							<div  class="time_item"><span><%=n.getContent() %></span></div>
+							<%if(n.getHasImgs()==1){ 
+							%>
+								<div class="img_item"><img alt="" src="<%=n.getImgPath()%>"></div>
+							<%
+							}else{
+							%>
+								<div class="img_item" style="width: 204px;height: 152px;"><center>无图片信息！！！</center></div>
+							<%} %>
+						</div>
 					</div>
 					<%
 						}
@@ -291,7 +305,15 @@
 								</tr>
 							</table>
 						</div>
-						<div class="AccordionPanelContent"><%=f.getCompany()%></div>
+						<div class="AccordionPanelContent">
+							<div class="time_item li_title"><span>发布日期：<%=f.getStartTime() %> 截止日期：<%=f.getDeadLine() %></span></div>
+							<ul>
+							<li><p>处罚单位：<%=f.getCompany() %></p></li>
+							<li><p>处罚金额：¥<%=f.getFineMoney() %></p></li>
+							<br><br>
+							<li><p>开具人姓名：<%=f.getWho() %></p></li>
+							</ul>
+						</div>
 					</div>
 					<%
 						}

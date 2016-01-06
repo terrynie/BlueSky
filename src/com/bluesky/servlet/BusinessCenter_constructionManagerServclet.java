@@ -29,7 +29,7 @@ public class BusinessCenter_constructionManagerServclet extends HttpServlet {
 	LinkedList<Notification> perInfos;
 	LinkedList<FineTicket> perInfos_fineTickets;
 	
-	int pagesize = 1;
+	int pagesize = 5;
 	int startNum;
 	int countInfo;
 	int count;
@@ -86,29 +86,30 @@ public class BusinessCenter_constructionManagerServclet extends HttpServlet {
 		startNum = ((Integer.parseInt(page)) - 1) * pagesize;
 		int flagnum=Integer.parseInt(flag);
 		if(flagnum==1){
-			countInfo = notificationDao.qureyNumOfNotifications();
+			countInfo = notificationDao.queryNumOfNotificationByStatus(0);
 			count = this.getcount(countInfo, pagesize);
-			perInfos = notificationDao.queryByPage(startNum, pagesize);
+			System.out.println("count:"+count);
+			perInfos = notificationDao.queryByStatusByPage(0, startNum, pagesize);
 			request.setAttribute("count", count);
 			request.setAttribute("perInfos", perInfos);
 			//
-			countInfo = fineTicketDao.qureyNumOfFineTicket();
+			countInfo = fineTicketDao.queryNumByStatus(0);
 			count_fineTickets = this.getcount(countInfo, pagesize);
-			perInfos_fineTickets = fineTicketDao.queryByPage(0, pagesize);
+			perInfos_fineTickets = fineTicketDao.queryByPage(0,0, pagesize);
 			request.setAttribute("count_fineTickets", count_fineTickets);
 			request.setAttribute("perInfos_fineTickets", perInfos_fineTickets);
 			request.getRequestDispatcher("businessCenter_constructionManager.jsp").forward(
 					request, response);
 		}else if(flagnum==2){
-			countInfo = fineTicketDao.qureyNumOfFineTicket();
+			countInfo = fineTicketDao.queryNumByStatus(0);
 			count_fineTickets = this.getcount(countInfo, pagesize);
-			perInfos_fineTickets = fineTicketDao.queryByPage(startNum, pagesize);
+			perInfos_fineTickets = fineTicketDao.queryByPage(0,startNum, pagesize);
 			request.setAttribute("count_fineTickets", count_fineTickets);
 			request.setAttribute("perInfos_fineTickets", perInfos_fineTickets);
 			//
-			countInfo = notificationDao.qureyNumOfNotifications();
+			countInfo = notificationDao.queryNumOfNotificationByStatus(0);
 			count = this.getcount(countInfo, pagesize);
-			perInfos = notificationDao.queryByPage(0, pagesize);
+			perInfos = notificationDao.queryByStatusByPage(0, 0, pagesize);
 			request.setAttribute("count", count);
 			request.setAttribute("perInfos", perInfos);
 			request.getRequestDispatcher("businessCenter_constructionManager.jsp").forward(request, response);
