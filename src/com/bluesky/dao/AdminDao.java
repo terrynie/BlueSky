@@ -98,6 +98,7 @@ public class AdminDao {
 		try {
 			String sql = "select * from Admin where id = ?";
 			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setString(1, id);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				admin.setId(rs.getString(1));
