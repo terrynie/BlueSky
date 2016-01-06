@@ -48,11 +48,10 @@ function callback(){
 	<%
 		LinkedList<Con_Dir> list_conDirs=(LinkedList<Con_Dir>)request.getAttribute("list_conDirs");
 		LinkedList<String> precincts=(LinkedList<String>)request.getAttribute("precincts");
-		String str_precinct = request.getParameter("precinct");
+		//String str_precinct = request.getParameter("precinct");
 	%>
 	<div id="body">
 		<div id="body_table">
-		<%if(str_precinct==null) {%>
 			<div class="tab_btn">
 				<a src=""></a>
 				<button class="button bg-sub 	button-small"  >添加</button>
@@ -77,7 +76,6 @@ function callback(){
 					
 				</tr>
 			</table>
-			<%} %>
 		</div>
 		<div id="body_info">
 			<table width="100%" class=" table table-striped table-bordered  table-hover center">
