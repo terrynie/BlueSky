@@ -3,7 +3,7 @@ package com.bluesky.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import com.bluesky.bean.FineTicket;
 import com.bluesky.database.DBConnection;
 
@@ -58,8 +58,8 @@ public class FineTicketDao {
 	}
 
 	// query all fine tickets
-	public LinkedList<FineTicket> queryFineTickets() {
-		LinkedList<FineTicket> list = new LinkedList<FineTicket>();
+	public ArrayList<FineTicket> queryFineTickets() {
+		ArrayList<FineTicket> list = new ArrayList<FineTicket>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -121,8 +121,8 @@ public class FineTicketDao {
 	}
 
 	// query fine ticket counts by given number
-		public LinkedList<FineTicket> queryByPage(int status, int start, int stepLength) {
-			LinkedList<FineTicket> list = new LinkedList<FineTicket>();
+		public ArrayList<FineTicket> queryByPage(int status, int start, int stepLength) {
+			ArrayList<FineTicket> list = new ArrayList<FineTicket>();
 			if (DBConnection.conn == null) {
 				DBConnection.openConn();
 			}

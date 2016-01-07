@@ -2,7 +2,7 @@ package com.bluesky.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,9 +50,9 @@ public class managerServlet extends HttpServlet {
 		
 		InspectionPersonnelDao inspectionPersonnel = new InspectionPersonnelDao();
 	
-		LinkedList<String> precincts=inspectionPersonnel.queryPrecinct();
+		ArrayList<String> precincts=inspectionPersonnel.queryPrecinct();
 		System.out.println(precincts+"--------------------");
-		LinkedList<InspectionPersonnel> list_inspectionPersonnels=inspectionPersonnel.queryInspByPrecinct(precinct);
+		ArrayList<InspectionPersonnel> list_inspectionPersonnels=inspectionPersonnel.queryInspByPrecinct(precinct);
 		request.setAttribute("precincts", precincts);
 //		request.setAttribute("precinct", str_precinct);
 		request.setAttribute("list_inspectionPersonnels", list_inspectionPersonnels);

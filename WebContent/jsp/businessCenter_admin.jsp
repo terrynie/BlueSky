@@ -36,10 +36,10 @@
 		int count_not=((Integer)request.getAttribute("count_not")).intValue();
 		int count_done=((Integer)request.getAttribute("count_done")).intValue();
 		int count_weChat=((Integer)request.getAttribute("count_weChat")).intValue();
-		LinkedList<Notification> perInfos=(LinkedList<Notification>)request.getAttribute("perInfos");
-		LinkedList<WeChat> perInfos_not=(LinkedList<WeChat>)request.getAttribute("perInfos_not");
-		LinkedList<TaskList> perInfos_done=(LinkedList<TaskList>)request.getAttribute("perInfos_done");
-		LinkedList<WeChat> perInfos_weChat=(LinkedList<WeChat>)request.getAttribute("perInfos_weChat");
+		ArrayList<Notification> perInfos=(ArrayList<Notification>)request.getAttribute("perInfos");
+		ArrayList<WeChat> perInfos_not=(ArrayList<WeChat>)request.getAttribute("perInfos_not");
+		ArrayList<TaskList> perInfos_done=(ArrayList<TaskList>)request.getAttribute("perInfos_done");
+		ArrayList<WeChat> perInfos_weChat=(ArrayList<WeChat>)request.getAttribute("perInfos_weChat");
 		int initpage=1;int initflag=1;
 		if(request.getParameter("page")!=null){
 		 initpage=Integer.parseInt(request.getParameter("page"));
@@ -95,7 +95,7 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								ArrayList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
 								for(WeChatImages wi:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
@@ -194,7 +194,7 @@
 							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
 							<div  class="time_item"><span><%=t.getContent() %></span></div>
 							<%if(t.getHasImg()==1){ 
-								LinkedList<TaskImages> link_images=(new TaskImageDao()).queryImages(t.getId());
+								ArrayList<TaskImages> link_images=(new TaskImageDao()).queryImages(t.getId());
 								for(TaskImages ti:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
@@ -359,7 +359,7 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								ArrayList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
 								for(WeChatImages wi:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
@@ -477,7 +477,7 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								ArrayList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
 								for(WeChatImages wi:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
@@ -562,7 +562,7 @@
 							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
 							<div  class="time_item"><span><%=t.getContent() %></span></div>
 							<%if(t.getHasImg()==1){ 
-								LinkedList<TaskImages> link_images=(new TaskImageDao()).queryImages(t.getId());
+								ArrayList<TaskImages> link_images=(new TaskImageDao()).queryImages(t.getId());
 								for(TaskImages ti:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
@@ -712,7 +712,7 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								ArrayList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
 								for(WeChatImages wi:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
@@ -812,7 +812,7 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								ArrayList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
 								for(WeChatImages wi:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
@@ -898,7 +898,7 @@
 							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
 							<div  class="time_item"><span><%=t.getContent() %></span></div>
 							<%if(t.getHasImg()==1){ 
-								LinkedList<TaskImages> link_images=(new TaskImageDao()).queryImages(t.getId());
+								ArrayList<TaskImages> link_images=(new TaskImageDao()).queryImages(t.getId());
 								for(TaskImages ti:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
@@ -1050,7 +1050,7 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								ArrayList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
 								for(WeChatImages wi:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
@@ -1152,7 +1152,7 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								ArrayList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
 								for(WeChatImages wi:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>
@@ -1238,7 +1238,7 @@
 							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
 							<div  class="time_item"><span><%=t.getContent() %></span></div>
 							<%if(t.getHasImg()==1){ 
-								LinkedList<TaskImages> link_images=(new TaskImageDao()).queryImages(t.getId());
+								ArrayList<TaskImages> link_images=(new TaskImageDao()).queryImages(t.getId());
 								for(TaskImages ti:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
@@ -1391,7 +1391,7 @@
 							<div class="time_item"><span><%=w.getComplainTime() %></span></div>
 							<div  class="time_item"><span><%=w.getContent() %></span></div>
 							<%if(w.getHasImg()==1){ 
-								LinkedList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
+								ArrayList<WeChatImages> link_images=(new WeChatImagesDao()).queryImages(w.getId());
 								for(WeChatImages wi:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=wi.getImgPath() %>"></div>

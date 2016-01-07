@@ -25,8 +25,8 @@
 	<%
 		int count_not=((Integer)request.getAttribute("count_not")).intValue();
 		int count_done=((Integer)request.getAttribute("count_done")).intValue();
-		LinkedList<TaskList> perInfos_not=(LinkedList<TaskList>)request.getAttribute("perInfos_not");
-		LinkedList<TaskList> perInfos_done=(LinkedList<TaskList>)request.getAttribute("perInfos_done");
+		ArrayList<TaskList> perInfos_not=(ArrayList<TaskList>)request.getAttribute("perInfos_not");
+		ArrayList<TaskList> perInfos_done=(ArrayList<TaskList>)request.getAttribute("perInfos_done");
 		int initpage=1;int initflag=1;
 		if(request.getParameter("page")!=null){
 		 initpage=Integer.parseInt(request.getParameter("page"));
@@ -72,7 +72,7 @@
 							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
 							<div  class="time_item"><span><%=t.getContent() %></span></div>
 							<%if(t.getHasImg()==1){ 
-								LinkedList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
+								ArrayList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
 								for(TaskImages ti:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
@@ -154,7 +154,7 @@
 							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
 							<div  class="time_item"><span><%=t.getContent() %></span></div>
 							<%if(t.getHasImg()==1){ 
-								LinkedList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
+								ArrayList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
 								for(TaskImages ti:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
@@ -253,7 +253,7 @@
 							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
 							<div  class="time_item"><span><%=t.getContent() %></span></div>
 							<%if(t.getHasImg()==1){ 
-								LinkedList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
+								ArrayList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
 								for(TaskImages ti:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>
@@ -335,7 +335,7 @@
 							<div class="time_item"><span><%=t.getCreateTime() %></span></div>
 							<div  class="time_item"><span><%=t.getContent() %></span></div>
 							<%if(t.getHasImg()==1){ 
-								LinkedList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
+								ArrayList<TaskImages> link_images=new TaskImageDao().queryImages(t.getId());
 								for(TaskImages ti:link_images){
 							%>
 								<div class="img_item"><img alt="" src="<%=ti.getImgPath() %>"></div>

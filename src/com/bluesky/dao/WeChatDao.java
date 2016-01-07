@@ -3,7 +3,7 @@ package com.bluesky.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import com.bluesky.bean.WeChat;
 import com.bluesky.database.DBConnection;
 import com.bluesky.tools.TimeConvert;
@@ -64,8 +64,8 @@ public class WeChatDao {
 	}
 
 	// query all customer_complaints
-	public LinkedList<WeChat> queryNumbers() {
-		LinkedList<WeChat> list = new LinkedList<WeChat>();
+	public ArrayList<WeChat> queryNumbers() {
+		ArrayList<WeChat> list = new ArrayList<WeChat>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -134,8 +134,8 @@ public class WeChatDao {
 	}
 
 	// query customer complaints by given number
-	public LinkedList<WeChat> queryByPage(int start, int stepLength) {
-		LinkedList<WeChat> list = new LinkedList<WeChat>();
+	public ArrayList<WeChat> queryByPage(int start, int stepLength) {
+		ArrayList<WeChat> list = new ArrayList<WeChat>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -228,8 +228,8 @@ public class WeChatDao {
 	 * 
 	 */
 
-	public LinkedList<WeChat> queryComplaintsByStatus(int status, int start, int stepLength) {
-		LinkedList<WeChat> list = new LinkedList<WeChat>();
+	public ArrayList<WeChat> queryComplaintsByStatus(int status, int start, int stepLength) {
+		ArrayList<WeChat> list = new ArrayList<WeChat>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}

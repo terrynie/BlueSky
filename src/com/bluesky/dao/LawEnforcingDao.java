@@ -3,7 +3,7 @@ package com.bluesky.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import com.bluesky.bean.LawEnforcing;
 import com.bluesky.database.DBConnection;
@@ -57,8 +57,8 @@ public class LawEnforcingDao {
 		}
 	}
 
-	public LinkedList<LawEnforcing> queryLawEnforcings() {
-		LinkedList<LawEnforcing> list = new LinkedList<LawEnforcing>();
+	public ArrayList<LawEnforcing> queryLawEnforcings() {
+		ArrayList<LawEnforcing> list = new ArrayList<LawEnforcing>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -116,8 +116,8 @@ public class LawEnforcingDao {
 		}
 	}
 
-	public LinkedList<LawEnforcing> queryByLength(int start, int stepLength) {
-		LinkedList<LawEnforcing> list = new LinkedList<LawEnforcing>();
+	public ArrayList<LawEnforcing> queryByLength(int start, int stepLength) {
+		ArrayList<LawEnforcing> list = new ArrayList<LawEnforcing>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}

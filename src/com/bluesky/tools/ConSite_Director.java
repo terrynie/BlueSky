@@ -3,14 +3,14 @@ package com.bluesky.tools;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import com.bluesky.bean.Con_Dir;
 import com.bluesky.database.DBConnection;
 
 //info of constructionsite and director in the same page
 public class ConSite_Director {
-	public LinkedList<Con_Dir> queryConInfo(String prcinct) {
-		LinkedList<Con_Dir> list = new LinkedList<Con_Dir>();
+	public ArrayList<Con_Dir> queryConInfo(String prcinct) {
+		ArrayList<Con_Dir> list = new ArrayList<Con_Dir>();
 		
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();

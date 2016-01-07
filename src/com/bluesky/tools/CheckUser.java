@@ -1,7 +1,7 @@
 package com.bluesky.tools;
 
 import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import com.bluesky.bean.Admin;
 import com.bluesky.bean.ConstructionManager;
@@ -19,7 +19,7 @@ public class CheckUser {
 		System.out.println(passwd);
 		switch (dept) {
 		case "Admin":
-			LinkedList<Admin> tempAdmin = new AdminDao().queryAdmins();
+			ArrayList<Admin> tempAdmin = new AdminDao().queryAdmins();
 			Iterator<Admin> iteratorAdmin = tempAdmin.iterator();
 			while (iteratorAdmin.hasNext()) {
 				Admin admin = iteratorAdmin.next();
@@ -34,7 +34,7 @@ public class CheckUser {
 				}
 			}
 		case "InspectionPersonnel":
-			LinkedList<InspectionPersonnel> tempInspector = new InspectionPersonnelDao().queryInspectors();
+			ArrayList<InspectionPersonnel> tempInspector = new InspectionPersonnelDao().queryInspectors();
 			Iterator<InspectionPersonnel> iteratorInspector = tempInspector.iterator();
 			while (iteratorInspector.hasNext()) {
 				InspectionPersonnel inspector = iteratorInspector.next();
@@ -47,7 +47,7 @@ public class CheckUser {
 				}
 			}
 		case "LawEnforcingDept":
-			LinkedList<LawEnforcing> tempLawEnforcing = new LawEnforcingDao().queryLawEnforcings();
+			ArrayList<LawEnforcing> tempLawEnforcing = new LawEnforcingDao().queryLawEnforcings();
 			Iterator<LawEnforcing> iteratorLawEnforcing = tempLawEnforcing.iterator();
 			while (iteratorLawEnforcing.hasNext()) {
 				LawEnforcing lawEnforcing = iteratorLawEnforcing.next();
@@ -60,7 +60,7 @@ public class CheckUser {
 				}
 			}
 		case "ConstructionSiteDirector":
-			LinkedList<ConstructionManager> tempConManager = new ConstructionManagerDao().queryManagers();
+			ArrayList<ConstructionManager> tempConManager = new ConstructionManagerDao().queryManagers();
 			Iterator<ConstructionManager> iteratorConManager = tempConManager.iterator();
 			while (iteratorConManager.hasNext()) {
 				ConstructionManager conManager = iteratorConManager.next();

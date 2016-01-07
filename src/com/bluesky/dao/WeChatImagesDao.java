@@ -3,7 +3,7 @@ package com.bluesky.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import com.bluesky.bean.WeChatImages;
 import com.bluesky.database.DBConnection;
 
@@ -53,8 +53,8 @@ public class WeChatImagesDao {
 	}
 
 	// query all images
-	public LinkedList<WeChatImages> queryAllImagess() {
-		LinkedList<WeChatImages> list = new LinkedList<WeChatImages>();
+	public ArrayList<WeChatImages> queryAllImagess() {
+		ArrayList<WeChatImages> list = new ArrayList<WeChatImages>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -80,8 +80,8 @@ public class WeChatImagesDao {
 	}
 
 	// query images according to complaintId 
-	public LinkedList<WeChatImages> queryImages(String complaintId) {
-		LinkedList<WeChatImages> list = new LinkedList<WeChatImages>();
+	public ArrayList<WeChatImages> queryImages(String complaintId) {
+		ArrayList<WeChatImages> list = new ArrayList<WeChatImages>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -108,8 +108,8 @@ public class WeChatImagesDao {
 	}
 
 	// query image counts by given number
-	public LinkedList<WeChatImages> queryByPage(int start, int stepLength) {
-		LinkedList<WeChatImages> list = new LinkedList<WeChatImages>();
+	public ArrayList<WeChatImages> queryByPage(int start, int stepLength) {
+		ArrayList<WeChatImages> list = new ArrayList<WeChatImages>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}

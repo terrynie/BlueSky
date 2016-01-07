@@ -3,7 +3,7 @@ package com.bluesky.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import com.bluesky.bean.TaskImages;
 import com.bluesky.database.DBConnection;
 
@@ -53,8 +53,8 @@ public class TaskImageDao {
 	}
 
 	// query all images
-	public LinkedList<TaskImages> queryAllImagess() {
-		LinkedList<TaskImages> list = new LinkedList<TaskImages>();
+	public ArrayList<TaskImages> queryAllImagess() {
+		ArrayList<TaskImages> list = new ArrayList<TaskImages>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -80,8 +80,8 @@ public class TaskImageDao {
 	}
 
 	// query images according to TaskID
-	public LinkedList<TaskImages> queryImages(String TaskID) {
-		LinkedList<TaskImages> list = new LinkedList<TaskImages>();
+	public ArrayList<TaskImages> queryImages(String TaskID) {
+		ArrayList<TaskImages> list = new ArrayList<TaskImages>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -108,8 +108,8 @@ public class TaskImageDao {
 	}
 
 	// query image counts by given number
-	public LinkedList<TaskImages> queryByPage(int start, int stepLength) {
-		LinkedList<TaskImages> list = new LinkedList<TaskImages>();
+	public ArrayList<TaskImages> queryByPage(int start, int stepLength) {
+		ArrayList<TaskImages> list = new ArrayList<TaskImages>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}

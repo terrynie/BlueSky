@@ -3,7 +3,7 @@ package com.bluesky.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import com.bluesky.bean.Notification;
 import com.bluesky.database.DBConnection;
 
@@ -66,8 +66,8 @@ public class NotificationDao {
 	}
 
 	// query notifications
-	public LinkedList<Notification> queryNotifications() {
-		LinkedList<Notification> list = new LinkedList<Notification>();
+	public ArrayList<Notification> queryNotifications() {
+		ArrayList<Notification> list = new ArrayList<Notification>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -143,8 +143,8 @@ public class NotificationDao {
 	}
 
 	// query notifications by given nubmer
-	public LinkedList<Notification> queryByPage(int start, int stepLength) {
-		LinkedList<Notification> list = new LinkedList<Notification>();
+	public ArrayList<Notification> queryByPage(int start, int stepLength) {
+		ArrayList<Notification> list = new ArrayList<Notification>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -239,8 +239,8 @@ public class NotificationDao {
 	 *            item accounts show in one page
 	 * @return a set of results
 	 */
-	public LinkedList<Notification> queryByStatusByPage(int status, int start, int stepLength) {
-		LinkedList<Notification> list = new LinkedList<Notification>();
+	public ArrayList<Notification> queryByStatusByPage(int status, int start, int stepLength) {
+		ArrayList<Notification> list = new ArrayList<Notification>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}

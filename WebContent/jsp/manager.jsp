@@ -1,4 +1,4 @@
-<%@page import="java.util.LinkedList,com.bluesky.bean.*"%>
+<%@page import="java.util.ArrayList,com.bluesky.bean.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -44,8 +44,8 @@ function callback(){
 </head>
 <body>
 	<%
-		LinkedList<InspectionPersonnel> list_inspectionPersonnels=(LinkedList<InspectionPersonnel>)request.getAttribute("list_inspectionPersonnels");
-		LinkedList<String> precincts=(LinkedList<String>)request.getAttribute("precincts");
+		ArrayList<InspectionPersonnel> list_inspectionPersonnels=(ArrayList<InspectionPersonnel>)request.getAttribute("list_inspectionPersonnels");
+		ArrayList<String> precincts=(ArrayList<String>)request.getAttribute("precincts");
 		//String str_precinct = request.getParameter("precinct");
 	%>
 	<div id="body">

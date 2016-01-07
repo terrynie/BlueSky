@@ -3,7 +3,7 @@ package com.bluesky.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import com.bluesky.bean.InspectionPersonnel;
 import com.bluesky.database.DBConnection;
@@ -62,8 +62,8 @@ public class InspectionPersonnelDao {
 	}
 
 	// query all inspectors
-	public LinkedList<InspectionPersonnel> queryInspectors() {
-		LinkedList<InspectionPersonnel> list = new LinkedList<InspectionPersonnel>();
+	public ArrayList<InspectionPersonnel> queryInspectors() {
+		ArrayList<InspectionPersonnel> list = new ArrayList<InspectionPersonnel>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -129,8 +129,8 @@ public class InspectionPersonnelDao {
 	}
 
 	// query inspectors by given number
-	public LinkedList<InspectionPersonnel> queryByPage(int start, int stepLength) {
-		LinkedList<InspectionPersonnel> list = new LinkedList<InspectionPersonnel>();
+	public ArrayList<InspectionPersonnel> queryByPage(int start, int stepLength) {
+		ArrayList<InspectionPersonnel> list = new ArrayList<InspectionPersonnel>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -188,8 +188,8 @@ public class InspectionPersonnelDao {
 	}
 
 	// query inspection personnel according to precinct
-	public LinkedList<InspectionPersonnel> queryInspByPrecinct(String precinct) {
-		LinkedList<InspectionPersonnel> list = new LinkedList<InspectionPersonnel>();
+	public ArrayList<InspectionPersonnel> queryInspByPrecinct(String precinct) {
+		ArrayList<InspectionPersonnel> list = new ArrayList<InspectionPersonnel>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -223,8 +223,8 @@ public class InspectionPersonnelDao {
 	}
 
 	// query distinct precinct from table--InspectionPersonnel
-	public LinkedList<String> queryPrecinct() {
-		LinkedList<String> list = new LinkedList<String>();
+	public ArrayList<String> queryPrecinct() {
+		ArrayList<String> list = new ArrayList<String>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}

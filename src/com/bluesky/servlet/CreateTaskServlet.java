@@ -3,7 +3,7 @@ package com.bluesky.servlet;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -65,7 +65,7 @@ public class CreateTaskServlet extends HttpServlet {
 		taskList.setStatus(0);
 		taskListDao.addTask(taskList);
 		WeChatImagesDao weChatImagesDao=new WeChatImagesDao();
-		LinkedList<WeChatImages> list_weChatImages=weChatImagesDao.queryImages(wechat.getId());
+		ArrayList<WeChatImages> list_weChatImages=weChatImagesDao.queryImages(wechat.getId());
 		for (WeChatImages wi:list_weChatImages) {
 			TaskImageDao taskImageDao=new TaskImageDao();
 			TaskImages taskImages=new TaskImages();
