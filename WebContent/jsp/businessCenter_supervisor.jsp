@@ -20,6 +20,13 @@
 		window.location.href=url;	
 	}
 </script>
+<script type="text/javascript">
+	function creat_notifaction(id,status){
+		alert("处理成功"+id);
+		var url="../UpdateStatus_notificationServlet.do?id="+id+"&status="+status;
+		window.location.href=url;	
+	}
+</script>
 </head>
 <body id="body">
 	<%int count=((Integer)request.getAttribute("count")).intValue();
@@ -243,6 +250,14 @@
 						<div class="AccordionPanelContent">
 							<div class="time_item li_title"><span>发布日期：<%=n.getPublishDate() %> 截止日期：<%=n.getDeadline() %></span></div>
 							<ul><li><p><%=n.getContent() %></p></li></ul>
+							<div class="info_item">
+							<%if(n.getStatus()==0){ %>
+							<input type="button" class="btn btn-primary" value="属实，转下级"
+							onclick="javascript:creat_notifaction('<%=n.getId()%>',1)"/>
+							<%}else{ %>
+							<input type="button" class="btn btn-primary" disabled="disabled" value="查看属实，已整改"/>
+							<%} %>
+							</div>
 						</div>
 					</div>
 					<%
@@ -495,6 +510,14 @@
 						<div class="AccordionPanelContent">
 							<div class="time_item li_title"><span>发布日期：<%=n.getPublishDate() %> 截止日期：<%=n.getDeadline() %></span></div>
 							<ul><li><p><%=n.getContent() %></p></li></ul>
+							<div class="info_item">
+							<%if(n.getStatus()==0){ %>
+							<input type="button" class="btn btn-primary" value="属实，转下级"
+							onclick="javascript:creat_notifaction('<%=n.getId()%>',1)"/>
+							<%}else{ %>
+							<input type="button" class="btn btn-primary" disabled="disabled" value="查看属实，已整改"/>
+							<%} %>
+							</div>
 						</div>
 					</div>
 					<%
@@ -746,6 +769,14 @@
 						<div class="AccordionPanelContent">
 							<div class="time_item li_title"><span>发布日期：<%=n.getPublishDate() %> 截止日期：<%=n.getDeadline() %></span></div>
 							<ul><li><p><%=n.getContent() %></p></li></ul>
+							<div class="info_item">
+							<%if(n.getStatus()==0){ %>
+							<input type="button" class="btn btn-primary" value="属实，转下级"
+							onclick="javascript:creat_notifaction('<%=n.getId()%>',1)"/>
+							<%}else{ %>
+							<input type="button" class="btn btn-primary" disabled="disabled" value="查看属实，已整改"/>
+							<%} %>
+							</div>
 						</div>
 					</div>
 					<%
