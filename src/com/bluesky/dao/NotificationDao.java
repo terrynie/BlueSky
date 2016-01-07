@@ -310,5 +310,31 @@ public class NotificationDao {
 			return 0;
 		}
 	}
+	/**
+	 * update one notification item's status according to its id
+	 * 
+	 * @param id
+	 *            the id of the notification whose status will be update
+	 * @param status
+	 *            the new status of the notification
+	 * @return a value of int standards the operating result
+	 */
+	public int updateStatus(String id, int status) {
+		if (DBConnection.conn == null) {
+			DBConnection.openConn();
+		}
+		int num = 0;
+		try {
+			String sql = "update CorrectionNotification set status=? where id=?";
+			ps = DBConnection.conn.prepareStatement(sql);
+			ps.setInt(1, status);
+			ps.setString(2, id);
+			num = ps.executeUpdate();
+			return num;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
 
 }
