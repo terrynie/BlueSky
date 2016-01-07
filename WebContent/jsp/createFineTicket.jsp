@@ -1,6 +1,6 @@
 <%@page import="com.bluesky.bean.Notification"%>
 <%@page import="com.bluesky.dao.NotificationDao"%>
-<%@page import="java.util.LinkedList"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -16,7 +16,7 @@
 		Date date=new Date();
 		SimpleDateFormat simpleDateFormat=new SimpleDateFormat("YYYY-MM-dd");
 		NotificationDao notificationDao=new NotificationDao();
-		LinkedList<Notification> list_notifications=notificationDao.queryNotifications();
+		ArrayList<Notification> list_notifications=notificationDao.queryNotifications();
 	%>
 	<center>
 		<h1>罚单</h1>

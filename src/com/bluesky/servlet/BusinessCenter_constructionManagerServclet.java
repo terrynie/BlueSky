@@ -1,7 +1,7 @@
 package com.bluesky.servlet;
 
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -26,8 +26,8 @@ public class BusinessCenter_constructionManagerServclet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String page = "1";
 	String flag = "1";
-	LinkedList<Notification> perInfos;
-	LinkedList<FineTicket> perInfos_fineTickets;
+	ArrayList<Notification> perInfos;
+	ArrayList<FineTicket> perInfos_fineTickets;
 	
 	int pagesize = 5;
 	int startNum;

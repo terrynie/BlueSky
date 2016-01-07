@@ -1,6 +1,7 @@
 package com.bluesky.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javax.servlet.ServletException;
@@ -41,16 +42,16 @@ public class Weixin_initServlet extends HttpServlet {
 		String s1=null;
 		String s2=null;
 		ConstructionSiteDao constructionSiteDao=new ConstructionSiteDao();
-		LinkedList<String> str_district=constructionSiteDao.queryDistricts();
+		ArrayList<String> str_district=constructionSiteDao.queryDistricts();
 		for(String s : str_district){
 			s1=s;
 			break;
 		}
-		LinkedList<String> str_street=constructionSiteDao.queryStreetByDistrict(s1);
+		ArrayList<String> str_street=constructionSiteDao.queryStreetByDistrict(s1);
 		for(String s : str_street){
 			s2=s;
 		}
-		LinkedList<String> str_constructionId=constructionSiteDao.queryConSiteNameByStreet(s2);
+		ArrayList<String> str_constructionId=constructionSiteDao.queryConSiteNameByStreet(s2);
 		request.setAttribute("str_district", str_district);
 		request.setAttribute("str_street", str_street);
 		request.setAttribute("str_constructionId", str_constructionId);

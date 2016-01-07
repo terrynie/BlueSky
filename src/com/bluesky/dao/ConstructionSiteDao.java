@@ -3,7 +3,7 @@ package com.bluesky.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import com.bluesky.bean.ConstructionSite;
 import com.bluesky.database.DBConnection;
 
@@ -65,8 +65,8 @@ public class ConstructionSiteDao {
 	}
 
 	// query all construction sites
-	public LinkedList<ConstructionSite> queryConSites() {
-		LinkedList<ConstructionSite> list = new LinkedList<ConstructionSite>();
+	public ArrayList<ConstructionSite> queryConSites() {
+		ArrayList<ConstructionSite> list = new ArrayList<ConstructionSite>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -140,8 +140,8 @@ public class ConstructionSiteDao {
 	}
 
 	// query construction sites by given number
-	public LinkedList<ConstructionSite> queryByPage(int start, int stepLength) {
-		LinkedList<ConstructionSite> list = new LinkedList<ConstructionSite>();
+	public ArrayList<ConstructionSite> queryByPage(int start, int stepLength) {
+		ArrayList<ConstructionSite> list = new ArrayList<ConstructionSite>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -203,8 +203,8 @@ public class ConstructionSiteDao {
 	}
 
 	// query by district
-	public LinkedList<ConstructionSite> queryByDistrict(String district) {
-		LinkedList<ConstructionSite> list = new LinkedList<ConstructionSite>();
+	public ArrayList<ConstructionSite> queryByDistrict(String district) {
+		ArrayList<ConstructionSite> list = new ArrayList<ConstructionSite>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -242,8 +242,8 @@ public class ConstructionSiteDao {
 	}
 
 	// query construction site according to street
-	public LinkedList<String> queryConSiteNameByStreet(String street) {
-		LinkedList<String> list = new LinkedList<String>();
+	public ArrayList<String> queryConSiteNameByStreet(String street) {
+		ArrayList<String> list = new ArrayList<String>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -266,8 +266,8 @@ public class ConstructionSiteDao {
 	}
 
 	// query streets according to district
-	public LinkedList<String> queryStreetByDistrict(String district) {
-		LinkedList<String> list = new LinkedList<String>();
+	public ArrayList<String> queryStreetByDistrict(String district) {
+		ArrayList<String> list = new ArrayList<String>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -290,8 +290,8 @@ public class ConstructionSiteDao {
 	}
 
 	// query distinct districts from construction site table
-	public LinkedList<String> queryDistricts() {
-		LinkedList<String> list = new LinkedList<String>();
+	public ArrayList<String> queryDistricts() {
+		ArrayList<String> list = new ArrayList<String>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}

@@ -1,4 +1,4 @@
-<%@page import="java.util.LinkedList"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.bluesky.bean.ConstructionSite"%>
 <%@page import="com.bluesky.dao.ConstructionSiteDao"%>
 <%@page import="java.util.Date"%>
@@ -89,9 +89,9 @@ function callback_sec(){
 	<%
 		Date date=new Date();
 		long d=date.getTime();
-		LinkedList<String> str_district=(LinkedList<String>)request.getAttribute("str_district");
-		LinkedList<String> str_street=(LinkedList<String>)request.getAttribute("str_street");
-		LinkedList<String> str_constructionId=(LinkedList<String>)request.getAttribute("str_constructionId");
+		ArrayList<String> str_district=(ArrayList<String>)request.getAttribute("str_district");
+		ArrayList<String> str_street=(ArrayList<String>)request.getAttribute("str_street");
+		ArrayList<String> str_constructionId=(ArrayList<String>)request.getAttribute("str_constructionId");
 	%>
 	<form action="weixin_infoServlet"method="post">
 		业务编号<input type="text"  disabled="disabled" value="<%=d%>">&nbsp;&nbsp;&nbsp;&nbsp;

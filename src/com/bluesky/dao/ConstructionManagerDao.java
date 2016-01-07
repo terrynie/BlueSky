@@ -3,7 +3,7 @@ package com.bluesky.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import com.bluesky.bean.ConstructionManager;
 import com.bluesky.database.DBConnection;
 import com.bluesky.tools.TimeConvert;
@@ -61,8 +61,8 @@ public class ConstructionManagerDao {
 	}
 
 	// query all directors
-	public LinkedList<ConstructionManager> queryManagers() {
-		LinkedList<ConstructionManager> list = new LinkedList<ConstructionManager>();
+	public ArrayList<ConstructionManager> queryManagers() {
+		ArrayList<ConstructionManager> list = new ArrayList<ConstructionManager>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -128,8 +128,8 @@ public class ConstructionManagerDao {
 	}
 
 	// query directors by given number
-	public LinkedList<ConstructionManager> queryByPage(int start, int stepLength) {
-		LinkedList<ConstructionManager> list = new LinkedList<ConstructionManager>();
+	public ArrayList<ConstructionManager> queryByPage(int start, int stepLength) {
+		ArrayList<ConstructionManager> list = new ArrayList<ConstructionManager>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -186,8 +186,8 @@ public class ConstructionManagerDao {
 		}
 	}
 
-	public LinkedList<String> queryPrecinctInConDir() {
-		LinkedList<String> list = new LinkedList<String>();
+	public ArrayList<String> queryPrecinctInConDir() {
+		ArrayList<String> list = new ArrayList<String>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}

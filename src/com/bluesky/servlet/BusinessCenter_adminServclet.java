@@ -2,7 +2,7 @@ package com.bluesky.servlet;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -30,10 +30,10 @@ public class BusinessCenter_adminServclet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String page = "1";
 	String flag = "1";
-	LinkedList<Notification> perInfos;
-	LinkedList<WeChat> perInfos_not;
-	LinkedList<TaskList> perInfos_done;
-	LinkedList<WeChat> perInfos_weChat;
+	ArrayList<Notification> perInfos;
+	ArrayList<WeChat> perInfos_not;
+	ArrayList<TaskList> perInfos_done;
+	ArrayList<WeChat> perInfos_weChat;
 
 	int pagesize = 5;
 	int startNum;

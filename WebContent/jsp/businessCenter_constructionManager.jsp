@@ -17,8 +17,8 @@
 	<%
 	int count=((Integer)request.getAttribute("count")).intValue();
 	int count_fineTickets=((Integer)request.getAttribute("count_fineTickets")).intValue();
-	LinkedList<Notification> perInfos=(LinkedList<Notification>)request.getAttribute("perInfos");
-	LinkedList<FineTicket> perInfos_fineTickets=(LinkedList<FineTicket>)request.getAttribute("perInfos_fineTickets");
+	ArrayList<Notification> perInfos=(ArrayList<Notification>)request.getAttribute("perInfos");
+	ArrayList<FineTicket> perInfos_fineTickets=(ArrayList<FineTicket>)request.getAttribute("perInfos_fineTickets");
 	int initpage=1;int initflag=1;
 	if(request.getParameter("page")!=null){
 	 initpage=Integer.parseInt(request.getParameter("page"));

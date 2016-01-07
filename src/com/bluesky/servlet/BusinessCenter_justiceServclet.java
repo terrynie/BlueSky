@@ -1,7 +1,7 @@
 package com.bluesky.servlet;
 
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -25,8 +25,8 @@ public class BusinessCenter_justiceServclet extends HttpServlet {
 	int pagesize=5;
 	int countInfo;
 	int startNum;
-	LinkedList<TaskList> perInfos_not;
-	LinkedList<TaskList> perInfos_done;
+	ArrayList<TaskList> perInfos_not;
+	ArrayList<TaskList> perInfos_done;
 	int count_not;
 	int count_done;
 	TaskListDao taskListDao = new TaskListDao();

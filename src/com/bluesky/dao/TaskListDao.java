@@ -3,7 +3,7 @@ package com.bluesky.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import com.bluesky.bean.TaskList;
 import com.bluesky.database.DBConnection;
 import com.bluesky.tools.TimeConvert;
@@ -59,8 +59,8 @@ public class TaskListDao {
 	}
 
 	// query all tasks
-	public LinkedList<TaskList> queryTaskLists() {
-		LinkedList<TaskList> list = new LinkedList<TaskList>();
+	public ArrayList<TaskList> queryTaskLists() {
+		ArrayList<TaskList> list = new ArrayList<TaskList>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -122,8 +122,8 @@ public class TaskListDao {
 	}
 
 	// query task counts by given number
-	public LinkedList<TaskList> queryByPage(int start, int stepLength) {
-		LinkedList<TaskList> list = new LinkedList<TaskList>();
+	public ArrayList<TaskList> queryByPage(int start, int stepLength) {
+		ArrayList<TaskList> list = new ArrayList<TaskList>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -211,8 +211,8 @@ public class TaskListDao {
 		}
 	}
 
-	public LinkedList<TaskList> qureyTaskWaitDealedByPage(int start, int stepLength, String role) {
-		LinkedList<TaskList> list = new LinkedList<TaskList>();
+	public ArrayList<TaskList> qureyTaskWaitDealedByPage(int start, int stepLength, String role) {
+		ArrayList<TaskList> list = new ArrayList<TaskList>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -282,8 +282,8 @@ public class TaskListDao {
 		}
 	}
 
-	public LinkedList<TaskList> qureyTaskDealingByPage(int start, int stepLength, String role) {
-		LinkedList<TaskList> list = new LinkedList<TaskList>();
+	public ArrayList<TaskList> qureyTaskDealingByPage(int start, int stepLength, String role) {
+		ArrayList<TaskList> list = new ArrayList<TaskList>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -347,8 +347,8 @@ public class TaskListDao {
 	/*
 	 * query tasks done by page
 	 */
-	public LinkedList<TaskList> queryTaskDoneByPage(int start, int stepLength) {
-		LinkedList<TaskList> list = new LinkedList<TaskList>();
+	public ArrayList<TaskList> queryTaskDoneByPage(int start, int stepLength) {
+		ArrayList<TaskList> list = new ArrayList<TaskList>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}

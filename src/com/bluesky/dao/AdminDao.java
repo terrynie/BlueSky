@@ -3,7 +3,7 @@ package com.bluesky.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import com.bluesky.bean.Admin;
 import com.bluesky.database.DBConnection;
@@ -59,8 +59,8 @@ public class AdminDao {
 	}
 
 	// query all administrators
-	public LinkedList<Admin> queryAdmins() {
-		LinkedList<Admin> list = new LinkedList<Admin>();
+	public ArrayList<Admin> queryAdmins() {
+		ArrayList<Admin> list = new ArrayList<Admin>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -120,8 +120,8 @@ public class AdminDao {
 	}
 
 	// query admin counts by given number
-	public LinkedList<Admin> queryByPage(int start, int stepLength) {
-		LinkedList<Admin> list = new LinkedList<Admin>();
+	public ArrayList<Admin> queryByPage(int start, int stepLength) {
+		ArrayList<Admin> list = new ArrayList<Admin>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}

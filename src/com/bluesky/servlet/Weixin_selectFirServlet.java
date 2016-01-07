@@ -2,6 +2,7 @@ package com.bluesky.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javax.servlet.ServletException;
@@ -42,12 +43,12 @@ public class Weixin_selectFirServlet extends HttpServlet {
 		String district=request.getParameter("district");
 		String street=null;
 		ConstructionSiteDao constructionSiteDao=new ConstructionSiteDao();
-		LinkedList<String> str_district=constructionSiteDao.queryDistricts();
-		LinkedList<String> str_street=constructionSiteDao.queryStreetByDistrict(district);
+		ArrayList<String> str_district=constructionSiteDao.queryDistricts();
+		ArrayList<String> str_street=constructionSiteDao.queryStreetByDistrict(district);
 		for(String s : str_street){
 			street=s;
 		}
-		LinkedList<String> str_constructionId=constructionSiteDao.queryConSiteNameByStreet(street);
+		ArrayList<String> str_constructionId=constructionSiteDao.queryConSiteNameByStreet(street);
 		out.println("选择工地");
 		out.println("<select id='select_district' onchange='changeSelect_fir()'>");
 		out.println("<option>");

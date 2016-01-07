@@ -3,7 +3,7 @@ package com.bluesky.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import com.bluesky.bean.Videos;
 import com.bluesky.database.DBConnection;
 
@@ -53,8 +53,8 @@ public class VideosDao {
 	}
 
 	// query all videos
-	public LinkedList<Videos> queryVideoss() {
-		LinkedList<Videos> list = new LinkedList<Videos>();
+	public ArrayList<Videos> queryVideoss() {
+		ArrayList<Videos> list = new ArrayList<Videos>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}
@@ -106,8 +106,8 @@ public class VideosDao {
 	}
 
 	// query video counts by given number
-	public LinkedList<Videos> queryByPage(int start, int stepLength) {
-		LinkedList<Videos> list = new LinkedList<Videos>();
+	public ArrayList<Videos> queryByPage(int start, int stepLength) {
+		ArrayList<Videos> list = new ArrayList<Videos>();
 		if (DBConnection.conn == null) {
 			DBConnection.openConn();
 		}

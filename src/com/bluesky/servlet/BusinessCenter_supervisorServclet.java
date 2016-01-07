@@ -1,7 +1,7 @@
 package com.bluesky.servlet;
 
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -25,9 +25,9 @@ public class BusinessCenter_supervisorServclet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String page = "1";
 	String flag = "1";
-	LinkedList<Notification> perInfos;
-	LinkedList<TaskList> perInfos_not;
-	LinkedList<TaskList> perInfos_done;
+	ArrayList<Notification> perInfos;
+	ArrayList<TaskList> perInfos_not;
+	ArrayList<TaskList> perInfos_done;
 	int pagesize = 5;
 	int startNum;
 	int countInfo;

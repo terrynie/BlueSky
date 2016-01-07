@@ -2,16 +2,13 @@ package com.bluesky.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
-
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.bluesky.bean.Con_Dir;
-import com.bluesky.bean.InspectionPersonnel;
 import com.bluesky.dao.ConstructionManagerDao;
 import com.bluesky.tools.ConSite_Director;
 
@@ -51,9 +48,9 @@ public class projectManagerServlet extends HttpServlet {
 		
 		ConstructionManagerDao conDir = new ConstructionManagerDao();
 		ConSite_Director conSite_Director=new ConSite_Director();
-		LinkedList<String> precincts=conDir.queryPrecinctInConDir();
+		ArrayList<String> precincts=conDir.queryPrecinctInConDir();
 		System.out.println(precincts+"--------------------");
-		LinkedList<Con_Dir> list_conDirs=conSite_Director.queryConInfo(precinct);
+		ArrayList<Con_Dir> list_conDirs=conSite_Director.queryConInfo(precinct);
 		request.setAttribute("precincts", precincts);
 		//request.setAttribute("precinct", str_precinct);
 		request.setAttribute("list_conDirs", list_conDirs);

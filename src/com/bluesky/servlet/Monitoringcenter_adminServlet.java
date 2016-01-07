@@ -2,7 +2,7 @@ package com.bluesky.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -74,9 +74,9 @@ public class Monitoringcenter_adminServlet extends HttpServlet {
 //		ConstructionSite con_site=constructionSiteDao.queryOne(c_id);
 //		request.setAttribute("con_site", con_site);
 		
-		LinkedList<ConstructionSite> list_constructionSites = constructionSiteDao.queryByDistrict(id);	
+		ArrayList<ConstructionSite> list_constructionSites = constructionSiteDao.queryByDistrict(id);	
 		
-		LinkedList<String> precincts=conDir.queryPrecinctInConDir();
+		ArrayList<String> precincts=conDir.queryPrecinctInConDir();
 		request.setAttribute("precincts", precincts);
 		request.setAttribute("list_constructionSites", list_constructionSites);
 		if (str_id == null) {
