@@ -86,11 +86,11 @@ public class Userinformation extends HttpServlet {
 			}
 			
 		} else {
-			out.println("<td height=\"100px\" colspan=\"2\" ><p style=\"margin-left:250px;font-weight:bold;\">原始密码：");
+			out.println("<td height=\"100px\" colspan=\"2\" ><p style=\"margin-left:500px;font-weight:bold;\">原始密码：");
 			out.println("<input type=\"password\" name=\"inipassword\" id=\"inipassword\" onblur=\"checkpw('"+id+"')\" AUTOCOMPLETE=\"off\"/><font id=\"pwcheck\" color='red'></font> </p>");
-			out.println("<p style=\"margin-left:250px;font-weight:bold;\">新的密码：");
+			out.println("<p style=\"margin-left:500px;font-weight:bold;\">新的密码：");
 			out.println("<input type=\"password\" name=\"password\" id=\"password\" AUTOCOMPLETE=\"off\"/></p>");
-			out.println("<p style=\"margin-left:250px;font-weight:bold;\">重复密码：<input type=\"password\" onkeyup=\"insurepad()\" name=\"password2\" id=\"password2\"  AUTOCOMPLETE=\"off\"/><span id=\"show\"></span></p></th>");
+			out.println("<p style=\"margin-left:500px;font-weight:bold;\">重复密码：<input type=\"password\" onkeyup=\"insurepad()\" name=\"password2\" id=\"password2\"  AUTOCOMPLETE=\"off\"/><span id=\"show\"></span></p></th>");
 			System.out.println("<p>重复密码：<input type=\"password\" onkeyup=\"insurepad()\" name=\"password2\" /></p><span id=\"show\"></span></td>");
 			//out.println("<td width=\"168\"><input type=\"text\" name=\"confimpasswd\" /></td></tr>");
 			
