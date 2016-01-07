@@ -13,6 +13,14 @@
 <link href="../css/SpryAccordion.css" rel="stylesheet" type="text/css" />
 <script src="../js/zui.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
+<style> 
+
+ a:link{ 
+color:#000000; 
+text-decoration:none; 
+} 
+
+</style>
 <script type="text/javascript">
 	var doughnutData =[
 	{

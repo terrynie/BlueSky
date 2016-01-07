@@ -47,10 +47,12 @@
             
             <!-- <a class="brand" href="index.html"><img src="img/logo.png" /></a> -->
             <a class="brand"><img alt="蓝天卫士" src="images/icons/logo.png"/></a>
-          	<label class="logo-nav-1">建设工地施工现场</label>
+          	<label class="logo-nav-1" style="width: 1166px">建设工地施工现场</label>
           	<label class="logo-nav-2">扬尘治理及施工安全管理系统</label>
           	<ul>
-          		<li id="uesr-nmae">admin</li>
+          		<li id="uesr-nmae">
+          		<a onclick="changeContent('jsp/Userinformation?flag=ini&id=00010')">
+          		admin</a></li>
           		<li id="login-out"><a href="login.jsp" ><em></em>退出</a></li>
           	</ul>
         </div>
