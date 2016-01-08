@@ -11,7 +11,7 @@
 	<h1>添加巡检</h1>
 	<hr>
 	<div>
-	<form action="addInspectionPersonnelServlet" method="post">
+	<form action="addInspectionPersonnelServlet" method="post" class="table table-bordered">
 	<table>
 		<tr><td>姓名：</td><td><input type="text" name="name" ></td></tr>
 		<tr><td>性别：</td><td><select name="sex"><option selected="selected">请选择性别</option><option>男</option><option>女</option></select></td></tr>
