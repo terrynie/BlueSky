@@ -10,13 +10,23 @@
 		<script src="../js/zui.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
+<%
+
+	/* String weChatTotalDataNum = (String)request.getAttribute("weChatTotalDataNum");
+	String weChatDealedDataNum =(String)  request.getAttribute("weChatDealedDataNum"); */
+	int weChatTotalDataNum =  Integer.parseInt(request.getAttribute("weChatTotalDataNum").toString());
+	int weChatDealedDataNum = Integer.parseInt(request.getAttribute("weChatDealedDataNum").toString()); 
+	System.out.println("text:"+weChatTotalDataNum);
+%>
 		<div class="dataWrapper">
 			<div class="row-title"><label>数据统计</label></div>
 			<div class="row">
 			  <div class="col-xs-6 col-sm-3">
 			  		<div class="row_title_content">
 			  			<span class="row_span row-1"><img alt="" src="../images/dataImg.png"/></span>
-			  			<span class="row_span row-2 row-span-1"><span >3285</span><i></i><small>3217</small></span>
+			  			<span class="row_span row-2 row-span-1"><span >
+
+ <%=weChatTotalDataNum %> </span><i></i><small> <%=weChatDealedDataNum %> </small></span>
 			  			<label class="row_span row-3">受举报群众(人次)/有效受理</label>
 			  		</div>
 			  		

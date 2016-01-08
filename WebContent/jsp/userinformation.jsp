@@ -142,9 +142,15 @@
 	</div>
 	<script type="text/javascript">
 			function checkInput() {
-				if (document.getElementById("password").value == "") {
-					alert("请输入密码！");
+				if (document.getElementById("inipassword").value == "") {
+					alert("请输入原始密码！");
+					document.getElementById("inipassword").focus();
+				}else if (document.getElementById("password").value == "") {
+					alert("请输入新的密码！");
 					document.getElementById("password").focus();
+				}else if (document.getElementById("password2").value == "") {
+					alert("请再次输入密码！");
+					document.getElementById("password2").focus();
 				}else {
 					document.getElementById("form").submit();
 					alert("修改信息成功！");

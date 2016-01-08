@@ -62,9 +62,7 @@
 	<div id="page_content">
 	
     
-    <style type="text/css">
-    	
-    </style>
+  
     
     <!-- sidebar -->
     <div class="wrapper-content">
@@ -94,7 +92,7 @@
        		 </c:choose>
        		 
             <li class="active">
-               <a onclick="changeContent('jsp/dataCenter.jsp');" id="slider-bar " class="slider-bar-1" ><em></em> 数据中心</a>
+               <a onclick="changeContent('jsp/dataCenterServlet');" id="slider-bar " class="slider-bar-1" ><em></em> 数据中心</a>
             </li>            
             <li>
                 <a onclick="changeContent('<c:out value='${dept }' />'); " class="slider-bar-2"><em></em>业务中心</a>
@@ -137,7 +135,7 @@
 
        <!--  <div class="container-fluid">
         </div> -->
-        <iframe id="frame" src="jsp/dataCenter.jsp" frameborder="0" scrolling="no" width="100%" name="frame" height="3800px"  ></iframe>
+        <iframe id="frame" src="jsp/dataCenterServlet" frameborder="0" scrolling="no" width="100%" name="frame" height="3800px"  ></iframe>
     </div>
     
 	</div>
