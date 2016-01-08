@@ -5,11 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.LinkedList;
-import com.bluesky.bean.WhetherInfo;
-import com.bluesky.tools.CloseResource;
 
-public class WhetherDao {
+import com.bluesky.bean.WeatherInfo;
+import com.bluesky.tools.CloseResource;
+import com.bluesky.tools.TimeConvert;
+
+public class WeatherDao {
 	
 	private static Connection conn = null;
 	private static String driverClass = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
@@ -33,17 +36,17 @@ public class WhetherDao {
 	}
 	
 	@SuppressWarnings("unused")
-	private LinkedList<WhetherInfo> queryAll() {
+	private LinkedList<WeatherInfo> queryAll() {
 		if (conn == null) {
 			openConn();
 		}
-		LinkedList<WhetherInfo> list = new LinkedList<>();
+		LinkedList<WeatherInfo> list = new LinkedList<>();
 		String sql = "select * from dbo.dCurrent";
 		try {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				WhetherInfo data = new WhetherInfo();
+				WeatherInfo data = new WeatherInfo();
 				data.setIdm(rs.getInt(1));
 				data.setIdfac(rs.getInt(2));
 				data.setTime(rs.getTimestamp(3));
@@ -73,6 +76,31 @@ public class WhetherDao {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	/**
+	 * query accounts of weather items according to date
+	 * 
+	 * @return a value of int standards the accounts of weather items
+	 */
+	public int queryNumOfPMItemByMonth(Date startDate, Date endDate) {
+		if (conn == null) {
+			openConn();
+		}
+		int sum = 0;
+		String sql = "select count(*) from test.dbo.dCurrent where time between ? and ?";
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setDate(1, TimeConvert.ConvertToSqlDate(startDate));
+			ps.setDate(2, TimeConvert.ConvertToSqlDate(endDate));
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				sum += 1;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return sum;
 	}
 
 }

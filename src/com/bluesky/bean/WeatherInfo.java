@@ -2,7 +2,7 @@ package com.bluesky.bean;
 
 import java.sql.Timestamp;
 
-public class WhetherInfo {
+public class WeatherInfo {
 	
 	private int idm;
 	private int idfac;
