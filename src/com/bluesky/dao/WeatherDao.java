@@ -5,11 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 
 import com.bluesky.bean.WeatherInfo;
 import com.bluesky.tools.CloseResource;
+import com.bluesky.tools.GetFirstAndLastDayOfMon;
 import com.bluesky.tools.TimeConvert;
 
 public class WeatherDao {
@@ -78,29 +81,33 @@ public class WeatherDao {
 		}
 	}
 
-	/**
-	 * query accounts of weather items according to date
-	 * 
-	 * @return a value of int standards the accounts of weather items
-	 */
-	public int queryNumOfPMItemByMonth(Date startDate, Date endDate) {
+	public int queryNumOfPMItemByMonth(int year, int month) {
+		
 		if (conn == null) {
 			openConn();
 		}
 		int sum = 0;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String sql = "select count(*) from test.dbo.dCurrent where time between ? and ?";
-		try {
-			ps = conn.prepareStatement(sql);
-			ps.setDate(1, TimeConvert.ConvertToSqlDate(startDate));
-			ps.setDate(2, TimeConvert.ConvertToSqlDate(endDate));
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				sum += 1;
+		
+			try {
+				Date firstDay = sdf.parse(GetFirstAndLastDayOfMon.getFirstAndLastDayOfMonth(year, month).get("firstDay"));
+				Date lastDay = sdf.parse(GetFirstAndLastDayOfMon.getFirstAndLastDayOfMonth(year, month).get("lastDay"));
+				ps = conn.prepareStatement(sql);
+				ps.setDate(1, TimeConvert.ConvertToSqlDate(firstDay));
+				ps.setDate(2, TimeConvert.ConvertToSqlDate(lastDay));
+				rs = ps.executeQuery();
+				while (rs.next()) {
+					sum += 1;
+				}
+			} catch (ParseException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+			
+		
 		return sum;
 	}
+
 
 }
