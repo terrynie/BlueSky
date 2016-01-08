@@ -21,7 +21,7 @@ import com.bluesky.dao.ConstructionSiteDao;
 /**
  * Servlet implementation class monitoringcenter_adminServlet
  */
- //@WebServlet("/jsp/monitoringcenter_adminServlet")
+//@WebServlet("/jsp/monitoringcenter_adminServlet")
 public class Monitoringcenter_adminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
