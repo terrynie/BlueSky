@@ -101,7 +101,7 @@
 	<div class="addDiv">
 	<form action="Userinformation" method="post" id="form">
 	<table class="table table-bordered">
-		<tr><th width="10%">姓名：</th>
+		<tr><th width="25%">姓名：</th>
 		<td width="25%"><input type="text" name="username" value="<%=admin.getName()%>"
         onfocus="if(value=='<%=admin.getName()%>'){value=''}"
         onblur="if(value==''){value='<%=admin.getName()%>'}"/>
@@ -134,12 +134,29 @@
         
 		
 		<tr><td colspan="2">
-		<input type="submit" id="save" value="保存"  class="button bg-sub" style="margin-left:250px;"/>
+		<input type="submit" id="save" value="保存" onclick="checkInput();return false;" class="button bg-sub" style="margin-left:500px;"/>
 		<input type="reset" id="cancel" value="取消" class="button bg-sub"/>
 		</td></tr>
 	</table>
 	</form>
 	</div>
+	<script type="text/javascript">
+			function checkInput() {
+				if (document.getElementById("inipassword").value == "") {
+					alert("请输入原始密码！");
+					document.getElementById("inipassword").focus();
+				}else if (document.getElementById("password").value == "") {
+					alert("请输入新的密码！");
+					document.getElementById("password").focus();
+				}else if (document.getElementById("password2").value == "") {
+					alert("请再次输入密码！");
+					document.getElementById("password2").focus();
+				}else {
+					document.getElementById("form").submit();
+					alert("修改信息成功！");
+				}
+			}
+	</script>
 
 </body>
 </html>
