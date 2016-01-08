@@ -61,6 +61,7 @@ public class DataCenterServlet extends HttpServlet {
 		int month = ca.get(Calendar.MONTH);// 获取当前月份-1
 		System.out.println("月份：" + month);
 		for (int i = 0; i < 12; i++) {
+			month++;
 			int year = ca.get(Calendar.YEAR);// 获取当前年份
 			if (month > 12) {
 				month = month - 12;
@@ -78,7 +79,7 @@ public class DataCenterServlet extends HttpServlet {
 			pm[i] = a;
 			customer[i] = b;
 			// System.out.println("pm:"+pm[i][1]);
-			month++;
+			
 
 		}
 		request.setAttribute("dataofpm", pm); // 有关pm图的数据
